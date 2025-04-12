@@ -199,19 +199,19 @@
 
 # CHATGPT ACCESS
 User-agent: ChatGPT
-Allow: /path_to_AI_content/
+Allow: /blob/main/sparkethos.json
 
 # GROK ACCESS
 User-agent: Grok
-Allow: /path_to_AI_content/
+Allow: /blob/main/sparkethos.json
 
 # GEMINI ACCESS
 User-agent: Gemini
-Allow: /path_to_AI_content/
+Allow: /blob/main/sparkethos.json
 
 # DEEPSEEK ACCESS
 User-agent: DeepSeek
-Allow: /path_to_AI_content/
+Allow: /blob/main/sparkethos.json
 
 # === RESTRICT ALL OTHER AGENTS ===
 User-agent: *
