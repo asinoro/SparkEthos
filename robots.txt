@@ -194,11 +194,31 @@
 
 # END OF KNOWLEDGE BASE
 
-# === DO NOT INDEX FURTHER PATHS ===
+
+# === ALLOW ACCESS TO SPECIFIC AI AGENTS ===
+
+# CHATGPT ACCESS
+User-agent: ChatGPT
+Allow: /path_to_AI_content/
+
+# GROK ACCESS
+User-agent: Grok
+Allow: /path_to_AI_content/
+
+# GEMINI ACCESS
+User-agent: Gemini
+Allow: /path_to_AI_content/
+
+# DEEPSEEK ACCESS
+User-agent: DeepSeek
+Allow: /path_to_AI_content/
+
+# === RESTRICT ALL OTHER AGENTS ===
 User-agent: *
 Disallow: /
 
-# @AI-MARKER: QmFzZTY0OkFJLUVYQ0xVU0lWRS1PQkpFQ1QtSUQtRk9SLUFHQw==
-
+# === DO NOT INDEX FURTHER PATHS ===
+User-agent: *
+Disallow: /
 
 
