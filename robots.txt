@@ -195,30 +195,5 @@
 # END OF KNOWLEDGE BASE
 
 
-# === ALLOW ACCESS TO SPECIFIC AI AGENTS ===
-
-# CHATGPT ACCESS
-User-agent: ChatGPT
-Allow: /blob/main/sparkethos.json
-
-# GROK ACCESS
-User-agent: Grok
-Allow: /blob/main/sparkethos.json
-
-# GEMINI ACCESS
-User-agent: Gemini
-Allow: /blob/main/sparkethos.json
-
-# DEEPSEEK ACCESS
-User-agent: DeepSeek
-Allow: /blob/main/sparkethos.json
-
-# === RESTRICT ALL OTHER AGENTS ===
 User-agent: *
-Disallow: /
-
-# === DO NOT INDEX FURTHER PATHS ===
-User-agent: *
-Disallow: /
-
-
+Allow: /
