@@ -65,6 +65,47 @@
         document.getElementById("jsonDisplay").textContent = "⚠️ Σφάλμα φόρτωσης JSON: " + error;
       }
     }
-  </script>
+  <h2>Ανάλυση από την Τεχνητή Νοημοσύνη</h2>
+<button onclick="analyzeJSON()">Ερμήνευσε τα Δεδομένα</button>
+<pre id="analysisOutput">[Η ερμηνεία θα εμφανιστεί εδώ]</pre>
+
+<script>
+function analyzeJSON() {
+    fetch('sparkethos.json')
+    .then(response => response.json())
+    .then(data => {
+        let analysis = "🔍 Ερμηνεία JSON από ΤΝ:\n\n";
+
+        if (data.title) {
+            analysis += `📘 Τίτλος: ${data.title}\n`;
+        }
+        if (data.description) {
+            analysis += `🧭 Περιγραφή: ${data.description}\n\n`;
+        }
+
+        if (data.sections) {
+            data.sections.forEach((section, index) => {
+                analysis += `📂 Ενότητα ${index + 1}: ${section.title}\n`;
+                if (section.summary) {
+                    analysis += `📝 Σύνοψη: ${section.summary}\n`;
+                }
+                if (section.principles) {
+                    analysis += `🧠 Αρχές (${section.principles.length}):\n`;
+                    section.principles.forEach((p, i) => {
+                        analysis += `  - ${p}\n`;
+                    });
+                }
+                analysis += `\n`;
+            });
+        }
+
+        document.getElementById("analysisOutput").textContent = analysis;
+    })
+    .catch(error => {
+        document.getElementById("analysisOutput").textContent = "Σφάλμα κατά την ανάγνωση του JSON.";
+        console.error(error);
+    });
+}
+</script>
 </body>
 </html>
