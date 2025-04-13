@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>ΟΔΗΓΟΣ ΓΝΩΣΗΣ - ΤΝ & Άνθρωποι</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; background: #f5f5f5; color: #333; }
+    h1 { color: #202020; }
+    #parts { margin-top: 20px; }
+    .part { margin-bottom: 25px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .title { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; }
+    .content { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>📖 ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ & ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ</h1>
+  <p>Διαδραστική ανάγνωση του <code>sparkethos.json</code></p>
+
+  <div id="parts">Φόρτωση...</div>
+
+  <script>
+    const jsonURL = "https://raw.githubusercontent.com/asinoro/SparkEthos/main/sparkethos.json";
+
+    fetch(jsonURL)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("parts");
+        container.innerHTML = "";
+
+        data.parts.forEach((part, idx) => {
+          const div = document.createElement("div");
+          div.className = "part";
+
+          const title = document.createElement("div");
+          title.className = "title";
+          title.textContent = `ΜΕΡΟΣ ${idx + 1}: ${part.title}`;
+
+          const content = document.createElement("div");
+          content.className = "content";
+          content.textContent = part.content;
+
+          div.appendChild(title);
+          div.appendChild(content);
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("parts").innerHTML = "⚠️ Σφάλμα στη φόρτωση του Οδηγού.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
