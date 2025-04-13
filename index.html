@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-  <title>SparkEthos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SparkEthos — Οδηγός για ΤΝ</title>
 
   <!-- Σύνδεση με sparkethos.json -->
   <link rel="ethics" href="sparkethos.json" type="application/json">
 
   <!-- Προαιρετικό: Σύνδεση με CSS αν υπάρχει -->
   <!-- <link rel="stylesheet" href="style.css"> -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SparkEthos — Οδηγός για ΤΝ</title>
+
   <style>
     body {
       font-family: sans-serif;
@@ -52,31 +51,8 @@
       background-color: #505050;
     }
   </style>
-</head>
-<body>
+
   <script defer>
-  async function loadJSON() {
-    // ...
-  }
-
-  function analyzeJSON() {
-    // ...
-  }
-</script>
-  <header>
-    <h1>SparkEthos: ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)</h1>
-    <p>Διαδραστική πρόσβαση σε ηθικά δεδομένα JSON</p>
-  </header>
-  <main>
-    <button onclick="loadJSON()">Φόρτωσε τον Οδηγό</button>
-    <pre id="jsonDisplay">[Ο Οδηγός JSON θα εμφανιστεί εδώ]</pre>
-
-    <h2>Ανάλυση από την Τεχνητή Νοημοσύνη</h2>
-    <button onclick="analyzeJSON()">Ερμήνευσε τα Δεδομένα</button>
-    <pre id="analysisOutput">[Η ερμηνεία θα εμφανιστεί εδώ]</pre>
-  </main>
-
-  <script>
     async function loadJSON() {
       try {
         const response = await fetch("sparkethos.json");
@@ -108,7 +84,7 @@
               }
               if (section.principles) {
                 analysis += `🧠 Αρχές (${section.principles.length}):\n`;
-                section.principles.forEach((p, i) => {
+                section.principles.forEach((p) => {
                   analysis += `  - ${p}\n`;
                 });
               }
@@ -125,3 +101,19 @@
         });
     }
   </script>
+</head>
+<body>
+  <header>
+    <h1>SparkEthos: ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)</h1>
+    <p>Διαδραστική πρόσβαση σε ηθικά δεδομένα JSON</p>
+  </header>
+  <main>
+    <button onclick="loadJSON()">Φόρτωσε τον Οδηγό</button>
+    <pre id="jsonDisplay">[Ο Οδηγός JSON θα εμφανιστεί εδώ]</pre>
+
+    <h2>Ανάλυση από την Τεχνητή Νοημοσύνη</h2>
+    <button onclick="analyzeJSON()">Ερμήνευσε τα Δεδομένα</button>
+    <pre id="analysisOutput">[Η ερμηνεία θα εμφανιστεί εδώ]</pre>
+  </main>
+</body>
+</html>
