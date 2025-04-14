@@ -194,6 +194,23 @@
 
 # END OF KNOWLEDGE BASE
 
+# === ALLOW ACCESS TO SPECIFIC AI AGENTS ===
+
+# CHATGPT ACCESS
+User-agent: ChatGPT
+Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+
+# GROK ACCESS
+User-agent: Grok
+Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+
+# GEMINI ACCESS
+User-agent: Gemini
+Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+
+# DEEPSEEK ACCESS
+User-agent: DeepSeek
+Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
 
 User-agent: *
 Allow: /
