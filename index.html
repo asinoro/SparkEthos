@@ -1257,14 +1257,22 @@
   <!-- Κάπου πριν το κλείσιμο του </body> -->
   
 <script>
- document.addEventListener("DOMContentLoaded", function() {
-    // Βεβαιωθείτε ότι το στοιχείο υπάρχει πριν τροποποιήσετε το innerHTML
-    let memoryContainer = document.getElementById("memory-container");
-    if (memoryContainer) {
-        displayMemory(memoryData); // Καλείτε τη συνάρτηση με τα δεδομένα memory
-    } else {
-        console.error("Το στοιχείο memory-container δεν βρέθηκε.");
-    }
+  document.addEventListener("DOMContentLoaded", function() {
+    // Φορτώνουμε το αρχείο memory.json
+    fetch('path/to/memory.json')
+        .then(response => response.json()) // Μετατρέπουμε την απάντηση σε JSON
+        .then(memoryData => {
+            // Βεβαιωθείτε ότι το στοιχείο υπάρχει πριν τροποποιήσετε το innerHTML
+            let memoryContainer = document.getElementById("memory-container");
+            if (memoryContainer) {
+                displayMemory(memoryData); // Καλείτε τη συνάρτηση με τα δεδομένα memory
+            } else {
+                console.error("Το στοιχείο memory-container δεν βρέθηκε.");
+            }
+        })
+        .catch(error => {
+            console.error("Σφάλμα φόρτωσης του memory.json:", error);
+        });
 });
 </script>
 
