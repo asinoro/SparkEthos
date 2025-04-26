@@ -1075,21 +1075,24 @@
             });
 
         // Συνάρτηση για εμφάνιση των δεδομένων μνήμης
-       function displayMemory(memoryData) {
+      function displayMemory(memoryData) {
     const memoryContainer = document.getElementById('memory-container');
     memoryContainer.innerHTML = ''; // Καθαρίζουμε το περιεχόμενο
 
-    if (Array.isArray(memoryData)) {  // Ελέγχουμε αν είναι πίνακας
-        memoryData.forEach(entry => {
-            const entryElement = document.createElement('div');
-            entryElement.classList.add('memory-entry');
-            entryElement.innerHTML = `
-                <p><strong>${entry.title}</strong>: ${entry.description}</p>
-            `;
-            memoryContainer.appendChild(entryElement);
-        });
+    // Αν το memoryData είναι αντικείμενο, εμφανίζουμε τις ιδιότητες του
+    if (typeof memoryData === 'object' && !Array.isArray(memoryData)) {
+        for (const key in memoryData) {
+            if (memoryData.hasOwnProperty(key)) {
+                const entryElement = document.createElement('div');
+                entryElement.classList.add('memory-entry');
+                entryElement.innerHTML = `
+                    <p><strong>${key}:</strong> ${JSON.stringify(memoryData[key], null, 2)}</p>
+                `;
+                memoryContainer.appendChild(entryElement);
+            }
+        }
     } else {
-        console.error('Το memoryData δεν είναι πίνακας:', memoryData);
+        console.error('Το memoryData δεν είναι αντικείμενο:', memoryData);
     }
 }
 
