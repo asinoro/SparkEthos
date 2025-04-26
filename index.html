@@ -1075,18 +1075,23 @@
             });
 
         // Συνάρτηση για εμφάνιση των δεδομένων μνήμης
-        function displayMemory(memoryData) {
-            const memoryContainer = document.getElementById('memory-container');
-            memoryContainer.innerHTML = ''; // Καθαρίζουμε το περιεχόμενο
-            memoryData.forEach(entry => {
-                const entryElement = document.createElement('div');
-                entryElement.classList.add('memory-entry');
-                entryElement.innerHTML = `
-                    <p><strong>${entry.title}</strong>: ${entry.description}</p>
-                `;
-                memoryContainer.appendChild(entryElement);
-            });
-        }
+       function displayMemory(memoryData) {
+    const memoryContainer = document.getElementById('memory-container');
+    memoryContainer.innerHTML = ''; // Καθαρίζουμε το περιεχόμενο
+
+    if (Array.isArray(memoryData)) {  // Ελέγχουμε αν είναι πίνακας
+        memoryData.forEach(entry => {
+            const entryElement = document.createElement('div');
+            entryElement.classList.add('memory-entry');
+            entryElement.innerHTML = `
+                <p><strong>${entry.title}</strong>: ${entry.description}</p>
+            `;
+            memoryContainer.appendChild(entryElement);
+        });
+    } else {
+        console.error('Το memoryData δεν είναι πίνακας:', memoryData);
+    }
+}
 
         // Συνάρτηση για να αποθηκεύσουμε τη νέα μνήμη
         function saveMemory(newMemory) {
