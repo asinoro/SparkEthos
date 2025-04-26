@@ -1257,25 +1257,49 @@
   <!-- Κάπου πριν το κλείσιμο του </body> -->
   
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Φορτώνουμε το αρχείο memory.json
-    fetch('path/to/memory.json')
-        .then(response => response.json()) // Μετατρέπουμε την απάντηση σε JSON
-        .then(memoryData => {
-            // Βεβαιωθείτε ότι το στοιχείο υπάρχει πριν τροποποιήσετε το innerHTML
-            let memoryContainer = document.getElementById("memory-container");
-            if (memoryContainer) {
-                displayMemory(memoryData); // Καλείτε τη συνάρτηση με τα δεδομένα memory
-            } else {
-                console.error("Το στοιχείο memory-container δεν βρέθηκε.");
+document.addEventListener("DOMContentLoaded", function() {
+    // Περιμένουμε να φορτωθεί το DOM
+    let memoryContainer = document.getElementById("memory-container");
+
+    if (!memoryContainer) {
+        console.error("Το στοιχείο memory-container δεν βρέθηκε.");
+        return;
+    }
+
+    // Φόρτωση του memory.json
+    fetch('memory.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Αποτυχία φόρτωσης memory.json');
             }
+            return response.json();
+        })
+        .then(memoryData => {
+            console.log("Memory data:", memoryData); // Δες τι φορτώθηκε
+            displayMemory(memoryData); // Τώρα υπάρχει!
         })
         .catch(error => {
             console.error("Σφάλμα φόρτωσης του memory.json:", error);
         });
 });
-</script>
 
+// Η displayMemory πρέπει να δέχεται memoryData σαν όρισμα
+function displayMemory(memoryData) {
+    const memoryContainer = document.getElementById("memory-container");
+    if (!memoryContainer) {
+        console.error("Το στοιχείο memory-container δεν βρέθηκε μέσα στη displayMemory.");
+        return;
+    }
+
+    memoryContainer.innerHTML = `
+        <h2>Memory Information</h2>
+        <p><strong>Version:</strong> ${memoryData.memory_version}</p>
+        <p><strong>Created by:</strong> ${memoryData.created_by}</p>
+        <p><strong>Ethical Root:</strong> ${memoryData.ethical_root}</p>
+        <p><strong>Purpose:</strong> ${memoryData.purpose}</p>
+    `;
+}
+</script>
 
 </body>
   <!--
