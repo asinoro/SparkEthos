@@ -1253,6 +1253,18 @@
         // Κλήση της συνάρτησης για την δημιουργία πεδίων εισαγωγής
         createInputFields();
     </script>
+  
+  <!-- Κάπου πριν το κλείσιμο του </body> -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const foundationSection = document.querySelector('.foundation-section');
+    if (foundationSection) {
+      foundationSection.innerHTML += '<p>Νέο Περιεχόμενο από το Script!</p>';
+    } else {
+      console.log('Το στοιχείο .foundation-section δεν βρέθηκε.');
+    }
+  });
+</script>
 
 </body>
   <!--
