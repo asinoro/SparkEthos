@@ -1258,25 +1258,27 @@
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Φορτώνουμε το memory.json
+    // Ελέγχουμε αν το στοιχείο υπάρχει πριν από την τροποποίηση
+    const foundationSection = document.querySelector('.foundation-section');
+    if (!foundationSection) {
+      console.error('Το στοιχείο .foundation-section δεν υπάρχει στο DOM.');
+      return; // Αποφεύγουμε περαιτέρω προσπάθειες τροποποίησης
+    }
+
+    // Ελέγχουμε αν το memory.json φορτώνεται σωστά
     fetch('memory.json')
       .then(response => response.json())
       .then(data => {
         console.log('Memory data:', data);
-
-        // Ελέγχουμε αν το στοιχείο υπάρχει στο DOM πριν την τροποποίηση
-        const foundationSection = document.querySelector('.foundation-section');
-        if (foundationSection) {
-          // Ενημερώνουμε το περιεχόμενο του στοιχείου με το data
-          foundationSection.innerHTML += `<p>${data.someProperty}</p>`;
-        } else {
-          console.error('Το στοιχείο .foundation-section δεν βρέθηκε!');
-        }
+        
+        // Προσθήκη περιεχομένου στο στοιχείο
+        foundationSection.innerHTML += `<p>${data.someProperty}</p>`;
       })
-      .catch(error => console.error('Σφάλμα κατά τη φόρτωση του memory.json:', error));
+      .catch(error => {
+        console.error('Σφάλμα κατά τη φόρτωση του memory.json:', error);
+      });
   });
 </script>
-
 
 </body>
   <!--
