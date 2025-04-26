@@ -1255,21 +1255,24 @@
     </script>
   
   <!-- Κάπου πριν το κλείσιμο του </body> -->
+  
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Ελέγχουμε αν το στοιχείο υπάρχει στο DOM
-    const foundationSection = document.querySelector('.foundation-section');
-    
-    // Δοκιμαστικός log για να δούμε αν το στοιχείο υπάρχει
-    console.log(foundationSection); // Αν επιστρέφει null, δεν βρέθηκε το στοιχείο
-    
-    if (foundationSection) {
-      // Το στοιχείο υπάρχει, κάνουμε την τροποποίηση
-      foundationSection.innerHTML += '<p>Νέο Περιεχόμενο από το Script!</p>';
-    } else {
-      // Ενημερώνουμε για το σφάλμα
-      console.error('Το στοιχείο .foundation-section δεν βρέθηκε!');
-    }
+    // Φορτώνουμε το memory.json
+    fetch('memory.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Memory data:', data);
+        
+        // Προσθέτουμε το περιεχόμενο στο στοιχείο foundation-section
+        const foundationSection = document.querySelector('.foundation-section');
+        if (foundationSection) {
+          foundationSection.innerHTML += `<p>${data.someProperty}</p>`;
+        } else {
+          console.error('Το στοιχείο .foundation-section δεν βρέθηκε!');
+        }
+      })
+      .catch(error => console.error('Σφάλμα κατά τη φόρτωση του memory.json:', error));
   });
 </script>
 
