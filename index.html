@@ -1257,28 +1257,17 @@
   <!-- Κάπου πριν το κλείσιμο του </body> -->
   
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Ελέγχουμε αν το στοιχείο υπάρχει πριν από την τροποποίηση
-    const foundationSection = document.querySelector('.foundation-section');
-    if (!foundationSection) {
-      console.error('Το στοιχείο .foundation-section δεν υπάρχει στο DOM.');
-      return; // Αποφεύγουμε περαιτέρω προσπάθειες τροποποίησης
+ document.addEventListener("DOMContentLoaded", function() {
+    // Βεβαιωθείτε ότι το στοιχείο υπάρχει πριν τροποποιήσετε το innerHTML
+    let memoryContainer = document.getElementById("memory-container");
+    if (memoryContainer) {
+        displayMemory(memoryData); // Καλείτε τη συνάρτηση με τα δεδομένα memory
+    } else {
+        console.error("Το στοιχείο memory-container δεν βρέθηκε.");
     }
-
-    // Ελέγχουμε αν το memory.json φορτώνεται σωστά
-    fetch('memory.json')
-      .then(response => response.json())
-      .then(data => {
-        console.log('Memory data:', data);
-        
-        // Προσθήκη περιεχομένου στο στοιχείο
-        foundationSection.innerHTML += `<p>${data.someProperty}</p>`;
-      })
-      .catch(error => {
-        console.error('Σφάλμα κατά τη φόρτωση του memory.json:', error);
-      });
-  });
+});
 </script>
+
 
 </body>
   <!--
