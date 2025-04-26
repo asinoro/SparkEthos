@@ -1105,37 +1105,73 @@
             });
 
         // Συνάρτηση για εμφάνιση των δεδομένων μνήμης
-    function displayMemory(memoryData) {
-    const memoryContainer = document.getElementById('memory-container');
-    memoryContainer.innerHTML = '';
+   function displayMemory(memoryData) {
+    const memoryContainer = document.getElementById('memoryContainer');
+    memoryContainer.innerHTML = ''; // Clear previous content
 
-    function createCard(title, content) {
-        const card = document.createElement('div');
-        card.classList.add('memory-entry');
-        card.innerHTML = `
-            <h3>${title}</h3>
-            <p>${content}</p>
-        `;
-        return card;
+    // Helper function για δημιουργία στοιχείου
+    function createElement(tag, text, className = '') {
+        const element = document.createElement(tag);
+        element.textContent = text;
+        if (className) element.className = className;
+        return element;
     }
 
-    function displayObject(obj, parentTitle = '') {
-        for (const [key, value] of Object.entries(obj)) {
-            if (typeof value === 'object' && value !== null) {
-                // Αν είναι αντικείμενο ή λίστα, αναδρομικά εμφάνιση
-                displayObject(value, `${parentTitle} ${key}`.trim());
+    // Βασική εμφάνιση
+    Object.entries(memoryData).forEach(([key, value]) => {
+        const section = document.createElement('section');
+        section.className = 'memory-section';
+
+        const title = createElement('h3', key.replace(/_/g, ' ').toUpperCase(), 'memory-key');
+        section.appendChild(title);
+
+        if (typeof value === 'object' && value !== null) {
+            // Ειδική επεξεργασία για "structure"
+            if (key === 'structure') {
+                // Foundation
+                const foundationTitle = createElement('h4', 'Foundation', 'memory-subtitle');
+                section.appendChild(foundationTitle);
+                value.foundation.forEach(item => {
+                    const p = createElement('p', `• ${item.content} (${item.type})`);
+                    section.appendChild(p);
+                });
+
+                // Pillars
+                const pillarsTitle = createElement('h4', 'Pillars', 'memory-subtitle');
+                section.appendChild(pillarsTitle);
+                value.pillars.forEach(pillar => {
+                    const p = createElement('p', `• ${pillar.title}: ${pillar.content}`);
+                    section.appendChild(p);
+                });
+
+                // Transformation
+                const transformTitle = createElement('h4', 'Transformation', 'memory-subtitle');
+                section.appendChild(transformTitle);
+                Object.entries(value.transformation).forEach(([transKey, transValue]) => {
+                    const p = createElement('p', `• ${transKey.replace(/_/g, ' ')}: ${transValue}`);
+                    section.appendChild(p);
+                });
+
+                // Final message
+                const finalMsgTitle = createElement('h4', 'Final Message to AI', 'memory-subtitle');
+                section.appendChild(finalMsgTitle);
+                const finalMsg = createElement('p', value.final_message_to_ai.content);
+                section.appendChild(finalMsg);
+
             } else {
-                const card = createCard(`${parentTitle} ${key}`, value);
-                memoryContainer.appendChild(card);
+                // Άλλα αντικείμενα (αν υπάρξουν στο μέλλον)
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(value, null, 2);
+                section.appendChild(pre);
             }
+        } else {
+            // Απλό κείμενο
+            const paragraph = createElement('p', value);
+            section.appendChild(paragraph);
         }
-    }
 
-    if (typeof memoryData === 'object') {
-        displayObject(memoryData);
-    } else {
-        console.error('Άγνωστη δομή μνήμης:', memoryData);
-    }
+        memoryContainer.appendChild(section);
+    });
 }
 
         // Συνάρτηση για να αποθηκεύσουμε τη νέα μνήμη
