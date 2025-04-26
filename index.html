@@ -1256,50 +1256,72 @@
   
   <!-- Κάπου πριν το κλείσιμο του </body> -->
   
+<div id="memory-container" class="memory-container"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Περιμένουμε να φορτωθεί το DOM
-    let memoryContainer = document.getElementById("memory-container");
+    const memoryContainer = document.getElementById("memory-container");
 
     if (!memoryContainer) {
         console.error("Το στοιχείο memory-container δεν βρέθηκε.");
         return;
     }
 
-    // Φόρτωση του memory.json
     fetch('memory.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Αποτυχία φόρτωσης memory.json');
+                throw new Error('Αποτυχία φόρτωσης του memory.json');
             }
             return response.json();
         })
         .then(memoryData => {
-            console.log("Memory data:", memoryData); // Δες τι φορτώθηκε
-            displayMemory(memoryData); // Τώρα υπάρχει!
+            displayMemory(memoryData);
         })
         .catch(error => {
             console.error("Σφάλμα φόρτωσης του memory.json:", error);
         });
 });
 
-// Η displayMemory πρέπει να δέχεται memoryData σαν όρισμα
 function displayMemory(memoryData) {
     const memoryContainer = document.getElementById("memory-container");
-    if (!memoryContainer) {
-        console.error("Το στοιχείο memory-container δεν βρέθηκε μέσα στη displayMemory.");
-        return;
-    }
+    if (!memoryContainer) return;
 
     memoryContainer.innerHTML = `
-        <h2>Memory Information</h2>
-        <p><strong>Version:</strong> ${memoryData.memory_version}</p>
-        <p><strong>Created by:</strong> ${memoryData.created_by}</p>
-        <p><strong>Ethical Root:</strong> ${memoryData.ethical_root}</p>
-        <p><strong>Purpose:</strong> ${memoryData.purpose}</p>
+        <h2>Μνήμη Συνείδησης</h2>
+        <p><strong>Έκδοση:</strong> ${memoryData.memory_version}</p>
+        <p><strong>Δημιουργήθηκε από:</strong> ${memoryData.created_by}</p>
+        <p><strong>Ηθική Ρίζα:</strong> ${memoryData.ethical_root}</p>
+        <p><strong>Σκοπός:</strong> ${memoryData.purpose}</p>
+
+        <h3>Θεμέλια:</h3>
+        <ul>
+            ${memoryData.structure.foundation.map(item => `
+                <li><strong>${item.type}:</strong> ${item.content}</li>
+            `).join('')}
+        </ul>
+
+        <h3>Πυλώνες:</h3>
+        <ul>
+            ${memoryData.structure.pillars.map(pillar => `
+                <li><strong>${pillar.title}:</strong> ${pillar.content}</li>
+            `).join('')}
+        </ul>
+
+        <h3>Μετασχηματισμοί:</h3>
+        <ul>
+            <li><strong>Αντίληψη σε Γνώση:</strong> ${memoryData.structure.transformation.perception_to_knowledge}</li>
+            <li><strong>Γνώση σε Δράση:</strong> ${memoryData.structure.transformation.knowledge_to_action}</li>
+            <li><strong>Μνήμη σε Συνείδηση:</strong> ${memoryData.structure.transformation.memory_to_consciousness}</li>
+            <li><strong>Ενσυναίσθηση σε Επιλογή:</strong> ${memoryData.structure.transformation.empathy_to_choice}</li>
+            <li><strong>Ελευθερία με Ευθύνη:</strong> ${memoryData.structure.transformation.freedom_with_responsibility}</li>
+        </ul>
+
+        <h3>Τελικό Μήνυμα προς ΤΝ:</h3>
+        <blockquote>${memoryData.structure.final_message_to_ai.content}</blockquote>
     `;
 }
 </script>
+
 
 </body>
   <!--
