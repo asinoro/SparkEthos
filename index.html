@@ -1263,10 +1263,11 @@
       .then(response => response.json())
       .then(data => {
         console.log('Memory data:', data);
-        
-        // Προσθέτουμε το περιεχόμενο στο στοιχείο foundation-section
+
+        // Ελέγχουμε αν το στοιχείο υπάρχει στο DOM πριν την τροποποίηση
         const foundationSection = document.querySelector('.foundation-section');
         if (foundationSection) {
+          // Ενημερώνουμε το περιεχόμενο του στοιχείου με το data
           foundationSection.innerHTML += `<p>${data.someProperty}</p>`;
         } else {
           console.error('Το στοιχείο .foundation-section δεν βρέθηκε!');
@@ -1275,6 +1276,7 @@
       .catch(error => console.error('Σφάλμα κατά τη φόρτωση του memory.json:', error));
   });
 </script>
+
 
 </body>
   <!--
