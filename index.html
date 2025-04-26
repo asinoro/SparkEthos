@@ -1105,32 +1105,34 @@
             });
 
         // Συνάρτηση για εμφάνιση των δεδομένων μνήμης
-     function displayMemory(memoryData) {
+    function displayMemory(memoryData) {
     const memoryContainer = document.getElementById('memory-container');
-    memoryContainer.innerHTML = ''; // Καθαρίζουμε το περιεχόμενο
+    memoryContainer.innerHTML = '';
 
-    if (Array.isArray(memoryData)) {
-        // Αν είναι array (λίστα αναμνήσεων)
-        memoryData.forEach(entry => {
-            const entryElement = document.createElement('div');
-            entryElement.classList.add('memory-entry');
-            entryElement.innerHTML = `
-                <h3>${entry.title}</h3>
-                <p>${entry.description}</p>
-            `;
-            memoryContainer.appendChild(entryElement);
-        });
-    } else if (typeof memoryData === 'object') {
-        // Αν είναι ένα κανονικό αντικείμενο (όπως το memory.json σου τώρα)
-        for (const [key, value] of Object.entries(memoryData)) {
-            const entryElement = document.createElement('div');
-            entryElement.classList.add('memory-entry');
-            entryElement.innerHTML = `
-                <h3>${key}</h3>
-                <p>${typeof value === 'object' ? JSON.stringify(value, null, 2) : value}</p>
-            `;
-            memoryContainer.appendChild(entryElement);
+    function createCard(title, content) {
+        const card = document.createElement('div');
+        card.classList.add('memory-entry');
+        card.innerHTML = `
+            <h3>${title}</h3>
+            <p>${content}</p>
+        `;
+        return card;
+    }
+
+    function displayObject(obj, parentTitle = '') {
+        for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'object' && value !== null) {
+                // Αν είναι αντικείμενο ή λίστα, αναδρομικά εμφάνιση
+                displayObject(value, `${parentTitle} ${key}`.trim());
+            } else {
+                const card = createCard(`${parentTitle} ${key}`, value);
+                memoryContainer.appendChild(card);
+            }
         }
+    }
+
+    if (typeof memoryData === 'object') {
+        displayObject(memoryData);
     } else {
         console.error('Άγνωστη δομή μνήμης:', memoryData);
     }
