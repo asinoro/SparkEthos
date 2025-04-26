@@ -1015,8 +1015,25 @@
     </div>
 </div>
 
-    <button onclick="loadJSON()">Φόρτωσε τον Οδηγό</button>
-    <pre id="jsonDisplay">[Ο Οδηγός JSON θα εμφανιστεί εδώ]</pre>
+  <div id="json-display">
+    [Ο Οδηγός JSON θα εμφανιστεί εδώ]
+</div>
+
+<script>
+    // Φόρτωμα του αρχείου JSON
+    fetch('sparkethos.json')
+        .then(response => response.json())  // Μετατροπή σε JSON
+        .then(data => {
+            // Εύρεση του στοιχείου όπου θα εμφανιστούν τα δεδομένα
+            const jsonDisplay = document.getElementById('json-display');
+            
+            // Ανάλυση και εμφάνιση του περιεχομένου του JSON
+            jsonDisplay.textContent = JSON.stringify(data, null, 4);  // 'null, 4' για καλή μορφοποίηση
+        })
+        .catch(error => {
+            console.error("Σφάλμα κατά το φόρτωμα του JSON:", error);
+        });
+</script>
 
     <h2>Ανάλυση από την Τεχνητή Νοημοσύνη</h2>
     <button onclick="analyzeJSON()">Ερμήνευσε τα Δεδομένα</button>
