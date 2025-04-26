@@ -1257,11 +1257,18 @@
   <!-- Κάπου πριν το κλείσιμο του </body> -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Ελέγχουμε αν το στοιχείο υπάρχει στο DOM
     const foundationSection = document.querySelector('.foundation-section');
+    
+    // Δοκιμαστικός log για να δούμε αν το στοιχείο υπάρχει
+    console.log(foundationSection); // Αν επιστρέφει null, δεν βρέθηκε το στοιχείο
+    
     if (foundationSection) {
+      // Το στοιχείο υπάρχει, κάνουμε την τροποποίηση
       foundationSection.innerHTML += '<p>Νέο Περιεχόμενο από το Script!</p>';
     } else {
-      console.log('Το στοιχείο .foundation-section δεν βρέθηκε.');
+      // Ενημερώνουμε για το σφάλμα
+      console.error('Το στοιχείο .foundation-section δεν βρέθηκε!');
     }
   });
 </script>
