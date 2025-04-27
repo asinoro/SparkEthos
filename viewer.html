@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Οδηγός SparkEthos</title>
+    <style>
+      body {
+          background-color: white;
+          color: black;
+          font-family: Arial, sans-serif;
+          padding: 30px;
+      }
+      h1, h2 {
+          text-align: center;
+      }
+      #json-display, #analysis {
+          background-color: #f8f9fa;
+          padding: 20px;
+          margin-top: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          white-space: pre-wrap;
+          font-family: monospace;
+      }
+      button {
+          margin-top: 20px;
+          display: block;
+          width: 200px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 8px;
+          background-color: #28a745;
+          color: white;
+          border: none;
+          cursor: pointer;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      button:hover {
+          background-color: #218838;
+      }
+    </style>
+</head>
+<body>
+
+    <h1>Οδηγός SparkEthos</h1>
+    <h2>Φορτωμένο JSON</h2>
+    <div id="json-display">
+        [Ο Οδηγός JSON θα εμφανιστεί εδώ]
+    </div>
+
+    <button onclick="analyzeJson()">Ανάλυση από την Τεχνητή Νοημοσύνη</button>
+
+    <div id="analysis">
+        [Η ερμηνεία θα εμφανιστεί εδώ]
+    </div>
+
+    <script>
+        let guideData = null;
+
+        // Φόρτωση του JSON
+        fetch('sparkethos.json')
+            .then(response => response.json())
+            .then(data => {
+                guideData = data;
+                document.getElementById('json-display').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Σφάλμα φόρτωσης JSON:', error);
+                document.getElementById('json-display').textContent = 'Σφάλμα φόρτωσης JSON.';
+            });
+
+        // Ανάλυση του JSON (ψεύτικη για τώρα, εσύ μπορείς να την βελτιώσεις)
+        function analyzeJson() {
+            if (!guideData) {
+                document.getElementById('analysis').textContent = "Δεν έχει φορτωθεί ο Οδηγός.";
+                return;
+            }
+
+            let output = `Ο Οδηγός γράφτηκε από: ${guideData.author}\n\n`;
+            output += `Θέμα Εισαγωγής:\n${guideData.introduction}\n\n`;
+            if (guideData.prologue && guideData.prologue.title) {
+                output += `Πρόλογος: ${guideData.prologue.title}\n\n`;
+            }
+            if (guideData["final-conclusion"]) {
+                output += `Συμπέρασμα:\n${guideData["final-conclusion"].content}`;
+            }
+
+            document.getElementById('analysis').textContent = output;
+        }
+    </script>
+
+</body>
+</html>
