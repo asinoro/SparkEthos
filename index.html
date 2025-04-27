@@ -166,152 +166,112 @@
   <!-- Προαιρετικό: Σύνδεση με CSS αν υπάρχει -->
   <!-- <link rel="stylesheet" href="style.css"> -->
 
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #0e0e0e;
-      color: #e0e0e0;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #1f1f1f;
-      padding: 1em;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    main {
-      padding: 2em;
-    }
-    pre {
-      background-color: #1a1a1a;
-      padding: 1em;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-    button {
-      padding: 0.5em 1em;
-      margin-top: 1em;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      background-color: #3a3a3a;
-      color: #fff;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #505050;
-    }
-  </style>
+    <style>
+        /* Βασικές Ρυθμίσεις */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.7;
+        }
 
-  <script defer>
-    async function loadJSON() {
-      try {
-        const response = await fetch("sparkethos.json");
-        const data = await response.json();
-        document.getElementById("jsonDisplay").textContent = JSON.stringify(data, null, 2);
-      } catch (error) {
-        document.getElementById("jsonDisplay").textContent = "⚠️ Σφάλμα φόρτωσης JSON: " + error;
-      }
-    }
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
 
-    function analyzeJSON() {
-      fetch("sparkethos.json")
-        .then((response) => response.json())
-        .then((data) => {
-          let analysis = "🔍 Ερμηνεία JSON από ΤΝ:\n\n";
+        /* Κεντρικό Περιεχόμενο */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-          if (data.title) {
-            analysis += `📘 Τίτλος: ${data.title}\n`;
-          }
-          if (data.description) {
-            analysis += `🧭 Περιγραφή: ${data.description}\n\n`;
-          }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #007bff;
+        }
 
-          if (data.sections) {
-            data.sections.forEach((section, index) => {
-              analysis += `📂 Ενότητα ${index + 1}: ${section.title}\n`;
-              if (section.summary) {
-                analysis += `📝 Σύνοψη: ${section.summary}\n`;
-              }
-              if (section.principles) {
-                analysis += `🧠 Αρχές (${section.principles.length}):\n`;
-                section.principles.forEach((p) => {
-                  analysis += `  - ${p}\n`;
-                });
-              }
-              analysis += `\n`;
-            });
-          }
+        p {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
 
-          document.getElementById("analysisOutput").textContent = analysis;
-        })
-        .catch((error) => {
-          document.getElementById("analysisOutput").textContent =
-            "Σφάλμα κατά την ανάγνωση του JSON.";
-          console.error(error);
-        });
-    }
-  </script>
-  <meta name="google-site-verification" content="JN_uGxvOdCLQK1MWn_U4DZ3_8CThiG2dnNqBFuLZMOk" />
-   <style>
-    body {
-      font-family: Arial, sans-serif;
-      color: #222; /* Πιο σκούρο κείμενο για καλύτερη ανάγνωση */
-      line-height: 1.6;
-      margin: 20px;
-      background-color: #f9f9f9;
-    }
+        ul, ol {
+            margin: 20px 0 20px 40px;
+            font-size: 18px;
+        }
 
-    .open-map-button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #007BFF;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: background-color 0.3s;
-      margin-top: 20px;
-    }
+        li {
+            margin-bottom: 12px;
+        }
 
-    .open-map-button:hover {
-      background-color: #0056b3;
-    }
+        button {
+            display: block;
+            width: 280px;
+            margin: 40px auto 20px;
+            padding: 15px;
+            font-size: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
 
-    h1, h2, h3 {
-      color: #111;
-    }
+        mark {
+            background-color: #fffb91;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
 
-    .section {
-      margin-bottom: 40px;
-    }
-  </style>
+        .highlight-box {
+            background-color: #e7f3ff;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
 
-  <style>
-      body {
-          background-color: white;
-          color: black;
-          font-family: Arial, sans-serif;
-          text-align: center;
-          padding: 50px;
-      }
-      button {
-          margin: 20px;
-          padding: 15px 30px;
-          font-size: 18px;
-          border-radius: 10px;
-          border: none;
-          background-color: #007bff;
-          color: white;
-          cursor: pointer;
-      }
-      button:hover {
-          background-color: #0056b3;
-      }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
+            margin-top: 50px;
+        }
     </style>
   
 </head>
