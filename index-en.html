@@ -306,10 +306,37 @@
         font-size: 1rem;
       }
     }
+    .language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.flag-icon {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.flag-icon:hover {
+    transform: scale(1.1);
+}
   </style>
   
 </head>
 <body>
+  <div class="language-selector">
+    <a href="index-el.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/1280px-Flag_of_Greece.svg.png" alt="Ελληνικά" class="flag-icon">
+    </a>
+    <a href="index-en.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="English" class="flag-icon">
+    </a>
+</div>
+
   <!-- Εικόνα Οδηγού -->
   <section style="text-align: center; margin-top: 2rem;">
     <img src="odigos-gnosis.png" alt="KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
