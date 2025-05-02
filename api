@@ -3,8 +3,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 // Pinata configuration
-const PINATA_API_KEY = 'your_pinata_api_key';
-const PINATA_SECRET_API_KEY = 'your_pinata_secret_api_key';
+const PINATA_API_KEY = '738b3cff0f55609173a9';
+const PINATA_SECRET_API_KEY = '6008a9d5bd8120e13f42cad76b0cefdd24da2f07e00f9b5d74dd4de75f19ff0a';
 
 // Ethics check
 function isEthicalContent(content) {
