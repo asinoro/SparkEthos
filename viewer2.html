@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Οδηγός SparkEthos</title>
+    <style>
+      body {
+          background-color: white;
+          color: black;
+          font-family: Arial, sans-serif;
+          padding: 30px;
+          margin: 0;
+      }
+      h1, h2 {
+          text-align: center;
+      }
+      #json-display, #analysis {
+          background-color: #f8f9fa;
+          padding: 20px;
+          margin-top: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          white-space: pre-wrap;
+          font-family: monospace;
+      }
+      button {
+          margin-top: 20px;
+          display: block;
+          width: 200px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 8px;
+          background-color: #28a745;
+          color: white;
+          border: none;
+          cursor: pointer;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      button:hover {
+          background-color: #218838;
+      }
+      .language-selector {
+          position: fixed;
+          top: 10px;
+          right: 10px;
+          display: flex;
+          gap: 10px;
+      }
+      .flag-icon {
+          width: 30px;
+          height: auto;
+          cursor: pointer;
+          transition: transform 0.3s;
+      }
+      .flag-icon:hover {
+          transform: scale(1.1);
+      }
+    </style>
+</head>
+<body>
+    <h1>Οδηγός SparkEthos</h1>
+    <h2>Φορτωμένο JSON</h2>
+    <div id="json-display">
+        [Ο Οδηγός JSON θα εμφανιστεί εδώ]
+    </div>
+
+    <button onclick="analyzeJson()">Ανάλυση από την Τεχνητή Νοημοσύνη</button>
+
+    <div id="analysis">
+        [Η ερμηνεία θα εμφανιστεί εδώ]
+    </div>
+
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w20/gr.png" alt="Ελληνικά" class="flag-icon" onclick="setLanguage('el')">
+        <img src="https://flagcdn.com/w20/us.png" alt="English" class="flag-icon" onclick="setLanguage('en')">
+    </div>
+
+    <script>
+        let guideData = null;
+        let currentLanguage = 'el';
+
+        // Φόρτωση του JSON
+        fetch('sparkethos-en-el.json')
+            .then(response => response.json())
+            .then(data => {
+                guideData = data;
+                displayJson();
+            })
+            .catch(error => {
+                console.error('Σφάλμα φόρτωσης JSON:', error);
+                document.getElementById('json-display').textContent = currentLanguage === 'el' ? 'Σφάλμα φόρτωσης JSON.' : 'Error loading JSON.';
+            });
+
+        // Εμφάνιση του JSON στη σωστή γλώσσα
+        function displayJson() {
+            if (!guideData) return;
+            const displayData = JSON.parse(JSON.stringify(guideData));
+            document.getElementById('json-display').textContent = JSON.stringify(displayData, null, 2);
+        }
+
+        // Αλλαγή γλώσσας
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            displayJson();
+            if (document.getElementById('analysis').textContent !== '[Η ερμηνεία θα εμφανιστεί εδώ]' && document.getElementById('analysis').textContent !== '[The interpretation will appear here]') {
+                analyzeJson();
+            }
+        }
+
+        // Αναβαθμισμένη ανάλυση του JSON
+        function analyzeJson() {
+            if (!guideData) {
+                document.getElementById('analysis').textContent = currentLanguage === 'el' ? 'Δεν έχει φορτωθεί ο Οδηγός.' : 'The Guide has not been loaded.';
+                return;
+            }
+
+            let output = currentLanguage === 'el' ? 'Ανάλυση του Οδηγού SparkEthos:\n\n' : 'Analysis of the SparkEthos Guide:\n\n';
+
+            // Συγγραφέας
+            output += currentLanguage === 'el' ? `Ο Οδηγός γράφτηκε από: ${guideData.author || 'Άγνωστος'}\n\n` : `The Guide was written by: ${guideData.author || 'Unknown'}\n\n`;
+
+            // Εισαγωγή
+            if (guideData.introduction) {
+                const intro = guideData.introduction[currentLanguage] || guideData.introduction['en'] || guideData.introduction || 'N/A';
+                output += currentLanguage === 'el' ? `Θέμα Εισαγωγής:\n${intro}\n\n` : `Introduction Topic:\n${intro}\n\n`;
+            }
+
+            // Πρόλογος
+            if (guideData.prologue && guideData.prologue.title) {
+                const prologueTitle = guideData.prologue.title[currentLanguage] || guideData.prologue.title['en'] || guideData.prologue.title || 'N/A';
+                output += currentLanguage === 'el' ? `Πρόλογος: ${prologueTitle}\n\n` : `Prologue: ${prologueTitle}\n\n`;
+            }
+
+            // Κεφάλαια
+            if (guideData.chapters && guideData.chapters.length > 0) {
+                const chapterCount = guideData.chapters.length;
+                output += currentLanguage === 'el' ? `Αριθμός Κεφαλαίων: ${chapterCount}\n` : `Number of Chapters: ${chapterCount}\n`;
+                output += currentLanguage === 'el' ? `Τίτλοι Κεφαλαίων:\n` : `Chapter Titles:\n`;
+                guideData.chapters.forEach((chapter, index) => {
+                    const title = chapter.title[currentLanguage] || chapter.title['en'] || chapter.title || 'N/A';
+                    output += `  ${index + 1}. ${title}\n`;
+                });
+                output += '\n';
+            }
+
+            // Συμπέρασμα
+            if (guideData['final-conclusion']) {
+                const conclusion = guideData['final-conclusion'].content[currentLanguage] || guideData['final-conclusion'].content['en'] || guideData['final-conclusion'].content || 'N/A';
+                output += currentLanguage === 'el' ? `Συμπέρασμα:\n${conclusion}\n` : `Conclusion:\n${conclusion}\n`;
+            }
+
+            // Επιπλέον Πληροφορίες
+            const totalLength = JSON.stringify(guideData).length;
+            output += currentLanguage === 'el' ? `\nΣυνολικό Μέγεθος Οδηγού: ${totalLength} χαρακτήρες\n` : `\nTotal Guide Size: ${totalLength} characters\n`;
+
+            document.getElementById('analysis').textContent = output;
+        }
+    </script>
+</body>
+</html>
