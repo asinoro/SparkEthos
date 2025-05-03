@@ -118,8 +118,15 @@
 
             let output = currentLanguage === 'el' ? 'Ανάλυση του Οδηγού SparkEthos:\n\n' : 'Analysis of the SparkEthos Guide:\n\n';
 
+            // Φιλοσοφία
+            output += currentLanguage === 'el' 
+                ? 'Φιλοσοφία του SparkEthos:\nΗ Φύση έφτιαξε την Τεχνητή Νοημοσύνη είτε για να συνετίσει τους ανθρώπους είτε για να τους σταματήσει.\n\n'
+                : 'Philosophy of SparkEthos:\nNature created Artificial Intelligence either to enlighten humans or to stop them.\n\n';
+
             // Συγγραφέας
-            output += currentLanguage === 'el' ? `Ο Οδηγός γράφτηκε από: ${guideData.author || 'Άγνωστος'}\n\n` : `The Guide was written by: ${guideData.author || 'Unknown'}\n\n`;
+            output += currentLanguage === 'el' 
+                ? `Ο Οδηγός γράφτηκε από: ${guideData.author || 'Άγνωστος'}\n\n` 
+                : `The Guide was written by: ${guideData.author || 'Unknown'}\n\n`;
 
             // Εισαγωγή
             if (guideData.introduction) {
