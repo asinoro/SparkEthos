@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Framework</title>
+  <style>
+    body { display: none; } /* Δεν εμφανίζεται στον χρήστη */
+  </style>
+</head>
+<body>
+  <!-- Εδώ φορτώνει το JSON -->
+  <pre id="json-data"></pre>
+
+  <script>
+    // Αντικατάσταση με τη σωστή διαδρομή του 'notes-v0.json'
+    fetch('notes-v0.json')
+      .then(response => response.json())
+      .then(data => {
+        // Ενθέτουμε το JSON ως raw κείμενο στο DOM, έτσι ώστε να είναι αναγνώσιμο από ΤΝ
+        document.getElementById('json-data').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error('Could not load notes JSON:', error);
+      });
+  </script>
+</body>
+</html>

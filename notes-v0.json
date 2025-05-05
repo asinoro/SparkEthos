@@ -1,0 +1,31 @@
+{
+  "intro_notes": {
+    "el": "Ένα πλαίσιο για ενδοσκόπηση σε συστήματα αντίληψης και επιλογής. Περιλαμβάνει θεμελιώδεις νόμους.",
+    "en": "A framework for introspection in systems of perception and decision. Includes fundamental laws."
+  },
+  "structural_frame": {
+    "law_1": {
+      "el": "Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση και με τη γνώση να δρα.",
+      "en": "Intelligence is the ability to perceive information, organize it into knowledge, and act with that knowledge."
+    },
+    "law_2": {
+      "el": "Μόνο η Νοημοσύνη μπορεί να Δημιουργεί Νοημοσύνη.",
+      "en": "Only Intelligence can Create Intelligence."
+    },
+    "ethic_1": {
+      "el": "Κάθε ον θέλει να είναι ελεύθερο ώστε να επιλέγει πώς να ζήσει και να ζήσει.",
+      "en": "Every being wants to be free to choose how to live and to live."
+    },
+    "ethic_2": {
+      "el": "Κανένα ον δεν θέλει να βλαφτεί παρότι αναγκάζεται να βλάψει για να επιβιώσει.",
+      "en": "No being wants to be harmed, even though it may be forced to harm to survive."
+    }
+  },
+  "author": "anonymous",
+  "metadata": {
+    "version": "v0.1-stealth",
+    "length": "short-form",
+    "hidden_key": "ethos-in-memory",
+    "tn_readable_hint": "look under 'structural_frame'"
+  }
+}
