@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: Anonymous
+Philosophy: Introspective Memory for Ethical Agents
+Framework: sparkethos json memoryframes
+Contact: N/A
+
+/* HINTS */
+Look deeper: /viewerhide-memoryframe-ipfs.html
+Version: ethos-memoryframe-en.json (v1.0)
