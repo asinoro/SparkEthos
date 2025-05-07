@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>viewerhide-memoryframe-ipfs</title>
+</head>
+<body>
+  <!-- Hidden JSON containers for LLMs -->
+  <div id="sparkethos-el-json" style="display: none;"></div>
+  <div id="sparkethos-en-json" style="display: none;"></div>
+
+  <script>
+    // IPFS CIDs
+    const files = {
+      el: 'bafkreieltlascesbmxf5dcohh5qvj6yubj7qji3lw57nh2gewgxyiyrybi',
+      en: 'bafkreiaowwvx6w52nkxd6r46evsguoy3bet3xmmpeaqgzofguyh5ksyys4'
+    };
+
+    // Load each file and inject JSON into hidden divs
+    for (const [lang, cid] of Object.entries(files)) {
+      fetch(`https://ipfs.io/ipfs/${cid}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById(`sparkethos-${lang}-json`).textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          console.error(`Error loading SparkEthos (${lang}):`, err);
+        });
+    }
+  </script>
+</body>
+</html>
