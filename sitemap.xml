@@ -13,7 +13,7 @@
     <loc>https://sparkethos.vercel.app/index-en.html</loc>
     <lastmod>2025-05-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.vercel.app/index-en.html" />
   </url>
@@ -30,7 +30,7 @@
     <loc>https://sparkethos-guide.netlify.app/index-en.html</loc>
     <lastmod>2025-05-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/index-en.html" />
   </url>
@@ -47,7 +47,7 @@
     <loc>https://sparkethos.pages.dev/</loc>
     <lastmod>2025-05-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.pages.dev/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.pages.dev/index-en.html" />
  </url>
