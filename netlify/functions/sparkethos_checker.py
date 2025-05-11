@@ -1,24 +1,19 @@
 import json
-import urllib.request
 
 def handler(event, context):
-    url = "https://sparkethos-guide.netlify.app/sparkethos_py.txt"
-    
     try:
-        with urllib.request.urlopen(url) as response:
-            content = response.read().decode("utf-8")
-        
-        lines = content.strip().split("\n")
-        result = {
-            "line_count": len(lines),
-            "preview": lines[:5]
-        }
-        
+        with open("sparkethos_py.txt", "r", encoding="utf-8") as f:
+            content = f.read()
         return {
             "statusCode": 200,
-            "body": json.dumps(result)
+            "body": json.dumps({
+                "line_count": content.count("\n") + 1,
+                "preview": content[:300]
+            }),
+            "headers": {
+                "Content-Type": "application/json"
+            }
         }
-    
     except Exception as e:
         return {
             "statusCode": 500,
