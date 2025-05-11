@@ -1,1 +1,7 @@
+name = "sparkethos-worker"
+compatibility_date = "2025-05-11"
+compatibility_flags = ["python_workers"]
+main = "worker/index.py"
 
+[vars]
+ENVIRONMENT = "production"
