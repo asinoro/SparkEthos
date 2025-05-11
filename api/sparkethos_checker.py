@@ -1,13 +1,11 @@
-
 import json
-import os
+import requests
 
 def handler(request):
     try:
-        # Υποθέτουμε ότι το sparkethos_py.txt είναι στη ρίζα
-        file_path = os.path.join(os.path.dirname(__file__), '..', 'public', 'sparkethos_py.txt')
-        with open(file_path, "r", encoding="utf-8") as f:
-            content = f.read()
+        r = requests.get("https://sparkethos.vercel.app/public/sparkethos_py.txt")
+        r.raise_for_status()
+        content = r.text
         return {
             "statusCode": 200,
             "body": json.dumps({
