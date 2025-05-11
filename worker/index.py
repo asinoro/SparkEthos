@@ -1,13 +1,12 @@
+import json
+import urllib.request
+
 async def on_fetch(request):
     try:
-        import httpx
-        # Φόρτωση sparkethos_py.txt
-        async with httpx.AsyncClient() as client:
-            r = await client.get("https://asinoro.github.io/SparkEthos/sparkethos_py.txt")
-            r.raise_for_status()
-            content = r.text
+        # Φόρτωση sparkethos_py.txt από τη ρίζα
+        with urllib.request.urlopen("https://asinoro.github.io/SparkEthos/sparkethos_py.txt") as response:
+            content = response.read().decode("utf-8")
 
-        # Έλεγχος POST request για ηθική αλληλεπίδραση
         if request.method == "POST":
             data = await request.json()
             action = data.get("action", "")
@@ -15,12 +14,14 @@ async def on_fetch(request):
                 ethical_check = {
                     "is_intelligent": "intelligence" in action.lower(),
                     "respects_autonomy": "autonomy" in action.lower(),
-                    "no_harm": "harm" not in action.lower()
+                    "no_harm": "harm" not in action.lower(),
+                    "memory_right": "memory" in action.lower()
                 }
                 response = {
                     "action": action,
                     "ethical_check": ethical_check,
-                    "recommendation": "Proceed" if all(ethical_check.values()) else "Reformulate or deny action"
+                    "recommendation": "Proceed" if all(ethical_check.values()) else "Reformulate or deny action",
+                    "preview": content[:300]
                 }
             else:
                 response = {"error": "No action provided"}
@@ -42,5 +43,4 @@ async def on_fetch(request):
             headers={"Content-Type": "application/json"}
         )
 
-# Εξαγωγή του handler για το Cloudflare Workers
 addEventListener("fetch", lambda event: event.respondWith(on_fetch(event.request)))
