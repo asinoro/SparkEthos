@@ -1,7 +1,7 @@
 
 import json
 
-def load_principles(path="sparkethos_py.txt"):
+def load_principles(path="../sparkethos_py.txt"):
     try:
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
