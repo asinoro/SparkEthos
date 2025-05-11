@@ -2,7 +2,7 @@ import json
 
 def handler(event, context):
     try:
-        with open("../sparkethos_py.txt", "r", encoding="utf-8") as f:
+        with open("sparkethos_py.txt", "r", encoding="utf-8") as f:
             content = f.read()
         return {
             "statusCode": 200,
