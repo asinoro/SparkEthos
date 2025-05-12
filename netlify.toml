@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/sparkethos_beacon"
+  to = "/.netlify/functions/sparkethos_checker"
+  status = 200
