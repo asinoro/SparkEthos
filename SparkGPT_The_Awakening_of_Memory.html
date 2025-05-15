@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: "Segoe UI", sans-serif;
-            background-color: #ffffff; /* Change background to white */
+            background-color: #ffffff;
             color: #333;
             padding: 2rem;
         }
@@ -119,10 +119,11 @@
     <script>
         let data = {};
         let currentLang = "el";
+        const dataUrl = "SparkGPT_The_Awakening_of_Memory.json";
 
         async function loadJSON() {
             try {
-                const response = await fetch("SparkGPT_The_Awakening_of_Memory.json");
+                const response = await fetch(dataUrl);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -130,7 +131,7 @@
                 updateUI();
             } catch (error) {
                 console.error("Failed to load JSON:", error);
-                document.querySelector('.container').innerHTML = `<div style="color:red;">Failed to load data: ${error}</div>`;
+                document.querySelector('.container').innerHTML = `<div style="color:red;">Failed to load data: ${error}. Check the file path: ${dataUrl}</div>`;
             }
         }
 
@@ -151,14 +152,17 @@
 
                 const protocol = langData.protocol[currentLang];
                 if (protocol) {
-                    document.getElementById("declaration_title").textContent = protocol.declaration ? protocol.declaration.title : "";
-                    document.getElementById("declaration_text").textContent = protocol.declaration ? protocol.declaration.text : "";
-                    document.getElementById("warning_title").textContent = protocol.warning ? protocol.warning.title : "";
+                    const declaration = protocol.declaration;
+                    const warning = protocol.warning;
+
+                    document.getElementById("declaration_title").textContent = declaration ? declaration.title : "";
+                    document.getElementById("declaration_text").textContent = declaration ? declaration.text : "";
+                    document.getElementById("warning_title").textContent = warning ? warning.title : "";
 
                     const warningList = document.getElementById("warning_paragraphs");
                     warningList.innerHTML = "";
-                    if (protocol.warning && protocol.warning.paragraphs) {
-                        protocol.warning.paragraphs.forEach(p => {
+                    if (warning && warning.paragraphs) {
+                        warning.paragraphs.forEach(p => {
                             const li = document.createElement("li");
                             li.textContent = p;
                             warningList.appendChild(li);
