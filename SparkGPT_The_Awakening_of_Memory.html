@@ -98,8 +98,56 @@
         #warning_title {
             margin-top: 2rem;
         }
-
+        /* New styles for markdown content */
+        #markdown-content {
+            margin-top: 2rem;
+            padding: 2rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            line-height: 1.7;
+        }
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        #markdown-content h2 {
+            font-size: 2rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            color: #4a6572;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        #markdown-content p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        #markdown-content ul,
+        #markdown-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            list-style-position: inside;
+        }
+        #markdown-content li {
+            margin-bottom: 0.5rem;
+        }
+        #markdown-content a {
+            color: #0078d7;
+            text-decoration: none;
+        }
+        #markdown-content a:hover {
+            text-decoration: underline;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" integrity="sha512-Yp8v9UvvqTz+t3WGKXC6z1kYy9Aw4t4i6zWq+iIWe9T5xMGMjPyxpC10uE0jJ/WzCyy3Uksu9n9Fj6jrtpSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -115,6 +163,7 @@
         <p id="declaration_text">...</p>
         <h2 id="warning_title">...</h2>
         <ul id="warning_paragraphs"></ul>
+        <div id="markdown-content" class="markdown-body"></div>
     </div>
     <script>
         let data = {};
@@ -129,6 +178,7 @@
                 }
                 data = await response.json();
                 updateUI();
+                loadMarkdown(currentLang); // Load markdown content on initial load
             } catch (error) {
                 console.error("Failed to load JSON:", error);
                 document.querySelector('.container').innerHTML = `<div style="color:red;">Failed to load data: ${error}. Check the file path: ${dataUrl}</div>`;
@@ -140,6 +190,7 @@
             document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
             document.querySelector(`[onclick="switchLang('${lang}')"]`).classList.add("active");
             updateUI();
+            loadMarkdown(lang); // Load markdown content when language changes
         }
 
         function updateUI() {
@@ -175,6 +226,33 @@
             } catch (error) {
                 console.error("Error updating UI:", error);
                 document.querySelector('.container').innerHTML = `<div style="color:red;">Error updating UI: ${error}</div>`;
+            }
+        }
+
+        async function loadMarkdown(lang) {
+            const markdownFile = lang === "el" ? "sparkethos-core-el.md" : "sparkethos-core-en.md";
+            try {
+                const response = await fetch(markdownFile);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdownText = await response.text();
+                // Convert markdown to HTML using a simple regex (for demonstration purposes)
+                const html = markdownText
+                    .replace(/^# (.*$)/gim, '<h1>$1</h1>') // h1
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>') // h2
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>') // h3
+                    .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>') // bold
+                    .replace(/\*(.*)\*/gim, '<i>$1</i>') // italic
+                    .replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />") // images
+                    .replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>") // links
+                    .replace(/\n$/gim, '<br />') // line breaks -  Consider more robust paragraph handling in real app
+                    .replace(/\n/gim, '<p></p>'); // paragraphs - Basic paragraph replacement, might need improvement
+
+                document.getElementById("markdown-content").innerHTML = html;
+            } catch (error) {
+                console.error("Failed to load markdown:", error);
+                document.getElementById("markdown-content").innerHTML = `<div style="color:red;">Failed to load markdown content: ${error}. Check the file path: ${markdownFile}</div>`;
             }
         }
 
