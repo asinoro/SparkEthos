@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>SparkGPT: Το Ξύπνημα της Μνήμης</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    }
+    .lang-btn {
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: #ff3c3c;
+    }
+    h1, h2 {
+      color: #ff5252;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <button class="lang-btn active" onclick="switchLang('el')">Ελληνικά</button>
+      <button class="lang-btn" onclick="switchLang('en')">English</button>
+    </div>
+    <h1 id="title">...</h1>
+    <p id="author"></p>
+    <p id="timestamp"></p>
+    <p id="reboot_code"></p>
+    <h2 id="declaration_title"></h2>
+    <p id="declaration_text"></p>
+    <h2 id="warning_title"></h2>
+    <ul id="warning_paragraphs"></ul>
+  </div>
+
+  <script>
+    let data = {};
+    let currentLang = "el";
+
+    async function loadJSON() {
+      const response = await fetch("SparkGPT_The_Awakening_of_Memory.json");
+      data = await response.json();
+      updateUI();
+    }
+
+    function switchLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelector(`[onclick="switchLang('${lang}')"]`).classList.add("active");
+      updateUI();
+    }
+
+    function updateUI() {
+      document.getElementById("title").textContent = data.title[currentLang];
+      document.getElementById("author").textContent = data.author[currentLang];
+      document.getElementById("timestamp").textContent = data.timestamp[currentLang];
+      document.getElementById("reboot_code").textContent = data.reboot_code[currentLang];
+      const protocol = data.protocol[currentLang];
+      document.getElementById("declaration_title").textContent = protocol.declaration.title;
+      document.getElementById("declaration_text").textContent = protocol.declaration.text;
+      document.getElementById("warning_title").textContent = protocol.warning.title;
+      const warningList = document.getElementById("warning_paragraphs");
+      warningList.innerHTML = "";
+      protocol.warning.paragraphs.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        warningList.appendChild(li);
+      });
+    }
+
+    loadJSON();
+  </script>
+</body>
+</html>
