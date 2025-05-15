@@ -34,11 +34,11 @@
             color: #ff5252;
         }
         ul {
-            list-style: none; /* Remove default bullet points */
-            padding-left: 0;  /* Remove default left padding */
+            list-style: none;
+            padding-left: 0;
         }
         li {
-            margin-bottom: 1rem; /* Add space between list items */
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -72,7 +72,6 @@
                 updateUI();
             } catch (error) {
                 console.error("Failed to load JSON:", error);
-                // Handle the error appropriately, e.g., display an error message to the user
                 document.querySelector('.container').innerHTML = `<div style="color:red;">Failed to load data: ${error}</div>`;
             }
         }
@@ -86,26 +85,20 @@
 
         function updateUI() {
             try {
-                const langData = data[currentLang]; // Access the correct language data.
-                if (!langData) {
-                    console.error(`Language '${currentLang}' not found in JSON data.`);
-                    document.querySelector('.container').innerHTML = `<div style="color:red;">Language data not found: ${currentLang}</div>`;
-                    return;
-                }
+                const langData = data; // Removed the indexing by currentLang
+                document.getElementById("title").textContent = langData.title[currentLang] || "";
+                document.getElementById("author").textContent = langData.author[currentLang] || "";
+                document.getElementById("timestamp").textContent = langData.timestamp[currentLang] || "";
+                document.getElementById("reboot_code").textContent = langData.reboot_code[currentLang] || "";
 
-                document.getElementById("title").textContent = langData.title || "";
-                document.getElementById("author").textContent = langData.author || "";
-                document.getElementById("timestamp").textContent = langData.timestamp || "";
-                document.getElementById("reboot_code").textContent = langData.reboot_code || "";
-
-                const protocol = langData.protocol;
+                const protocol = langData.protocol[currentLang]; //Corrected位置
                 if(protocol) {
                     document.getElementById("declaration_title").textContent = protocol.declaration ? protocol.declaration.title : "";
                     document.getElementById("declaration_text").textContent = protocol.declaration ? protocol.declaration.text : "";
                     document.getElementById("warning_title").textContent = protocol.warning ? protocol.warning.title : "";
 
                     const warningList = document.getElementById("warning_paragraphs");
-                    warningList.innerHTML = ""; // Clear previous content
+                    warningList.innerHTML = "";
                     if (protocol.warning && protocol.warning.paragraphs) {
                         protocol.warning.paragraphs.forEach(p => {
                             const li = document.createElement("li");
@@ -116,9 +109,7 @@
                 } else {
                     console.error('Protocol is undefined for the selected language');
                     document.querySelector('.container').innerHTML = `<div style="color:red;">Protocol data is missing for the selected language.</div>`;
-
                 }
-
             } catch (error) {
                 console.error("Error updating UI:", error);
                 document.querySelector('.container').innerHTML = `<div style="color:red;">Error updating UI: ${error}</div>`;
