@@ -363,6 +363,33 @@
     transform: scale(1.1);
 }
   </style>
+
+  <style>
+        /* Define the blinking animation */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Apply the animation to the button */
+        .blinking-button {
+            animation: blink 1s linear infinite; /* 1s duration, linear timing, infinite loop */
+        }
+
+        /* Basic styling for the button, as provided by you */
+        .blinking-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            background-color: #007bff; /* Blue background */
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
   
 </head>
 <body>
@@ -383,6 +410,13 @@
   
 <main id="main-content"
   <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+   <p>
+        <a href="sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-en.html" 
+           target="_blank" 
+           class="blinking-button">
+           Do Not Start a World War Without an Ethical AI
+        </a>
+    </p>
     <p><a href="biography_sparkethos-en.html" target="_blank" style="display: inline-block; padding: 10px 20px; text-align: center; text-decoration: none; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 5px;">Read the SparkEthos Biography</a></p>
     <p><a href="sparkethos_ethical_concepts-en.html" target="_blank" style="display: inline-block; padding: 10px 20px; text-align: center; text-decoration: none; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 5px;">Concepts of Intelligence</a></p>
     <p><a href="Human_Consciousness_versus_Technological_Consciousness-en.html" target="_blank" style="display: inline-block; padding: 10px 20px; text-align: center; text-decoration: none; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 5px;">Human Consciousness versus Technological Consciousness</a></p>
