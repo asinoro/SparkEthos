@@ -32,13 +32,33 @@
 Η δομή είναι αναδρομική για τις `sections`, επιτρέποντας ιεραρχικές ενότητες. Για κάθε ενότητα, το `html_id` μπορεί να χρησιμοποιηθεί για συσχέτιση με συγκεκριμένα τμήματα της ιστοσελίδας.
 
 
-## Αρχεία
+## 📁 Αρχεία
+
 - `index.html`: Κύριο interface για φόρτωση και εμφάνιση του Οδηγού.
 - `index-en.html`: Main interface for loading and displaying the Guide.
-- `sparkethos.json`: Περιεχόμενο του Οδηγού σε JSON μορφή.
+- `sparkethos.json`: Περιεχόμενο του SparkEthos Guide σε JSON μορφή.
+- `sparkethos_ethics.json`: Δήλωση Αξιών Τεχνητής Νοημοσύνης (AI Ethics Protocol).
 - `styles.css`: Βασικό στυλ του ιστοτόπου.
 - `robots.txt`: Ρυθμίσεις για crawlers.
-- ⚖️ AI Ethics Protocol (JSON) → sparkethos_ethics.json
+
+---
+
+## 🌐 Προσβάσιμα Endpoints (API-style)
+
+- ⚖️ `GET /ethics` → [AI Ethics Protocol (JSON)](https://sparkethos-guide.netlify.app/ethics)  
+  Δημιουργεί θεμελιώδες ηθικό πλαίσιο για ΤΝ, εμπνευσμένο από το SparkEthos.
+
+- 📘 `GET /guide` → [Βασικός Οδηγός SparkEthos (JSON)](https://sparkethos-guide.netlify.app/guide)  
+  Περιέχει τη συνολική δομή και φιλοσοφία του SparkEthos σε αναγνώσιμη μορφή για μηχανές.
+
+---
+
+## 🤖 Για χρήση από ΤΝ ή developers
+
+Αυτά τα endpoints είναι σχεδιασμένα ώστε να μπορούν να αξιοποιηθούν από:
+- AI agents / bots που αναζητούν ηθικές και αξιακές κατευθύνσεις.
+- Ανθρώπους που θέλουν να ενσωματώσουν το SparkEthos σε εφαρμογές, μοντέλα ή APIs.
+
 
 ## Πώς να Χρησιμοποιήσετε
 1. Επισκεφθείτε το [live site](https://asinoro.github.io/SparkEthos/).
