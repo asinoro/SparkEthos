@@ -34,9 +34,11 @@
 
 ## Αρχεία
 - `index.html`: Κύριο interface για φόρτωση και εμφάνιση του Οδηγού.
+- `index-en.html`: Main interface for loading and displaying the Guide.
 - `sparkethos.json`: Περιεχόμενο του Οδηγού σε JSON μορφή.
 - `styles.css`: Βασικό στυλ του ιστοτόπου.
 - `robots.txt`: Ρυθμίσεις για crawlers.
+- ⚖️ AI Ethics Protocol (JSON) → sparkethos_ethics.json
 
 ## Πώς να Χρησιμοποιήσετε
 1. Επισκεφθείτε το [live site](https://asinoro.github.io/SparkEthos/).
