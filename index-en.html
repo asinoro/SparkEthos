@@ -367,28 +367,29 @@
 }
   </style>
 
-  <style>
+   <style>
         /* Define the blinking animation */
         @keyframes blink {
             0% { opacity: 1; }
-            50% { opacity: 0; }
+            50% { opacity: 0; } /* Μπορείτε να αλλάξετε το 0 σε 0.2 ή 0.3 για πιο απαλό αναβόσβημα */
             100% { opacity: 1; }
         }
 
-        /* Apply the animation to the button */
+        /* Apply the animation and custom styles to the button */
         .blinking-button {
-            animation: blink 1s linear infinite; /* 1s duration, linear timing, infinite loop */
-        }
+            /* Αλλαγή ταχύτητας αναβοσβήματος */
+            animation: blink 0.7s linear infinite; /* Αλλάξτε το 0.7s σε όσα δευτερόλεπτα θέλετε (π.χ., 0.5s για πιο γρήγορο, 1.5s για πιο αργό) */
 
-        /* Basic styling for the button, as provided by you */
-        .blinking-button {
+            /* Αλλαγή χρώματος κουμπιού */
+            background-color: #FF5733; /* Αυτό είναι ένα πορτοκαλί-κόκκινο. Αλλάξτε το σε όποιο hex χρώμα θέλετε (π.χ., #28a745 για πράσινο, #663399 για μοβ) */
+            color: white; /* Κείμενο λευκό για καλή αντίθεση */
+
+            /* Υπόλοιπα στυλ κουμπιού (από τον αρχικό σας κώδικα) */
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             border: none;
-            background-color: #007bff; /* Blue background */
-            color: white;
             cursor: pointer;
             border-radius: 5px;
         }
