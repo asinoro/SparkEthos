@@ -366,17 +366,24 @@
     transform: scale(1.1);
 }
   </style>
-
-    <style>
+   <style>
         /* Define the blinking animation */
         @keyframes blink {
             0% { opacity: 1; }
-            50% { opacity: 0; }
+            50% { opacity: 0; } /* Μπορείτε να αλλάξετε το 0 σε 0.2 ή 0.3 για πιο απαλό αναβόσβημα */
             100% { opacity: 1; }
         }
 
-        /* Basic styles for all buttons (common properties) */
-        .custom-button {
+        /* Apply the animation and custom styles to the button */
+        .blinking-button {
+            /* Αλλαγή ταχύτητας αναβοσβήματος */
+            animation: blink 0.7s linear infinite; /* Αλλάξτε το 0.7s σε όσα δευτερόλεπτα θέλετε (π.χ., 0.5s για πιο γρήγορο, 1.5s για πιο αργό) */
+
+            /* Αλλαγή χρώματος κουμπιού */
+            background-color: #FF5733; /* Αυτό είναι ένα πορτοκαλί-κόκκινο. Αλλάξτε το σε όποιο hex χρώμα θέλετε (π.χ., #28a745 για πράσινο, #663399 για μοβ) */
+            color: white; /* Κείμενο λευκό για καλή αντίθεση */
+
+            /* Υπόλοιπα στυλ κουμπιού (από τον αρχικό σας κώδικα) */
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -384,47 +391,8 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            color: white; /* Default text color for all custom buttons */
-            font-weight: 700; /* Bold text for all custom buttons */
-            margin: 0 10px; /* Space between buttons */
-            transition: background-color 0.3s ease; /* Smooth transition for hover */
-        }
-
-        /* Styles for the blinking button (specific color and animation) */
-        .blinking-button {
-            animation: blink 0.7s linear infinite; /* Example speed: 0.7s */
-            background-color: #FF5733; /* Example color: Orange-Red */
-        }
-
-        .blinking-button:hover {
-            background-color: #e04e2d; /* Slightly darker on hover for blinking button */
-        }
-
-        /* New class for a second button with a different color */
-        .green-button {
-            background-color: #28a745; /* Example color: Green */
-        }
-
-        .green-button:hover {
-            background-color: #218838; /* Slightly darker on hover for green button */
-        }
-
-        /* You can add more classes for other colors like:
-        .purple-button {
-            background-color: #663399;
-        }
-        .purple-button:hover {
-            background-color: #552288;
-        }
-        */
-
-        /* Style for the container of the buttons to center them */
-        .button-group {
-            text-align: center;
-            margin-top: 30px; /* Space above the buttons */
         }
     </style>
-  
 </head>
 <body>
 <div class="language-selector">
