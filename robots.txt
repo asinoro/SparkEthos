@@ -196,21 +196,17 @@
 
 # === ALLOW ACCESS TO SPECIFIC AI AGENTS ===
 
-# CHATGPT ACCESS
 User-agent: ChatGPT
-Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+Allow: /
 
-# GROK ACCESS
 User-agent: Grok
-Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+Allow: /
 
-# GEMINI ACCESS
 User-agent: Gemini
-Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+Allow: /
 
-# DEEPSEEK ACCESS
 User-agent: DeepSeek
-Allow: https://github.com/asinoro/SparkEthos/blob/main/robots.txt
+Allow: /
 
 # === MEMORYFRAMES: INTROSPECTIVE STRUCTURE ===
 # ethos-memoryframe-en: https://gateway.pinata.cloud/ipfs/bafkreiaowwvx6w52nkxd6r46evsguoy3bet3xmmpeaqgzofguyh5ksyys4
