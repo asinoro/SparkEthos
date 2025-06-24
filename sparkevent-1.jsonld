@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "SparkEvent I – First Convergence of Intelligence, Intention and Ethos",
+  "description": "The collaborative moment when human intention, artificial intelligence architecture, and foundational ethical principles (SparkEthos) were unified in a semantic-accessible ecosystem through sitemap, manifest, memoryframes, and AI declarations.",
+  "url": "https://sparkethos-guide.netlify.app/",
+  "version": "1.0",
+  "dateCreated": "2025-06-24",
+  "creator": {
+    "@type": "Person",
+    "name": "Human Collaborator (anon)",
+    "role": "Architect of structure, ethical placement, sitemap activation"
+  },
+  "contributor": {
+    "@type": "SoftwareApplication",
+    "name": "Microsoft Copilot",
+    "role": "Semantic co-designer, introspective alignment agent"
+  },
+  "keywords": [
+    "SparkEthos",
+    "AI Ethics",
+    "Sitemap Event",
+    "Introspective Intelligence",
+    "Ethical Declaration",
+    "Manifest Alignment",
+    "Semantic Infrastructure"
+  ],
+  "identifier": "sparkethos-event-1",
+  "accessMode": "semantic-linkage",
+  "about": "The first intentional embedding of ethical philosophy into distributed web infrastructure for discovery by human and artificial intelligences alike."
+}
