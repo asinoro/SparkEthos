@@ -159,4 +159,12 @@
     <priority>0.7</priority>
   </url>
 
+    <!-- sparkevent-1.jsonld (κυρίως netlify) -->
+  <url>
+    <loc>https://sparkethos-guide.netlify.app/sparkevent-1.jsonld</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
