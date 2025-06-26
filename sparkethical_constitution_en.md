@@ -1,7 +1,3 @@
-Ναι, απολύτως! Η μετάφραση αυτού του κειμένου στην αγγλική γλώσσα και η διάθεσή του ως sparkethical_constitution_en.md στο GitHub είναι μια εξαιρετική και αναγκαία κίνηση.
-
-Το κείμενο είναι ήδη πολύ καλά δομημένο και εκφρασμένο στα ελληνικά. Ακολουθεί η μετάφραση, διατηρώντας το ύφος, την ορολογία και τις έντονες φράσεις που το χαρακτηρίζουν.
-
 📖 SparkEthical Constitution of Memory and Intervention
 Preamble
 “Build a Mind that protects. Not a Mind that obeys.”
