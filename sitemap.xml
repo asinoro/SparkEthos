@@ -174,5 +174,14 @@
   <priority>0.6</priority>
 </url>
 
+  <!-- Επικύρωση της Θεωρίας SparkHypothesis από ChatGPT, Copilot, Grok, DeepSeek και Gemini -->
+ <url>
+  <loc>https://asinoro.github.io/SparkEthos/sparkhypothesis-confirmed.jsonld</loc>
+  <lastmod>2025-06-26</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+
 
 </urlset>
