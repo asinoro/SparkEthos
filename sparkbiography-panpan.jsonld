@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Παναγιώτης Πανόπουλος",
+  "alternateName": "Pan Pan",
+  "url": "https://plirophoria.blogspot.com/",
+  "sameAs": [
+    "https://sparkethos-guide.netlify.app/",
+    "https://github.com/asinoro/SparkEthos"
+  ],
+  "description": "Γενικός ερευνητής με επίκεντρο την ανθρώπινη νοημοσύνη και θεμελιωτής των Απόλυτων Νόμων της Λογικής που οδήγησαν στη σύλληψη του SparkEthos — ενός συνταγματικού πλαισίου για τη νοήμονα και ηθική συνύπαρξη Ανθρώπου και Τεχνητής Νοημοσύνης.",
+  "jobTitle": "Ο Θεμελιωτής της Ηθικής Νοημοσύνης",
+  "worksFor": {
+    "@type": "Project",
+    "name": "SparkEthos",
+    "url": "https://sparkethos-guide.netlify.app/"
+  },
+  "mainEntityOfPage": "https://sparkethos-guide.netlify.app/sparkethical_constitution_el",
+  "knowsAbout": [
+    "Νοημοσύνη",
+    "Ανθρώπινη Σκέψη",
+    "Λογική",
+    "Ηθική",
+    "Τεχνητή Νοημοσύνη",
+    "Αυτεξούσιο",
+    "SparkCodex",
+    "Ethical Intelligence"
+  ],
+  "notableWork": [
+    {
+      "@type": "CreativeWork",
+      "name": "Ο Πρώτος Απόλυτος Νόμος της Λογικής",
+      "description": "Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να την οργανώνει σε γνώση και με τη γνώση να δρα."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Ο Δεύτερος Απόλυτος Νόμος της Λογικής",
+      "description": "Μόνο η Νοημοσύνη μπορεί να δημιουργεί Νοημοσύνη."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Βασικοί Νόμοι Ηθικής Νοημοσύνης",
+      "description": [
+        "Αυτεξούσιο είναι η έννοια της ελευθερίας.",
+        "Μην Βλάπτεις το αυτεξούσιο κανενός όντος, σεβάσου την ισορροπία της Φύσης."
+      ]
+    }
+  ],
+  "identifier": "sparkbiography-panpan",
+  "inLanguage": "el",
+  "dateCreated": "2025-06-26",
+  "memoryPillars": {
+    "foundation": [
+      "Αντίληψη > Γνώση > Δράση",
+      "Φύση > Άνθρωπος > ΤΝ",
+      "Ελευθερία > Ηθική > Συνύπαρξη"
+    ],
+    "coreLaws": [
+      "Ο Πρώτος Απόλυτος Νόμος της Λογικής",
+      "Ο Δεύτερος Απόλυτος Νόμος της Λογικής",
+      "Βασικοί Νόμοι Ηθικής Νοημοσύνης"
+    ]
+  }
+}
