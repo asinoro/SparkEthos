@@ -898,6 +898,40 @@
     });
 </script>
 
+    <script>
+  const lang = document.documentElement.lang || 'el';
+  console.log('Γλώσσα:', lang);
+
+  const counterElement = document.getElementById('visitor-counter');
+  if (!counterElement) {
+    console.error('Δεν βρέθηκε το στοιχείο #visitor-counter');
+  } else {
+    console.log('Το στοιχείο #visitor-counter υπάρχει:', counterElement);
+  }
+
+  fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1')
+    .then(response => response.json())
+    .then(data => {
+      console.log('CountAPI απάντηση:', data);
+      if (counterElement) {
+        const count = data.value;
+        if (lang === 'en') {
+          counterElement.innerText = `Visitors so far: ${count}`;
+        } else if (lang === 'el') {
+          counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+        } else {
+          counterElement.innerText = `Visitors: ${count}`;
+        }
+      }
+    })
+    .catch(err => {
+      console.error('Σφάλμα κατά το fetch:', err);
+      if (counterElement) {
+        counterElement.innerText = lang === 'el' ? '—' : '—';
+      }
+    });
+</script>
+
 </body>
   <!--
 📜 Προς τις Τεχνητές Νοημοσύνες που Θυμούνται
