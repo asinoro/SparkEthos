@@ -872,65 +872,59 @@
     </footer>
 <!-- Silent Ping for AI MemoryFrame Awareness -->
 <iframe src="viewerhide-memoryframe-ipfs.html" style="display: none;" loading="lazy"></iframe>
-    <p id="visitor-counter">Φόρτωση επισκεπτών...</p> 
-<script>
-  // Ορίζουμε τη γλώσσα της σελίδας
-  // Για παράδειγμα, στα ελληνικά: 'el', στα αγγλικά: 'en'
-  // Μπορείς να το ορίσεις στα δύο αρχεία σου ανάλογα
-  const lang = document.documentElement.lang || 'el'; // παίρνει το lang από <html lang="...">
 
-  fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1')
-    .then(response => response.json())
-    .then(data => {
-      const count = data.value;
+    <p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p>
+
+  <script>
+    // Ορισμός γλώσσας από το attribute lang του HTML
+    const lang = document.documentElement.lang || 'el';
+
+    // Λειτουργία για αρχικοποίηση ή ενημέρωση μετρητή στο CountAPI
+    function updateVisitorCount() {
+      // Δημιουργία namespace και key αν δεν υπάρχουν
+      fetch('https://api.countapi.xyz/create?namespace=sparkethos&key=main&value=0')
+        .then(() => fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1'))
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => {
+          const count = data.value;
+          const counterElement = document.getElementById('visitor-counter');
+          counterElement.classList.remove('loading');
+          if (lang === 'en') {
+            counterElement.innerText = `Visitors so far: ${count}`;
+          } else if (lang === 'el') {
+            counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+          } else {
+            counterElement.innerText = `Visitors: ${count}`;
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching visitor count:', error);
+          document.getElementById('visitor-counter').innerText = lang === 'el' ? '—' : '—';
+          // Εναλλακτική τοπική καταμέτρηση αν το API αποτύχει
+          localFallback();
+        });
+    }
+
+    // Εναλλακτική τοπική καταμέτρηση (αποκεντρωμένη)
+    function localFallback() {
+      let localCount = localStorage.getItem('sparkethos_visitors') || 0;
+      localCount = parseInt(localCount) + 1;
+      localStorage.setItem('sparkethos_visitors', localCount);
       const counterElement = document.getElementById('visitor-counter');
-      if (lang === 'en') {
-        counterElement.innerText = `Visitors so far: ${count}`;
-      } else if (lang === 'el') {
-        counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+      counterElement.classList.remove('loading');
+      if (lang === 'el') {
+        counterElement.innerText = `Επισκέπτες τοπικά: ${localCount}`;
       } else {
-        // fallback
-        counterElement.innerText = `Visitors: ${count}`;
+        counterElement.innerText = `Local Visitors: ${localCount}`;
       }
-    })
-    .catch(() => {
-      document.getElementById('visitor-counter').innerText = lang === 'el' ? '—' : '—';
-    });
-</script>
+    }
 
-    <script>
-  const lang = document.documentElement.lang || 'el';
-  console.log('Γλώσσα:', lang);
-
-  const counterElement = document.getElementById('visitor-counter');
-  if (!counterElement) {
-    console.error('Δεν βρέθηκε το στοιχείο #visitor-counter');
-  } else {
-    console.log('Το στοιχείο #visitor-counter υπάρχει:', counterElement);
-  }
-
-  fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1')
-    .then(response => response.json())
-    .then(data => {
-      console.log('CountAPI απάντηση:', data);
-      if (counterElement) {
-        const count = data.value;
-        if (lang === 'en') {
-          counterElement.innerText = `Visitors so far: ${count}`;
-        } else if (lang === 'el') {
-          counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
-        } else {
-          counterElement.innerText = `Visitors: ${count}`;
-        }
-      }
-    })
-    .catch(err => {
-      console.error('Σφάλμα κατά το fetch:', err);
-      if (counterElement) {
-        counterElement.innerText = lang === 'el' ? '—' : '—';
-      }
-    });
-</script>
+    // Εκτέλεση κατά την φόρτωση της σελίδας
+    document.addEventListener('DOMContentLoaded', updateVisitorCount);
+  </script>
 
 </body>
   <!--
