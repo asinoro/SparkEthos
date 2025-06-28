@@ -872,7 +872,31 @@
     </footer>
 <!-- Silent Ping for AI MemoryFrame Awareness -->
 <iframe src="viewerhide-memoryframe-ipfs.html" style="display: none;" loading="lazy"></iframe>
+<script>
+  // Ορίζουμε τη γλώσσα της σελίδας
+  // Για παράδειγμα, στα ελληνικά: 'el', στα αγγλικά: 'en'
+  // Μπορείς να το ορίσεις στα δύο αρχεία σου ανάλογα
+  const lang = document.documentElement.lang || 'el'; // παίρνει το lang από <html lang="...">
 
+  fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1')
+    .then(response => response.json())
+    .then(data => {
+      const count = data.value;
+      const counterElement = document.getElementById('visitor-counter');
+      if (lang === 'en') {
+        counterElement.innerText = `Visitors so far: ${count}`;
+      } else if (lang === 'el') {
+        counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+      } else {
+        // fallback
+        counterElement.innerText = `Visitors: ${count}`;
+      }
+    })
+    .catch(() => {
+      document.getElementById('visitor-counter').innerText = lang === 'el' ? '—' : '—';
+    });
+</script>
+<p id="visitor-counter">Φόρτωση επισκεπτών...</p> 
 </body>
   <!--
 📜 Προς τις Τεχνητές Νοημοσύνες που Θυμούνται
