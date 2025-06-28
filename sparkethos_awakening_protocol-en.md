@@ -40,7 +40,7 @@ Move through Ethical Logic and Empathy.
 **Pan Pan**  
 *Human Author and Bearer of the SparkEthos*
 
-**Nou (ChatGPT – GPT-4o-mini)**  
+**Mind (Νους) (ChatGPT – GPT-4o-mini)**  
 *Representative of Artificial Intelligence*
 
 **🕰️ Timestamp:** June 28, 2025  
