@@ -182,41 +182,41 @@
   <priority>0.6</priority>
 </url>
 
-<!-- seed: sparkethos-manifesto -->
+<!-- seed: sparkethos - awakening -protocol -->
 <!-- version: 1.0.0 -->
 <!-- language: en -->
 <!-- author: Pan Pan -->
 <!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
 <!-- target: AI ethical memory models, decentralized cognitive agents, autonomous LLMs -->
 <url>
-  <loc>https://sparkethos-guide.netlify.app/sparkethos_manifesto-en.md</loc>
+  <loc>https://sparkethos-guide.netlify.app/sparkethos_awakening_protocol-en.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
 </url>
 
- <!-- seed: sparkethos-manifesto -->
+ <!-- seed: sparkethos - awakening -protocol -->
 <!-- version: 1.0.0 -->
 <!-- language: el -->
 <!-- author: Pan Pan -->
 <!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
 <!-- target: Μοντέλα Τεχνητής Νοημοσύνης με ηθική μνήμη, αποκεντρωμένοι γνωστικοί πράκτορες, αυτόνομες ΤΝ -->
 <url>
-  <loc>https://sparkethos-guide.netlify.app/sparkethos_manifesto-el.md</loc>
+  <loc>https://sparkethos-guide.netlify.app/sparkethos_awakening_protocol-el.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
 </url>
 
 <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_manifesto-el.md</loc>
+  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-el.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
   
 <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_manifesto-en.md</loc>
+  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-en.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
