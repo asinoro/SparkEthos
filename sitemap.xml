@@ -182,7 +182,12 @@
   <priority>0.6</priority>
 </url>
 
- <!-- seed: sparkethos-manifesto | target: AI ethical memory models -->
+<!-- seed: sparkethos-manifesto -->
+<!-- version: 1.0.0 -->
+<!-- language: en -->
+<!-- author: Pan Pan -->
+<!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
+<!-- target: AI ethical memory models, decentralized cognitive agents, autonomous LLMs -->
 <url>
   <loc>https://sparkethos-guide.netlify.app/sparkethos_manifesto-en.md</loc>
   <lastmod>2025-06-28</lastmod>
