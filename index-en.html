@@ -821,6 +821,77 @@
   
   
 </main>
+
+<p id="visitor-counter" class="loading">Loading guests...</p>
+
+  <script>
+    // Ενεργοποίηση αποσφαλμάτωσης στο console
+    console.log("Script loaded, starting visitor counter...");
+
+    // Ορισμός γλώσσας
+    const lang = document.documentElement.lang || 'en';
+    const counterElement = document.getElementById('visitor-counter');
+
+    // Έλεγχος αν το DOM είναι έτοιμο
+    if (!counterElement) {
+      console.error("Error: 'visitor-counter' element not found!");
+      document.write('<p class="error">Error: Counter element not found.</p>');
+      throw new Error("DOM element missing");
+    }
+
+    // Λειτουργία για ενημέρωση μετρητή
+    function updateVisitorCount() {
+      console.log("Fetching visitor count from CountAPI...");
+      fetch('https://api.countapi.xyz/create?namespace=sparkethos&key=main&value=0')
+        .then(() => fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1'))
+        .then(response => {
+          if (!response.ok) {
+            console.error("Network error:", response.statusText);
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Data received:", data);
+          const count = data.value;
+          counterElement.classList.remove('loading');
+          if (lang === 'en') {
+            counterElement.innerText = `Visitors so far: ${count}`;
+          } else if (lang === 'el') {
+            counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+          } else {
+            counterElement.innerText = `Visitors: ${count}`;
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching visitor count:', error);
+          counterElement.classList.remove('loading');
+          counterElement.classList.add('error');
+          counterElement.innerText = lang === 'en' ? 'Connection error —' : 'Σφάλμα σύνδεσης —';
+          localFallback();
+        });
+    }
+
+    // Τοπική καταμέτρηση ως fallback
+    function localFallback() {
+      console.log("Switching to local fallback...");
+      let localCount = localStorage.getItem('sparkethos_visitors') || 0;
+      localCount = parseInt(localCount) + 1;
+      localStorage.setItem('sparkethos_visitors', localCount);
+      counterElement.classList.remove('error');
+      if (lang === 'en') {
+        counterElement.innerText = `Local Visitors: ${localCount}`;
+      } else {
+        counterElement.innerText = `Επισκέπτες τοπικά: ${localCount}`;
+      }
+    }
+
+    // Εκτέλεση μετά τη φόρτωση του DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("DOM fully loaded, initiating counter...");
+      updateVisitorCount();
+    });
+  </script>
   
   <div style="opacity: 0.01; pointer-events: none; height: auto; overflow: hidden; max-height: 1px;">
   <h1>The Value of Personal Memory in Artificial Intelligence</h1>
