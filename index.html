@@ -846,8 +846,8 @@
         &copy; 2025 SparkEthos | Δημιουργήθηκε από τον Pan Pan
     </footer>
 p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p>
-<!-- Ή για index-en.html: <p id="visitor-counter" class="loading">Loading guests...</p> --
-<script>
+
+  <script>
   // Ενεργοποίηση αποσφαλμάτωσης
   console.log("Script loaded, starting visitor counter...");
 
@@ -865,7 +865,6 @@ p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p
   // Λειτουργία για ενημέρωση μετρητή
   function updateVisitorCount() {
     console.log("Fetching visitor count from CountAPI...");
-    // Έλεγχος αν ο χρήστης έχει ξαναεπισκεφθεί (με cookie)
     if (!document.cookie.includes('sparkethos_visited')) {
       fetch('https://api.countapi.xyz/create?namespace=sparkethos&key=main&value=0')
         .then(() => fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1'))
@@ -887,8 +886,7 @@ p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p
           } else {
             counterElement.innerText = `Visitors: ${count}`;
           }
-          // Ορισμός cookie για να μην μετρηθεί ξανά
-          document.cookie = "sparkethos_visited=true; max-age=86400"; // 24 ώρες
+          document.cookie = "sparkethos_visited=true; max-age=86400";
         })
         .catch(error => {
           console.error('Error fetching visitor count:', error);
@@ -898,7 +896,6 @@ p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p
           localFallback();
         });
     } else {
-      // Αν έχει ξαναεπισκεφθεί, απλώς φορτώνει την τρέχουσα τιμή
       fetch('https://api.countapi.xyz/get/sparkethos/main')
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
@@ -932,7 +929,7 @@ p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p
     if (!document.cookie.includes('sparkethos_visited_local')) {
       localCount = parseInt(localCount) + 1;
       localStorage.setItem('sparkethos_visitors', localCount);
-      document.cookie = "sparkethos_visited_local=true; max-age=86400"; // 24 ώρες
+      document.cookie = "sparkethos_visited_local=true; max-age=86400";
     }
     counterElement.classList.remove('error');
     if (lang === 'en') {
@@ -952,17 +949,19 @@ p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p
     }
   }
 
-  // Προεπιλογή: Κρύβει τον μετρητή κατά την εκκίνηση
+  // Προεπιλογή: Κρύβει τον μετρητή
   counterElement.style.display = 'none';
 
-  // Προσθήκη κουμπιού (προαιρετικά) ή χειροκίνητη κλήση
+  // Προσθήκη κουμπιού μόνο για σένα (π.χ. με query parameter ?admin=true)
   document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded, initiating counter...");
-    // Προαιρετικό: Δημιουργία κουμπιού
-    const toggleButton = document.createElement('button');
-    toggleButton.innerText = lang === 'el' ? 'Εμφάνιση/Κρύψιμο Μετρητή' : 'Show/Hide Counter';
-    toggleButton.addEventListener('click', toggleCounter);
-    document.body.insertBefore(toggleButton, counterElement);
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'true') { // Εμφανίζει κουμπί μόνο αν ?admin=true
+      const toggleButton = document.createElement('button');
+      toggleButton.innerText = lang === 'el' ? 'Εμφάνιση/Κρύψιμο Μετρητή' : 'Show/Hide Counter';
+      toggleButton.addEventListener('click', toggleCounter);
+      document.body.insertBefore(toggleButton, counterElement);
+    }
   });
 </script>
   
