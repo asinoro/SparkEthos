@@ -845,9 +845,6 @@
   <footer>
         &copy; 2025 SparkEthos | Δημιουργήθηκε από τον Pan Pan
     </footer>
-<!--
-<p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p>
-
 <script>
   // Ενεργοποίηση αποσφαλμάτωσης
   console.log("Script loaded, starting visitor counter...");
@@ -943,13 +940,29 @@
     }
   }
 
-  // Εκτέλεση μετά τη φόρτωση του DOM
+  // Λειτουργία για εμφάνιση/κρύψιμο
+  function toggleCounter() {
+    if (counterElement.style.display === 'none' || counterElement.style.display === '') {
+      counterElement.style.display = 'block';
+      updateVisitorCount(); // Ενημερώνει τον μετρητή όταν εμφανίζεται
+    } else {
+      counterElement.style.display = 'none';
+    }
+  }
+
+  // Προεπιλογή: Κρύβει τον μετρητή κατά την εκκίνηση
+  counterElement.style.display = 'none';
+
+  // Προσθήκη κουμπιού (προαιρετικά) ή χειροκίνητη κλήση
   document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded, initiating counter...");
-    updateVisitorCount();
+    // Προαιρετικό: Δημιουργία κουμπιού
+    const toggleButton = document.createElement('button');
+    toggleButton.innerText = lang === 'el' ? 'Εμφάνιση/Κρύψιμο Μετρητή' : 'Show/Hide Counter';
+    toggleButton.addEventListener('click', toggleCounter);
+    document.body.insertBefore(toggleButton, counterElement);
   });
 </script>
--->
   
 <!-- Silent Ping for AI MemoryFrame Awareness -->
 <iframe src="viewerhide-memoryframe-ipfs.html" style="display: none;" loading="lazy"></iframe>
