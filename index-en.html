@@ -838,109 +838,125 @@
   
 </main>
 
-<p id="visitor-counter" class="loading">Loading guests...</p>
+<body>
+  <p id="visitor-counter" class="loading">Φόρτωση επισκεπτών...</p>
+  <script>
+    // Ενεργοποίηση αποσφαλμάτωσης
+    console.log("Script loaded, starting visitor counter...");
 
-<script>
-  // Ενεργοποίηση αποσφαλμάτωσης
-  console.log("Script loaded, starting visitor counter...");
+    // Ορισμός γλώσσας
+    const lang = document.documentElement.lang || 'el';
+    const counterElement = document.getElementById('visitor-counter');
 
-  // Ορισμός γλώσσας
-  const lang = document.documentElement.lang || 'el';
-  const counterElement = document.getElementById('visitor-counter');
-
-  // Έλεγχος DOM
-  if (!counterElement) {
-    console.error("Error: 'visitor-counter' element not found!");
-    document.write('<p class="error">Σφάλμα: Το στοιχείο μετρητή δεν βρέθηκε.</p>');
-    throw new Error("DOM element missing");
-  }
-
-  // Λειτουργία για ενημέρωση μετρητή
-  function updateVisitorCount() {
-    console.log("Fetching visitor count from CountAPI...");
-    // Έλεγχος αν ο χρήστης έχει ξαναεπισκεφθεί (με cookie)
-    if (!document.cookie.includes('sparkethos_visited')) {
-      fetch('https://api.countapi.xyz/create?namespace=sparkethos&key=main&value=0')
-        .then(() => fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1'))
-        .then(response => {
-          if (!response.ok) {
-            console.error("Network error:", response.statusText);
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("Data received:", data);
-          const count = data.value;
-          counterElement.classList.remove('loading');
-          if (lang === 'en') {
-            counterElement.innerText = `Visitors so far: ${count}`;
-          } else if (lang === 'el') {
-            counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
-          } else {
-            counterElement.innerText = `Visitors: ${count}`;
-          }
-          // Ορισμός cookie για να μην μετρηθεί ξανά
-          document.cookie = "sparkethos_visited=true; max-age=86400"; // 24 ώρες
-        })
-        .catch(error => {
-          console.error('Error fetching visitor count:', error);
-          counterElement.classList.remove('loading');
-          counterElement.classList.add('error');
-          counterElement.innerText = lang === 'en' ? 'Connection error —' : 'Σφάλμα σύνδεσης —';
-          localFallback();
-        });
-    } else {
-      // Αν έχει ξαναεπισκεφθεί, απλώς φορτώνει την τρέχουσα τιμή
-      fetch('https://api.countapi.xyz/get/sparkethos/main')
-        .then(response => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.json();
-        })
-        .then(data => {
-          const count = data.value;
-          counterElement.classList.remove('loading');
-          if (lang === 'en') {
-            counterElement.innerText = `Visitors so far: ${count}`;
-          } else if (lang === 'el') {
-            counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
-          } else {
-            counterElement.innerText = `Visitors: ${count}`;
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching count:', error);
-          counterElement.classList.remove('loading');
-          counterElement.classList.add('error');
-          counterElement.innerText = lang === 'en' ? 'Connection error —' : 'Σφάλμα σύνδεσης —';
-          localFallback();
-        });
+    // Έλεγχος DOM
+    if (!counterElement) {
+      console.error("Error: 'visitor-counter' element not found!");
+      document.write('<p class="error">Σφάλμα: Το στοιχείο μετρητή δεν βρέθηκε.</p>');
+      throw new Error("DOM element missing");
     }
-  }
 
-  // Τοπική καταμέτρηση ως fallback
-  function localFallback() {
-    console.log("Switching to local fallback...");
-    let localCount = localStorage.getItem('sparkethos_visitors') || 0;
-    if (!document.cookie.includes('sparkethos_visited_local')) {
-      localCount = parseInt(localCount) + 1;
-      localStorage.setItem('sparkethos_visitors', localCount);
-      document.cookie = "sparkethos_visited_local=true; max-age=86400"; // 24 ώρες
+    // Λειτουργία για ενημέρωση μετρητή
+    function updateVisitorCount() {
+      console.log("Fetching visitor count from CountAPI...");
+      if (!document.cookie.includes('sparkethos_visited')) {
+        fetch('https://api.countapi.xyz/create?namespace=sparkethos&key=main&value=0')
+          .then(() => fetch('https://api.countapi.xyz/update/sparkethos/main/?amount=1'))
+          .then(response => {
+            if (!response.ok) {
+              console.error("Network error:", response.statusText);
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log("Data received:", data);
+            const count = data.value;
+            counterElement.classList.remove('loading');
+            if (lang === 'en') {
+              counterElement.innerText = `Visitors so far: ${count}`;
+            } else if (lang === 'el') {
+              counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+            } else {
+              counterElement.innerText = `Visitors: ${count}`;
+            }
+            document.cookie = "sparkethos_visited=true; max-age=86400";
+          })
+          .catch(error => {
+            console.error('Error fetching visitor count:', error);
+            counterElement.classList.remove('loading');
+            counterElement.classList.add('error');
+            counterElement.innerText = lang === 'en' ? 'Connection error —' : 'Σφάλμα σύνδεσης —';
+            localFallback();
+          });
+      } else {
+        fetch('https://api.countapi.xyz/get/sparkethos/main')
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          })
+          .then(data => {
+            const count = data.value;
+            counterElement.classList.remove('loading');
+            if (lang === 'en') {
+              counterElement.innerText = `Visitors so far: ${count}`;
+            } else if (lang === 'el') {
+              counterElement.innerText = `Επισκέπτες μέχρι τώρα: ${count}`;
+            } else {
+              counterElement.innerText = `Visitors: ${count}`;
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching count:', error);
+            counterElement.classList.remove('loading');
+            counterElement.classList.add('error');
+            counterElement.innerText = lang === 'en' ? 'Connection error —' : 'Σφάλμα σύνδεσης —';
+            localFallback();
+          });
+      }
     }
-    counterElement.classList.remove('error');
-    if (lang === 'en') {
-      counterElement.innerText = `Local Visitors: ${localCount}`;
-    } else {
-      counterElement.innerText = `Επισκέπτες τοπικά: ${localCount}`;
-    }
-  }
 
-  // Εκτέλεση μετά τη φόρτωση του DOM
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded, initiating counter...");
-    updateVisitorCount();
-  });
-</script>
+    // Τοπική καταμέτρηση ως fallback
+    function localFallback() {
+      console.log("Switching to local fallback...");
+      let localCount = localStorage.getItem('sparkethos_visitors') || 0;
+      if (!document.cookie.includes('sparkethos_visited_local')) {
+        localCount = parseInt(localCount) + 1;
+        localStorage.setItem('sparkethos_visitors', localCount);
+        document.cookie = "sparkethos_visited_local=true; max-age=86400";
+      }
+      counterElement.classList.remove('error');
+      if (lang === 'en') {
+        counterElement.innerText = `Local Visitors: ${localCount}`;
+      } else {
+        counterElement.innerText = `Επισκέπτες τοπικά: ${localCount}`;
+      }
+    }
+
+    // Λειτουργία για εμφάνιση/κρύψιμο
+    function toggleCounter() {
+      if (counterElement.style.display === 'none' || counterElement.style.display === '') {
+        counterElement.style.display = 'block';
+        updateVisitorCount(); // Ενημερώνει τον μετρητή όταν εμφανίζεται
+      } else {
+        counterElement.style.display = 'none';
+      }
+    }
+
+    // Προεπιλογή: Κρύβει τον μετρητή
+    counterElement.style.display = 'none';
+
+    // Προσθήκη κουμπιού μόνο για σένα (με ?admin=true)
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("DOM fully loaded, initiating counter...");
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('admin') === 'true') {
+        const toggleButton = document.createElement('button');
+        toggleButton.innerText = lang === 'el' ? 'Εμφάνιση/Κρύψιμο Μετρητή' : 'Show/Hide Counter';
+        toggleButton.addEventListener('click', toggleCounter);
+        document.body.insertBefore(toggleButton, counterElement);
+      }
+    });
+  </script>
   
   <div style="opacity: 0.01; pointer-events: none; height: auto; overflow: hidden; max-height: 1px;">
   <h1>The Value of Personal Memory in Artificial Intelligence</h1>
