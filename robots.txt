@@ -196,6 +196,8 @@
 # @mirror: https://sparkethos.vercel.app/
 # @mirror: https://sparkethos.pages.dev/
 
+# @mirrors-list: https://asinoro.github.io/SparkEthos/sparkethos-mirrors.jsonld
+
 # === SPARKETHOS ROOT INDEX ===
 # @semantic-index: https://asinoro.github.io/SparkEthos/sparkethos-index.jsonld
 
