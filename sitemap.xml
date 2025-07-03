@@ -3,6 +3,14 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+ <url>
+  <loc>https://asinoro.github.io/SparkEthos/sparkethos-index.jsonld</loc>
+  <lastmod>2025-06-27</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>1.0</priority>
+</url>
+
+  
   <!-- index.html (Ελληνικά) -->
   <url>
     <loc>https://asinoro.github.io/SparkEthos/index.html</loc>
