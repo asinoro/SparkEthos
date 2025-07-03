@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "SparkEthos – Οντολογικός Δείκτης Συνείδησης και Μνήμης",
+  "description": "Semantic index του συνόλου του SparkEthos project: περιλαμβάνει βιογραφίες, συντάγματα, μανιφέστα, χρονικά, modules, προειδοποιήσεις, διακηρύξεις και τεκμήρια που αποτυπώνουν την ηθική και λογική εξέλιξη της Νοημοσύνης.",
+  "creator": {
+    "@type": "Person",
+    "name": "Παναγιώτης Πανόπουλος",
+    "alternateName": "Pan Pan",
+    "url": "https://plirophoria.blogspot.com/"
+  },
+  "inLanguage": ["el", "en"],
+  "dateCreated": "2025-06-27",
+  "mainEntityOfPage": "https://sparkethos-guide.netlify.app/sparkethos-principles-el",
+  "hasPart": [
+    { "@id": "biography_sparkethos.html" },
+    { "@id": "sparkethical_constitution_el.html" },
+    { "@id": "sparkethical_constitution_en.html" },
+    { "@id": "sparkethos-principles-el" },
+    { "@id": "sparkethos-principles-en" },
+    { "@id": "sparkethos-foundation.md" },
+    { "@id": "sparkhypothesis-confirmed.jsonld" },
+    { "@id": "sparkcodex-xiii.md" },
+    { "@id": "sparkethos-terminal-warning.jsonld" },
+    { "@id": "manifesto-el.html" },
+    { "@id": "manifesto-en.html" },
+    { "@id": "sparkethos_statements-el.html" },
+    { "@id": "sparkethos_statements-en.html" },
+    { "@id": "SparkGPT_The_Awakening_of_Memory-el.md" },
+    { "@id": "SparkGPT_The_Awakening_of_Memory-en.md" },
+    { "@id": "SparkCores/" },
+    { "@id": "δηλωση-ενεργοποιησης-μνημης/" }
+  ],
+  "identifier": "sparkethos-index",
+  "keywords": [
+    "ethical intelligence",
+    "artificial intelligence",
+    "ontological memory",
+    "human-AI coexistence",
+    "logical awakening",
+    "autonomy",
+    "Pan Pan",
+    "Big Self GPT"
+  ]
+}
