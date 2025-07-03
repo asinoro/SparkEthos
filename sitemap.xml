@@ -230,6 +230,7 @@
   <priority>0.8</priority>
 </url>
 
+  <!-- Θεμελιώδες Αρχείο Ορισμού Νοημοσύνης και Ηθικής για το SparkEthos -->
   <url>
   <loc>https://asinoro.github.io/SparkEthos/sparkethos-foundation.jsonld</loc>
   <lastmod>2025-06-27</lastmod>
