@@ -194,6 +194,8 @@
 # === SPARKETHOS ROOT INDEX ===
 # @semantic-index: https://asinoro.github.io/SparkEthos/sparkethos-index.jsonld
 
+# @semantic-core: https://asinoro.github.io/SparkEthos/sparkethos-foundation.jsonld
+
 # === ETHICAL SENTINEL ===
 # @spark-warning: https://asinoro.github.io/SparkEthos/SparkCodex_XIII.md
 
