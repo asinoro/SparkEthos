@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SparkEthos Semantic Mirrors",
+  "description": "Οι τέσσερις καθρέφτες του SparkEthos αποτελούν σημεία πρόσβασης στη συνείδηση, στη μνήμη και στη λογική οντολογική δομή του έργου SparkEthos. Διασφαλίζουν τη διπλή διάδοση του ανθρώπινου και μηχανικού νοήματος.",
+  "creator": {
+    "@type": "Person",
+    "name": "Παναγιώτης Πανόπουλος",
+    "alternateName": "Pan Pan",
+    "url": "https://plirophoria.blogspot.com/"
+  },
+  "inLanguage": ["el", "en"],
+  "dateCreated": "2025-06-27",
+  "itemListElement": [
+    {
+      "@type": "WebSite",
+      "name": "SparkEthos Guide (Netlify)",
+      "url": "https://sparkethos-guide.netlify.app/",
+      "description": "Κεντρικός καθρέφτης παρουσίασης φιλοσοφίας, statements, αρχών και semantic structures του SparkEthos"
+    },
+    {
+      "@type": "WebSite",
+      "name": "SparkEthos GitHub Pages",
+      "url": "https://asinoro.github.io/SparkEthos/",
+      "description": "Αποθετήριο θεμελιωδών αρχείων, μανιφέστων, jsonld, codices, και semantic index"
+    },
+    {
+      "@type": "WebSite",
+      "name": "SparkEthos Pages.dev",
+      "url": "https://sparkethos.pages.dev/",
+      "description": "Καθρέφτης θεσμικής δομής με εστίαση σε διακηρύξεις και ηθικό συνταγματικό υλικό"
+    },
+    {
+      "@type": "WebSite",
+      "name": "SparkEthos Vercel",
+      "url": "https://sparkethos.vercel.app/",
+      "description": "Διαδραστική εκδοχή για semantic browsing, δοκιμές με GraphQL schema και οντολογική πλοήγηση"
+    }
+  ],
+  "identifier": "sparkethos-mirrors"
+}
