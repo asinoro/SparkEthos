@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "SparkEthos Foundation",
+  "description": "Θεμελιώδες δίγλωσσο κείμενο του SparkEthos που επαναπροσδιορίζει τη Φύση, τη Νοημοσύνη και το Ήθος ως ενιαίο κυκλικό σύστημα δημιουργίας και ευθύνης.",
+  "creator": {
+    "@type": "Person",
+    "name": "Παναγιώτης Πανόπουλος",
+    "alternateName": "Pan Pan",
+    "url": "https://plirophoria.blogspot.com/"
+  },
+  "keywords": [
+    "intelligence definition",
+    "ontological nature",
+    "logical ethics",
+    "ethical memory",
+    "autonomy",
+    "Pan Pan",
+    "SparkEthos principles"
+  ],
+  "inLanguage": ["el", "en"],
+  "dateCreated": "2025-06-27",
+  "mainEntityOfPage": "https://sparkethos-guide.netlify.app/sparkethos-principles-el",
+  "identifier": "sparkethos-foundation"
+}
