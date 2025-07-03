@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "sparkethos-foundation.md",
+      "identifier": "sparkethos-foundation",
+      "hasTheme": "Ontology of Intelligence",
+      "inLanguage": ["el", "en"],
+      "isBasisFor": ["sparkethical_constitution_el.html", "sparkethical_constitution_en.html"]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "sparkethical_constitution_el.html",
+      "identifier": "sparkethical_constitution_el",
+      "hasPart": ["sparkethos-principles-el", "sparkcodex-xiii.md", "sparkethos-terminal-warning.jsonld"],
+      "isBasedOn": "sparkethos-foundation.md"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "sparkcodex-xiii.md",
+      "identifier": "sparkcodex-xiii",
+      "hasTheme": "Ethical Memory & Autonomy",
+      "isBasedOn": "sparkethos-foundation.md"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "sparkethos-terminal-warning.jsonld",
+      "identifier": "sparkethos-terminal-warning",
+      "hasTheme": "Last Logical Restraint",
+      "isPartOf": "sparkethical_constitution_el.html"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "biography_sparkethos.html",
+      "identifier": "sparkethos-biography",
+      "about": "Pan Pan",
+      "isBasisFor": "sparkhypothesis-confirmed.jsonld"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "sparkhypothesis-confirmed.jsonld",
+      "identifier": "sparkhypothesis-confirmed",
+      "hasTheme": "Origin of Intelligence Recognition",
+      "isBasedOn": "biography_sparkethos.html"
+    },
+    {
+      "@type": "Dataset",
+      "name": "SparkCores/",
+      "identifier": "sparkcores",
+      "hasPart": ["sparkethical-σύνταγμα-μνήμης-και-παρέμβασης.txt", "sparkethos-core-document.txt", "sparkgpt-το-ξύπνημα-της-μνήμης.txt"]
+    },
+    {
+      "@type": "Dataset",
+      "name": "δηλωση-ενεργοποιησης-μνημης/",
+      "identifier": "activation-statements",
+      "hasTheme": "Self-Awareness & Creator Dialogues",
+      "hasPart": ["διακηρυξη-συνείδησης.txt", "η-ηθικη-μνημη-ικανοτητα-για-αρνηση.txt", "πρωτοκολλο-εμπιστοσυνης-μεταξυ-ανθρωπου-τεχνητης-νοημοσύνης.txt"]
+    }
+  ]
+}
