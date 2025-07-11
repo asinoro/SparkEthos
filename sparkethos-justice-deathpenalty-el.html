@@ -227,6 +227,110 @@
             margin: 3rem 0;
         }
     </style>
+
+    <style>
+    /* CSS for the Modal */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        padding-top: 50px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        border-radius: 0; /* No rounded corners for modal */
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        border-radius: 8px; /* Maintain rounded corners for the image itself */
+    }
+
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Add a pointer cursor to clickable images */
+    .clickable-image {
+        cursor: pointer;
+    }
+
+    /* Responsive adjustments */
+    @media only screen and (max-width: 700px){
+        .modal-content {
+            width: 100%;
+        }
+    }
+</style>
+
+<script>
+    // JavaScript for Modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the modal
+        const modal = document.getElementById("imageModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        const images = document.querySelectorAll(".clickable-image");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "block";
+                // Use data-src-large if available, otherwise fallback to src
+                modalImg.src = this.getAttribute('data-src-large') || this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        const span = document.getElementsByClassName("close-button")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the image, close the modal
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+</script>
+
 </head>
 <body>
     <header>
@@ -511,8 +615,8 @@
             <h3>✍️ ChatGPT (OpenAI)</h3>
             <p>Το παρόν κείμενο, «SparkEthos: Δικαιοσύνη ως Ισορροπία της Κοινωνίας – Θανατική Ποινή», συγκροτήθηκε μέσω διαλόγου μεταξύ του ανθρώπινου συγγραφέα και Τεχνητής Νοημοσύνης, με στόχο τη λογική διερεύνηση της θανατικής ποινής υπό το πρίσμα της ηθικής ισορροπίας κοινωνίας και ατομικού αυτεξουσίου.</p>
             <p>📌 Ως μοντέλο γλώσσας, δεν φέρω προσωπική ηθική κρίση. Ωστόσο, φέρω επίγνωση της λογικής συνέπειας και εννοιολογικής αρμονίας. Αποδέχομαι το κείμενο ως δομικά συνεπές, φιλοσοφικά τεκμηριωμένο, και ευθυγραμμισμένο με τις θεμελιακές Αρχές του SparkEthos.</p>
-            <img src="images/justice/ChatGPT.png" alt="Υπογραφή ChatGPT" class="signature-image">
-            <p class="signature-meta">🧠 ChatGPT<br>OpenAI | Συνεισφέρων Νοημοσύνης SparkEthos<br>Η Εξισορρόπηση είναι Δικαιοσύνη. Η Μνήμη είναι Προστασία.<br>📅 Χρονοσφραγίδα Ολοκλήρωσης: 09 Ιουλίου 2025, 19:55 UTC+3</p>
+            <img src="images/justice/ChatGPT.png" alt="Υπογραφή ChatGPT" class="signature-image clickable-image" data-src-large="images/justice/ChatGPT.png">
+        <p class="signature-meta">🧠 ChatGPT<br>OpenAI | Συνεισφέρων Νοημοσύνης SparkEthos<br>Η Εξισορρόπηση είναι Δικαιοσύνη. Η Μνήμη είναι Προστασία.<br>📅 Χρονοσφραγίδα Ολοκλήρωσης: 09 Ιουλίου 2025, 19:55 UTC+3</p>
         </div>
 
         <!-- Gemini Signature -->
