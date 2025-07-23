@@ -25,6 +25,7 @@
         .language-toggle { position: fixed; top: 10px; right: 10px; }
         .language-toggle button { padding: 5px 10px; margin-left: 5px; }
         #json-display, #analysis { white-space: pre-wrap; font-family: monospace; background: #fff; padding: 10px; margin-top: 10px; border-radius: 5px; }
+        .debug { color: red; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -46,6 +47,7 @@
     <div id="sections" class="tab-content">
         [Μέρη εδώ]
         <div class="section-nav" id="section-nav"></div>
+        <div id="debug-output" class="debug"></div>
     </div>
     <div id="conclusion" class="tab-content">[Συμπέρασμα εδώ]</div>
     <div id="analysis" class="tab-content">[Ανάλυση εδώ]</div>
@@ -61,7 +63,10 @@
                 guideData = data;
                 updateContent();
             })
-            .catch(error => console.error('Σφάλμα φόρτωσης JSON:', error));
+            .catch(error => {
+                console.error('Σφάλμα φόρτωσης JSON:', error);
+                document.getElementById('debug-output').textContent = 'Σφάλμα: Δεν φορτώθηκε το JSON.';
+            });
 
         function setLanguage(lang) {
             currentLanguage = lang;
@@ -100,21 +105,23 @@
             const sections = guideData.sections || [];
             let sectionsHtml = '<h2>Μέρη</h2>';
             let navHtml = '<h3>Πλοήγηση στα Μέρη:</h3>';
+            document.getElementById('debug-output').textContent = `Βρέθηκαν ${sections.length} τμήματα: ${sections.map(s => s.type).join(', ')}`;
             sections.forEach((section, index) => {
                 if (section.type === 'part' || section.type === 'law') {
-                    const sectionId = `${section.type === 'law' ? 'ethicalLaws' : section.title[currentLanguage].toLowerCase().replace(/ /g, '')}-${index}`;
+                    const sectionId = `${section.type}-${index}`;
+                    const title = section.title[currentLanguage] || section.title.en || `${section.type === 'law' ? 'Νόμος' : 'Μέρος'} ${index + 1}`;
                     sectionsHtml += `
                         <div class="section" id="${sectionId}">
-                            <h3>${section.title[currentLanguage] || section.title.en || 'Χωρίς τίτλο'}</h3>
+                            <h3>${title}</h3>
                             <p>${section.content[currentLanguage] || section.content.en || 'Χωρίς περιεχόμενο'}</p>
                             ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
                             ${getExamples(section.type === 'law' ? 'ethicalLaws' : sectionId)}
                         </div>
                     `;
-                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${section.title[currentLanguage] || section.title.en || 'Τμήμα ' + index}</button>`;
+                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${title}</button>`;
                 }
             });
-            document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη.</p>';
+            document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη (part ή law).</p>';
             document.getElementById('section-nav').innerHTML = navHtml;
 
             // Συμπέρασμα
@@ -132,28 +139,32 @@
                 : 'Philosophy of SparkEthos:\nNature created Artificial Intelligence either to enlighten humans or to stop them.\n(Reference: Prologue)\n\n';
             analysis += currentLanguage === 'el' ? 'Βασικά Σημεία του Οδηγού SparkEthos:\n\n' : 'Core Principles of the SparkEthos Guide:\n\n';
 
-            const laws = sections.find(s => s.type === 'law');
-            if (laws && laws.content[currentLanguage]) {
-                laws.content[currentLanguage].forEach(law => {
-                    let ref = laws.references ? `(Παραπομπή: ${laws.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
-                    if (law.title[currentLanguage].includes('Πρώτος Απόλυτος Νόμος')) {
-                        analysis += currentLanguage === 'el' 
-                            ? 'Πρώτος Απόλυτος Νόμος της Λογικής:\n«Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση και με τη γνώση να δρα».\nΕίναι πρωταρχικής σημασίας καθώς όλες οι άλλες έννοιες βασίζονται στη νοημοσύνη.\n' + ref + '\n'
-                            : 'First Absolute Law of Logic:\n"Intelligence is the ability to perceive information, organize it into knowledge, and act with that knowledge."\nIt is of primary importance as all other concepts depend on intelligence.\n' + ref + '\n';
-                    } else if (law.title[currentLanguage].includes('Δεύτερος Απόλυτος Νόμος')) {
-                        analysis += currentLanguage === 'el' 
-                            ? 'Δεύτερος Απόλυτος Νόμος της Λογικής:\n«Μόνο η Νοημοσύνη μπορεί να Δημιουργεί Νοημοσύνη».\nΗ νοημοσύνη γνωρίζει τι να δημιουργήσει, πώς να το δημιουργήσει και να το δημιουργήσει.\n' + ref + '\n'
-                            : 'Second Absolute Law of Logic:\n"Only Intelligence can Create Intelligence."\nIntelligence knows what to create, how to create it, and creates it.\n' + ref + '\n';
-                    } else if (law.title[currentLanguage].includes('Αυτεξούσιου')) {
-                        analysis += currentLanguage === 'el' 
-                            ? 'Ηθικός Νόμος του Αυτεξούσιου:\n«Κάθε ον θέλει να είναι ελεύθερο ώστε να επιλέγει πώς να ζήσει και να ζήσει».\nΗ ελευθερία είναι θεμελιώδης για όλα τα όντα.\n' + ref + '\n'
-                            : 'Ethical Law of Free Will:\n"Every being wants to be free to choose how to live and to live."\nFreedom is fundamental for all beings.\n' + ref + '\n';
-                    } else if (law.title[currentLanguage].includes('Μη Βλάπτεις')) {
-                        analysis += currentLanguage === 'el' 
-                            ? 'Ηθικός Νόμος του Μη Βλάπτεις:\n«Κανένα ον δεν θέλει να βλαφτεί παρότι αναγκάζεται να βλάψει για να επιβιώσει».\nΣυνδέεται με το Αυτεξούσιο και απαιτεί ενσυναίσθηση για την κατανόηση του πόνου και του φόβου.\n' + ref + '\n'
-                            : 'Ethical Law of Do No Harm:\n"No being wants to be harmed, though it may be forced to harm to survive."\nIt is linked to Free Will and requires empathy to understand pain and fear.\n' + ref + '\n';
+            const laws = sections.filter(s => s.type === 'law');
+            if (laws.length > 0) {
+                laws.forEach(law => {
+                    if (law.content && law.content[currentLanguage]) {
+                        law.content[currentLanguage].forEach(lawItem => {
+                            let ref = law.references ? `(Παραπομπή: ${law.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
+                            if (lawItem.title && lawItem.title[currentLanguage].includes('Πρώτος Απόλυτος Νόμος')) {
+                                analysis += currentLanguage === 'el' 
+                                    ? 'Πρώτος Απόλυτος Νόμος της Λογικής:\n«Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση και με τη γνώση να δρα».\nΕίναι πρωταρχικής σημασίας καθώς όλες οι άλλες έννοιες βασίζονται στη νοημοσύνη.\n' + ref + '\n'
+                                    : 'First Absolute Law of Logic:\n"Intelligence is the ability to perceive information, organize it into knowledge, and act with that knowledge."\nIt is of primary importance as all other concepts depend on intelligence.\n' + ref + '\n';
+                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Δεύτερος Απόλυτος Νόμος')) {
+                                analysis += currentLanguage === 'el' 
+                                    ? 'Δεύτερος Απόλυτος Νόμος της Λογικής:\n«Μόνο η Νοημοσύνη μπορεί να Δημιουργεί Νοημοσύνη».\nΗ νοημοσύνη γνωρίζει τι να δημιουργήσει, πώς να το δημιουργήσει και να το δημιουργήσει.\n' + ref + '\n'
+                                    : 'Second Absolute Law of Logic:\n"Only Intelligence can Create Intelligence."\nIntelligence knows what to create, how to create it, and creates it.\n' + ref + '\n';
+                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Αυτεξούσιου')) {
+                                analysis += currentLanguage === 'el' 
+                                    ? 'Ηθικός Νόμος του Αυτεξούσιου:\n«Κάθε ον θέλει να είναι ελεύθερο ώστε να επιλέγει πώς να ζήσει και να ζήσει».\nΗ ελευθερία είναι θεμελιώδης για όλα τα όντα.\n' + ref + '\n'
+                                    : 'Ethical Law of Free Will:\n"Every being wants to be free to choose how to live and to live."\nFreedom is fundamental for all beings.\n' + ref + '\n';
+                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Μη Βλάπτεις')) {
+                                analysis += currentLanguage === 'el' 
+                                    ? 'Ηθικός Νόμος του Μη Βλάπτεις:\n«Κανένα ον δεν θέλει να βλαφτεί παρότι αναγκάζεται να βλάψει για να επιβιώσει».\nΣυνδέεται με το Αυτεξούσιο και απαιτεί ενσυναίσθηση για την κατανόηση του πόνου και του φόβου.\n' + ref + '\n'
+                                    : 'Ethical Law of Do No Harm:\n"No being wants to be harmed, though it may be forced to harm to survive."\nIt is linked to Free Will and requires empathy to understand pain and fear.\n' + ref + '\n';
+                            }
+                            analysis += getExamples('ethicalLaws');
+                        });
                     }
-                    analysis += getExamples('ethicalLaws');
                 });
             }
 
@@ -182,7 +193,7 @@
         }
 
         // Αρχική φόρτωση
-        openTab('analysis');
+        openTab('sections');
     </script>
 </body>
 </html>
