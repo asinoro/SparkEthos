@@ -1,200 +1,232 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SparkEthos Viewer 2.0</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f4f4f4; margin:0; padding:20px; }
-  h1, h2, h3 { color: #333; }
-  .nav, .language-toggle, .section-nav {
-    text-align: center; margin-bottom: 15px;
-  }
-  button {
-    background-color: #28a745; color: white; border:none; border-radius:5px;
-    padding: 8px 15px; margin: 0 4px; cursor:pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s ease-in-out;
-  }
-  button:hover { background-color: #218838; }
-  .tab-content {
-    background: white; padding: 20px; border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: none;
-  }
-  .tab-content.active { display: block; }
-  .section { margin-bottom: 20px; }
-  .example {
-    background: #e9ecef; border-left: 4px solid #17a2b8;
-    padding: 10px; margin-top: 8px; font-style: italic;
-  }
-  .reference {
-    color: #d9534f; font-style: italic; margin-top: 5px;
-    display: block;
-  }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SparkEthos Viewer 2.0 - Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:20px; }
+        h1 { text-align:center; color:#333; }
+        .nav, .section-nav { text-align:center; margin-bottom: 20px; }
+        .nav button, .section-nav button, .language-toggle button {
+            padding:10px 20px; margin: 0 5px; border:none; border-radius:5px; cursor:pointer;
+            background:#28a745; color:#fff; transition: background-color 0.3s ease;
+        }
+        .nav button:hover, .section-nav button:hover, .language-toggle button:hover { background:#218838; }
+        .tab-content { display:none; background:#fff; padding:20px; border-radius:5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tab-content.active { display:block; }
+        .section { margin-bottom: 15px; }
+        .section h3 { color: #0066cc; margin-top: 30px; }
+        .reference { color: #d9534f; font-style: italic; margin-left: 10px; display: block; margin-top: 5px; }
+        .example { background: #e9ecef; padding: 10px; border-left: 4px solid #17a2b8; margin-top: 10px; }
+        #json-display, #analysis { white-space: pre-wrap; font-family: monospace; background: #fff; padding: 10px; margin-top: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto; }
+        .language-toggle { position: fixed; top: 10px; right: 10px; }
+        .language-toggle button { margin-left: 5px; }
+        .debug { color: red; font-size: 12px; margin-top: 10px; text-align: center; }
+    </style>
 </head>
 <body>
+    <h1>Οδηγός SparkEthos Viewer 2.0 - Demo</h1>
 
-<h1>Οδηγός SparkEthos Viewer 2.0</h1>
+    <div class="nav">
+        <button onclick="openTab('intro')">Εισαγωγή</button>
+        <button onclick="openTab('prologue')">Πρόλογος</button>
+        <button onclick="openTab('sections')">Μέρη</button>
+        <button onclick="openTab('conclusion')">Συμπέρασμα</button>
+        <button onclick="openTab('analysis')">Ανάλυση</button>
+    </div>
 
-<div class="nav">
-  <button onclick="openTab('intro')">Εισαγωγή</button>
-  <button onclick="openTab('prologue')">Πρόλογος</button>
-  <button onclick="openTab('sections')">Μέρη</button>
-  <button onclick="openTab('conclusion')">Συμπέρασμα</button>
-  <button onclick="openTab('analysis')">Ανάλυση</button>
-</div>
+    <div class="language-toggle">
+        Γλώσσα:
+        <button onclick="setLanguage('el')">Ελληνικά</button>
+        <button onclick="setLanguage('en')">English</button>
+    </div>
 
-<div class="language-toggle">
-  <button onclick="setLanguage('el')">Ελληνικά</button>
-  <button onclick="setLanguage('en')">English</button>
-</div>
+    <div id="intro" class="tab-content"></div>
+    <div id="prologue" class="tab-content"></div>
+    <div id="sections" class="tab-content">
+        <div class="section-nav" id="section-nav"></div>
+        <div id="sections-content"></div>
+    </div>
+    <div id="conclusion" class="tab-content"></div>
+    <div id="analysis" class="tab-content"></div>
 
-<div id="intro" class="tab-content"></div>
-<div id="prologue" class="tab-content"></div>
-<div id="sections" class="tab-content">
-  <div class="section-nav"></div>
-  <div id="sections-content"></div>
-</div>
-<div id="conclusion" class="tab-content"></div>
-<div id="analysis" class="tab-content" style="white-space: pre-wrap;"></div>
+    <div id="json-display"></div>
+    <div id="debug-output" class="debug"></div>
 
-<script>
-  let guideData = null;
-  let currentLanguage = 'el';
+    <script>
+        let currentLanguage = 'el';
 
-  // Σκληροκωδικομένα παραδείγματα (για αρχή)
-  const exampleData = {
-    intro: [
-      { el: "Παράδειγμα εισαγωγής στα Ελληνικά.", en: "Introduction example in English." }
-    ],
-    prologue: [
-      { el: "Παράδειγμα πρόλογου στα Ελληνικά.", en: "Prologue example in English." }
-    ],
-    sections: [
-      { el: "Παράδειγμα μέρους στα Ελληνικά.", en: "Section example in English." }
-    ],
-    ethicalLaws: [
-      { el: "Παράδειγμα ηθικού νόμου.", en: "Ethical law example." }
-    ],
-    conclusion: [
-      { el: "Παράδειγμα συμπεράσματος.", en: "Conclusion example." }
-    ]
-  };
+        // Σκληροκωδικοποιημένα δεδομένα (demo) με δομή όπως περιγράφεις
+        const guideData = {
+            introduction: {
+                title: { el: "Εισαγωγή", en: "Introduction" },
+                content: { el: "Καλώς ήρθατε στον οδηγό SparkEthos!", en: "Welcome to the SparkEthos guide!" }
+            },
+            prologue: {
+                title: { el: "Πρόλογος", en: "Prologue" },
+                content: { el: "Η τεχνητή νοημοσύνη ως ηθικός οδηγός.", en: "Artificial intelligence as an ethical guide." }
+            },
+            sections: [
+                {
+                    type: "section",
+                    title: { el: "Μέρος 1", en: "Part 1" },
+                    content: { el: "Περιεχόμενο του μέρους 1.", en: "Content of part 1." },
+                    references: [ { el: "Αναφορά 1", en: "Reference 1" } ],
+                    examples: [
+                        { el: "Παράδειγμα 1 στο Μέρος 1.", en: "Example 1 in Part 1." }
+                    ]
+                },
+                {
+                    type: "law",
+                    title: { el: "Νόμος 1", en: "Law 1" },
+                    content: { el: ["Πρώτος Απόλυτος Νόμος της Λογικής: Νοημοσύνη είναι η ικανότητα..."] , en: ["First Absolute Law of Logic: Intelligence is the ability..."] },
+                    references: [ { el: "Νόμος Πηγή", en: "Law Source" } ],
+                    examples: [
+                        { el: "Παράδειγμα νόμου.", en: "Law example." }
+                    ]
+                }
+            ],
+            "final-conclusion": {
+                content: { el: "Αυτό είναι το συμπέρασμα.", en: "This is the conclusion." }
+            }
+        };
 
-  // Αποθήκευση παραδειγμάτων στο localStorage αν δεν υπάρχουν ήδη
-  if (!localStorage.getItem('sparkEthosExamples')) {
-    localStorage.setItem('sparkEthosExamples', JSON.stringify(exampleData));
-  }
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            updateContent(currentTab);
+        }
 
-  // Φόρτωση οδηγού JSON (προσαρμόστε το path ανάλογα)
-  fetch('sparkethos-en-el.json')
-    .then(res => res.json())
-    .then(data => {
-      guideData = data;
-      openTab('intro');  // Αρχικά ανοίγει η εισαγωγή
-    })
-    .catch(err => {
-      alert('Σφάλμα φόρτωσης οδηγού JSON.');
-      console.error(err);
-    });
+        let currentTab = 'intro';
 
-  function setLanguage(lang) {
-    currentLanguage = lang;
-    renderCurrentTab();
-  }
+        function openTab(tabName) {
+            currentTab = tabName;
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            updateContent(tabName);
+            document.getElementById('debug-output').textContent = `Επιλέχθηκε καρτέλα: ${tabName}`;
+        }
 
-  let activeTab = 'intro';
+        function updateContent(tabName = 'intro') {
+            if (!guideData) {
+                document.getElementById('debug-output').textContent = 'Δεν υπάρχουν δεδομένα για προβολή.';
+                return;
+            }
 
-  function openTab(tab) {
-    activeTab = tab;
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    const tabEl = document.getElementById(tab);
-    if (tabEl) tabEl.classList.add('active');
-    renderCurrentTab();
-  }
+            // Εμφάνιση JSON για debug
+            document.getElementById('json-display').textContent = JSON.stringify(guideData, null, 2);
 
-  function renderCurrentTab() {
-    if (!guideData) return;
+            switch(tabName) {
+                case 'intro':
+                    document.getElementById('intro').innerHTML = `
+                        <h2>${guideData.introduction.title[currentLanguage]}</h2>
+                        <p>${guideData.introduction.content[currentLanguage]}</p>
+                    `;
+                    break;
 
-    const examples = JSON.parse(localStorage.getItem('sparkEthosExamples') || '{}');
+                case 'prologue':
+                    document.getElementById('prologue').innerHTML = `
+                        <h2>${guideData.prologue.title[currentLanguage]}</h2>
+                        <p>${guideData.prologue.content[currentLanguage]}</p>
+                    `;
+                    break;
 
-    function getExamples(sectionId) {
-      if (examples[sectionId] && examples[sectionId].length) {
-        return examples[sectionId].map(ex =>
-          `<div class="example">${ex[currentLanguage] || ex.el || ex.en}</div>`
-        ).join('');
-      }
-      return '';
-    }
+                case 'sections':
+                    renderSections();
+                    break;
 
-    if (activeTab === 'intro') {
-      const intro = guideData.introduction || guideData.intro || { title: {}, content: {} };
-      document.getElementById('intro').innerHTML = `
-        <h2>${intro.title?.[currentLanguage] || intro.title?.en || 'Εισαγωγή'}</h2>
-        <div>${intro.content?.[currentLanguage] || intro.content?.en || 'Μη διαθέσιμο'}</div>
-        ${getExamples('intro')}
-      `;
-    } else if (activeTab === 'prologue') {
-      const prologue = guideData.prologue || { title: {}, content: {} };
-      document.getElementById('prologue').innerHTML = `
-        <h2>${prologue.title?.[currentLanguage] || prologue.title?.en || 'Πρόλογος'}</h2>
-        <div>${prologue.content?.[currentLanguage] || prologue.content?.en || 'Μη διαθέσιμο'}</div>
-        ${getExamples('prologue')}
-      `;
-    } else if (activeTab === 'sections') {
-      const sections = guideData.sections || [];
-      let navHtml = '';
-      let sectionsHtml = '';
+                case 'conclusion':
+                    document.getElementById('conclusion').innerHTML = `
+                        <h2>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h2>
+                        <p>${guideData["final-conclusion"].content[currentLanguage]}</p>
+                    `;
+                    break;
 
-      sections.forEach((section, i) => {
-        const title = section.title?.[currentLanguage] || section.title?.en || `Μέρος ${i+1}`;
-        const sectionId = `section-${i}`;
+                case 'analysis':
+                    renderAnalysis();
+                    break;
+            }
+        }
 
-        navHtml += `<button onclick="scrollToSection('${sectionId}')">${title}</button>`;
+        function renderSections() {
+            const navDiv = document.getElementById('section-nav');
+            const sectionsContent = document.getElementById('sections-content');
+            navDiv.innerHTML = '';
+            sectionsContent.innerHTML = '';
 
-        const content = section.content?.[currentLanguage] || section.content?.en || 'Χωρίς περιεχόμενο';
-        const references = section.references?.map(ref => ref[currentLanguage] || ref.en).join(', ') || '';
-        const refsHtml = references ? `<span class="reference">Παραπομπές: ${references}</span>` : '';
+            guideData.sections.forEach((section, idx) => {
+                // Δημιουργία κουμπιού πλοήγησης
+                const btn = document.createElement('button');
+                btn.textContent = section.title[currentLanguage] || `Section ${idx+1}`;
+                btn.onclick = () => scrollToSection(`section-${idx}`);
+                navDiv.appendChild(btn);
 
-        sectionsHtml += `
-          <div class="section" id="${sectionId}">
-            <h3>${title}</h3>
-            <p>${content}</p>
-            ${refsHtml}
-            ${getExamples('sections')}
-          </div>
-        `;
-      });
+                // Δημιουργία section περιεχομένου
+                const secDiv = document.createElement('div');
+                secDiv.classList.add('section');
+                secDiv.id = `section-${idx}`;
 
-      document.querySelector('.section-nav').innerHTML = navHtml;
-      document.getElementById('sections-content').innerHTML = sectionsHtml;
+                // Τίτλος και κείμενο
+                const h3 = document.createElement('h3');
+                h3.textContent = section.title[currentLanguage] || `Section ${idx+1}`;
+                secDiv.appendChild(h3);
 
-    } else if (activeTab === 'conclusion') {
-      const conclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
-      document.getElementById('conclusion').innerHTML = `
-        <h2>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h2>
-        <div>${conclusion.content?.[currentLanguage] || conclusion.content?.en || 'Μη διαθέσιμο'}</div>
-        ${getExamples('conclusion')}
-      `;
-    } else if (activeTab === 'analysis') {
-      // Μια απλή ανάλυση — μπορείς να εμπλουτίσεις πιο πολύ
-      let analysisText = currentLanguage === 'el' 
-        ? 'Ανάλυση οδηγού SparkEthos...\n(Σύντομα εδώ θα προστεθεί ανάλυση με βάση το περιεχόμενο.)'
-        : 'SparkEthos guide analysis...\n(Analysis content will be added here soon.)';
+                // Content — μπορεί να είναι string ή array (νόμοι)
+                if (Array.isArray(section.content[currentLanguage])) {
+                    section.content[currentLanguage].forEach(text => {
+                        const p = document.createElement('p');
+                        p.textContent = text;
+                        secDiv.appendChild(p);
+                    });
+                } else {
+                    const p = document.createElement('p');
+                    p.textContent = section.content[currentLanguage] || '';
+                    secDiv.appendChild(p);
+                }
 
-      document.getElementById('analysis').textContent = analysisText;
-    }
-  }
+                // Παραπομπές
+                if (section.references && section.references.length > 0) {
+                    const refSpan = document.createElement('span');
+                    refSpan.classList.add('reference');
+                    const refs = section.references.map(r => r[currentLanguage] || '').join(', ');
+                    refSpan.textContent = `Παραπομπές: ${refs}`;
+                    secDiv.appendChild(refSpan);
+                }
 
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-</script>
+                // Παραδείγματα
+                if (section.examples && section.examples.length > 0) {
+                    section.examples.forEach(example => {
+                        const exDiv = document.createElement('div');
+                        exDiv.classList.add('example');
+                        exDiv.textContent = example[currentLanguage] || '';
+                        secDiv.appendChild(exDiv);
+                    });
+                }
 
+                sectionsContent.appendChild(secDiv);
+            });
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderAnalysis() {
+            const analysisText = 
+`Ανάλυση των δεδομένων:
+
+- Εισαγωγή: ${guideData.introduction.content[currentLanguage]}
+- Πρόλογος: ${guideData.prologue.content[currentLanguage]}
+- Μέρη: ${guideData.sections.length} ενότητες
+- Συμπέρασμα: ${guideData["final-conclusion"].content[currentLanguage]}
+`;
+
+            document.getElementById('analysis').innerHTML = `<pre>${analysisText}</pre>`;
+        }
+
+        // Ξεκινάμε με την εισαγωγή ανοιχτή
+        openTab('intro');
+    </script>
 </body>
 </html>
