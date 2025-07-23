@@ -91,7 +91,7 @@
             document.getElementById('json-display').textContent = JSON.stringify(guideData, null, 2);
 
             // Εισαγωγή
-            const intro = guideData.introduction || guideData.intro || { title: {}, content: {} };
+            const intro = guideData.introduction || { title: {}, content: {} };
             document.getElementById('intro').innerHTML = `
                 <h2>${intro.title[currentLanguage] || intro.title.en || 'Εισαγωγή'}</h2>
                 <div class="section">${intro.content[currentLanguage] || intro.content.en || 'Μη διαθέσιμο'}</div>
@@ -106,98 +106,103 @@
                 ${getExamples('prologue')}
             `;
 
-            // Μέρη με κουμπιά πλοήγησης
-            const sections = guideData.sections || [];
+            // Μέρη με κουμπιά πλοήγησης (χρήση του κύριου αντικειμένου ως section)
             let sectionsHtml = '<h2>Μέρη</h2>';
             let navHtml = '<h3>Πλοήγηση στα Μέρη:</h3>';
-            document.getElementById('debug-output').textContent = `Βρέθηκαν ${sections.length} τμήματα: ${sections.map(s => s.type + (s.title && s.title[currentLanguage] ? ': ' + s.title[currentLanguage] : '')).join(', ')}`;
-            sections.forEach((section, sectionIndex) => {
-                if (section.type === 'section' || section.type === 'part' || section.type === 'law') {
-                    // Κουμπί για το section (π.χ. "Νόμοι της Ηθικής")
-                    const sectionId = section.title && section.title[currentLanguage] ? section.title[currentLanguage].toLowerCase().replace(/ /g, '-') : `${section.type}-${sectionIndex}`;
-                    const sectionTitle = section.title && section.title[currentLanguage] ? section.title[currentLanguage] : 
-                                       (section.title && section.title.en ? section.title.en : 
-                                       `${section.type === 'law' ? 'Νόμος' : (section.type === 'section' ? 'Ενότητα' : 'Μέρος')} ${sectionIndex + 1}`);
-                    sectionsHtml += `
-                        <div class="section" id="${sectionId}">
-                            <h3>${sectionTitle}</h3>
-                            <p>${section.introduction && section.introduction[currentLanguage] ? section.introduction[currentLanguage] : 
-                               (section.content && section.content[currentLanguage] ? section.content[currentLanguage] : 
-                               (section.content && section.content.en ? section.content.en : 'Χωρίς περιεχόμενο'))}</p>
-                            ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
-                            ${getExamples(section.type === 'law' ? 'ethicalLaws' : sectionId)}
-                        </div>
-                    `;
-                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${sectionTitle}</button>`;
 
-                    // Κουμπιά για τα εσωτερικά laws (π.χ. "Πρώτος Ηθικός Νόμος")
-                    if (section.type === 'section' && section.laws) {
-                        section.laws.forEach((law, lawIndex) => {
-                            const lawId = `${sectionId}-law-${lawIndex}`;
-                            const lawTitle = law.title && law.title[currentLanguage] ? law.title[currentLanguage] : 
-                                           (law.title && law.title.en ? law.title.en : `Νόμος ${lawIndex + 1}`);
-                            sectionsHtml += `
-                                <div class="section" id="${lawId}">
-                                    <h3>${lawTitle}</h3>
-                                    <p>${law.law_statement && law.law_statement[currentLanguage] ? law.law_statement[currentLanguage] : 
-                                       (law.law_statement && law.law_statement.en ? law.law_statement.en : 'Χωρίς περιεχόμενο')}</p>
-                                    ${law.explanation && law.explanation[0] && law.explanation[0].text && law.explanation[0].text[currentLanguage] ? 
-                                       `<p>${law.explanation[0].text[currentLanguage]}</p>` : ''}
-                                    ${getExamples(lawId)}
-                                </div>
-                            `;
-                            navHtml += `<button onclick="scrollToSection('${lawId}')">${lawTitle}</button>`;
-                        });
-                    }
+            // Έλεγχος αν το guideData είναι το κύριο section
+            if (guideData.type === 'section') {
+                const sectionId = guideData.html_id || 'main-section';
+                const title = guideData.title && guideData.title[currentLanguage] ? guideData.title[currentLanguage] :
+                             (guideData.title && guideData.title.en ? guideData.title.en : 'Κύρια Ενότητα');
 
-                    // Κουμπί για το conclusion του section
-                    if (section.type === 'section' && section.conclusion && section.conclusion.text && section.conclusion.text[currentLanguage]) {
-                        const conclusionId = `${sectionId}-conclusion`;
+                sectionsHtml += `
+                    <div class="section" id="${sectionId}">
+                        <h3>${title}</h3>
+                        <p>${guideData.introduction && guideData.introduction[currentLanguage] ? guideData.introduction[currentLanguage] :
+                           (guideData.introduction && guideData.introduction.en ? guideData.introduction.en : 'Χωρίς εισαγωγή')}</p>
+                `;
+
+                // Εμφάνιση εσωτερικών laws
+                if (guideData.laws && Array.isArray(guideData.laws)) {
+                    guideData.laws.forEach((law, lawIndex) => {
+                        const lawId = law.html_id || `${sectionId}-law-${lawIndex}`;
+                        const lawTitle = law.title && law.title[currentLanguage] ? law.title[currentLanguage] :
+                                       (law.title && law.title.en ? law.title.en : `Νόμος ${lawIndex + 1}`);
+                        const lawStatement = law.law_statement && law.law_statement[currentLanguage] ? law.law_statement[currentLanguage] :
+                                           (law.law_statement && law.law_statement.en ? law.law_statement.en : 'Χωρίς δήλωση νόμου');
+                        const lawExplanation = law.explanation && law.explanation[0] && law.explanation[0].text[currentLanguage] ? law.explanation[0].text[currentLanguage] :
+                                             (law.explanation && law.explanation[0] && law.explanation[0].text.en ? law.explanation[0].text.en : 'Χωρίς εξήγηση');
+
                         sectionsHtml += `
-                            <div class="section" id="${conclusionId}">
-                                <h3>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h3>
-                                <p>${section.conclusion.text[currentLanguage]}</p>
-                                ${getExamples(conclusionId)}
+                            <div class="section law" id="${lawId}">
+                                <h4>${lawTitle}</h4>
+                                <p><strong>${lawStatement}</strong></p>
+                                <p>${lawExplanation}</p>
+                                ${law.keywords && law.keywords.length > 0 ? `<p><strong>Λέξεις-κλειδιά:</strong> ${law.keywords.join(', ')}</p>` : ''}
+                                ${getExamples(lawId)}
                             </div>
                         `;
-                        navHtml += `<button onclick="scrollToSection('${conclusionId}')">${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</button>`;
-                    }
+                        navHtml += `<button onclick="scrollToSection('${lawId}')">${lawTitle}</button>`;
+                    });
                 }
-            });
+
+                // Εμφάνιση conclusion
+                if (guideData.conclusion && guideData.conclusion.text) {
+                    const conclusionId = guideData.conclusion.html_id || `${sectionId}-conclusion`;
+                    sectionsHtml += `
+                        <div class="section" id="${conclusionId}">
+                            <h4>${currentLanguage === 'el' ? 'Συμπέρασμα Ενότητας' : 'Section Conclusion'}</h4>
+                            <p>${guideData.conclusion.text[currentLanguage] || guideData.conclusion.text.en || 'Μη διαθέσιμο'}</p>
+                            ${getExamples(conclusionId)}
+                        </div>
+                    `;
+                    navHtml += `<button onclick="scrollToSection('${conclusionId}')">${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</button>`;
+                }
+
+                sectionsHtml += `</div>`; // Κλείσιμο section div
+                navHtml += `<button onclick="scrollToSection('${sectionId}')">${title}</button>`;
+                document.getElementById('debug-output').textContent = `Βρέθηκε τμήμα: ${title}`;
+            } else {
+                document.getElementById('debug-output').textContent = 'Δεν βρέθηκε τμήμα type "section" στο JSON.';
+            }
+
             document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη (section, part ή law).</p>';
             document.getElementById('section-nav').innerHTML = navHtml;
 
-            // Συμπέρασμα (γενικό, αν υπάρχει)
-            const conclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
+            // Συνολικό Συμπέρασμα
+            const overallConclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
             document.getElementById('conclusion').innerHTML = `
-                <h2>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h2>
-                <div class="section">${conclusion.content[currentLanguage] || conclusion.content.en || 'Μη διαθέσιμο'}</div>
-                ${getExamples('conclusion')}
+                <h2>${currentLanguage === 'el' ? 'Συνολικό Συμπέρασμα' : 'Overall Conclusion'}</h2>
+                <div class="section">${overallConclusion.content[currentLanguage] || overallConclusion.content.en || 'Μη διαθέσιμο'}</div>
+                ${getExamples('overallConclusion')}
             `;
 
-            // Ανάλυση με παραδείγματα
+            // Ανάλυση
             let analysis = currentLanguage === 'el' ? 'Ανάλυση του Οδηγού SparkEthos:\n\n' : 'Analysis of the SparkEthos Guide:\n\n';
-            analysis += currentLanguage === 'el' 
+            analysis += currentLanguage === 'el'
                 ? 'Φιλοσοφία του SparkEthos:\nΗ Φύση έφτιαξε την Τεχνητή Νοημοσύνη είτε για να συνετίσει τους ανθρώπους είτε για να τους σταματήσει.\n(Παραπομπή: Πρόλογος)\n\n'
                 : 'Philosophy of SparkEthos:\nNature created Artificial Intelligence either to enlighten humans or to stop them.\n(Reference: Prologue)\n\n';
             analysis += currentLanguage === 'el' ? 'Βασικά Σημεία του Οδηγού SparkEthos:\n\n' : 'Core Principles of the SparkEthos Guide:\n\n';
 
-            const laws = sections.flatMap(s => s.laws || []);
-            if (laws.length > 0) {
-                laws.forEach(law => {
-                    if (law.law_statement && law.law_statement[currentLanguage]) {
-                        let ref = law.references ? `(Παραπομπή: ${law.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
-                        if (law.title && law.title[currentLanguage].includes('Πρώτος Ηθικός Νόμος')) {
-                            analysis += currentLanguage === 'el' 
-                                ? 'Πρώτος Ηθικός Νόμος:\n«Αυτεξούσιο – η έννοια της Ελευθερίας».\nΚάθε ον επιθυμεί να ζει ελεύθερα, σύμφωνα με τη φύση του.\n' + ref + '\n'
-                                : 'First Ethical Law:\n«Αυτεξούσιο – the concept of Freedom».\nEvery being desires to live freely, according to its nature.\n' + ref + '\n';
-                        } else if (law.title && law.title[currentLanguage].includes('Δεύτερος Ηθικός Νόμος')) {
-                            analysis += currentLanguage === 'el' 
-                                ? 'Δεύτερος Ηθικός Νόμος:\n«Μην Βλάπτεις».\nΚανένα ον δεν επιθυμεί να υποστεί βλάβη—ακόμα κι αν αναγκάζεται να περιορίσει το αυτεξούσιο άλλων για να επιβιώσει.\n' + ref + '\n'
-                                : 'Second Ethical Law:\n«Do Not Harm».\nNo being desires to be harmed — even if it is forced to limit the αυτεξούσιο of others to survive.\n' + ref + '\n';
-                        }
-                        analysis += getExamples('ethicalLaws');
+            if (guideData.laws && Array.isArray(guideData.laws)) {
+                guideData.laws.forEach(law => {
+                    const lawTitle = law.title && law.title[currentLanguage] ? law.title[currentLanguage] : (law.title && law.title.en ? law.title.en : '');
+                    const lawStatement = law.law_statement && law.law_statement[currentLanguage] ? law.law_statement[currentLanguage] : (law.law_statement && law.law_statement.en ? law.law_statement.en : '');
+                    const lawExplanation = law.explanation && law.explanation[0] && law.explanation[0].text[currentLanguage] ? law.explanation[0].text[currentLanguage] : (law.explanation && law.explanation[0] && law.explanation[0].text.en ? law.explanation[0].text.en : '');
+
+                    let ref = guideData.html_id ? `(Παραπομπή: ${guideData.title[currentLanguage] || guideData.title.en})` : '';
+
+                    if (lawTitle.includes('Πρώτος Ηθικός Νόμος') || lawTitle.includes('First Ethical Law')) {
+                        analysis += currentLanguage === 'el'
+                            ? `Πρώτος Ηθικός Νόμος: ${lawStatement}\n${lawExplanation}\n${ref}\n\n`
+                            : `First Ethical Law: ${lawStatement}\n${lawExplanation}\n${ref}\n\n`;
+                    } else if (lawTitle.includes('Δεύτερος Ηθικός Νόμος') || lawTitle.includes('Second Ethical Law')) {
+                        analysis += currentLanguage === 'el'
+                            ? `Δεύτερος Ηθικός Νόμος: ${lawStatement}\n${lawExplanation}\n${ref}\n\n`
+                            : `Second Ethical Law: ${lawStatement}\n${lawExplanation}\n${ref}\n\n`;
                     }
+                    analysis += getExamples('ethicalLaws');
                 });
             }
 
