@@ -74,9 +74,14 @@
         }
 
         function openTab(tabName) {
+            if (!document.getElementById(tabName)) {
+                console.error(`Καρτέλα ${tabName} δεν βρέθηκε!`);
+                return;
+            }
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             updateContent(tabName);
+            document.getElementById('debug-output').textContent = `Επιλέχθηκε καρτέλα: ${tabName}`;
         }
 
         function updateContent(tabName = 'intro') {
@@ -105,15 +110,18 @@
             const sections = guideData.sections || [];
             let sectionsHtml = '<h2>Μέρη</h2>';
             let navHtml = '<h3>Πλοήγηση στα Μέρη:</h3>';
-            document.getElementById('debug-output').textContent = `Βρέθηκαν ${sections.length} τμήματα: ${sections.map(s => s.type).join(', ')}`;
+            document.getElementById('debug-output').textContent = `Βρέθηκαν ${sections.length} τμήματα: ${sections.map(s => s.type + (s.title && s.title[currentLanguage] ? ': ' + s.title[currentLanguage] : '')).join(', ')}`;
             sections.forEach((section, index) => {
-                if (section.type === 'part' || section.type === 'law') {
-                    const sectionId = `${section.type}-${index}`;
-                    const title = section.title[currentLanguage] || section.title.en || `${section.type === 'law' ? 'Νόμος' : 'Μέρος'} ${index + 1}`;
+                if (section.type === 'section' || section.type === 'part' || section.type === 'law') {
+                    const sectionId = section.title && section.title[currentLanguage] ? section.title[currentLanguage].toLowerCase().replace(/ /g, '-') : `${section.type}-${index}`;
+                    const title = section.title && section.title[currentLanguage] ? section.title[currentLanguage] : 
+                                 (section.title && section.title.en ? section.title.en : 
+                                 `${section.type === 'law' ? 'Νόμος' : (section.type === 'section' ? 'Ενότητα' : 'Μέρος')} ${index + 1}`);
                     sectionsHtml += `
                         <div class="section" id="${sectionId}">
                             <h3>${title}</h3>
-                            <p>${section.content[currentLanguage] || section.content.en || 'Χωρίς περιεχόμενο'}</p>
+                            <p>${section.content && section.content[currentLanguage] ? section.content[currentLanguage] : 
+                               (section.content && section.content.en ? section.content.en : 'Χωρίς περιεχόμενο')}</p>
                             ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
                             ${getExamples(section.type === 'law' ? 'ethicalLaws' : sectionId)}
                         </div>
@@ -121,7 +129,7 @@
                     navHtml += `<button onclick="scrollToSection('${sectionId}')">${title}</button>`;
                 }
             });
-            document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη (part ή law).</p>';
+            document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη (section, part ή law).</p>';
             document.getElementById('section-nav').innerHTML = navHtml;
 
             // Συμπέρασμα
@@ -179,7 +187,14 @@
         }
 
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('debug-output').textContent = `Μετακίνηση σε: ${sectionId}`;
+            } else {
+                console.error(`Τμήμα ${sectionId} δεν βρέθηκε!`);
+                document.getElementById('debug-output').textContent = `Σφάλμα: Τμήμα ${sectionId} δεν βρέθηκε.`;
+            }
         }
 
         function getExamples(sectionId) {
