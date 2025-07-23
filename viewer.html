@@ -13,14 +13,15 @@
         body { font-family: Arial, sans-serif; padding: 20px; margin: 0; background-color: #f4f4f4; }
         h1 { text-align: center; color: #333; }
         .nav { margin-bottom: 20px; text-align: center; }
-        .nav button { padding: 10px 20px; margin: 0 5px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px; }
-        .nav button:hover { background-color: #218838; }
+        .nav button, .section-nav button { padding: 10px 20px; margin: 0 5px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .nav button:hover, .section-nav button:hover { background-color: #218838; }
         .tab-content { display: none; padding: 20px; background: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .tab-content.active { display: block; }
         .section { margin-bottom: 15px; }
         .section h3 { color: #0066cc; }
         .reference { color: #d9534f; font-style: italic; margin-left: 10px; }
         .example { background: #e9ecef; padding: 10px; border-left: 4px solid #17a2b8; margin-top: 10px; }
+        .section-nav { margin: 10px 0; text-align: center; }
         .language-toggle { position: fixed; top: 10px; right: 10px; }
         .language-toggle button { padding: 5px 10px; margin-left: 5px; }
         #json-display, #analysis { white-space: pre-wrap; font-family: monospace; background: #fff; padding: 10px; margin-top: 10px; border-radius: 5px; }
@@ -42,7 +43,10 @@
 
     <div id="intro" class="tab-content">[Εισαγωγή εδώ]</div>
     <div id="prologue" class="tab-content">[Πρόλογος εδώ]</div>
-    <div id="sections" class="tab-content">[Μέρη εδώ]</div>
+    <div id="sections" class="tab-content">
+        [Μέρη εδώ]
+        <div class="section-nav" id="section-nav"></div>
+    </div>
     <div id="conclusion" class="tab-content">[Συμπέρασμα εδώ]</div>
     <div id="analysis" class="tab-content">[Ανάλυση εδώ]</div>
     <div id="json-display">[JSON εδώ]</div>
@@ -92,23 +96,26 @@
                 ${getExamples('prologue')}
             `;
 
-            // Μέρη με παραδείγματα
+            // Μέρη με κουμπιά πλοήγησης
             const sections = guideData.sections || [];
             let sectionsHtml = '<h2>Μέρη</h2>';
-            sections.forEach(section => {
+            let navHtml = '<h3>Πλοήγηση στα Μέρη:</h3>';
+            sections.forEach((section, index) => {
                 if (section.type === 'part' || section.type === 'law') {
-                    const sectionId = section.type === 'law' ? 'ethicalLaws' : section.title[currentLanguage].toLowerCase().replace(/ /g, '');
+                    const sectionId = `${section.type === 'law' ? 'ethicalLaws' : section.title[currentLanguage].toLowerCase().replace(/ /g, '')}-${index}`;
                     sectionsHtml += `
-                        <div class="section">
+                        <div class="section" id="${sectionId}">
                             <h3>${section.title[currentLanguage] || section.title.en || 'Χωρίς τίτλο'}</h3>
                             <p>${section.content[currentLanguage] || section.content.en || 'Χωρίς περιεχόμενο'}</p>
                             ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
-                            ${getExamples(sectionId)}
+                            ${getExamples(section.type === 'law' ? 'ethicalLaws' : sectionId)}
                         </div>
                     `;
+                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${section.title[currentLanguage] || section.title.en || 'Τμήμα ' + index}</button>`;
                 }
             });
             document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη.</p>';
+            document.getElementById('section-nav').innerHTML = navHtml;
 
             // Συμπέρασμα
             const conclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
@@ -158,6 +165,10 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: analysis, from: 'Grok' })
             }).catch(error => console.error('Webhook error:', error));
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
         function getExamples(sectionId) {
