@@ -11,19 +11,28 @@
         select, textarea, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
         button { background-color: #28a745; color: white; border: none; cursor: pointer; }
         button:hover { background-color: #218838; }
+        #exportBtn { background-color: #007bff; }
+        #exportBtn:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
     <h1>Εισαγωγή Παραδειγμάτων για τον Οδηγό SparkEthos</h1>
     <div class="form-container">
         <select id="sectionSelect">
-            <option value="ethicalLaws">Νόμοι της Ηθικής</option>
-            <option value="logicalLaws">Νόμοι της Λογικής</option>
-            <option value="other">Άλλο Τμήμα</option>
+            <option value="ethicalLaws">Νόμοι της Ηθικής (Ενότητα)</option>
+            <option value="firstEthicalLaw">Πρώτος Ηθικός Νόμος</option>
+            <option value="secondEthicalLaw">Δεύτερος Ηθικός Νόμος</option>
+            <option value="logicalLaws">Νόμοι της Λογικής (Ενότητα)</option>
+            <option value="firstLogicalLaw">Πρώτος Λογικός Νόμος</option>
+            <option value="secondLogicalLaw">Δεύτερος Λογικός Νόμος</option>
+            <option value="overallConclusion">Συνολικό Συμπέρασμα</option>
+            <option value="intro">Εισαγωγή</option>
+            <option value="prologue">Πρόλογος</option>
         </select>
         <textarea id="exampleEl" rows="3" placeholder="Παράδειγμα στα Ελληνικά..."></textarea>
         <textarea id="exampleEn" rows="3" placeholder="Example in English..."></textarea>
         <button onclick="submitExample()">Υποβολή</button>
+        <button id="exportBtn" onclick="exportExamples()">📤 Εξαγωγή Παραδειγμάτων</button>
     </div>
 
     <script>
@@ -37,12 +46,30 @@
                 if (!examples[section]) examples[section] = [];
                 examples[section].push({ el: exampleEl, en: exampleEn });
                 localStorage.setItem('sparkEthosExamples', JSON.stringify(examples));
-                alert('Παράδειγμα αποθηκεύτηκε!');
+                alert('✅ Παράδειγμα αποθηκεύτηκε για: ' + section);
                 document.getElementById('exampleEl').value = '';
                 document.getElementById('exampleEn').value = '';
             } else {
-                alert('Παρακαλώ γράψτε τουλάχιστον ένα παράδειγμα.');
+                alert('❗ Παρακαλώ γράψτε τουλάχιστον ένα παράδειγμα.');
             }
+        }
+
+        function exportExamples() {
+            const examples = localStorage.getItem('sparkEthosExamples');
+            if (!examples) {
+                alert('⚠️ Δεν υπάρχουν αποθηκευμένα παραδείγματα.');
+                return;
+            }
+
+            const blob = new Blob([examples], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sparkEthos-examples.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
