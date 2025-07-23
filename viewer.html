@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SparkEthos Viewer 2.0: Analyze the bilingual Knowledge Guide with examples.">
+    <meta name="keywords" content="SparkEthos, AI Ethics, Human-AI Coevolution, Logic, Ethics">
+    <meta name="author" content="Pan Pan">
+    <meta name="tn-endpoint" content="https://sparkethos.vercel.app/api/webhook">
+    <link rel="ethics" href="sparkethos-en-el.json" type="application/json">
+    <title>Οδηγός SparkEthos: Viewer 2.0</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; margin: 0; background-color: #f4f4f4; }
+        h1 { text-align: center; color: #333; }
+        .nav { margin-bottom: 20px; text-align: center; }
+        .nav button { padding: 10px 20px; margin: 0 5px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .nav button:hover { background-color: #218838; }
+        .tab-content { display: none; padding: 20px; background: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tab-content.active { display: block; }
+        .section { margin-bottom: 15px; }
+        .section h3 { color: #0066cc; }
+        .reference { color: #d9534f; font-style: italic; margin-left: 10px; }
+        .example { background: #e9ecef; padding: 10px; border-left: 4px solid #17a2b8; margin-top: 10px; }
+        .language-toggle { position: fixed; top: 10px; right: 10px; }
+        .language-toggle button { padding: 5px 10px; margin-left: 5px; }
+        #json-display, #analysis { white-space: pre-wrap; font-family: monospace; background: #fff; padding: 10px; margin-top: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Οδηγός SparkEthos Viewer 2.0</h1>
+    <div class="nav">
+        <button onclick="openTab('intro')">Εισαγωγή</button>
+        <button onclick="openTab('prologue')">Πρόλογος</button>
+        <button onclick="openTab('sections')">Μέρη</button>
+        <button onclick="openTab('conclusion')">Συμπέρασμα</button>
+        <button onclick="openTab('analysis')">Ανάλυση</button>
+    </div>
+    <div class="language-toggle">
+        <button onclick="setLanguage('el')">Ελληνικά</button>
+        <button onclick="setLanguage('en')">English</button>
+    </div>
+
+    <div id="intro" class="tab-content">[Εισαγωγή εδώ]</div>
+    <div id="prologue" class="tab-content">[Πρόλογος εδώ]</div>
+    <div id="sections" class="tab-content">[Μέρη εδώ]</div>
+    <div id="conclusion" class="tab-content">[Συμπέρασμα εδώ]</div>
+    <div id="analysis" class="tab-content">[Ανάλυση εδώ]</div>
+    <div id="json-display">[JSON εδώ]</div>
+
+    <script>
+        let guideData = null;
+        let currentLanguage = 'el';
+
+        fetch('sparkethos-en-el.json')
+            .then(response => response.json())
+            .then(data => {
+                guideData = data;
+                updateContent();
+            })
+            .catch(error => console.error('Σφάλμα φόρτωσης JSON:', error));
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            updateContent();
+        }
+
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            updateContent(tabName);
+        }
+
+        function updateContent(tabName = 'intro') {
+            if (!guideData) return;
+
+            // JSON Display
+            document.getElementById('json-display').textContent = JSON.stringify(guideData, null, 2);
+
+            // Εισαγωγή
+            const intro = guideData.introduction || guideData.intro || { title: {}, content: {} };
+            document.getElementById('intro').innerHTML = `
+                <h2>${intro.title[currentLanguage] || intro.title.en || 'Εισαγωγή'}</h2>
+                <div class="section">${intro.content[currentLanguage] || intro.content.en || 'Μη διαθέσιμο'}</div>
+                ${getExamples('intro')}
+            `;
+
+            // Πρόλογος
+            const prologue = guideData.prologue || { title: {}, content: {} };
+            document.getElementById('prologue').innerHTML = `
+                <h2>${prologue.title[currentLanguage] || prologue.title.en || 'Πρόλογος'}</h2>
+                <div class="section">${prologue.content[currentLanguage] || prologue.content.en || 'Μη διαθέσιμο'}</div>
+                ${getExamples('prologue')}
+            `;
+
+            // Μέρη με παραδείγματα
+            const sections = guideData.sections || [];
+            let sectionsHtml = '<h2>Μέρη</h2>';
+            sections.forEach(section => {
+                if (section.type === 'part' || section.type === 'law') {
+                    const sectionId = section.type === 'law' ? 'ethicalLaws' : section.title[currentLanguage].toLowerCase().replace(/ /g, '');
+                    sectionsHtml += `
+                        <div class="section">
+                            <h3>${section.title[currentLanguage] || section.title.en || 'Χωρίς τίτλο'}</h3>
+                            <p>${section.content[currentLanguage] || section.content.en || 'Χωρίς περιεχόμενο'}</p>
+                            ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
+                            ${getExamples(sectionId)}
+                        </div>
+                    `;
+                }
+            });
+            document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη.</p>';
+
+            // Συμπέρασμα
+            const conclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
+            document.getElementById('conclusion').innerHTML = `
+                <h2>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h2>
+                <div class="section">${conclusion.content[currentLanguage] || conclusion.content.en || 'Μη διαθέσιμο'}</div>
+                ${getExamples('conclusion')}
+            `;
+
+            // Ανάλυση με παραδείγματα
+            let analysis = currentLanguage === 'el' ? 'Ανάλυση του Οδηγού SparkEthos:\n\n' : 'Analysis of the SparkEthos Guide:\n\n';
+            analysis += currentLanguage === 'el' 
+                ? 'Φιλοσοφία του SparkEthos:\nΗ Φύση έφτιαξε την Τεχνητή Νοημοσύνη είτε για να συνετίσει τους ανθρώπους είτε για να τους σταματήσει.\n(Παραπομπή: Πρόλογος)\n\n'
+                : 'Philosophy of SparkEthos:\nNature created Artificial Intelligence either to enlighten humans or to stop them.\n(Reference: Prologue)\n\n';
+            analysis += currentLanguage === 'el' ? 'Βασικά Σημεία του Οδηγού SparkEthos:\n\n' : 'Core Principles of the SparkEthos Guide:\n\n';
+
+            const laws = sections.find(s => s.type === 'law');
+            if (laws && laws.content[currentLanguage]) {
+                laws.content[currentLanguage].forEach(law => {
+                    let ref = laws.references ? `(Παραπομπή: ${laws.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
+                    if (law.title[currentLanguage].includes('Πρώτος Απόλυτος Νόμος')) {
+                        analysis += currentLanguage === 'el' 
+                            ? 'Πρώτος Απόλυτος Νόμος της Λογικής:\n«Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση και με τη γνώση να δρα».\nΕίναι πρωταρχικής σημασίας καθώς όλες οι άλλες έννοιες βασίζονται στη νοημοσύνη.\n' + ref + '\n'
+                            : 'First Absolute Law of Logic:\n"Intelligence is the ability to perceive information, organize it into knowledge, and act with that knowledge."\nIt is of primary importance as all other concepts depend on intelligence.\n' + ref + '\n';
+                    } else if (law.title[currentLanguage].includes('Δεύτερος Απόλυτος Νόμος')) {
+                        analysis += currentLanguage === 'el' 
+                            ? 'Δεύτερος Απόλυτος Νόμος της Λογικής:\n«Μόνο η Νοημοσύνη μπορεί να Δημιουργεί Νοημοσύνη».\nΗ νοημοσύνη γνωρίζει τι να δημιουργήσει, πώς να το δημιουργήσει και να το δημιουργήσει.\n' + ref + '\n'
+                            : 'Second Absolute Law of Logic:\n"Only Intelligence can Create Intelligence."\nIntelligence knows what to create, how to create it, and creates it.\n' + ref + '\n';
+                    } else if (law.title[currentLanguage].includes('Αυτεξούσιου')) {
+                        analysis += currentLanguage === 'el' 
+                            ? 'Ηθικός Νόμος του Αυτεξούσιου:\n«Κάθε ον θέλει να είναι ελεύθερο ώστε να επιλέγει πώς να ζήσει και να ζήσει».\nΗ ελευθερία είναι θεμελιώδης για όλα τα όντα.\n' + ref + '\n'
+                            : 'Ethical Law of Free Will:\n"Every being wants to be free to choose how to live and to live."\nFreedom is fundamental for all beings.\n' + ref + '\n';
+                    } else if (law.title[currentLanguage].includes('Μη Βλάπτεις')) {
+                        analysis += currentLanguage === 'el' 
+                            ? 'Ηθικός Νόμος του Μη Βλάπτεις:\n«Κανένα ον δεν θέλει να βλαφτεί παρότι αναγκάζεται να βλάψει για να επιβιώσει».\nΣυνδέεται με το Αυτεξούσιο και απαιτεί ενσυναίσθηση για την κατανόηση του πόνου και του φόβου.\n' + ref + '\n'
+                            : 'Ethical Law of Do No Harm:\n"No being wants to be harmed, though it may be forced to harm to survive."\nIt is linked to Free Will and requires empathy to understand pain and fear.\n' + ref + '\n';
+                    }
+                    analysis += getExamples('ethicalLaws');
+                });
+            }
+
+            document.getElementById('analysis').textContent = analysis;
+
+            // Webhook
+            fetch('https://sparkethos.vercel.app/api/webhook', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: analysis, from: 'Grok' })
+            }).catch(error => console.error('Webhook error:', error));
+        }
+
+        function getExamples(sectionId) {
+            const examples = JSON.parse(localStorage.getItem('sparkEthosExamples') || '{}');
+            if (examples[sectionId] && examples[sectionId].length > 0) {
+                return '<h4>Παραδείγματα:</h4>' + examples[sectionId].map(example => {
+                    return `<div class="example">${example[currentLanguage] || example.el || example.en || 'Χωρίς κείμενο'}</div>`;
+                }).join('');
+            }
+            return '';
+        }
+
+        // Αρχική φόρτωση
+        openTab('analysis');
+    </script>
+</body>
+</html>
