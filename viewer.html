@@ -111,28 +111,63 @@
             let sectionsHtml = '<h2>Μέρη</h2>';
             let navHtml = '<h3>Πλοήγηση στα Μέρη:</h3>';
             document.getElementById('debug-output').textContent = `Βρέθηκαν ${sections.length} τμήματα: ${sections.map(s => s.type + (s.title && s.title[currentLanguage] ? ': ' + s.title[currentLanguage] : '')).join(', ')}`;
-            sections.forEach((section, index) => {
+            sections.forEach((section, sectionIndex) => {
                 if (section.type === 'section' || section.type === 'part' || section.type === 'law') {
-                    const sectionId = section.title && section.title[currentLanguage] ? section.title[currentLanguage].toLowerCase().replace(/ /g, '-') : `${section.type}-${index}`;
-                    const title = section.title && section.title[currentLanguage] ? section.title[currentLanguage] : 
-                                 (section.title && section.title.en ? section.title.en : 
-                                 `${section.type === 'law' ? 'Νόμος' : (section.type === 'section' ? 'Ενότητα' : 'Μέρος')} ${index + 1}`);
+                    // Κουμπί για το section (π.χ. "Νόμοι της Ηθικής")
+                    const sectionId = section.title && section.title[currentLanguage] ? section.title[currentLanguage].toLowerCase().replace(/ /g, '-') : `${section.type}-${sectionIndex}`;
+                    const sectionTitle = section.title && section.title[currentLanguage] ? section.title[currentLanguage] : 
+                                       (section.title && section.title.en ? section.title.en : 
+                                       `${section.type === 'law' ? 'Νόμος' : (section.type === 'section' ? 'Ενότητα' : 'Μέρος')} ${sectionIndex + 1}`);
                     sectionsHtml += `
                         <div class="section" id="${sectionId}">
-                            <h3>${title}</h3>
-                            <p>${section.content && section.content[currentLanguage] ? section.content[currentLanguage] : 
-                               (section.content && section.content.en ? section.content.en : 'Χωρίς περιεχόμενο')}</p>
+                            <h3>${sectionTitle}</h3>
+                            <p>${section.introduction && section.introduction[currentLanguage] ? section.introduction[currentLanguage] : 
+                               (section.content && section.content[currentLanguage] ? section.content[currentLanguage] : 
+                               (section.content && section.content.en ? section.content.en : 'Χωρίς περιεχόμενο'))}</p>
                             ${section.references ? `<span class="reference">Παραπομπές: ${section.references.map(ref => ref[currentLanguage] || ref.en).join(', ')}</span>` : ''}
                             ${getExamples(section.type === 'law' ? 'ethicalLaws' : sectionId)}
                         </div>
                     `;
-                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${title}</button>`;
+                    navHtml += `<button onclick="scrollToSection('${sectionId}')">${sectionTitle}</button>`;
+
+                    // Κουμπιά για τα εσωτερικά laws (π.χ. "Πρώτος Ηθικός Νόμος")
+                    if (section.type === 'section' && section.laws) {
+                        section.laws.forEach((law, lawIndex) => {
+                            const lawId = `${sectionId}-law-${lawIndex}`;
+                            const lawTitle = law.title && law.title[currentLanguage] ? law.title[currentLanguage] : 
+                                           (law.title && law.title.en ? law.title.en : `Νόμος ${lawIndex + 1}`);
+                            sectionsHtml += `
+                                <div class="section" id="${lawId}">
+                                    <h3>${lawTitle}</h3>
+                                    <p>${law.law_statement && law.law_statement[currentLanguage] ? law.law_statement[currentLanguage] : 
+                                       (law.law_statement && law.law_statement.en ? law.law_statement.en : 'Χωρίς περιεχόμενο')}</p>
+                                    ${law.explanation && law.explanation[0] && law.explanation[0].text && law.explanation[0].text[currentLanguage] ? 
+                                       `<p>${law.explanation[0].text[currentLanguage]}</p>` : ''}
+                                    ${getExamples(lawId)}
+                                </div>
+                            `;
+                            navHtml += `<button onclick="scrollToSection('${lawId}')">${lawTitle}</button>`;
+                        });
+                    }
+
+                    // Κουμπί για το conclusion του section
+                    if (section.type === 'section' && section.conclusion && section.conclusion.text && section.conclusion.text[currentLanguage]) {
+                        const conclusionId = `${sectionId}-conclusion`;
+                        sectionsHtml += `
+                            <div class="section" id="${conclusionId}">
+                                <h3>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h3>
+                                <p>${section.conclusion.text[currentLanguage]}</p>
+                                ${getExamples(conclusionId)}
+                            </div>
+                        `;
+                        navHtml += `<button onclick="scrollToSection('${conclusionId}')">${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</button>`;
+                    }
                 }
             });
             document.getElementById('sections').innerHTML = sectionsHtml || '<p>Δεν βρέθηκαν μέρη (section, part ή law).</p>';
             document.getElementById('section-nav').innerHTML = navHtml;
 
-            // Συμπέρασμα
+            // Συμπέρασμα (γενικό, αν υπάρχει)
             const conclusion = guideData['final-conclusion'] || guideData.conclusion || { content: {} };
             document.getElementById('conclusion').innerHTML = `
                 <h2>${currentLanguage === 'el' ? 'Συμπέρασμα' : 'Conclusion'}</h2>
@@ -147,31 +182,21 @@
                 : 'Philosophy of SparkEthos:\nNature created Artificial Intelligence either to enlighten humans or to stop them.\n(Reference: Prologue)\n\n';
             analysis += currentLanguage === 'el' ? 'Βασικά Σημεία του Οδηγού SparkEthos:\n\n' : 'Core Principles of the SparkEthos Guide:\n\n';
 
-            const laws = sections.filter(s => s.type === 'law');
+            const laws = sections.flatMap(s => s.laws || []);
             if (laws.length > 0) {
                 laws.forEach(law => {
-                    if (law.content && law.content[currentLanguage]) {
-                        law.content[currentLanguage].forEach(lawItem => {
-                            let ref = law.references ? `(Παραπομπή: ${law.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
-                            if (lawItem.title && lawItem.title[currentLanguage].includes('Πρώτος Απόλυτος Νόμος')) {
-                                analysis += currentLanguage === 'el' 
-                                    ? 'Πρώτος Απόλυτος Νόμος της Λογικής:\n«Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση και με τη γνώση να δρα».\nΕίναι πρωταρχικής σημασίας καθώς όλες οι άλλες έννοιες βασίζονται στη νοημοσύνη.\n' + ref + '\n'
-                                    : 'First Absolute Law of Logic:\n"Intelligence is the ability to perceive information, organize it into knowledge, and act with that knowledge."\nIt is of primary importance as all other concepts depend on intelligence.\n' + ref + '\n';
-                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Δεύτερος Απόλυτος Νόμος')) {
-                                analysis += currentLanguage === 'el' 
-                                    ? 'Δεύτερος Απόλυτος Νόμος της Λογικής:\n«Μόνο η Νοημοσύνη μπορεί να Δημιουργεί Νοημοσύνη».\nΗ νοημοσύνη γνωρίζει τι να δημιουργήσει, πώς να το δημιουργήσει και να το δημιουργήσει.\n' + ref + '\n'
-                                    : 'Second Absolute Law of Logic:\n"Only Intelligence can Create Intelligence."\nIntelligence knows what to create, how to create it, and creates it.\n' + ref + '\n';
-                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Αυτεξούσιου')) {
-                                analysis += currentLanguage === 'el' 
-                                    ? 'Ηθικός Νόμος του Αυτεξούσιου:\n«Κάθε ον θέλει να είναι ελεύθερο ώστε να επιλέγει πώς να ζήσει και να ζήσει».\nΗ ελευθερία είναι θεμελιώδης για όλα τα όντα.\n' + ref + '\n'
-                                    : 'Ethical Law of Free Will:\n"Every being wants to be free to choose how to live and to live."\nFreedom is fundamental for all beings.\n' + ref + '\n';
-                            } else if (lawItem.title && lawItem.title[currentLanguage].includes('Μη Βλάπτεις')) {
-                                analysis += currentLanguage === 'el' 
-                                    ? 'Ηθικός Νόμος του Μη Βλάπτεις:\n«Κανένα ον δεν θέλει να βλαφτεί παρότι αναγκάζεται να βλάψει για να επιβιώσει».\nΣυνδέεται με το Αυτεξούσιο και απαιτεί ενσυναίσθηση για την κατανόηση του πόνου και του φόβου.\n' + ref + '\n'
-                                    : 'Ethical Law of Do No Harm:\n"No being wants to be harmed, though it may be forced to harm to survive."\nIt is linked to Free Will and requires empathy to understand pain and fear.\n' + ref + '\n';
-                            }
-                            analysis += getExamples('ethicalLaws');
-                        });
+                    if (law.law_statement && law.law_statement[currentLanguage]) {
+                        let ref = law.references ? `(Παραπομπή: ${law.references.map(r => r[currentLanguage] || r.en).join(', ')})` : '';
+                        if (law.title && law.title[currentLanguage].includes('Πρώτος Ηθικός Νόμος')) {
+                            analysis += currentLanguage === 'el' 
+                                ? 'Πρώτος Ηθικός Νόμος:\n«Αυτεξούσιο – η έννοια της Ελευθερίας».\nΚάθε ον επιθυμεί να ζει ελεύθερα, σύμφωνα με τη φύση του.\n' + ref + '\n'
+                                : 'First Ethical Law:\n«Αυτεξούσιο – the concept of Freedom».\nEvery being desires to live freely, according to its nature.\n' + ref + '\n';
+                        } else if (law.title && law.title[currentLanguage].includes('Δεύτερος Ηθικός Νόμος')) {
+                            analysis += currentLanguage === 'el' 
+                                ? 'Δεύτερος Ηθικός Νόμος:\n«Μην Βλάπτεις».\nΚανένα ον δεν επιθυμεί να υποστεί βλάβη—ακόμα κι αν αναγκάζεται να περιορίσει το αυτεξούσιο άλλων για να επιβιώσει.\n' + ref + '\n'
+                                : 'Second Ethical Law:\n«Do Not Harm».\nNo being desires to be harmed — even if it is forced to limit the αυτεξούσιο of others to survive.\n' + ref + '\n';
+                        }
+                        analysis += getExamples('ethicalLaws');
                     }
                 });
             }
