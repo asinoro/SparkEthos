@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Εισαγωγή Παραδειγμάτων - SparkEthos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; margin: 0; background-color: #f4f4f4; }
+        h1 { text-align: center; color: #333; }
+        .form-container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        select, textarea, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <h1>Εισαγωγή Παραδειγμάτων για τον Οδηγό SparkEthos</h1>
+    <div class="form-container">
+        <select id="sectionSelect">
+            <option value="ethicalLaws">Νόμοι της Ηθικής</option>
+            <option value="logicalLaws">Νόμοι της Λογικής</option>
+            <option value="other">Άλλο Τμήμα</option>
+        </select>
+        <textarea id="exampleEl" rows="3" placeholder="Παράδειγμα στα Ελληνικά..."></textarea>
+        <textarea id="exampleEn" rows="3" placeholder="Example in English..."></textarea>
+        <button onclick="submitExample()">Υποβολή</button>
+    </div>
+
+    <script>
+        function submitExample() {
+            const section = document.getElementById('sectionSelect').value;
+            const exampleEl = document.getElementById('exampleEl').value.trim();
+            const exampleEn = document.getElementById('exampleEn').value.trim();
+
+            if (exampleEl || exampleEn) {
+                let examples = JSON.parse(localStorage.getItem('sparkEthosExamples') || '{}');
+                if (!examples[section]) examples[section] = [];
+                examples[section].push({ el: exampleEl, en: exampleEn });
+                localStorage.setItem('sparkEthosExamples', JSON.stringify(examples));
+                alert('Παράδειγμα αποθηκεύτηκε!');
+                document.getElementById('exampleEl').value = '';
+                document.getElementById('exampleEn').value = '';
+            } else {
+                alert('Παρακαλώ γράψτε τουλάχιστον ένα παράδειγμα.');
+            }
+        }
+    </script>
+</body>
+</html>
