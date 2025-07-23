@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Εισαγωγή Παραδειγμάτων - SparkEthos</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; margin: 0; background-color: #f4f4f4; }
-        h1 { text-align: center; color: #333; }
-        .form-container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        select, textarea, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
-        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        #exportBtn { background-color: #007bff; }
-        #exportBtn:hover { background-color: #0056b3; }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container, .viewer-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #exportBtn {
+            background-color: #007bff;
+        }
+        #exportBtn:hover {
+            background-color: #0056b3;
+        }
+        .example-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        .example-item p {
+            margin: 5px 0;
+        }
+        .example-item p.el {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Εισαγωγή Παραδειγμάτων για τον Οδηγό SparkEthos</h1>
+
     <div class="form-container">
         <select id="sectionSelect">
             <option value="ethicalLaws">Νόμοι της Ηθικής (Ενότητα)</option>
@@ -29,10 +76,17 @@
             <option value="intro">Εισαγωγή</option>
             <option value="prologue">Πρόλογος</option>
         </select>
+
         <textarea id="exampleEl" rows="3" placeholder="Παράδειγμα στα Ελληνικά..."></textarea>
         <textarea id="exampleEn" rows="3" placeholder="Example in English..."></textarea>
+
         <button onclick="submitExample()">Υποβολή</button>
         <button id="exportBtn" onclick="exportExamples()">📤 Εξαγωγή Παραδειγμάτων</button>
+    </div>
+
+    <div class="viewer-container">
+        <h2>Αποθηκευμένα Παραδείγματα</h2>
+        <div id="examplesViewer">Φόρτωση...</div>
     </div>
 
     <script>
@@ -49,6 +103,7 @@
                 alert('✅ Παράδειγμα αποθηκεύτηκε για: ' + section);
                 document.getElementById('exampleEl').value = '';
                 document.getElementById('exampleEn').value = '';
+                loadExamplesToViewer();
             } else {
                 alert('❗ Παρακαλώ γράψτε τουλάχιστον ένα παράδειγμα.');
             }
@@ -71,6 +126,46 @@
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
+
+        function loadExamplesToViewer() {
+            const examples = JSON.parse(localStorage.getItem('sparkEthosExamples') || '{}');
+            const viewer = document.getElementById('examplesViewer');
+            viewer.innerHTML = '';
+
+            if (Object.keys(examples).length === 0) {
+                viewer.textContent = 'Δεν υπάρχουν αποθηκευμένα παραδείγματα.';
+                return;
+            }
+
+            for (const section in examples) {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.style.marginBottom = '20px';
+
+                const sectionTitle = document.createElement('h3');
+                sectionTitle.textContent = section;
+                sectionDiv.appendChild(sectionTitle);
+
+                examples[section].forEach((ex, i) => {
+                    const exDiv = document.createElement('div');
+                    exDiv.className = 'example-item';
+
+                    const elP = document.createElement('p');
+                    elP.className = 'el';
+                    elP.textContent = `Ελληνικά: ${ex.el || '-'}`;
+                    exDiv.appendChild(elP);
+
+                    const enP = document.createElement('p');
+                    enP.textContent = `English: ${ex.en || '-'}`;
+                    exDiv.appendChild(enP);
+
+                    sectionDiv.appendChild(exDiv);
+                });
+
+                viewer.appendChild(sectionDiv);
+            }
+        }
+
+        window.onload = loadExamplesToViewer;
     </script>
 </body>
 </html>
