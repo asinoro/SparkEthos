@@ -222,19 +222,55 @@
     </section>
     <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
   </main>
-  <script>
-  const searchInput = document.getElementById("search-input");
+    <script>
+    function filterArticles(keyword) {
+      const articles = document.querySelectorAll(".link-container");
+      keyword = keyword.toLowerCase();
+      articles.forEach(article => {
+        const title = article.getAttribute("data-title").toLowerCase();
+        article.style.display = title.includes(keyword) ? "block" : "none";
+      });
+    }
 
-  searchInput.addEventListener("input", function () {
-    const filter = this.value.toLowerCase();
-    const containers = document.querySelectorAll(".link-container");
+    function generateSidebar() {
+      const articles = document.querySelectorAll(".link-container");
+      const sidebar = document.getElementById("sidebar");
+      const months = {};
 
-    containers.forEach(container => {
-      const text = container.innerText.toLowerCase();
-      container.style.display = text.includes(filter) ? "block" : "none";
-    });
-  });
-</script>
+      articles.forEach(article => {
+        const date = article.getAttribute("data-date");
+        if (!months[date]) months[date] = [];
+        months[date].push(article);
+      });
+
+      for (let date in months) {
+        const label = new Date(date + "-01").toLocaleString("el-GR", {
+          year: "numeric",
+          month: "long"
+        });
+
+        const title = document.createElement("div");
+        title.className = "sidebar-title";
+        title.textContent = label;
+        sidebar.appendChild(title);
+
+        months[date].forEach(article => {
+          const linkText = article.querySelector(".link-button").textContent.trim();
+          const link = document.createElement("div");
+          link.className = "sidebar-link";
+          link.textContent = linkText;
+          link.onclick = () => {
+            article.scrollIntoView({ behavior: "smooth" });
+            article.style.background = "#fff3cd";
+            setTimeout(() => article.style.background = "", 1500);
+          };
+          sidebar.appendChild(link);
+        });
+      }
+    }
+
+    window.onload = generateSidebar;
+  </script>
 
 </body>
 </html>
