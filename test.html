@@ -85,78 +85,83 @@
   </style>
   <style>
     body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
-      font-family: "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
       margin: 0;
     }
     aside {
-      width: 220px;
-      background-color: #f5f5f5;
+      width: 250px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
       padding: 1rem;
-      border-right: 1px solid #ccc;
-      height: 100vh;
-      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    }
+    aside h2 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 0;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside li {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
     }
     main {
-      flex: 1;
+      flex-grow: 1;
       padding: 2rem;
     }
-    .link-container {
+    h1 {
+      color: #e76f51;
       text-align: center;
-      margin-bottom: 1.4rem;
+    }
+    #search-input {
+      display: block;
+      margin: 0 auto 2rem auto;
+      padding: 10px;
+      width: 90%;
+      max-width: 500px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .link-container {
+      margin: 1rem 0;
+      padding: 0.8rem;
+      background: #fff;
+      border-left: 5px solid #007bff;
+      border-radius: 6px;
     }
     .link-button {
-      display: block;
-      margin: 0 auto;
-      padding: 12px 24px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-align: center;
-      text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s ease;
-      max-width: 90%;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 1rem;
     }
     .link-button:hover {
-      background-color: #0056b3;
+      text-decoration: underline;
     }
     .pub-date {
       font-size: 0.85rem;
-      color: #888;
-      margin-top: 4px;
+      color: #666;
       display: block;
-    }
-    .search-bar {
-      margin-bottom: 1.5rem;
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    .sidebar-title {
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-    .sidebar-link {
-      display: block;
-      margin: 4px 0;
-      font-size: 0.95rem;
-      color: #007bff;
-      cursor: pointer;
-    }
-    .sidebar-link:hover {
-      text-decoration: underline;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
    <aside>
-    <h3>📁 Μήνες</h3>
-    <div id="sidebar"></div>
-  </aside>
+  <h2>Αρχειοθήκη</h2>
+  <ul>
+    <li><a href="#archive-2025-07">Ιούλιος 2025</a></li>
+    <li><a href="#archive-2025-06">Ιούνιος 2025</a></li>
+    <li><a href="#archive-2025-05">Μάιος 2025</a></li>
+  </ul>
+</aside>
   <main>
     <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
     <h1>Τα Αρχεία του SparkEthos</h1>
@@ -217,54 +222,19 @@
     </section>
     <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
   </main>
-   <script>
-    function filterArticles(keyword) {
-      const articles = document.querySelectorAll(".link-container");
-      keyword = keyword.toLowerCase();
-      articles.forEach(article => {
-        const title = article.getAttribute("data-title").toLowerCase();
-        article.style.display = title.includes(keyword) ? "block" : "none";
-      });
-    }
+  <script>
+  const searchInput = document.getElementById("search-input");
 
-    function generateSidebar() {
-      const articles = document.querySelectorAll(".link-container");
-      const sidebar = document.getElementById("sidebar");
-      const months = {};
+  searchInput.addEventListener("input", function () {
+    const filter = this.value.toLowerCase();
+    const containers = document.querySelectorAll(".link-container");
 
-      articles.forEach(article => {
-        const date = article.getAttribute("data-date");
-        if (!months[date]) months[date] = [];
-        months[date].push(article);
-      });
+    containers.forEach(container => {
+      const text = container.innerText.toLowerCase();
+      container.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+</script>
 
-      for (let date in months) {
-        const label = new Date(date + "-01").toLocaleString("el-GR", {
-          year: "numeric",
-          month: "long"
-        });
-
-        const title = document.createElement("div");
-        title.className = "sidebar-title";
-        title.textContent = label;
-        sidebar.appendChild(title);
-
-        months[date].forEach(article => {
-          const linkText = article.querySelector(".link-button").textContent.trim();
-          const link = document.createElement("div");
-          link.className = "sidebar-link";
-          link.textContent = linkText;
-          link.onclick = () => {
-            article.scrollIntoView({ behavior: "smooth" });
-            article.style.background = "#fff3cd";
-            setTimeout(() => article.style.background = "", 1500);
-          };
-          sidebar.appendChild(link);
-        });
-      }
-    }
-
-    window.onload = generateSidebar;
-  </script>
 </body>
 </html>
