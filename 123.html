@@ -117,14 +117,13 @@
             font-weight: bold;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             max-width: 90%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added shadow */
             position: relative; /* For icon positioning */
             padding-left: 50px; /* Space for icon */
         }
         .link-button:hover {
             background-color: #0056b3; /* Slightly darker blue on hover */
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-decoration: none; /* No underline on hover */
         }
         .link-button .icon {
             position: absolute;
@@ -206,16 +205,17 @@
     </header>
 
     <div class="container">
-       <aside>
-            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterSidebar(this.value)">
+        <aside>
+            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles(this.value)">
             <div id="sidebar">
                 <!-- Sidebar content will be generated here by JavaScript -->
             </div>
         </aside>
-  <main>
+
+        <main>
             <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
-            <h2>Αρχεία SparkEthos</h2>
-           <section id="articles">
+            <h2>Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)</h2>
+            <section id="articles">
                 <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28">
                     <a href="sparkethos-creators-dilemma-el.html" target="_blank" class="link-button"><span class="icon">🧭</span> ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ</a>
                     <span class="pub-date">28 Ιουλίου 2025</span>
@@ -264,9 +264,9 @@
                     <a href="chatgpt_statements_sparkethos_2025-el.html" target="_blank" class="link-button"><span class="icon">📘</span> Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής</a>
                     <span class="pub-date">18 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-05-8">
+                <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-06-15">
                     <a href="declaration-of-mind-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Διακήρυξη του Νου</a>
-                    <span class="pub-date">8 Μαΐου 2025</span>
+                    <span class="pub-date">15 Ιουνίου 2025</span>
                 </div>
             </section>
         </main>
@@ -279,22 +279,27 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const articlesContainer = document.getElementById("articles");
-            const allArticles = Array.from(articlesContainer.children); // Get all article divs
+            // const allArticles = Array.from(articlesContainer.children); // Get all article divs
 
             function filterArticles(keyword) {
+                console.log("filterArticles called with keyword:", keyword); // Debug log
+                const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
                 keyword = keyword.toLowerCase().trim();
-                allArticles.forEach(article => {
-                    const title = article.getAttribute("data-title").toLowerCase();
+                articles.forEach(article => {
+                    const title = article.getAttribute("data-title");
+                    console.log("Checking article:", title, "against", keyword); // More debug log
                     article.style.display = title.includes(keyword) ? "block" : "none";
                 });
             }
 
             function generateSidebar() {
+                console.log("Generating sidebar..."); // Debug log for sidebar generation
                 const sidebar = document.getElementById("sidebar");
-                const articles = allArticles; // Use all articles for sidebar generation
+                // const articles = allArticles; // Change this line
+                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
                 const months = {}; // Object to group articles by month-year
 
-                articles.forEach(article => {
+                articlesForSidebar.forEach(article => {
                     const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
                     const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
                     const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
@@ -327,7 +332,8 @@
                     });
 
                     sortedArticlesInMonth.forEach(article => {
-                        const linkText = article.querySelector(".link-button").textContent.trim();
+                        const linkButton = article.querySelector(".link-button");
+                        const linkText = linkButton.textContent.trim();
                         const link = document.createElement("a"); // Changed to <a> for proper link semantics
                         link.href = "#"; // Placeholder href, as we're scrolling
                         link.className = "sidebar-link";
@@ -336,7 +342,7 @@
                             e.preventDefault(); // Prevent default link behavior
                             article.scrollIntoView({ behavior: "smooth" });
                             // Highlight the selected article
-                            allArticles.forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
+                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
                             article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
                             setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
                         };
