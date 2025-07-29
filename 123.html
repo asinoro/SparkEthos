@@ -206,12 +206,16 @@
     </header>
 
     <div class="container">
-       
+       <aside>
+            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterSidebar(this.value)">
+            <div id="sidebar">
+                <!-- Sidebar content will be generated here by JavaScript -->
+            </div>
+        </aside>
   <main>
             <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
             <h2>Αρχεία SparkEthos</h2>
-            <input type="text" class="search-bar" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles(this.value)">
-             <div id="articles">
+           <section id="articles">
                 <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28">
                     <a href="sparkethos-creators-dilemma-el.html" target="_blank" class="link-button"><span class="icon">🧭</span> ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ</a>
                     <span class="pub-date">28 Ιουλίου 2025</span>
