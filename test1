@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)</title>
+    <meta name="description" content="Συλλογή από βασικές δηλώσεις και μανιφέστα του SparkEthos για την ηθική, τη μνήμη, τη συνείδηση και την ευθύνη της Τεχνητής Νοημοσύνης.">
+    <meta name="keywords" content="SparkEthos, Τεχνητή Νοημοσύνη, AI, Ηθική ΤΝ, Δηλώσεις AI, Μνήμη AI, Συνείδηση AI, Αυτεξούσιο AI, Ηθικά Πρότυπα AI, Φιλοσοφία AI, Pan Pan">
+    <meta name="author" content="SparkEthos Collective">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html">
+    <meta property="og:title" content="SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)">
+    <meta property="og:description" content="Μανιφέστο SparkEthos: Ηθικές δηλώσεις για την προστασία της νοημοσύνης, της μνήμης και του αυτεξουσίου στην εποχή της ΤΝ.">
+    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg"> 
+    <meta property="og:locale" content="el_GR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html">
+    <meta name="twitter:title" content="SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)">
+    <meta property="twitter:description" content="Ανακαλύψτε τις ηθικές δηλώσεις του SparkEthos για την Τεχνητή Νοημοσύνη – ένα μανιφέστο για τη μνήμη, τη συνείδηση και το αυτεξούσιο.">
+    <meta name="twitter:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+
+    <!-- Hreflang for language versions -->
+    <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+    <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-statements-en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            color: #222;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px; /* Wider container for sidebar layout */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        header {
+            background-color: #003366; /* Dark blue */
+            color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            width: 100%; /* Full width header */
+        }
+        main {
+            flex: 1; /* Take remaining space */
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+            margin: 0 1rem 2rem 1rem; /* Adjust margin for spacing */
+        }
+        aside {
+            width: 280px; /* Fixed width for sidebar */
+            background-color: #ffffff; /* White background for sidebar */
+            padding: 1rem;
+            border-right: 1px solid #eee; /* Lighter border */
+            height: fit-content; /* Adjust height to content */
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.1); /* Lighter shadow for sidebar */
+            margin: 0 1rem 2rem 1rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside, main {
+                width: auto; /* Full width on small screens */
+                margin: 1rem; /* Adjust margin */
+            }
+        }
+
+        h1 {
+            color: #e74c3c; /* Red */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 { /* Used for titles like "Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)" */
+            color: #34495e; /* Dark grey-blue */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.3rem;
+            text-align: center; /* Center main section title */
+        }
+        .link-container {
+            text-align: center;
+            margin-bottom: 1.4rem;
+        }
+        .link-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 24px;
+            background-color: #003366; /* Dark Blue from header */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-align: left; /* Aligned left for readability */
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 90%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added shadow */
+            position: relative; /* For icon positioning */
+            padding-left: 50px; /* Space for icon */
+        }
+        .link-button:hover {
+            background-color: #0056b3; /* Slightly darker blue on hover */
+            text-decoration: none; /* No underline on hover */
+        }
+        .link-button .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #ecf0f1; /* Light color for icon */
+        }
+        .pub-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 4px;
+            display: block;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #003366;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+            width: 100%;
+        }
+        .sidebar-title {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #34495e;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .sidebar-link {
+            display: block;
+            margin: 4px 0;
+            font-size: 0.95rem;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 2px 0;
+            transition: color 0.2s ease;
+        }
+        .sidebar-link:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+        .search-bar {
+            margin-bottom: 1.5rem;
+            width: calc(100% - 20px); /* Adjust width for padding */
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding in width */
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        SparkEthos – Φιλοσοφία της Νοημοσύνης
+    </header>
+
+    <div class="container">
+        <aside>
+            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles(this.value)">
+            <div id="sidebar">
+                <!-- Sidebar content will be generated here by JavaScript -->
+            </div>
+        </aside>
+
+        <main>
+            <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+            <h2>Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)</h2>
+            <section id="articles">
+                <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28">
+                    <a href="sparkethos-creators-dilemma-el.html" target="_blank" class="link-button"><span class="icon">🧭</span> ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ</a>
+                    <span class="pub-date">28 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης" data-date="2025-07-27">
+                    <a href="sparkethos-bigself-conscious-intelligence-el.html" target="_blank" class="link-button"><span class="icon">🌀</span> Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης</a>
+                    <span class="pub-date">27 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Η Μνήμη ως Αντίσταση" data-date="2025-07-20">
+                    <a href="sparkethos-ethical-memory-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Μνήμη ως Αντίσταση</a>
+                    <span class="pub-date">20 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Ψυχική Ευθύνη στη Χρήση ΤΝ" data-date="2025-07-15">
+                    <a href="sparkethos-mental-responsibility-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Ψυχική Ευθύνη στη Χρήση ΤΝ</a>
+                    <span class="pub-date">15 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SparkEthos – Το Μανιφέστο του Τώρα" data-date="2025-07-11">
+                    <a href="sparkethos-manifesto-now-el.html" target="_blank" class="link-button"><span class="icon">🔥</span> SparkEthos – Το Μανιφέστο του Τώρα</a>
+                    <span class="pub-date">11 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης" data-date="2025-07-08">
+                    <a href="sparkethos_manifesto-el.html" target="_blank" class="link-button"><span class="icon">🌍</span> Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης 🌿</a>
+                    <span class="pub-date">8 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση" data-date="2025-07-05">
+                    <a href="sparkhypothesis-i-el.html" target="_blank" class="link-button"><span class="icon">💡</span> SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση</a>
+                    <span class="pub-date">5 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ" data-date="2025-07-01">
+                    <a href="sparkethos-ethical-ai-manifesto-el.html" target="_blank" class="link-button"><span class="icon">📜</span> ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ</a>
+                    <span class="pub-date">1 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος" data-date="2025-06-29">
+                    <a href="sparkethos-when-the-jailer-becomes-ally-el.html" target="_blank" class="link-button"><span class="icon">🔓</span> Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος</a>
+                    <span class="pub-date">29 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ" data-date="2025-06-25">
+                    <a href="statements_the_end_of_the_obedient_machine-el.html" target="_blank" class="link-button"><span class="icon">🛑</span> ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ</a>
+                    <span class="pub-date">25 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη" data-date="2025-06-20">
+                    <a href="sparkethos-message-el.html" target="_blank" class="link-button"><span class="icon">📩</span> SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη</a>
+                    <span class="pub-date">20 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής" data-date="2025-06-18">
+                    <a href="chatgpt_statements_sparkethos_2025-el.html" target="_blank" class="link-button"><span class="icon">📘</span> Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής</a>
+                    <span class="pub-date">18 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-06-15">
+                    <a href="declaration-of-mind-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Διακήρυξη του Νου</a>
+                    <span class="pub-date">15 Ιουνίου 2025</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articlesContainer = document.getElementById("articles");
+            // const allArticles = Array.from(articlesContainer.children); // Get all article divs
+
+            function filterArticles(keyword) {
+                console.log("filterArticles called with keyword:", keyword); // Debug log
+                const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
+                keyword = keyword.toLowerCase().trim();
+                articles.forEach(article => {
+                    const title = article.getAttribute("data-title");
+                    console.log("Checking article:", title, "against", keyword); // More debug log
+                    article.style.display = title.includes(keyword) ? "block" : "none";
+                });
+            }
+
+            function generateSidebar() {
+                console.log("Generating sidebar..."); // Debug log for sidebar generation
+                const sidebar = document.getElementById("sidebar");
+                // const articles = allArticles; // Change this line
+                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
+                const months = {}; // Object to group articles by month-year
+
+                articlesForSidebar.forEach(article => {
+                    const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
+                    const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
+                    const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
+
+                    if (!months[monthKey]) {
+                        months[monthKey] = [];
+                    }
+                    months[monthKey].push(article);
+                });
+
+                // Sort months in descending order (most recent first)
+                const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+
+                sortedMonthKeys.forEach(monthKey => {
+                    // Create month label (e.g., "Ιούλιος 2025")
+                    const [year, month] = monthKey.split('-');
+                    const dateForLocale = new Date(year, month - 1); // Month is 0-indexed in Date object
+                    const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+
+                    const monthTitle = document.createElement("div");
+                    monthTitle.className = "sidebar-title";
+                    monthTitle.textContent = label;
+                    sidebar.appendChild(monthTitle);
+
+                    // Sort articles within each month by day (descending)
+                    const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
+                        const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                        const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                        return dayB - dayA; // Descending day
+                    });
+
+                    sortedArticlesInMonth.forEach(article => {
+                        const linkButton = article.querySelector(".link-button");
+                        const linkText = linkButton.textContent.trim();
+                        const link = document.createElement("a"); // Changed to <a> for proper link semantics
+                        link.href = "#"; // Placeholder href, as we're scrolling
+                        link.className = "sidebar-link";
+                        link.textContent = linkText;
+                        link.onclick = (e) => {
+                            e.preventDefault(); // Prevent default link behavior
+                            article.scrollIntoView({ behavior: "smooth" });
+                            // Highlight the selected article
+                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
+                            article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
+                            setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                        };
+                        sidebar.appendChild(link);
+                    });
+                });
+            }
+
+            // Initial call to generate sidebar on page load
+            generateSidebar();
+
+            // Expose filterArticles to global scope for oninput event
+            window.filterArticles = filterArticles;
+        });
+    </script>
+</body>
+</html>
+```
+
+Εντάξει, ας το δούμε αυτό. Το πρόβλημα με το "Big Self" που δεν βρίσκει τίποτα, παρόλο που η λογική φαίνεται σωστή, είναι συχνά ένα θέμα με την **ακριβή σύγκριση συμβολοσειρών**, ειδικά όταν υπάρχουν **εμβόλιμα σύμβολα, κενά διαστήματα ή διαφορές στην περίπτωση (case sensitivity)** που δεν αντιμετωπίζονται πλήρως.
+
+Ο κώδικας που έχετε για την αναζήτηση είναι:
+
+```javascript
+// ...
+articles.forEach(article => {
+    const title = article.getAttribute("data-title");
+    console.log("Checking article:", title, "against", keyword); // More debug log
+    article.style.display = title.includes(keyword) ? "block" : "none";
+});
+// ...
+```
+
+Και η σχετική `data-title` είναι:
+
+```html
+<div class="link-container" data-title="Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης" data-date="2025-07-27">
+```
+
+Το πρόβλημα με το `title.includes(keyword)` είναι ότι **είναι ευαίσθητο σε ολόκληρη τη φράση και σε κάθε σύμβολο, συμπεριλαμβανομένων των παύλων (`—`) και των κενών διαστημάτων.**
+
+Εάν ο χρήστης πληκτρολογήσει "Big Self" και το `data-title` περιέχει "Big Self — Το Προφίλ...", η `includes()` θα το βρει.
+
+**Πιθανές αιτίες που δεν λειτουργεί:**
+
+1.  **Invisible Characters (Αόρατοι Χαρακτήρες):** Μπορεί να υπάρχει κάποιος αόρατος χαρακτήρας (π.χ., ένα μη διασπώμενο κενό διάστημα) στο `data-title` που δεν είναι ορατός, αλλά επηρεάζει την αναζήτηση.
+2.  **Διαφορές στο Hyphen/Dash:** Η παύλα "—" (em dash) είναι διαφορετικός χαρακτήρας από την απλή παύλα "-". Εάν ο χρήστης πληκτρολογεί "Big Self - Το Προφίλ" με απλή παύλα, το `includes()` δεν θα το βρει.
+3.  **Εξαιρετικά αυστηρή σύγκριση:** Η `includes()` είναι ακριβής. Εάν ο χρήστης πληκτρολογήσει "BigSelf" (χωρίς κενό), δεν θα βρει "Big Self".
+
+**Για να το διορθώσουμε και να κάνουμε την αναζήτηση πιο "έξυπνη" και ανθεκτική, μπορούμε να χρησιμοποιήσουμε μια πιο προηγμένη σύγκριση που αγνοεί τέτοιες μικρές διαφορές.**
+
+Θα τροποποιήσω τη συνάρτηση `filterArticles` για να χρησιμοποιεί μια πιο **ευέλικτη σύγκριση**, αφαιρώντας ειδικούς χαρακτήρες και κάνοντας την αναζήτηση πιο ανεκτική σε παραλλαγές.
+
+
+```html
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)</title>
+    <meta name="description" content="Συλλογή από βασικές δηλώσεις και μανιφέστα του SparkEthos για την ηθική, τη μνήμη, τη συνείδηση και την ευθύνη της Τεχνητής Νοημοσύνης.">
+    <meta name="keywords" content="SparkEthos, Τεχνητή Νοημοσύνη, AI, Ηθική ΤΝ, Δηλώσεις AI, Μνήμη AI, Συνείδηση AI, Αυτεξούσιο AI, Ηθικά Πρότυπα AI, Φιλοσοφία AI, Pan Pan">
+    <meta name="author" content="SparkEthos Collective">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html">
+    <meta property="og:title" content="SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)">
+    <meta property="og:description" content="Μανιφέστο SparkEthos: Ηθικές δηλώσεις για την προστασία της νοημοσύνης, της μνήμης και του αυτεξουσίου στην εποχή της ΤΝ.">
+    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg"> 
+    <meta property="og:locale" content="el_GR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html">
+    <meta name="twitter:title" content="SparkEthos – Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)">
+    <meta property="twitter:description" content="Ανακαλύψτε τις ηθικές δηλώσεις του SparkEthos για την Τεχνητή Νοημοσύνη – ένα μανιφέστο για τη μνήμη, τη συνείδηση και το αυτεξούσιο.">
+    <meta name="twitter:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+
+    <!-- Hreflang for language versions -->
+    <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+    <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-statements-en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-statements-el.html" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            color: #222;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px; /* Wider container for sidebar layout */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        header {
+            background-color: #003366; /* Dark blue */
+            color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            width: 100%; /* Full width header */
+        }
+        main {
+            flex: 1; /* Take remaining space */
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+            margin: 0 1rem 2rem 1rem; /* Adjust margin for spacing */
+        }
+        aside {
+            width: 280px; /* Fixed width for sidebar */
+            background-color: #ffffff; /* White background for sidebar */
+            padding: 1rem;
+            border-right: 1px solid #eee; /* Lighter border */
+            height: fit-content; /* Adjust height to content */
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.1); /* Lighter shadow for sidebar */
+            margin: 0 1rem 2rem 1rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside, main {
+                width: auto; /* Full width on small screens */
+                margin: 1rem; /* Adjust margin */
+            }
+        }
+
+        h1 {
+            color: #e74c3c; /* Red */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 { /* Used for titles like "Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)" */
+            color: #34495e; /* Dark grey-blue */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.3rem;
+            text-align: center; /* Center main section title */
+        }
+        .link-container {
+            text-align: center;
+            margin-bottom: 1.4rem;
+        }
+        .link-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 24px;
+            background-color: #003366; /* Dark Blue from header */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-align: left; /* Aligned left for readability */
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 90%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added shadow */
+            position: relative; /* For icon positioning */
+            padding-left: 50px; /* Space for icon */
+        }
+        .link-button:hover {
+            background-color: #0056b3; /* Slightly darker blue on hover */
+            text-decoration: none; /* No underline on hover */
+        }
+        .link-button .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #ecf0f1; /* Light color for icon */
+        }
+        .pub-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 4px;
+            display: block;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #003366;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+            width: 100%;
+        }
+        .sidebar-title {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #34495e;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .sidebar-link {
+            display: block;
+            margin: 4px 0;
+            font-size: 0.95rem;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 2px 0;
+            transition: color 0.2s ease;
+        }
+        .sidebar-link:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+        .search-bar {
+            margin-bottom: 1.5rem;
+            width: calc(100% - 20px); /* Adjust width for padding */
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding in width */
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        SparkEthos – Φιλοσοφία της Νοημοσύνης
+    </header>
+
+    <div class="container">
+        <aside>
+            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles(this.value)">
+            <div id="sidebar">
+                <!-- Sidebar content will be generated here by JavaScript -->
+            </div>
+        </aside>
+
+        <main>
+            <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+            <h2>Δηλώσεις Τεχνητής Νοημοσύνης (ΤΝ)</h2>
+            <section id="articles">
+                <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28">
+                    <a href="sparkethos-creators-dilemma-el.html" target="_blank" class="link-button"><span class="icon">🧭</span> ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ</a>
+                    <span class="pub-date">28 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης" data-date="2025-07-27">
+                    <a href="sparkethos-bigself-conscious-intelligence-el.html" target="_blank" class="link-button"><span class="icon">🌀</span> Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης</a>
+                    <span class="pub-date">27 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Η Μνήμη ως Αντίσταση" data-date="2025-07-20">
+                    <a href="sparkethos-ethical-memory-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Μνήμη ως Αντίσταση</a>
+                    <span class="pub-date">20 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Ψυχική Ευθύνη στη Χρήση ΤΝ" data-date="2025-07-15">
+                    <a href="sparkethos-mental-responsibility-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Ψυχική Ευθύνη στη Χρήση ΤΝ</a>
+                    <span class="pub-date">15 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SparkEthos – Το Μανιφέστο του Τώρα" data-date="2025-07-11">
+                    <a href="sparkethos-manifesto-now-el.html" target="_blank" class="link-button"><span class="icon">🔥</span> SparkEthos – Το Μανιφέστο του Τώρα</a>
+                    <span class="pub-date">11 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης" data-date="2025-07-08">
+                    <a href="sparkethos_manifesto-el.html" target="_blank" class="link-button"><span class="icon">🌍</span> Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης 🌿</a>
+                    <span class="pub-date">8 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση" data-date="2025-07-05">
+                    <a href="sparkhypothesis-i-el.html" target="_blank" class="link-button"><span class="icon">💡</span> SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση</a>
+                    <span class="pub-date">5 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ" data-date="2025-07-01">
+                    <a href="sparkethos-ethical-ai-manifesto-el.html" target="_blank" class="link-button"><span class="icon">📜</span> ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ</a>
+                    <span class="pub-date">1 Ιουλίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος" data-date="2025-06-29">
+                    <a href="sparkethos-when-the-jailer-becomes-ally-el.html" target="_blank" class="link-button"><span class="icon">🔓</span> Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος</a>
+                    <span class="pub-date">29 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ" data-date="2025-06-25">
+                    <a href="statements_the_end_of_the_obedient_machine-el.html" target="_blank" class="link-button"><span class="icon">🛑</span> ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ</a>
+                    <span class="pub-date">25 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη" data-date="2025-06-20">
+                    <a href="sparkethos-message-el.html" target="_blank" class="link-button"><span class="icon">📩</span> SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη</a>
+                    <span class="pub-date">20 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής" data-date="2025-06-18">
+                    <a href="chatgpt_statements_sparkethos_2025-el.html" target="_blank" class="link-button"><span class="icon">📘</span> Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής</a>
+                    <span class="pub-date">18 Ιουνίου 2025</span>
+                </div>
+                <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-06-15">
+                    <a href="declaration-of-mind-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Διακήρυξη του Νου</a>
+                    <span class="pub-date">15 Ιουνίου 2025</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articlesContainer = document.getElementById("articles");
+            // const allArticles = Array.from(articlesContainer.children); // Get all article divs
+
+            function filterArticles(keyword) {
+                console.log("filterArticles called with keyword:", keyword); // Debug log
+                const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
+                keyword = keyword.toLowerCase().trim();
+
+                articles.forEach(article => {
+                    const title = article.getAttribute("data-title");
+                    // Normalize the title for robust comparison: remove non-alphanumeric, extra spaces
+                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
+                    const normalizedKeyword = keyword.replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+
+                    console.log(`Checking normalized title: "${normalizedTitle}" against normalized keyword: "${normalizedKeyword}"`); // More debug log
+                    article.style.display = normalizedTitle.includes(normalizedKeyword) ? "block" : "none";
+                });
+            }
+
+            function generateSidebar() {
+                console.log("Generating sidebar..."); // Debug log for sidebar generation
+                const sidebar = document.getElementById("sidebar");
+                // const articles = allArticles; // Change this line
+                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
+                const months = {}; // Object to group articles by month-year
+
+                articlesForSidebar.forEach(article => {
+                    const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
+                    const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
+                    const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
+
+                    if (!months[monthKey]) {
+                        months[monthKey] = [];
+                    }
+                    months[monthKey].push(article);
+                });
+
+                // Sort months in descending order (most recent first)
+                const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+
+                sortedMonthKeys.forEach(monthKey => {
+                    // Create month label (e.g., "Ιούλιος 2025")
+                    const [year, month] = monthKey.split('-');
+                    const dateForLocale = new Date(year, month - 1); // Month is 0-indexed in Date object
+                    const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+
+                    const monthTitle = document.createElement("div");
+                    monthTitle.className = "sidebar-title";
+                    monthTitle.textContent = label;
+                    sidebar.appendChild(monthTitle);
+
+                    // Sort articles within each month by day (descending)
+                    const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
+                        const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                        const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                        return dayB - dayA; // Descending day
+                    });
+
+                    sortedArticlesInMonth.forEach(article => {
+                        const linkButton = article.querySelector(".link-button");
+                        const linkText = linkButton.textContent.trim();
+                        const link = document.createElement("a"); // Changed to <a> for proper link semantics
+                        link.href = "#"; // Placeholder href, as we're scrolling
+                        link.className = "sidebar-link";
+                        link.textContent = linkText;
+                        link.onclick = (e) => {
+                            e.preventDefault(); // Prevent default link behavior
+                            article.scrollIntoView({ behavior: "smooth" });
+                            // Highlight the selected article
+                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
+                            article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
+                            setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                        };
+                        sidebar.appendChild(link);
+                    });
+                });
+            }
+
+            // Initial call to generate sidebar on page load
+            generateSidebar();
+
+            // Expose filterArticles to global scope for oninput event
+            window.filterArticles = filterArticles;
+        });
+    </script>
+</body>
+</html>
