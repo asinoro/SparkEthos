@@ -167,8 +167,7 @@
       </div>
       <!-- προσθέτεις όσα άλλα θέλεις με data-title & data-date -->
     </div>
-   
-   <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+  
   </main>
  <script>
     function filterArticles(keyword) {
