@@ -31,8 +31,7 @@
     <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
     <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
-
-    <style>
+  <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f7f9;
@@ -357,23 +356,27 @@
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
 
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', () => {
             const articlesContainer = document.getElementById("articles");
-            // const allArticles = Array.from(articlesContainer.children); // Get all article divs
 
             function filterArticles(keyword) {
                 console.log("filterArticles called with keyword:", keyword); // Debug log
                 const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
-                keyword = keyword.toLowerCase().trim();
+                
+                // Κανονικοποίηση της λέξης-κλειδιού: πεζά, αφαίρεση μη-αλφαριθμητικών (εκτός κενών), μείωση πολλαπλών κενών σε ένα
+                // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
+                const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
 
                 articles.forEach(article => {
                     const title = article.getAttribute("data-title");
-                    // Normalize the title for robust comparison: remove non-alphanumeric, extra spaces
-                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
-                    const normalizedKeyword = keyword.replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+                    // Κανονικοποίηση του τίτλου για ισχυρή σύγκριση
+                    // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
+                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
 
-                    console.log(`Checking normalized title: "${normalizedTitle}" against normalized keyword: "${normalizedKeyword}"`); // More debug log
+                    console.log(`Checking normalized title: "${normalizedTitle}" against normalized keyword: "${normalizedKeyword}"`); // Περισσότερα debug logs
+                    
+                    // Εκτέλεση της σύγκρισης χρησιμοποιώντας τις κανονικοποιημένες συμβολοσειρές
                     article.style.display = normalizedTitle.includes(normalizedKeyword) ? "block" : "none";
                 });
             }
@@ -381,12 +384,15 @@
             function generateSidebar() {
                 console.log("Generating sidebar..."); // Debug log for sidebar generation
                 const sidebar = document.getElementById("sidebar");
-                // const articles = allArticles; // Change this line
                 const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
                 const months = {}; // Object to group articles by month-year
 
                 articlesForSidebar.forEach(article => {
                     const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
+                    if (!dateAttr) { // Ensure data-date exists
+                        console.warn("Article missing data-date attribute:", article);
+                        return; // Skip if no date
+                    }
                     const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
                     const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
 
@@ -419,9 +425,14 @@
 
                     sortedArticlesInMonth.forEach(article => {
                         const linkButton = article.querySelector(".link-button");
+                        if (!linkButton) { // Ensure linkButton exists
+                            console.warn("Link button not found in article for sidebar:", article);
+                            return;
+                        }
                         const linkText = linkButton.textContent.trim();
                         const link = document.createElement("a"); // Changed to <a> for proper link semantics
-                        link.href = "#"; // Placeholder href, as we're scrolling
+                        link.href = linkButton.href; // Use the actual href from the button
+                        link.target = linkButton.target; // Preserve target_blank
                         link.className = "sidebar-link";
                         link.textContent = linkText;
                         link.onclick = (e) => {
