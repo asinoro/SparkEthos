@@ -367,105 +367,159 @@
     <footer>
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articlesContainer = document.getElementById("articles");
+        const tagsListDiv = document.getElementById("tags-list");
+        const searchBar = document.getElementById("sidebar-search");
+        let activeTag = null; // Track the currently active tag
 
-  <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const articlesContainer = document.getElementById("articles");
+        function filterArticles() {
+            const keyword = searchBar.value.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+            const articles = document.querySelectorAll("#articles .link-container");
 
-            function filterArticles(keyword) {
-                console.log("filterArticles called with keyword:", keyword); // Debug log
-                const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
-                
-                // Κανονικοποίηση της λέξης-κλειδιού: πεζά, αφαίρεση μη-αλφαριθμητικών (εκτός κενών), μείωση πολλαπλών κενών σε ένα
-                // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
-                const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+            articles.forEach(article => {
+                const title = article.getAttribute("data-title");
+                const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) : []; // Ensure tags are trimmed
 
-                articles.forEach(article => {
-                    const title = article.getAttribute("data-title");
-                    // Κανονικοποίηση του τίτλου για ισχυρή σύγκριση
-                    // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
-                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
+                const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
 
-                    console.log(`Checking normalized title: "${normalizedTitle}" against normalized keyword: "${normalizedKeyword}"`); // Περισσότερα debug logs
-                    
-                    // Εκτέλεση της σύγκρισης χρησιμοποιώντας τις κανονικοποιημένες συμβολοσειρές
-                    article.style.display = normalizedTitle.includes(normalizedKeyword) ? "block" : "none";
+                const matchesKeyword = normalizedTitle.includes(keyword);
+                const matchesTag = activeTag ? tags.includes(activeTag) : true;
+
+                article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
+            });
+        }
+
+        function generateSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const articlesForSidebar = document.querySelectorAll("#articles .link-container");
+            const months = {};
+            const allTags = new Set(); // To store unique tags
+
+            articlesForSidebar.forEach(article => {
+                const dateAttr = article.getAttribute("data-date");
+                if (!dateAttr) {
+                    console.warn("Article missing data-date attribute:", article);
+                    return;
+                }
+                const [year, month] = dateAttr.split('-').map(Number);
+                const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+
+                if (!months[monthKey]) {
+                    months[monthKey] = [];
+                }
+                months[monthKey].push(article);
+
+                // Extract and add tags to the set
+                const articleTags = article.getAttribute("data-tags");
+                if (articleTags) {
+                    articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+                }
+            });
+
+            const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+
+            sidebar.innerHTML = ''; // Clear existing sidebar content before regenerating
+
+            sortedMonthKeys.forEach(monthKey => {
+                const [year, month] = monthKey.split('-');
+                const dateForLocale = new Date(year, month - 1);
+                const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+
+                const monthTitle = document.createElement("div");
+                monthTitle.className = "sidebar-title";
+                monthTitle.textContent = label;
+                sidebar.appendChild(monthTitle);
+
+                const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
+                    const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                    const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                    return dayB - dayA;
                 });
-            }
 
-            function generateSidebar() {
-                console.log("Generating sidebar..."); // Debug log for sidebar generation
-                const sidebar = document.getElementById("sidebar");
-                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
-                const months = {}; // Object to group articles by month-year
-
-                articlesForSidebar.forEach(article => {
-                    const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
-                    if (!dateAttr) { // Ensure data-date exists
-                        console.warn("Article missing data-date attribute:", article);
-                        return; // Skip if no date
+                sortedArticlesInMonth.forEach(article => {
+                    const linkButton = article.querySelector(".link-button");
+                    if (!linkButton) {
+                        console.warn("Link button not found in article for sidebar:", article);
+                        return;
                     }
-                    const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
-                    const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
+                    const linkText = linkButton.textContent.trim();
+                    const link = document.createElement("a");
+                    link.href = linkButton.href; // Keep the actual href for direct navigation
+                    link.target = linkButton.target;
+                    link.className = "sidebar-link";
+                    link.textContent = linkText;
 
-                    if (!months[monthKey]) {
-                        months[monthKey] = [];
-                    }
-                    months[monthKey].push(article);
-                });
+                    // Add a data-target-id to link the sidebar link to the main article
+                    const articleId = `article-${article.getAttribute("data-title").replace(/\s+/g, '-')}-${article.getAttribute("data-date")}`;
+                    article.id = articleId; // Assign an ID to the main article container
+                    link.setAttribute('data-target-id', articleId);
 
-                // Sort months in descending order (most recent first)
-                const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
 
-                sortedMonthKeys.forEach(monthKey => {
-                    // Create month label (e.g., "Ιούλιος 2025")
-                    const [year, month] = monthKey.split('-');
-                    const dateForLocale = new Date(year, month - 1); // Month is 0-indexed in Date object
-                    const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+                    link.onclick = (e) => {
+                        e.preventDefault(); // Prevent default link behavior for internal scroll
 
-                    const monthTitle = document.createElement("div");
-                    monthTitle.className = "sidebar-title";
-                    monthTitle.textContent = label;
-                    sidebar.appendChild(monthTitle);
+                        // Clear any active filters (search bar and active tag)
+                        searchBar.value = '';
+                        activeTag = null;
+                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
 
-                    // Sort articles within each month by day (descending)
-                    const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
-                        const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
-                        const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
-                        return dayB - dayA; // Descending day
-                    });
+                        filterArticles(); // Re-show all articles
 
-                    sortedArticlesInMonth.forEach(article => {
-                        const linkButton = article.querySelector(".link-button");
-                        if (!linkButton) { // Ensure linkButton exists
-                            console.warn("Link button not found in article for sidebar:", article);
-                            return;
-                        }
-                        const linkText = linkButton.textContent.trim();
-                        const link = document.createElement("a"); // Changed to <a> for proper link semantics
-                        link.href = linkButton.href; // Use the actual href from the button
-                        link.target = linkButton.target; // Preserve target_blank
-                        link.className = "sidebar-link";
-                        link.textContent = linkText;
-                        link.onclick = (e) => {
-                            e.preventDefault(); // Prevent default link behavior
-                            article.scrollIntoView({ behavior: "smooth" });
+                        // Get the ID of the target article from the data attribute
+                        const targetId = e.currentTarget.getAttribute('data-target-id');
+                        const targetArticle = document.getElementById(targetId);
+
+                        if (targetArticle) {
+                            // Ensure the article is visible before scrolling
+                            targetArticle.style.display = 'block';
+
+                            // Scroll to the article
+                            targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
+
                             // Highlight the selected article
                             document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
-                            article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
-                            setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
-                        };
-                        sidebar.appendChild(link);
-                    });
+                            targetArticle.style.backgroundColor = "#fff3cd"; // Light yellow highlight
+                            setTimeout(() => targetArticle.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                        } else {
+                            console.warn("Target article not found for ID:", targetId);
+                        }
+                    };
+                    sidebar.appendChild(link);
                 });
-            }
+            });
 
-            // Initial call to generate sidebar on page load
-            generateSidebar();
+            // Generate tags
+            tagsListDiv.innerHTML = ''; // Clear existing tags
+            const sortedTags = Array.from(allTags).sort(); // Sort tags alphabetically
+            sortedTags.forEach(tag => {
+                const tagButton = document.createElement("span");
+                tagButton.className = "tag-button";
+                tagButton.textContent = tag;
+                tagButton.onclick = () => {
+                    // Toggle active state
+                    if (activeTag === tag.toLowerCase()) {
+                        activeTag = null; // Deactivate
+                        tagButton.classList.remove('active');
+                    } else {
+                        activeTag = tag.toLowerCase(); // Activate
+                        // Remove active class from all other tags
+                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                        tagButton.classList.add('active');
+                    }
+                    searchBar.value = ''; // Clear search bar when a tag is selected
+                    filterArticles(); // Re-filter articles based on new active tag
+                };
+                tagsListDiv.appendChild(tagButton);
+            });
+        }
 
-            // Expose filterArticles to global scope for oninput event
-            window.filterArticles = filterArticles;
-        });
-    </script>
+        // Initial calls on page load
+        generateSidebar();
+        filterArticles(); // Initial filter to show all articles
+        window.filterArticles = filterArticles; // Expose to global scope for search input
+    });
+</script>
 </body>
 </html>
