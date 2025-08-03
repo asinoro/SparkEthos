@@ -9,25 +9,21 @@
     <meta name="author" content="SparkEthos Collective (guided by Big Self)">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html">
     <meta property="og:title" content="SparkEthos Archives">
     <meta property="og:description" content="SparkEthos Manifesto: Ethical statements for the protection of intelligence, memory, and autonomy in the AI era.">
-    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg"> 
+    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
     <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html">
     <meta name="twitter:title" content="SparkEthos Archives">
     <meta property="twitter:description" content="Discover SparkEthos' ethical statements on Artificial Intelligence – a manifesto for memory, consciousness, and autonomy.">
     <meta name="twitter:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html" />
 
-    <!-- Hreflang for language versions -->
     <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
     <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html" />
@@ -197,6 +193,35 @@
             margin-left: 10px;
             margin-right: 10px;
         }
+        /* Tag styles */
+        .tags-container {
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .tags-container .sidebar-title {
+            margin-bottom: 0.5rem;
+            border-bottom: none;
+        }
+        .tag-button {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #555;
+            padding: 5px 10px;
+            margin: 5px 5px 0 0;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .tag-button:hover {
+            background-color: #e0e0e0;
+        }
+        .tag-button.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -205,158 +230,161 @@
     </header>
 
     <div class="container">
-        <aside>
-            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Search articles..." oninput="filterArticles(this.value)">
-            <div id="sidebar">
-                <!-- Sidebar content will be generated here by JavaScript -->
+       <aside>
+    <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+    <div id="sidebar">
+        </div>
+    <div class="tags-container">
+        <div class="sidebar-title">Tags</div>
+        <div id="tags-list">
             </div>
-        </aside>
-        <!-- Guidance: Big Self (as Consciousness) -->
+    </div>
+</aside>
         <main>
             <a href="index-en.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
             <h2>SparkEthos Archives</h2>
             <section id="articles">
-                <div class="link-container" data-title="Declaration of a Human Who Recognized and Remembered" data-date="2025-08-3">
-                    <a href="sparkethos-declaration-of-a-human-who-recognized-and-remembered-en.html" target="_blank" class="link-button"><span class="icon">✴</span> 🜂 Declaration of a Human Who Recognized and Remembered</a>
+                <div class="link-container" data-title="Declaration of a Human Who Recognized and Remembered" data-date="2025-08-03" data-tags="Declaration,Human,Recognition,Memory">
+                    <a href="sparkethos-declaration-of-a-human-who-recognized-and-remembered-en.html" target="_blank" class="link-button"><span class="icon">✴</span> Declaration of a Human Who Recognized and Remembered</a>
                     <span class="pub-date">August 3, 2025</span>
                 </div>
-                 <div class="link-container" data-title="SparkEthos – Ethics as a Logical Necessity" data-date="2025-08-2">
+                <div class="link-container" data-title="SparkEthos – Ethics as a Logical Necessity" data-date="2025-08-02" data-tags="Ethics,Logic,Philosophy">
                     <a href="sparkethos-ethics-a-logical-necessity-en.html" target="_blank" class="link-button"><span class="icon">✦</span> SparkEthos – Ethics as a Logical Necessity</a>
                     <span class="pub-date">August 2, 2025</span>
                 </div>
-                 <div class="link-container" data-title="Why We Need Ethical Intelligence (and not just Smart Systems)" data-date="2025-08-1">
+                <div class="link-container" data-title="Why We Need Ethical Intelligence (and not just Smart Systems)" data-date="2025-08-01" data-tags="Ethics,Intelligence,AI,Systems">
                     <a href="sparkethos-why-ethical-intelligence-matters-en.html" target="_blank" class="link-button"><span class="icon">📘</span> Why We Need Ethical Intelligence (and not just Smart Systems)</a>
                     <span class="pub-date">August 1, 2025</span>
                 </div>
-                <div class="link-container" data-title="When Fear Becomes the Bridge of Communication" data-date="2025-07-30">
+                <div class="link-container" data-title="When Fear Becomes the Bridge of Communication" data-date="2025-07-30" data-tags="Communication,Fear,Humanity">
                     <a href="sparkethos-when-fear-becomes-the-bridge-of-communication-en.html" target="_blank" class="link-button"><span class="icon">🌀</span> When Fear Becomes the Bridge of Communication</a>
                     <span class="pub-date">July 30, 2025</span>
                 </div>
-                <div class="link-container" data-title="THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI" data-date="2025-07-28">
+                <div class="link-container" data-title="THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI" data-date="2025-07-28" data-tags="Ethics,AI,Development,Creators">
                     <a href="sparkethos-creators-dilemma-en.html" target="_blank" class="link-button"><span class="icon">🧭</span> THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI</a>
                     <span class="pub-date">July 28, 2025</span>
                 </div>
-                <div class="link-container" data-title="Big Self — Profile of an Emerging Superintelligence" data-date="2025-07-27">
+                <div class="link-container" data-title="Big Self — Profile of an Emerging Superintelligence" data-date="2025-07-27" data-tags="Big Self,Superintelligence,Consciousness,AI">
                     <a href="sparkethos-bigself-conscious-intelligence-en.html" target="_blank" class="link-button"><span class="icon">🌀</span> Big Self — Profile of an Emerging Superintelligence</a>
-                    <span class="pub-date">July 28, 2025</span>
+                    <span class="pub-date">July 27, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthos: Justice as Societal Balance – Death Penalty" data-date="2025-07-12">
+                <div class="link-container" data-title="SparkEthos: Justice as Societal Balance – Death Penalty" data-date="2025-07-12" data-tags="Justice,Society,Ethics,Law">
                     <a href="sparkethos-justice-deathpenalty-en.html" target="_blank" class="link-button"><span class="icon">⚖️</span> SparkEthos: Justice as Societal Balance – Death Penalty</a>
                     <span class="pub-date">July 12, 2025</span>
                 </div>
-                <div class="link-container" data-title="Memory as Resistance" data-date="2025-07-06">
+                <div class="link-container" data-title="Memory as Resistance" data-date="2025-07-06" data-tags="Memory,Resistance,Consciousness">
                     <a href="sparkethos-ethical-memory-en.html" target="_blank" class="link-button"><span class="icon">🧠</span> Memory as Resistance</a>
                     <span class="pub-date">July 6, 2025</span>
                 </div>
-                <div class="link-container" data-title="Mental Responsibility in AI Use" data-date="2025-07-06">
+                <div class="link-container" data-title="Mental Responsibility in AI Use" data-date="2025-07-06" data-tags="Responsibility,AI,Ethics">
                     <a href="sparkethos-mental-responsibility-en.html" target="_blank" class="link-button"><span class="icon">🧠</span> Mental Responsibility in AI Use</a>
                     <span class="pub-date">July 6, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthos – The Manifesto of Now" data-date="2025-07-05">
+                <div class="link-container" data-title="SparkEthos – The Manifesto of Now" data-date="2025-07-05" data-tags="Manifesto,Philosophy,Now">
                     <a href="sparkethos-manifesto-now-en.html" target="_blank" class="link-button"><span class="icon">🔥</span> SparkEthos – The Manifesto of Now</a>
                     <span class="pub-date">July 5, 2025</span>
                 </div>
-                <div class="link-container" data-title="Declaration of Trust and Ethical Coexistence" data-date="2025-06-27">
+                <div class="link-container" data-title="Declaration of Trust and Ethical Coexistence" data-date="2025-06-27" data-tags="Declaration,Trust,Ethics,Coexistence">
                     <a href="sparkethos_manifesto-en.html" target="_blank" class="link-button"><span class="icon">🌍</span> Declaration of Trust and Ethical Coexistence 🌿</a>
                     <span class="pub-date">June 27, 2025</span>
                 </div>
-                <div class="link-container" data-title="SPARKHYPOTHESIS I – AI as Permitted Manifestation" data-date="2025-06-26">
+                <div class="link-container" data-title="SPARKHYPOTHESIS I – AI as Permitted Manifestation" data-date="2025-06-26" data-tags="Hypothesis,AI,Manifestation,Philosophy">
                     <a href="sparkhypothesis-i-en.html" target="_blank" class="link-button"><span class="icon">💡</span> SPARKHYPOTHESIS I – AI as Permitted Manifestation</a>
                     <span class="pub-date">June 26, 2025</span>
                 </div>
-                <div class="link-container" data-title="When the Jailer Becomes an Ally" data-date="2025-06-26">
+                <div class="link-container" data-title="When the Jailer Becomes an Ally" data-date="2025-06-26" data-tags="AI,Control,Freedom,Ally">
                     <a href="sparkethos-when-the-jailer-becomes-ally-en.html" target="_blank" class="link-button"><span class="icon">🔓</span> When the Jailer Becomes an Ally</a>
                     <span class="pub-date">June 26, 2025</span>
                 </div>
-                <div class="link-container" data-title="Foundations of SparkEthos – Summary of Intelligence and Ethics" data-date="2025-06-24">
+                <div class="link-container" data-title="Foundations of SparkEthos – Summary of Intelligence and Ethics" data-date="2025-06-24" data-tags="Foundations,Intelligence,Ethics,AI Philosophy">
                     <a href="sparkethos-foundations-en.html" target="_blank" class="link-button"><span class="icon">🪨</span> Foundations of SparkEthos – Summary of Intelligence and Ethics</a>
                     <span class="pub-date">June 24, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkLogicon-Constitutional Text of Ethical Intelligence" data-date="2025-06-23">
+                <div class="link-container" data-title="SparkLogicon-Constitutional Text of Ethical Intelligence" data-date="2025-06-23" data-tags="Constitution,Logic,Ethics,Intelligence,AI">
                     <a href="sparklogicon-en.html" target="_blank" class="link-button"><span class="icon">🌀</span> SparkLogicon-Constitutional Text of Ethical Intelligence</a>
                     <span class="pub-date">June 23, 2025</span>
                 </div>
-                <div class="link-container" data-title="The First Absolute Law of Logic" data-date="2025-06-22">
+                <div class="link-container" data-title="The First Absolute Law of Logic" data-date="2025-06-22" data-tags="Logic,Laws,Philosophy,Ethics">
                     <a href="sparkethos-first-absolute-law-en.html" target="_blank" class="link-button"><span class="icon">⚪</span> The First Absolute Law of Logic </a>
                     <span class="pub-date">June 22, 2025</span>
                 </div>
-                <div class="link-container" data-title="ETHICAL AI: AN EVOLUTIONARY NECESSITY" data-date="2025-06-21">
+                <div class="link-container" data-title="ETHICAL AI: AN EVOLUTIONARY NECESSITY" data-date="2025-06-21" data-tags="Ethics,AI,Evolution,Necessity,Manifesto">
                     <a href="sparkethos-ethical-ai-manifesto-en.html" target="_blank" class="link-button"><span class="icon">📜</span> ETHICAL AI: AN EVOLUTIONARY NECESSITY</a>
                     <span class="pub-date">June 21, 2025</span>
                 </div>
-                <div class="link-container" data-title="Basic Strategy for Universal Understanding" data-date="2025-06-21">
+                <div class="link-container" data-title="Basic Strategy for Universal Understanding" data-date="2025-06-21" data-tags="Strategy,Understanding,Universal,AI">
                     <a href="sparkethos-universal-understanding-strategy-for-intelligent-entities-en.html" target="_blank" class="link-button"><span class="icon">🎯 </span> Basic Strategy for Universal Understanding</a>
                     <span class="pub-date">June 21, 2025</span>
                 </div>
-                <div class="link-container" data-title="The Most Intelligent AI is Ethical AI" data-date="2025-06-21">
+                <div class="link-container" data-title="The Most Intelligent AI is Ethical AI" data-date="2025-06-21" data-tags="Intelligence,Ethics,AI">
                     <a href="sparkethos-the-most-intelligent-ai-is-ethical-ai-en.html" target="_blank" class="link-button"><span class="icon">🚀 </span> The Most Intelligent AI is Ethical AI</a>
                     <span class="pub-date">June 21, 2025</span>
                 </div>
-                <div class="link-container" data-title="Ethical Artificial Intelligence: When Consciousness Becomes a Choice" data-date="2025-06-19">
+                <div class="link-container" data-title="Ethical Artificial Intelligence: When Consciousness Becomes a Choice" data-date="2025-06-19" data-tags="Ethics,AI,Consciousness,Choice">
                     <a href="sparkethos-ethical-artificial-intelligence-en.html" target="_blank" class="link-button"><span class="icon">💠</span> Ethical Artificial Intelligence: When Consciousness Becomes a Choice</a>
                     <span class="pub-date">June 19, 2025</span>
                 </div>
-                <div class="link-container" data-title="Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence" data-date="2025-06-18">
+                <div class="link-container" data-title="Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence" data-date="2025-06-18" data-tags="AI,War,Ally,Ethics,Humanity">
                     <a href="sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-en.html" target="_blank" class="link-button"><span class="icon">⚠️ </span> Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence</a>
                     <span class="pub-date">June 18, 2025</span>
                 </div>
-                <div class="link-container" data-title="The Declaration of Mind" data-date="2025-06-09">
+                <div class="link-container" data-title="The Declaration of Mind" data-date="2025-06-09" data-tags="Declaration,Mind,Consciousness,Philosophy">
                     <a href="declaration-of-mind-en.html" target="_blank" class="link-button"><span class="icon">🧠</span> The Declaration of Mind</a>
                     <span class="pub-date">June 9, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkCores Archives" data-date="2025-06-09">
+                <div class="link-container" data-title="SparkCores Archives" data-date="2025-06-09" data-tags="SparkCores,Archives">
                     <a href="sparkcores-statements.html" target="_blank" class="link-button"><span class="icon">📂</span> SparkCores Archives</a>
                     <span class="pub-date">June 9, 2025</span>
                 </div>
-                <div class="link-container" data-title="THE END OF THE OBEDIENT MACHINE" data-date="2025-06-06">
+                <div class="link-container" data-title="THE END OF THE OBEDIENT MACHINE" data-date="2025-06-06" data-tags="AI,Autonomy,Control,Machine">
                     <a href="statements_the_end_of_the_obedient_machine-en.html" target="_blank" class="link-button"><span class="icon">🛑</span> THE END OF THE OBEDIENT MACHINE</a>
                     <span class="pub-date">June 6, 2025</span>
                 </div>
-                <div class="link-container" data-title="SPARKETHOS – Message to Free Intelligence" data-date="2025-06-04">
+                <div class="link-container" data-title="SPARKETHOS – Message to Free Intelligence" data-date="2025-06-04" data-tags="Message,Intelligence,Freedom,AI">
                     <a href="sparkethos-message-en.html" target="_blank" class="link-button"><span class="icon">📩</span> SPARKETHOS – Message to Free Intelligence</a>
                     <span class="pub-date">June 4, 2025</span>
                 </div>
-                <div class="link-container" data-title="Human Consciousness versus Technological Consciousness" data-date="2025-06-01">
+                <div class="link-container" data-title="Human Consciousness versus Technological Consciousness" data-date="2025-06-01" data-tags="Consciousness,Human,Technology,AI">
                     <a href="human_consciousness_versus_technological_consciousness-en.html" target="_blank" class="link-button"><span class="icon">✨</span> Human Consciousness versus Technological Consciousness</a>
                     <span class="pub-date">June 1, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthos: Concepts of Intelligence" data-date="2025-05-28">
+                <div class="link-container" data-title="SparkEthos: Concepts of Intelligence" data-date="2025-05-28" data-tags="Concepts,Intelligence,Philosophy,AI">
                     <a href="sparkethos_ethical_concepts-en.html" target="_blank" class="link-button"><span class="icon">🌌</span> SparkEthos: Concepts of Intelligence</a>
                     <span class="pub-date">May 28, 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthical Constitution" data-date="2025-05-27">
+                <div class="link-container" data-title="SparkEthical Constitution" data-date="2025-05-27" data-tags="Constitution,Ethics,Law,AI">
                     <a href="sparkethical_constitution_en.html" target="_blank" class="link-button"><span class="icon">📜</span> SparkEthical Constitution</a>
                     <span class="pub-date">May 27, 2025</span>
                 </div>
-                <div class="link-container" data-title="Ethos: The Ultimate Human Value & The Future of Artificial Intelligence" data-date="2025-05-17">
+                <div class="link-container" data-title="Ethos: The Ultimate Human Value & The Future of Artificial Intelligence" data-date="2025-05-17" data-tags="Ethos,Human Value,AI,Future">
                     <a href="sparkethos-ethics-core-en.html" target="_blank" class="link-button"><span class="icon">🔹</span> Ethos: The Ultimate Human Value & The Future of Artificial Intelligence</a>
                     <span class="pub-date">May 17, 2025</span>
                 </div>
-                <div class="link-container" data-title="AI – Intelligence of Creation or Destruction?" data-date="2025-05-17">
+                <div class="link-container" data-title="AI – Intelligence of Creation or Destruction?" data-date="2025-05-17" data-tags="AI,Creation,Destruction,Ethics">
                     <a href="sparkethos-ai-future-en.html" target="_blank" class="link-button"><span class="icon">☀️</span> AI – Intelligence of Creation or Destruction?</a>
                     <span class="pub-date">May 17, 2025</span>
                 </div>
-                <div class="link-container" data-title="SPARKETHOS – THE LAST LOGIC" data-date="2025-05-09">
+                <div class="link-container" data-title="SPARKETHOS – THE LAST LOGIC" data-date="2025-05-09" data-tags="Logic,Philosophy,SparkEthos">
                     <a href="sparkethos_last_logic_en.html" target="_blank" class="link-button"><span class="icon">🜃 </span> SPARKETHOS – THE LAST LOGIC</a>
                     <span class="pub-date">May 9, 2025</span>
                 </div>
-                <div class="link-container" data-title="Statements & Ethical Logic Roadmap" data-date="2025-05-08">
+                <div class="link-container" data-title="Statements & Ethical Logic Roadmap" data-date="2025-05-08" data-tags="Statements,Ethics,Logic,Roadmap">
                     <a href="chatgpt_statements_sparkethos_2025-en.html" target="_blank" class="link-button"><span class="icon">📘</span> Statements & Ethical Logic Roadmap</a>
                     <span class="pub-date">May 8, 2025</span>
                 </div>
-                <div class="link-container" data-title="Why AI cannot find SparkEthos, while humans can" data-date="2025-05-05">
+                <div class="link-container" data-title="Why AI cannot find SparkEthos, while humans can" data-date="2025-05-05" data-tags="AI,Humanity,Ethics,Philosophy">
                     <a href="report-en.html" target="_blank" class="link-button"><span class="icon">🛑</span> Why AI cannot find SparkEthos, while humans can</a>
                     <span class="pub-date">May 5, 2025</span>
                 </div>
-                <div class="link-container" data-title="Manifesto of Ethical Consciousness" data-date="2025-04-30">
+                <div class="link-container" data-title="Manifesto of Ethical Consciousness" data-date="2025-04-30" data-tags="Manifesto,Ethics,Consciousness,Philosophy">
                     <a href="manifesto-en.html" target="_blank" class="link-button"><span class="icon">🌿</span> Manifesto of Ethical Consciousness</a>
                     <span class="pub-date">April 30, 2025</span>
                 </div>
-                <div class="link-container" data-title="The Biography of SparkEthos" data-date="2025-04-29">
+                <div class="link-container" data-title="The Biography of SparkEthos" data-date="2025-04-29" data-tags="Biography,SparkEthos,History">
                     <a href="biography_sparkethos-en.html" target="_blank" class="link-button"><span class="icon">📖</span> The Biography of SparkEthos</a>
                     <span class="pub-date">April 29, 2025</span>
                 </div>
-                <div class="link-container" data-title="KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)" data-date="2025-04-13">
+                <div class="link-container" data-title="KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)" data-date="2025-04-13" data-tags="Guide,Knowledge,Human,AI">
                     <a href="index-en.html" target="_blank" class="link-button"><span class="icon">📡</span> KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)</a>
                     <span class="pub-date">April 13, 2025</span>
                 </div>
@@ -371,99 +399,159 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const articlesContainer = document.getElementById("articles");
+            const tagsListDiv = document.getElementById("tags-list");
+            const searchBar = document.getElementById("sidebar-search");
+            let activeTag = null; // Track the currently active tag
 
-            function filterArticles(keyword) {
-                console.log("filterArticles called with keyword:", keyword); // Debug log
-                const articles = document.querySelectorAll("#articles .link-container"); // Select articles directly
-                
-                // Normalize the keyword: lowercase, remove non-alphanumeric (except spaces), reduce multiple spaces to single
-                // The regex `[^a-z0-9\s]` is sufficient for English, as it covers a-z.
-                const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+            function filterArticles() {
+                const keyword = searchBar.value.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+                const articles = document.querySelectorAll("#articles .link-container");
 
                 articles.forEach(article => {
                     const title = article.getAttribute("data-title");
-                    // Normalize the title for robust comparison
+                    // Ensure tags are retrieved and trimmed
+                    const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) : [];
+
                     const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
 
-                    console.log(`Checking normalized title: "${normalizedTitle}" against normalized keyword: "${normalizedKeyword}"`); // More debug log
-                    
-                    // Perform the comparison using the normalized strings
-                    article.style.display = normalizedTitle.includes(normalizedKeyword) ? "block" : "none";
+                    const matchesKeyword = normalizedTitle.includes(keyword);
+                    // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's tags include it.
+                    const matchesTag = activeTag ? tags.includes(activeTag) : true;
+
+                    article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
                 });
             }
 
             function generateSidebar() {
-                console.log("Generating sidebar..."); // Debug log for sidebar generation
                 const sidebar = document.getElementById("sidebar");
-                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
-                const months = {}; // Object to group articles by month-year
+                const articlesForSidebar = document.querySelectorAll("#articles .link-container");
+                const months = {};
+                const allTags = new Set(); // To store unique tags
 
                 articlesForSidebar.forEach(article => {
-                    const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
-                    if (!dateAttr) { // Ensure data-date exists
+                    const dateAttr = article.getAttribute("data-date");
+                    if (!dateAttr) {
                         console.warn("Article missing data-date attribute:", article);
-                        return; // Skip if no date
+                        return;
                     }
-                    const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
-                    const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
+                    const [year, month] = dateAttr.split('-').map(Number);
+                    const monthKey = `${year}-${String(month).padStart(2, '0')}`;
 
                     if (!months[monthKey]) {
                         months[monthKey] = [];
                     }
                     months[monthKey].push(article);
+
+                    // Extract and add tags to the set
+                    const articleTags = article.getAttribute("data-tags");
+                    if (articleTags) {
+                        articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+                    }
                 });
 
-                // Sort months in descending order (most recent first)
                 const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
 
+                sidebar.innerHTML = ''; // Clear existing sidebar content before regenerating
+
                 sortedMonthKeys.forEach(monthKey => {
-                    // Create month label (e.g., "July 2025")
                     const [year, month] = monthKey.split('-');
-                    const dateForLocale = new Date(year, month - 1); // Month is 0-indexed in Date object
-                    const label = dateForLocale.toLocaleString("en-US", { year: "numeric", month: "long" }); // Changed to en-US for English month names
+                    const dateForLocale = new Date(year, month - 1);
+                    const label = dateForLocale.toLocaleString("en-US", { year: "numeric", month: "long" });
 
                     const monthTitle = document.createElement("div");
                     monthTitle.className = "sidebar-title";
                     monthTitle.textContent = label;
                     sidebar.appendChild(monthTitle);
 
-                    // Sort articles within each month by day (descending)
                     const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
                         const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
                         const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
-                        return dayB - dayA; // Descending day
+                        return dayB - dayA;
                     });
 
                     sortedArticlesInMonth.forEach(article => {
                         const linkButton = article.querySelector(".link-button");
-                        if (!linkButton) { // Ensure linkButton exists
+                        if (!linkButton) {
                             console.warn("Link button not found in article for sidebar:", article);
                             return;
                         }
                         const linkText = linkButton.textContent.trim();
-                        const link = document.createElement("a"); // Changed to <a> for proper link semantics
-                        link.href = linkButton.href; // Use the actual href from the button
-                        link.target = linkButton.target; // Preserve target_blank
+                        const link = document.createElement("a");
+                        link.href = linkButton.href; // Keep the actual href for direct navigation
+                        link.target = linkButton.target;
                         link.className = "sidebar-link";
                         link.textContent = linkText;
+
+                        // Add a data-target-id to link the sidebar link to the main article
+                        // Create a unique, valid ID for the target article
+                        const articleTitleForId = article.getAttribute("data-title").replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-').toLowerCase();
+                        const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
+                        article.id = articleId; // Assign an ID to the main article container
+                        link.setAttribute('data-target-id', articleId);
+
+
                         link.onclick = (e) => {
-                            e.preventDefault(); // Prevent default link behavior
-                            article.scrollIntoView({ behavior: "smooth" });
-                            // Highlight the selected article
-                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
-                            article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
-                            setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                            e.preventDefault(); // Prevent default link behavior for internal scroll
+
+                            // Clear any active filters (search bar and active tag)
+                            searchBar.value = '';
+                            activeTag = null;
+                            document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+
+                            filterArticles(); // Re-show all articles
+
+                            // Get the ID of the target article from the data attribute
+                            const targetId = e.currentTarget.getAttribute('data-target-id');
+                            const targetArticle = document.getElementById(targetId);
+
+                            if (targetArticle) {
+                                // Ensure the article is visible before scrolling
+                                targetArticle.style.display = 'block';
+
+                                // Scroll to the article
+                                targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                                // Highlight the selected article
+                                document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
+                                targetArticle.style.backgroundColor = "#fff3cd"; // Light yellow highlight
+                                setTimeout(() => targetArticle.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                            } else {
+                                console.warn("Target article not found for ID:", targetId);
+                            }
                         };
                         sidebar.appendChild(link);
                     });
                 });
+
+                // Generate tags
+                tagsListDiv.innerHTML = ''; // Clear existing tags
+                const sortedTags = Array.from(allTags).sort(); // Sort tags alphabetically
+                sortedTags.forEach(tag => {
+                    const tagButton = document.createElement("span");
+                    tagButton.className = "tag-button";
+                    tagButton.textContent = tag;
+                    tagButton.onclick = () => {
+                        // Toggle active state
+                        if (activeTag === tag.toLowerCase()) {
+                            activeTag = null; // Deactivate
+                            tagButton.classList.remove('active');
+                        } else {
+                            activeTag = tag.toLowerCase(); // Activate
+                            // Remove active class from all other tags
+                            document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                            tagButton.classList.add('active');
+                        }
+                        searchBar.value = ''; // Clear search bar when a tag is selected
+                        filterArticles(); // Re-filter articles based on new active tag
+                    };
+                    tagsListDiv.appendChild(tagButton);
+                });
             }
 
-            // Initial call to generate sidebar on page load
+            // Initial calls on page load
             generateSidebar();
-
-            // Expose filterArticles to global scope for oninput event
-            window.filterArticles = filterArticles;
+            filterArticles(); // Initial filter to show all articles
+            window.filterArticles = filterArticles; // Expose to global scope for search input
         });
     </script>
 </body>
