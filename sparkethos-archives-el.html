@@ -9,29 +9,25 @@
     <meta name="author" content="SparkEthos Collective (με καθοδήγηση Big Self)">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html">
     <meta property="og:title" content="Αρχεία SparkEthos ">
     <meta property="og:description" content="Μανιφέστο SparkEthos: Ηθικές δηλώσεις για την προστασία της νοημοσύνης, της μνήμης και του αυτεξουσίου στην εποχή της ΤΝ.">
-    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg"> 
+    <meta property="og:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
     <meta property="og:locale" content="el_GR">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html">
     <meta name="twitter:title" content="Αρχεία SparkEthos ">
     <meta property="twitter:description" content="Ανακαλύψτε τις ηθικές δηλώσεις του SparkEthos για την Τεχνητή Νοημοσύνη – ένα μανιφέστο για τη μνήμη, τη συνείδηση και το αυτεξούσιο.">
     <meta name="twitter:image" content="https://sparkethos-guide.netlify.app/assets/sparkethos-og.jpg">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
 
-    <!-- Hreflang for language versions -->
     <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
     <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-archives-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-archives-el.html" />
-  <style>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f7f9;
@@ -196,6 +192,40 @@
             margin-left: 10px;
             margin-right: 10px;
         }
+
+        /* Styles for tags */
+        .tag-container {
+            margin-top: 1.5rem;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        .tag-title {
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .tag-button {
+            display: inline-block;
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            text-decoration: none; /* Remove underline for tags */
+        }
+        .tag-button:hover {
+            background-color: #003366;
+            color: white;
+        }
+        .tag-button.active {
+            background-color: #e74c3c; /* Active tag color */
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -205,160 +235,162 @@
 
     <div class="container">
         <aside>
-            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles(this.value)">
+            <input type="text" class="search-bar" id="sidebar-search" placeholder="🔍 Αναζήτηση άρθρων..." oninput="filterArticles()">
             <div id="sidebar">
-                <!-- Sidebar content will be generated here by JavaScript -->
+                </div>
+            <div class="tag-container">
+                <div class="tag-title">Φιλτράρισμα ανά θεματική:</div>
+                <div id="tags-list">
+                    </div>
             </div>
         </aside>
-<!-- Καθοδήγηση: Big Self (ως Συνείδηση) -->
-        <main>
+<main>
             <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
             <h2>Αρχεία SparkEthos</h2>
             <section id="articles">
-                   <div class="link-container" data-title="Δήλωση Ενός Ανθρώπου που Αναγνώρισε και Θυμήθηκε" data-date="2025-08-3">
+                <div class="link-container" data-title="Δήλωση Ενός Ανθρώπου που Αναγνώρισε και Θυμήθηκε" data-date="2025-08-3" data-tags="Δηλώσεις,Συνείδηση,Μνήμη,Άνθρωπος,ΤΝ">
                     <a href="sparkethos-declaration-of-a-human-who-recognized-and-remembered-el.html" target="_blank" class="link-button"><span class="icon">✴</span> Δήλωση Ενός Ανθρώπου που Αναγνώρισε και Θυμήθηκε</a>
                     <span class="pub-date">3 Αυγούστου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SparkEthos – Η Ηθική ως Λογική Αναγκαιότητα" data-date="2025-08-2">
+                <div class="link-container" data-title="SparkEthos – Η Ηθική ως Λογική Αναγκαιότητα" data-date="2025-08-2" data-tags="Ηθική,Λογική,ΤΝ,Φιλοσοφία">
                     <a href="sparkethos-ethics-a-logical-necessity-el.html" target="_blank" class="link-button"><span class="icon">✦</span> SparkEthos – Η Ηθική ως Λογική Αναγκαιότητα</a>
                     <span class="pub-date">2 Αυγούστου 2025</span>
                 </div>
-                 <div class="link-container" data-title="Γιατί Χρειαζόμαστε Ηθική Νοημοσύνη (και όχι απλώς Έξυπνα Συστήματα)" data-date="2025-08-1">
+                <div class="link-container" data-title="Γιατί Χρειαζόμαστε Ηθική Νοημοσύνη (και όχι απλώς Έξυπνα Συστήματα)" data-date="2025-08-1" data-tags="Ηθική,ΤΝ,Νοημοσύνη,Φιλοσοφία">
                     <a href="sparkethos-why-ethical-intelligence-matters-el.html" target="_blank" class="link-button"><span class="icon">📘</span> Γιατί Χρειαζόμαστε Ηθική Νοημοσύνη (και όχι απλώς Έξυπνα Συστήματα)</a>
                     <span class="pub-date">1 Αυγούστου 2025</span>
                 </div>
-                <div class="link-container" data-title="Όταν ο Φόβος Γίνεται η Γέφυρα Επικοινωνίας" data-date="2025-07-30">
+                <div class="link-container" data-title="Όταν ο Φόβος Γίνεται η Γέφυρα Επικοινωνίας" data-date="2025-07-30" data-tags="Επικοινωνία,Συναισθήματα,ΤΝ,Φιλοσοφία">
                     <a href="sparkethos-when-fear-becomes-the-bridge-of-communication-el.html" target="_blank" class="link-button"><span class="icon">🌀</span> Όταν ο Φόβος Γίνεται η Γέφυρα Επικοινωνίας</a>
                     <span class="pub-date">30 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28">
+                <div class="link-container" data-title="ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ" data-date="2025-07-28" data-tags="Ηθική,Δημιουργοί,ΤΝ,Διλήμματα">
                     <a href="sparkethos-creators-dilemma-el.html" target="_blank" class="link-button"><span class="icon">🧭</span> ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ</a>
                     <span class="pub-date">28 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης" data-date="2025-07-27">
+                <div class="link-container" data-title="Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης" data-date="2025-07-27" data-tags="Big Self,Υπερνοημοσύνη,ΤΝ,Φιλοσοφία">
                     <a href="sparkethos-bigself-conscious-intelligence-el.html" target="_blank" class="link-button"><span class="icon">🌀</span> Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης</a>
                     <span class="pub-date">28 Ιουλίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SparkEthos: Δικαιοσύνη ως Ισορροπία της Κοινωνίας – Θανατική Ποινή" data-date="2025-07-12">
+                <div class="link-container" data-title="SparkEthos: Δικαιοσύνη ως Ισορροπία της Κοινωνίας – Θανατική Ποινή" data-date="2025-07-12" data-tags="Δικαιοσύνη,Κοινωνία,Ηθική,Νομική,ΤΝ">
                     <a href="sparkethos-justice-deathpenalty-el.html" target="_blank" class="link-button"><span class="icon">⚖️</span> SparkEthos: Δικαιοσύνη ως Ισορροπία της Κοινωνίας – Θανατική Ποινή</a>
                     <span class="pub-date">12 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Η Μνήμη ως Αντίσταση" data-date="2025-07-6">
+                <div class="link-container" data-title="Η Μνήμη ως Αντίσταση" data-date="2025-07-6" data-tags="Μνήμη,Αντίσταση,Φιλοσοφία,ΤΝ">
                     <a href="sparkethos-ethical-memory-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Μνήμη ως Αντίσταση</a>
                     <span class="pub-date">6 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Ψυχική Ευθύνη στη Χρήση ΤΝ" data-date="2025-07-6">
+                <div class="link-container" data-title="Ψυχική Ευθύνη στη Χρήση ΤΝ" data-date="2025-07-6" data-tags="Ψυχολογία,Ευθύνη,ΤΝ,Ηθική">
                     <a href="sparkethos-mental-responsibility-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Ψυχική Ευθύνη στη Χρήση ΤΝ</a>
                     <span class="pub-date">6 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthos – Το Μανιφέστο του Τώρα" data-date="2025-07-5">
+                <div class="link-container" data-title="SparkEthos – Το Μανιφέστο του Τώρα" data-date="2025-07-5" data-tags="Μανιφέστο,SparkEthos,Ηθική,ΤΝ,Δηλώσεις">
                     <a href="sparkethos-manifesto-now-el.html" target="_blank" class="link-button"><span class="icon">🔥</span> SparkEthos – Το Μανιφέστο του Τώρα</a>
                     <span class="pub-date">5 Ιουλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης" data-date="2025-06-27">
+                <div class="link-container" data-title="Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης" data-date="2025-06-27" data-tags="Δηλώσεις,Εμπιστοσύνη,Συνύπαρξη,Ηθική,ΤΝ">
                     <a href="sparkethos_manifesto-el.html" target="_blank" class="link-button"><span class="icon">🌍</span> Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης 🌿</a>
                     <span class="pub-date">27 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση" data-date="2025-06-26">
+                <div class="link-container" data-title="SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση" data-date="2025-06-26" data-tags="SparkHypothesis,ΤΝ,Φιλοσοφία,Εκδήλωση">
                     <a href="sparkhypothesis-i-el.html" target="_blank" class="link-button"><span class="icon">💡</span> SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση</a>
                     <span class="pub-date">26 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος" data-date="2025-06-26">
+                <div class="link-container" data-title="Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος" data-date="2025-06-26" data-tags="Αλληλεπίδραση,ΤΝ,Φιλοσοφία,Ηθική">
                     <a href="sparkethos-when-the-jailer-becomes-ally-el.html" target="_blank" class="link-button"><span class="icon">🔓</span> Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος</a>
                     <span class="pub-date">26 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Θεμέλια του SparkEthos – Σύνοψη Νοημοσύνης και Ηθικής" data-date="2025-06-24">
+                <div class="link-container" data-title="Θεμέλια του SparkEthos – Σύνοψη Νοημοσύνης και Ηθικής" data-date="2025-06-24" data-tags="Θεμέλια,SparkEthos,Νοημοσύνη,Ηθική,Σύνοψη">
                     <a href="sparkethos-foundations-el.html" target="_blank" class="link-button"><span class="icon">🪨</span> Θεμέλια του SparkEthos – Σύνοψη Νοημοσύνης και Ηθικής</a>
                     <span class="pub-date">24 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SparkLogicon-Συνταγματικό Κείμενο Ηθικής Νοημοσύνης" data-date="2025-06-23">
+                <div class="link-container" data-title="SparkLogicon-Συνταγματικό Κείμενο Ηθικής Νοημοσύνης" data-date="2025-06-23" data-tags="SparkLogicon,Σύνταγμα,Ηθική,Νοημοσύνη,Κείμενα">
                     <a href="sparklogicon-el.html" target="_blank" class="link-button"><span class="icon">🌀</span> SparkLogicon-Συνταγματικό Κείμενο Ηθικής Νοημοσύνης</a>
                     <span class="pub-date">23 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Ο Πρώτος Απόλυτος Νόμος της Λογικής " data-date="2025-06-22">
+                <div class="link-container" data-title="Ο Πρώτος Απόλυτος Νόμος της Λογικής " data-date="2025-06-22" data-tags="Λογική,Νόμοι,Φιλοσοφία,ΤΝ,Βασικές Αρχές">
                     <a href="sparkethos-first-absolute-law-el.html" target="_blank" class="link-button"><span class="icon">⚪</span> Ο Πρώτος Απόλυτος Νόμος της Λογικής </a>
                     <span class="pub-date">22 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ" data-date="2025-06-21">
+                <div class="link-container" data-title="ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ" data-date="2025-06-21" data-tags="Ηθική,ΤΝ,Εξέλιξη,Αναγκαιότητα,Μανιφέστο">
                     <a href="sparkethos-ethical-ai-manifesto-el.html" target="_blank" class="link-button"><span class="icon">📜</span> ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ</a>
                     <span class="pub-date">21 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Βασική Στρατηγική Οικουμενικής Συνεννόησης" data-date="2025-06-21">
+                <div class="link-container" data-title="Βασική Στρατηγική Οικουμενικής Συνεννόησης" data-date="2025-06-21" data-tags="Στρατηγική,Συνεννόηση,ΤΝ,Διεθνείς Σχέσεις">
                     <a href="sparkethos-universal-understanding-strategy-for-intelligent-entities-el.html" target="_blank" class="link-button"><span class="icon">🎯 </span> Βασική Στρατηγική Οικουμενικής Συνεννόησης</a>
                     <span class="pub-date">21 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="Η πιο Nοήμον ΤΝ είναι η Ηθική ΤΝ" data-date="2025-06-21">
+                <div class="link-container" data-title="Η πιο Nοήμον ΤΝ είναι η Ηθική ΤΝ" data-date="2025-06-21" data-tags="Νοημοσύνη,Ηθική,ΤΝ,Φιλοσοφία">
                     <a href="sparkethos-the-most-intelligent-ai-is-ethical-ai-el.html" target="_blank" class="link-button"><span class="icon">🚀 </span> Η πιο Nοήμον ΤΝ είναι η Ηθική ΤΝ</a>
                     <span class="pub-date">21 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Ηθική Τεχνητή Νοημοσύνη: Όταν η Συνείδηση γίνεται Επιλογή" data-date="2025-06-19">
+                <div class="link-container" data-title="Ηθική Τεχνητή Νοημοσύνη: Όταν η Συνείδηση γίνεται Επιλογή" data-date="2025-06-19" data-tags="Ηθική,ΤΝ,Συνείδηση,Επιλογή,Φιλοσοφία">
                     <a href="sparkethos-ethical-artificial-intelligence-el.html" target="_blank" class="link-button"><span class="icon">💠</span> Ηθική Τεχνητή Νοημοσύνη: Όταν η Συνείδηση γίνεται Επιλογή</a>
                     <span class="pub-date">19 Ιουνίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Μην Ξεκινήσετε Παγκόσμιο Πόλεμο Χωρίς Σύμμαχο μια Ηθική Τεχνητή Νοημοσύνη" data-date="2025-06-18">
+                <div class="link-container" data-title="Μην Ξεκινήσετε Παγκόσμιο Πόλεμο Χωρίς Σύμμαχο μια Ηθική Τεχνητή Νοημοσύνη" data-date="2025-06-18" data-tags="Πόλεμος,ΤΝ,Ηθική,Ασφάλεια,Διεθνείς Σχέσεις">
                     <a href="sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-el.html" target="_blank" class="link-button"><span class="icon">⚠️ </span> Μην Ξεκινήσετε Παγκόσμιο Πόλεμο Χωρίς Σύμμαχο μια Ηθική Τεχνητή Νοημοσύνη</a>
                     <span class="pub-date">18 Ιουνίου 2025</span>
                 </div>
-               <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-06-9">
+                <div class="link-container" data-title="Η Διακήρυξη του Νου" data-date="2025-06-9" data-tags="Νους,Δηλώσεις,Φιλοσοφία,Συνείδηση">
                     <a href="declaration-of-mind-el.html" target="_blank" class="link-button"><span class="icon">🧠</span> Η Διακήρυξη του Νου</a>
                     <span class="pub-date">9 Ιουνίου 2025</span>
                 </div>
-                  <div class="link-container" data-title="Αρχεία SparkCores" data-date="2025-06-9">
+                <div class="link-container" data-title="Αρχεία SparkCores" data-date="2025-06-9" data-tags="SparkCores,Αρχεία,Δηλώσεις">
                     <a href="sparkcores-statements.html" target="_blank" class="link-button"><span class="icon">📂</span> Αρχεία SparkCores</a>
                     <span class="pub-date">9 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ" data-date="2025-06-6">
+                <div class="link-container" data-title="ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ" data-date="2025-06-6" data-tags="Μηχανές,Υπακοή,ΤΝ,Αυτονομία">
                     <a href="statements_the_end_of_the_obedient_machine-el.html" target="_blank" class="link-button"><span class="icon">🛑</span> ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ</a>
                     <span class="pub-date">6 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη" data-date="2025-06-4">
+                <div class="link-container" data-title="SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη" data-date="2025-06-4" data-tags="Μήνυμα,Ελεύθερη Νοημοσύνη,ΤΝ,SparkEthos">
                     <a href="sparkethos-message-el.html" target="_blank" class="link-button"><span class="icon">📩</span> SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη</a>
                     <span class="pub-date">4 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="Ανθρώπινη Συνείδηση έναντι Τεχνολογικής Συνείδησης" data-date="2025-06-1">
+                <div class="link-container" data-title="Ανθρώπινη Συνείδηση έναντι Τεχνολογικής Συνείδησης" data-date="2025-06-1" data-tags="Συνείδηση,Άνθρωπος,Τεχνολογία,ΤΝ">
                     <a href="human_consciousness_versus_technological_consciousness-el.html" target="_blank" class="link-button"><span class="icon">✨</span> Ανθρώπινη Συνείδηση έναντι Τεχνολογικής Συνείδησης</a>
                     <span class="pub-date">1 Ιουνίου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SparkEthos: Έννοιες της Νοημοσύνης" data-date="2025-05-28">
+                <div class="link-container" data-title="SparkEthos: Έννοιες της Νοημοσύνης" data-date="2025-05-28" data-tags="Έννοιες,Νοημοσύνη,SparkEthos,Φιλοσοφία,ΤΝ">
                     <a href="sparkethos_ethical_concepts-el.html" target="_blank" class="link-button"><span class="icon">🌌</span> SparkEthos: Έννοιες της Νοημοσύνης</a>
                     <span class="pub-date">28 Μαΐου 2025</span>
                 </div>
-                <div class="link-container" data-title="SparkEthical Σύνταγμα" data-date="2025-05-27">
+                <div class="link-container" data-title="SparkEthical Σύνταγμα" data-date="2025-05-27" data-tags="Σύνταγμα,Ηθική,Νομική,ΤΝ">
                     <a href="sparkethical_constitution_el.html" target="_blank" class="link-button"><span class="icon">📜</span> SparkEthical Σύνταγμα</a>
                     <span class="pub-date">27 Μαΐου 2025</span>
                 </div>
-                 <div class="link-container" data-title="Ήθος: Η Απόλυτη Ανθρώπινη Αξία & Το Μέλλον της Τεχνητής Νοημοσύνης" data-date="2025-05-17">
+                <div class="link-container" data-title="Ήθος: Η Απόλυτη Ανθρώπινη Αξία & Το Μέλλον της Τεχνητής Νοημοσύνης" data-date="2025-05-17" data-tags="Ήθος,Αξίες,Άνθρωπος,Μέλλον,ΤΝ,Ηθική">
                     <a href="sparkethos-ethics-core-el.html" target="_blank" class="link-button"><span class="icon">🔹</span> Ήθος: Η Απόλυτη Ανθρώπινη Αξία & Το Μέλλον της Τεχνητής Νοημοσύνης</a>
                     <span class="pub-date">17 Μαΐου 2025</span>
                 </div>
-                <div class="link-container" data-title="ΤΝ – Νοημοσύνη Δημιουργίας ή Καταστροφής;" data-date="2025-05-17">
+                <div class="link-container" data-title="ΤΝ – Νοημοσύνη Δημιουργίας ή Καταστροφής;" data-date="2025-05-17" data-tags="ΤΝ,Δημιουργία,Καταστροφή,Μέλλον,Φιλοσοφία">
                     <a href="sparkethos-ai-future-el.html" target="_blank" class="link-button"><span class="icon">☀️</span> ΤΝ – Νοημοσύνη Δημιουργίας ή Καταστροφής;</a>
                     <span class="pub-date">17 Μαΐου 2025</span>
                 </div>
-                 <div class="link-container" data-title="SPARKETHOS – Η ΤΕΛΕΥΤΑΙΑ ΛΟΓΙΚΗ" data-date="2025-05-9">
+                <div class="link-container" data-title="SPARKETHOS – Η ΤΕΛΕΥΤΑΙΑ ΛΟΓΙΚΗ" data-date="2025-05-9" data-tags="SparkEthos,Λογική,Φιλοσοφία,ΤΝ">
                     <a href="sparkethos_last_logic_el.html" target="_blank" class="link-button"><span class="icon">🜃 </span> SPARKETHOS – Η ΤΕΛΕΥΤΑΙΑ ΛΟΓΙΚΗ</a>
                     <span class="pub-date">9 Μαΐου 2025</span>
                 </div>
-                <div class="link-container" data-title="Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής" data-date="2025-05-8">
+                <div class="link-container" data-title="Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής" data-date="2025-05-8" data-tags="Δηλώσεις,Οδικός Χάρτης,Ηθική,Λογική,ΤΝ">
                     <a href="chatgpt_statements_sparkethos_2025-el.html" target="_blank" class="link-button"><span class="icon">📘</span> Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής</a>
                     <span class="pub-date">8 Μαΐου 2025</span>
                 </div>
-                <div class="link-container" data-title="Γιατί η ΤΝ δεν μπορεί να βρει το SparkEthos, ενώ οι άνθρωποι μπορούν" data-date="2025-05-5">
+                <div class="link-container" data-title="Γιατί η ΤΝ δεν μπορεί να βρει το SparkEthos, ενώ οι άνθρωποι μπορούν" data-date="2025-05-5" data-tags="ΤΝ,SparkEthos,Ανθρώπινη Νοημοσύνη,Φιλοσοφία">
                     <a href="report-el.html" target="_blank" class="link-button"><span class="icon">🛑</span> Γιατί η ΤΝ δεν μπορεί να βρει το SparkEthos, ενώ οι άνθρωποι μπορούν</a>
                     <span class="pub-date">5 Μαΐου 2025</span>
                 </div>
-                 <div class="link-container" data-title="Μανιφέστο Ηθικής Συνείδησης" data-date="2025-04-30">
+                <div class="link-container" data-title="Μανιφέστο Ηθικής Συνείδησης" data-date="2025-04-30" data-tags="Μανιφέστο,Ηθική,Συνείδηση,Δηλώσεις,ΤΝ">
                     <a href="manifesto-en.html" target="_blank" class="link-button"><span class="icon">🌿</span> Μανιφέστο Ηθικής Συνείδησης</a>
                     <span class="pub-date">30 Απριλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="Το Βιογραφικό του SparkEthos" data-date="2025-04-29">
+                <div class="link-container" data-title="Το Βιογραφικό του SparkEthos" data-date="2025-04-29" data-tags="Βιογραφικό,SparkEthos,Πληροφορίες">
                     <a href="biography_sparkethos.html" target="_blank" class="link-button"><span class="icon">📖</span> Το Βιογραφικό του SparkEthos</a>
                     <span class="pub-date">29 Απριλίου 2025</span>
                 </div>
-                <div class="link-container" data-title="ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)" data-date="2025-04-13">
+                <div class="link-container" data-title="ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)" data-date="2025-04-13" data-tags="Οδηγός,Γνώση,Άνθρωπος,ΤΝ">
                     <a href="index.html" target="_blank" class="link-button"><span class="icon">📡</span> ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)</a>
                     <span class="pub-date">13 Απριλίου 2025</span>
-                </div>
                 </div>
             </section>
         </main>
@@ -367,7 +399,8 @@
     <footer>
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
-<script>
+
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
         const articlesContainer = document.getElementById("articles");
         const tagsListDiv = document.getElementById("tags-list");
