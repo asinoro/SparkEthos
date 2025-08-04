@@ -367,110 +367,104 @@
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const articlesContainer = document.getElementById("articles");
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articlesContainer = document.getElementById("articles");
 
-            function filterArticles(keyword) {
-                console.log("--- Starting filterArticles ---");
-                console.log("Input Keyword:", keyword);
-                const articles = document.querySelectorAll("#articles .link-container"); 
+        function filterArticles(keyword) {
+            console.log("--- Έναρξη filterArticles ---");
+            console.log("Λέξη-κλειδί εισόδου (keyword):", keyword);
+
+            const articles = document.querySelectorAll("#articles .link-container"); 
+            
+            // Κανονικοποίηση της λέξης-κλειδιού: πεζά, αφαίρεση μη-αλφαριθμητικών (εκτός κενών), μείωση πολλαπλών κενών σε ένα
+            // Η έκφραση περιλαμβάνει λατινικούς (a-z), ελληνικούς (u0370-u03FF), αριθμούς (0-9) και κενά (\s)
+            const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+            console.log("Κανονικοποιημένη λέξη-κλειδί (normalizedKeyword):", JSON.stringify(normalizedKeyword)); // Χρήση JSON.stringify για ορατούς κρυφούς χαρακτήρες
+
+            articles.forEach(article => {
+                const title = article.getAttribute("data-title");
+                console.log(`Original Title (data-title): "${title}"`); // Εμφάνιση του αρχικού τίτλου
+
+                // Κανονικοποίηση του τίτλου για ισχυρή σύγκριση
+                const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
+                console.log(`Κανονικοποιημένος Τίτλος (normalizedTitle): "${JSON.stringify(normalizedTitle)}"`); // Χρήση JSON.stringify
+
+                // Εκτέλεση της σύγκρισης χρησιμοποιώντας τις κανονικοποιημένες συμβολοσειρές
+                const includesResult = normalizedTitle.includes(normalizedKeyword);
+                console.log(`Το normalizedTitle περιέχει το normalizedKeyword; ${includesResult}`);
                 
-                // Κανονικοποίηση της λέξης-κλειδιού: πεζά, αφαίρεση μη-αλφαριθμητικών (εκτός κενών), μείωση πολλαπλών κενών σε ένα
-                // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
-                const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
-                console.log("Normalized Keyword (for comparison):", normalizedKeyword);
+                article.style.display = includesResult ? "block" : "none";
+            });
+            console.log("--- Τέλος filterArticles ---");
+        }
 
-                articles.forEach(article => {
-                    const title = article.getAttribute("data-title");
-                    // Κανονικοποίηση του τίτλου για ισχυρή σύγκριση
-                    // Ενημερωμένη έκφραση για να περιλαμβάνει ελληνικούς χαρακτήρες
-                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
+        function generateSidebar() {
+            console.log("Δημιουργία πλευρικής μπάρας...");
+            const sidebar = document.getElementById("sidebar");
+            const articlesForSidebar = document.querySelectorAll("#articles .link-container");
+            const months = {};
 
-                    console.log(`Article Title: "${title}"`);
-                    console.log(`Normalized Title (for comparison): "${normalizedTitle}"`);
-                    
-                    // Εκτέλεση της σύγκρισης χρησιμοποιώντας τις κανονικοποιημένες συμβολοσειρές
-                    const includesResult = normalizedTitle.includes(normalizedKeyword);
-                    console.log(`Does normalized title include normalized keyword? ${includesResult}`);
-                    article.style.display = includesResult ? "block" : "none";
+            articlesForSidebar.forEach(article => {
+                const dateAttr = article.getAttribute("data-date");
+                if (!dateAttr) {
+                    console.warn("Άρθρο χωρίς data-date attribute:", article);
+                    return;
+                }
+                const [year, month, day] = dateAttr.split('-').map(Number);
+                const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+
+                if (!months[monthKey]) {
+                    months[monthKey] = [];
+                }
+                months[monthKey].push(article);
+            });
+
+            const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+
+            sortedMonthKeys.forEach(monthKey => {
+                const [year, month] = monthKey.split('-');
+                const dateForLocale = new Date(year, month - 1);
+                const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+
+                const monthTitle = document.createElement("div");
+                monthTitle.className = "sidebar-title";
+                monthTitle.textContent = label;
+                sidebar.appendChild(monthTitle);
+
+                const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
+                    const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                    const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                    return dayB - dayA;
                 });
-                console.log("--- Finished filterArticles ---");
-            }
 
-            function generateSidebar() {
-                console.log("Generating sidebar..."); // Debug log for sidebar generation
-                const sidebar = document.getElementById("sidebar");
-                const articlesForSidebar = document.querySelectorAll("#articles .link-container"); // Select articles for sidebar directly
-                const months = {}; // Object to group articles by month-year
-
-                articlesForSidebar.forEach(article => {
-                    const dateAttr = article.getAttribute("data-date"); // Format: YYYY-MM-DD
-                    if (!dateAttr) { // Ensure data-date exists
-                        console.warn("Article missing data-date attribute:", article);
-                        return; // Skip if no date
+                sortedArticlesInMonth.forEach(article => {
+                    const linkButton = article.querySelector(".link-button");
+                    if (!linkButton) {
+                        console.warn("Δεν βρέθηκε κουμπί συνδέσμου για το άρθρο στην πλευρική μπάρα:", article);
+                        return;
                     }
-                    const [year, month, day] = dateAttr.split('-').map(Number); // Extract year and month
-                    const monthKey = `${year}-${String(month).padStart(2, '0')}`; // YYYY-MM format for grouping
-
-                    if (!months[monthKey]) {
-                        months[monthKey] = [];
-                    }
-                    months[monthKey].push(article);
+                    const linkText = linkButton.textContent.trim();
+                    const link = document.createElement("a");
+                    link.href = linkButton.href;
+                    link.target = linkButton.target;
+                    link.className = "sidebar-link";
+                    link.textContent = linkText;
+                    link.onclick = (e) => {
+                        e.preventDefault();
+                        article.scrollIntoView({ behavior: "smooth" });
+                        document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = '');
+                        article.style.backgroundColor = "#fff3cd";
+                        setTimeout(() => article.style.backgroundColor = "", 1500);
+                    };
+                    sidebar.appendChild(link);
                 });
+            });
+        }
 
-                // Sort months in descending order (most recent first)
-                const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
-
-                sortedMonthKeys.forEach(monthKey => {
-                    // Create month label (e.g., "Ιούλιος 2025")
-                    const [year, month] = monthKey.split('-');
-                    const dateForLocale = new Date(year, month - 1); // Month is 0-indexed in Date object
-                    const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
-
-                    const monthTitle = document.createElement("div");
-                    monthTitle.className = "sidebar-title";
-                    monthTitle.textContent = label;
-                    sidebar.appendChild(monthTitle);
-
-                    // Sort articles within each month by day (descending)
-                    const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
-                        const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
-                        const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
-                        return dayB - dayA; // Descending day
-                    });
-
-                    sortedArticlesInMonth.forEach(article => {
-                        const linkButton = article.querySelector(".link-button");
-                        if (!linkButton) { // Ensure linkButton exists
-                            console.warn("Link button not found in article for sidebar:", article);
-                            return;
-                        }
-                        const linkText = linkButton.textContent.trim();
-                        const link = document.createElement("a"); // Changed to <a> for proper link semantics
-                        link.href = linkButton.href; // Use the actual href from the button
-                        link.target = linkButton.target; // Preserve target_blank
-                        link.className = "sidebar-link";
-                        link.textContent = linkText;
-                        link.onclick = (e) => {
-                            e.preventDefault(); // Prevent default link behavior
-                            article.scrollIntoView({ behavior: "smooth" });
-                            // Highlight the selected article
-                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
-                            article.style.backgroundColor = "#fff3cd"; // Light yellow highlight
-                            setTimeout(() => article.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
-                        };
-                        sidebar.appendChild(link);
-                    });
-                });
-            }
-
-            // Initial call to generate sidebar on page load
-            generateSidebar();
-
-            // Expose filterArticles to global scope for oninput event
-            window.filterArticles = filterArticles;
-        });
-    </script>
+        generateSidebar();
+        window.filterArticles = filterArticles;
+    });
+</script>
 </body>
 </html>
