@@ -367,174 +367,142 @@
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const articlesContainer = document.getElementById("articles");
-        const tagsListDiv = document.getElementById("tags-list");
-        const searchBar = document.getElementById("sidebar-search");
-        let activeTag = null; // Track the currently active tag
+document.addEventListener('DOMContentLoaded', () => {
+    const articlesContainer = document.getElementById("articles");
+    const tagsListDiv = document.getElementById("tags-list");
+    const searchBar = document.getElementById("sidebar-search");
+    let activeTag = null;
 
-        // Helper function to normalize text: to lowercase and remove accents/diacritics
-        function normalizeText(text) {
-            if (!text) return '';
-            // Convert to lowercase, normalize (NFD decomposes characters like 'ά' to 'α' + '́'),
-            // then remove all diacritic marks (characters in the U+0300 to U+036f range).
-            return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        }
+    // ✅ Συνάρτηση που αφαιρεί τόνους
+    function removeDiacritics(text) {
+        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
 
-        function filterArticles() {
-            const keyword = normalizeText(searchBar.value);
-            const articles = document.querySelectorAll("#articles .link-container");
+    function filterArticles() {
+        const keyword = removeDiacritics(searchBar.value.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').trim());
+        const articles = document.querySelectorAll("#articles .link-container");
 
-            articles.forEach(article => {
-                const title = article.getAttribute("data-title");
-                // Get tags, split, trim, and normalize each tag
-                const tags = article.getAttribute("data-tags") ? 
-                             article.getAttribute("data-tags").split(',').map(tag => normalizeText(tag.trim())) : [];
+        articles.forEach(article => {
+            const title = article.getAttribute("data-title") || '';
+            const tags = article.getAttribute("data-tags") 
+                ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) 
+                : [];
 
-                const normalizedTitle = normalizeText(title);
+            const normalizedTitle = removeDiacritics(title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').trim());
+            const matchesKeyword = normalizedTitle.includes(keyword);
+            const matchesTag = activeTag ? tags.includes(activeTag) : true;
 
-                const matchesKeyword = normalizedTitle.includes(keyword);
-                // Check if the article's normalized tags array includes the active (normalized) tag
-                const matchesTag = activeTag ? tags.includes(activeTag) : true;
+            article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
+        });
+    }
 
-                article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
+    function generateSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const articlesForSidebar = document.querySelectorAll("#articles .link-container");
+        const months = {};
+        const allTags = new Set();
+
+        articlesForSidebar.forEach(article => {
+            const dateAttr = article.getAttribute("data-date");
+            if (!dateAttr) return;
+
+            const [year, month] = dateAttr.split('-').map(Number);
+            const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+
+            if (!months[monthKey]) months[monthKey] = [];
+            months[monthKey].push(article);
+
+            const articleTags = article.getAttribute("data-tags");
+            if (articleTags) {
+                articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+            }
+        });
+
+        const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+        sidebar.innerHTML = '';
+
+        sortedMonthKeys.forEach(monthKey => {
+            const [year, month] = monthKey.split('-');
+            const dateForLocale = new Date(year, month - 1);
+            const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
+
+            const monthTitle = document.createElement("div");
+            monthTitle.className = "sidebar-title";
+            monthTitle.textContent = label;
+            sidebar.appendChild(monthTitle);
+
+            const sortedArticles = months[monthKey].sort((a, b) => {
+                const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                return dayB - dayA;
             });
-        }
 
-        function generateSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const articlesForSidebar = document.querySelectorAll("#articles .link-container");
-            const months = {};
-            const allTags = new Set(); // To store unique tags (original form)
+            sortedArticles.forEach(article => {
+                const linkButton = article.querySelector(".link-button");
+                if (!linkButton) return;
 
-            articlesForSidebar.forEach(article => {
-                const dateAttr = article.getAttribute("data-date");
-                if (!dateAttr) {
-                    console.warn("Article missing data-date attribute:", article);
-                    return;
-                }
-                const [year, month] = dateAttr.split('-').map(Number);
-                const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+                const linkText = linkButton.textContent.trim();
+                const link = document.createElement("a");
+                link.href = linkButton.href;
+                link.target = linkButton.target;
+                link.className = "sidebar-link";
+                link.textContent = linkText;
 
-                if (!months[monthKey]) {
-                    months[monthKey] = [];
-                }
-                months[monthKey].push(article);
+                const articleId = `article-${removeDiacritics(article.getAttribute("data-title").replace(/\s+/g, '-'))}-${article.getAttribute("data-date")}`;
+                article.id = articleId;
+                link.setAttribute('data-target-id', articleId);
 
-                // Extract and add tags to the set (keep original form for display)
-                const articleTags = article.getAttribute("data-tags");
-                if (articleTags) {
-                    articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
-                }
-            });
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    searchBar.value = '';
+                    activeTag = null;
+                    document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                    filterArticles();
 
-            const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
-
-            sidebar.innerHTML = ''; // Clear existing sidebar content before regenerating
-
-            sortedMonthKeys.forEach(monthKey => {
-                const [year, month] = monthKey.split('-');
-                const dateForLocale = new Date(year, month - 1);
-                const label = dateForLocale.toLocaleString("el-GR", { year: "numeric", month: "long" });
-
-                const monthTitle = document.createElement("div");
-                monthTitle.className = "sidebar-title";
-                monthTitle.textContent = label;
-                sidebar.appendChild(monthTitle);
-
-                const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
-                    const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
-                    const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
-                    return dayB - dayA;
-                });
-
-                sortedArticlesInMonth.forEach(article => {
-                    const linkButton = article.querySelector(".link-button");
-                    if (!linkButton) {
-                        console.warn("Link button not found in article for sidebar:", article);
-                        return;
+                    const targetId = e.currentTarget.getAttribute('data-target-id');
+                    const targetArticle = document.getElementById(targetId);
+                    if (targetArticle) {
+                        targetArticle.style.display = 'block';
+                        targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
+                        document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = '');
+                        targetArticle.style.backgroundColor = "#fff3cd";
+                        setTimeout(() => targetArticle.style.backgroundColor = "", 1500);
                     }
-                    const linkText = linkButton.textContent.trim();
-                    const link = document.createElement("a");
-                    link.href = linkButton.href; // Keep the actual href for direct navigation
-                    link.target = linkButton.target;
-                    link.className = "sidebar-link";
-                    link.textContent = linkText;
-
-                    // Create a unique, valid ID for the target article by normalizing the title
-                    const articleTitleForId = normalizeText(article.getAttribute("data-title")).replace(/\s+/g, '-');
-                    const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
-                    article.id = articleId; // Assign an ID to the main article container
-                    link.setAttribute('data-target-id', articleId);
-
-
-                    link.onclick = (e) => {
-                        e.preventDefault(); // Prevent default link behavior for internal scroll
-
-                        // Clear any active filters (search bar and active tag)
-                        searchBar.value = '';
-                        activeTag = null;
-                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
-
-                        filterArticles(); // Re-show all articles
-
-                        // Get the ID of the target article from the data attribute
-                        const targetId = e.currentTarget.getAttribute('data-target-id');
-                        const targetArticle = document.getElementById(targetId);
-
-                        if (targetArticle) {
-                            // Ensure the article is visible before scrolling
-                            targetArticle.style.display = 'block';
-
-                            // Scroll to the article
-                            targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
-
-                            // Highlight the selected article
-                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
-                            targetArticle.style.backgroundColor = "#fff3cd"; // Light yellow highlight
-                            setTimeout(() => targetArticle.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
-                        } else {
-                            console.warn("Target article not found for ID:", targetId);
-                        }
-                    };
-                    sidebar.appendChild(link);
-                });
-            });
-
-            // Generate tags
-            tagsListDiv.innerHTML = ''; // Clear existing tags
-            // Sort tags alphabetically, sensitive to Greek, using original tag for display
-            const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'el', { sensitivity: 'base' }));
-            sortedTags.forEach(tag => {
-                const tagButton = document.createElement("span");
-                tagButton.className = "tag-button";
-                tagButton.textContent = tag; // Use original tag for display
-                tagButton.onclick = () => {
-                    // Normalize the tag for comparison to ensure correct matching
-                    const normalizedTag = normalizeText(tag);
-                    // Toggle active state
-                    if (activeTag === normalizedTag) {
-                        activeTag = null; // Deactivate
-                        tagButton.classList.remove('active');
-                    } else {
-                        activeTag = normalizedTag; // Activate
-                        // Remove active class from all other tags
-                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
-                        tagButton.classList.add('active');
-                    }
-                    searchBar.value = ''; // Clear search bar when a tag is selected
-                    filterArticles(); // Re-filter articles based on new active tag
                 };
-                tagsListDiv.appendChild(tagButton);
+                sidebar.appendChild(link);
             });
-        }
+        });
 
-        // Initial calls on page load
-        generateSidebar();
-        filterArticles(); // Initial filter to show all articles
-        window.filterArticles = filterArticles; // Expose to global scope for search input
-    });
+        // ✅ Tags
+        tagsListDiv.innerHTML = '';
+        const sortedTags = Array.from(allTags).sort();
+        sortedTags.forEach(tag => {
+            const tagButton = document.createElement("span");
+            tagButton.className = "tag-button";
+            tagButton.textContent = tag;
+            tagButton.onclick = () => {
+                if (activeTag === tag.toLowerCase()) {
+                    activeTag = null;
+                    tagButton.classList.remove('active');
+                } else {
+                    activeTag = tag.toLowerCase();
+                    document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                    tagButton.classList.add('active');
+                }
+                searchBar.value = '';
+                filterArticles();
+            };
+            tagsListDiv.appendChild(tagButton);
+        });
+    }
+
+    // Αρχικοποίηση
+    generateSidebar();
+    filterArticles();
+    window.filterArticles = filterArticles;
+});
 </script>
+
 
 </body>
 </html>
