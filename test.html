@@ -392,13 +392,13 @@
 
             articles.forEach(article => {
                 const title = article.getAttribute("data-title");
-                // Ensure tags are retrieved and trimmed
-                const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => normalizeText(tag)) : [];
+                // Ensure tags are retrieved, trimmed, and normalized
+                const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").split(',').map(tag => normalizeText(tag)) : [];
 
                 const normalizedTitle = normalizeText(title);
 
                 const matchesKeyword = normalizedTitle.includes(keyword);
-                // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's tags include it.
+                // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's normalized tags include it.
                 const matchesTag = activeTag ? tags.includes(activeTag) : true;
 
                 article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
@@ -425,10 +425,10 @@
                 }
                 months[monthKey].push(article);
 
-                // Extract and add tags to the set
+                // Extract and add tags to the set, ensuring they are normalized
                 const articleTags = article.getAttribute("data-tags");
                 if (articleTags) {
-                    articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+                    articleTags.split(',').forEach(tag => allTags.add(tag.trim())); // Add original tag for display
                 }
             });
 
@@ -466,8 +466,7 @@
                     link.textContent = linkText;
 
                     // Add a data-target-id to link the sidebar link to the main article
-                    // Create a unique, valid ID for the target article
-                    // Normalize title for ID creation, ensuring it's web-safe
+                    // Create a unique, valid ID for the target article by normalizing the title
                     const articleTitleForId = normalizeText(article.getAttribute("data-title")).replace(/\s+/g, '-');
                     const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
                     article.id = articleId; // Assign an ID to the main article container
@@ -509,11 +508,12 @@
 
             // Generate tags
             tagsListDiv.innerHTML = ''; // Clear existing tags
-            const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'el', { sensitivity: 'base' })); // Sort tags alphabetically, sensitive to Greek
+            // Sort tags alphabetically, sensitive to Greek, using original tag for display
+            const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'el', { sensitivity: 'base' }));
             sortedTags.forEach(tag => {
                 const tagButton = document.createElement("span");
                 tagButton.className = "tag-button";
-                tagButton.textContent = tag;
+                tagButton.textContent = tag; // Use original tag for display
                 tagButton.onclick = () => {
                     // Normalize the tag for comparison to ensure correct matching
                     const normalizedTag = normalizeText(tag);
