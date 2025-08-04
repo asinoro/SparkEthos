@@ -366,7 +366,6 @@
     <footer>
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const articlesContainer = document.getElementById("articles");
@@ -374,16 +373,12 @@
         const searchBar = document.getElementById("sidebar-search");
         let activeTag = null; // Track the currently active tag
 
-        // Helper function to normalize text (lowercase, remove accents, remove non-alphanumeric, single spaces)
+        // Helper function to normalize text: to lowercase and remove accents/diacritics
         function normalizeText(text) {
             if (!text) return '';
-            // Convert to lowercase, normalize (decompose accented characters), remove diacritics
-            return text.toLowerCase()
-                       .normalize('NFD') // Decomposes characters (e.g., 'ά' becomes 'α' + '́')
-                       .replace(/[\u0300-\u036f]/g, '') // Removes diacritics (accents)
-                       .replace(/[^a-z\u0370-\u03FF0-9\s]/g, '') // Keep Greek letters (U+0370 to U+03FF), a-z, 0-9, space
-                       .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
-                       .trim();
+            // Convert to lowercase, normalize (NFD decomposes characters like 'ά' to 'α' + '́'),
+            // then remove all diacritic marks (characters in the U+0300 to U+036f range).
+            return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         }
 
         function filterArticles() {
@@ -392,13 +387,14 @@
 
             articles.forEach(article => {
                 const title = article.getAttribute("data-title");
-                // Ensure tags are retrieved, trimmed, and normalized
-                const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").split(',').map(tag => normalizeText(tag)) : [];
+                // Get tags, split, trim, and normalize each tag
+                const tags = article.getAttribute("data-tags") ? 
+                             article.getAttribute("data-tags").split(',').map(tag => normalizeText(tag.trim())) : [];
 
                 const normalizedTitle = normalizeText(title);
 
                 const matchesKeyword = normalizedTitle.includes(keyword);
-                // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's normalized tags include it.
+                // Check if the article's normalized tags array includes the active (normalized) tag
                 const matchesTag = activeTag ? tags.includes(activeTag) : true;
 
                 article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
@@ -409,7 +405,7 @@
             const sidebar = document.getElementById("sidebar");
             const articlesForSidebar = document.querySelectorAll("#articles .link-container");
             const months = {};
-            const allTags = new Set(); // To store unique tags
+            const allTags = new Set(); // To store unique tags (original form)
 
             articlesForSidebar.forEach(article => {
                 const dateAttr = article.getAttribute("data-date");
@@ -425,10 +421,10 @@
                 }
                 months[monthKey].push(article);
 
-                // Extract and add tags to the set, ensuring they are normalized
+                // Extract and add tags to the set (keep original form for display)
                 const articleTags = article.getAttribute("data-tags");
                 if (articleTags) {
-                    articleTags.split(',').forEach(tag => allTags.add(tag.trim())); // Add original tag for display
+                    articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
                 }
             });
 
@@ -465,7 +461,6 @@
                     link.className = "sidebar-link";
                     link.textContent = linkText;
 
-                    // Add a data-target-id to link the sidebar link to the main article
                     // Create a unique, valid ID for the target article by normalizing the title
                     const articleTitleForId = normalizeText(article.getAttribute("data-title")).replace(/\s+/g, '-');
                     const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
@@ -540,5 +535,6 @@
         window.filterArticles = filterArticles; // Expose to global scope for search input
     });
 </script>
+
 </body>
 </html>
