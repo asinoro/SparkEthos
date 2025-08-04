@@ -370,57 +370,71 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const articlesContainer = document.getElementById("articles");
+        const tagsListDiv = document.getElementById("tags-list");
+        const searchBar = document.getElementById("sidebar-search");
+        let activeTag = null; // Track the currently active tag
 
-        function filterArticles(keyword) {
-            console.log("--- Έναρξη filterArticles ---");
-            console.log("Λέξη-κλειδί εισόδου (keyword):", keyword);
+        // Helper function to normalize text (lowercase, remove accents, remove non-alphanumeric, single spaces)
+        function normalizeText(text) {
+            if (!text) return '';
+            // Convert to lowercase, normalize (decompose accented characters), remove diacritics
+            return text.toLowerCase()
+                       .normalize('NFD') // Decomposes characters (e.g., 'ά' becomes 'α' + '́')
+                       .replace(/[\u0300-\u036f]/g, '') // Removes diacritics (accents)
+                       .replace(/[^a-z\u0370-\u03FF0-9\s]/g, '') // Keep Greek letters (U+0370 to U+03FF), a-z, 0-9, space
+                       .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+                       .trim();
+        }
 
-            const articles = document.querySelectorAll("#articles .link-container"); 
-            
-            // Κανονικοποίηση της λέξης-κλειδιού: πεζά, αφαίρεση μη-αλφαριθμητικών (εκτός κενών), μείωση πολλαπλών κενών σε ένα
-            // Η έκφραση περιλαμβάνει λατινικούς (a-z), ελληνικούς (u0370-u03FF), αριθμούς (0-9) και κενά (\s)
-            const normalizedKeyword = keyword.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim();
-            console.log("Κανονικοποιημένη λέξη-κλειδί (normalizedKeyword):", JSON.stringify(normalizedKeyword)); // Χρήση JSON.stringify για ορατούς κρυφούς χαρακτήρες
+        function filterArticles() {
+            const keyword = normalizeText(searchBar.value);
+            const articles = document.querySelectorAll("#articles .link-container");
 
             articles.forEach(article => {
                 const title = article.getAttribute("data-title");
-                console.log(`Original Title (data-title): "${title}"`); // Εμφάνιση του αρχικού τίτλου
+                // Ensure tags are retrieved and trimmed
+                const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => normalizeText(tag)) : [];
 
-                // Κανονικοποίηση του τίτλου για ισχυρή σύγκριση
-                const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z\u0370-\u03FF0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
-                console.log(`Κανονικοποιημένος Τίτλος (normalizedTitle): "${JSON.stringify(normalizedTitle)}"`); // Χρήση JSON.stringify
+                const normalizedTitle = normalizeText(title);
 
-                // Εκτέλεση της σύγκρισης χρησιμοποιώντας τις κανονικοποιημένες συμβολοσειρές
-                const includesResult = normalizedTitle.includes(normalizedKeyword);
-                console.log(`Το normalizedTitle περιέχει το normalizedKeyword; ${includesResult}`);
-                
-                article.style.display = includesResult ? "block" : "none";
+                const matchesKeyword = normalizedTitle.includes(keyword);
+                // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's tags include it.
+                const matchesTag = activeTag ? tags.includes(activeTag) : true;
+
+                article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
             });
-            console.log("--- Τέλος filterArticles ---");
         }
 
         function generateSidebar() {
-            console.log("Δημιουργία πλευρικής μπάρας...");
             const sidebar = document.getElementById("sidebar");
             const articlesForSidebar = document.querySelectorAll("#articles .link-container");
             const months = {};
+            const allTags = new Set(); // To store unique tags
 
             articlesForSidebar.forEach(article => {
                 const dateAttr = article.getAttribute("data-date");
                 if (!dateAttr) {
-                    console.warn("Άρθρο χωρίς data-date attribute:", article);
+                    console.warn("Article missing data-date attribute:", article);
                     return;
                 }
-                const [year, month, day] = dateAttr.split('-').map(Number);
+                const [year, month] = dateAttr.split('-').map(Number);
                 const monthKey = `${year}-${String(month).padStart(2, '0')}`;
 
                 if (!months[monthKey]) {
                     months[monthKey] = [];
                 }
                 months[monthKey].push(article);
+
+                // Extract and add tags to the set
+                const articleTags = article.getAttribute("data-tags");
+                if (articleTags) {
+                    articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+                }
             });
 
             const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+
+            sidebar.innerHTML = ''; // Clear existing sidebar content before regenerating
 
             sortedMonthKeys.forEach(monthKey => {
                 const [year, month] = monthKey.split('-');
@@ -441,29 +455,89 @@
                 sortedArticlesInMonth.forEach(article => {
                     const linkButton = article.querySelector(".link-button");
                     if (!linkButton) {
-                        console.warn("Δεν βρέθηκε κουμπί συνδέσμου για το άρθρο στην πλευρική μπάρα:", article);
+                        console.warn("Link button not found in article for sidebar:", article);
                         return;
                     }
                     const linkText = linkButton.textContent.trim();
                     const link = document.createElement("a");
-                    link.href = linkButton.href;
+                    link.href = linkButton.href; // Keep the actual href for direct navigation
                     link.target = linkButton.target;
                     link.className = "sidebar-link";
                     link.textContent = linkText;
+
+                    // Add a data-target-id to link the sidebar link to the main article
+                    // Create a unique, valid ID for the target article
+                    // Normalize title for ID creation, ensuring it's web-safe
+                    const articleTitleForId = normalizeText(article.getAttribute("data-title")).replace(/\s+/g, '-');
+                    const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
+                    article.id = articleId; // Assign an ID to the main article container
+                    link.setAttribute('data-target-id', articleId);
+
+
                     link.onclick = (e) => {
-                        e.preventDefault();
-                        article.scrollIntoView({ behavior: "smooth" });
-                        document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = '');
-                        article.style.backgroundColor = "#fff3cd";
-                        setTimeout(() => article.style.backgroundColor = "", 1500);
+                        e.preventDefault(); // Prevent default link behavior for internal scroll
+
+                        // Clear any active filters (search bar and active tag)
+                        searchBar.value = '';
+                        activeTag = null;
+                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+
+                        filterArticles(); // Re-show all articles
+
+                        // Get the ID of the target article from the data attribute
+                        const targetId = e.currentTarget.getAttribute('data-target-id');
+                        const targetArticle = document.getElementById(targetId);
+
+                        if (targetArticle) {
+                            // Ensure the article is visible before scrolling
+                            targetArticle.style.display = 'block';
+
+                            // Scroll to the article
+                            targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                            // Highlight the selected article
+                            document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
+                            targetArticle.style.backgroundColor = "#fff3cd"; // Light yellow highlight
+                            setTimeout(() => targetArticle.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
+                        } else {
+                            console.warn("Target article not found for ID:", targetId);
+                        }
                     };
                     sidebar.appendChild(link);
                 });
             });
+
+            // Generate tags
+            tagsListDiv.innerHTML = ''; // Clear existing tags
+            const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'el', { sensitivity: 'base' })); // Sort tags alphabetically, sensitive to Greek
+            sortedTags.forEach(tag => {
+                const tagButton = document.createElement("span");
+                tagButton.className = "tag-button";
+                tagButton.textContent = tag;
+                tagButton.onclick = () => {
+                    // Normalize the tag for comparison to ensure correct matching
+                    const normalizedTag = normalizeText(tag);
+                    // Toggle active state
+                    if (activeTag === normalizedTag) {
+                        activeTag = null; // Deactivate
+                        tagButton.classList.remove('active');
+                    } else {
+                        activeTag = normalizedTag; // Activate
+                        // Remove active class from all other tags
+                        document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                        tagButton.classList.add('active');
+                    }
+                    searchBar.value = ''; // Clear search bar when a tag is selected
+                    filterArticles(); // Re-filter articles based on new active tag
+                };
+                tagsListDiv.appendChild(tagButton);
+            });
         }
 
+        // Initial calls on page load
         generateSidebar();
-        window.filterArticles = filterArticles;
+        filterArticles(); // Initial filter to show all articles
+        window.filterArticles = filterArticles; // Expose to global scope for search input
     });
 </script>
 </body>
