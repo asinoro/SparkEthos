@@ -207,7 +207,18 @@
         let guideData = null;
         let currentLanguage = 'el';
 
-        
+        // Φόρτωση του JSON
+        fetch('sparkethos-en-el.json')
+            .then(response => response.json())
+            .then(data => {
+                guideData = data;
+                displayJson();
+            })
+            .catch(error => {
+                console.error('Σφάλμα φόρτωσης JSON:', error);
+                document.getElementById('json-display').textContent = currentLanguage === 'el' ? 'Σφάλμα φόρτωσης JSON.' : 'Error loading JSON.';
+            });
+
 
         // Εμφάνιση του JSON
         function displayJson() {
