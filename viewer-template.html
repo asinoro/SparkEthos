@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Οδηγός SparkEthos: Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <style>
+        body { font-family: sans-serif; padding: 30px; }
+        pre { background: #f0f0f0; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Οδηγός SparkEthos</h1>
+    <h2>Περιεχόμενα (JSON)</h2>
+    <div id="json-display">[Ο Οδηγός θα εμφανιστεί εδώ]</div>
+
+    <h2>Ανάλυση</h2>
+    <div id="analysis">[Η ερμηνεία θα εμφανιστεί εδώ]</div>
+
+    <!-- JSON_PLACEHOLDER -->
+
+    <script>
+        let guideData = null;
+        const rawJson = document.getElementById('guide-data')?.textContent;
+        if (rawJson) {
+            try {
+                guideData = JSON.parse(rawJson);
+                document.getElementById('json-display').textContent = JSON.stringify(guideData, null, 2);
+                analyzeJson();
+            } catch (e) {
+                document.getElementById('json-display').textContent = 'Σφάλμα στην ανάλυση JSON';
+            }
+        }
+
+        function analyzeJson() {
+            if (!guideData) return;
+            let output = 'Ανάλυση του SparkEthos:\n\n';
+            output += 'Συγγραφέας: ' + (guideData.author || 'Άγνωστος') + '\n\n';
+            output += 'Εισαγωγή: ' + (guideData.introduction?.el || '[Δεν βρέθηκε]') + '\n\n';
+            output += 'Πρόλογος: ' + (guideData.prologue?.title || '[Δεν βρέθηκε]') + '\n\n';
+            output += 'Κεφάλαια: ' + (guideData.chapters?.length || 0) + '\n';
+            if (guideData.chapters?.length) {
+                guideData.chapters.forEach((c, i) => {
+                    output += ` ${i + 1}. ${c.title?.el || 'Χωρίς τίτλο'}\n`;
+                });
+            }
+            document.getElementById('analysis').textContent = output;
+        }
+    </script>
+</body>
+</html>
