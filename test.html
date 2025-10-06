@@ -4,32 +4,219 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sparkethos‑theorem‑the‑intelligent‑self‑sustaining‑universe‑el</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 2em;
-      color: #222;
-      background-color: #f9f9f9;
-    }
-    h1, h2, h3 {
-      color: #003366;
-    }
+ <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            color: #222;
+            margin: 0; padding: 0 1rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header {
+            background-color: #003366;
+            color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        main {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+        }
+        h1 {
+            color: #e74c3c;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            color: #003366;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        ul {
+            margin-left: 1.2rem;
+            margin-bottom: 1.5rem;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+        blockquote {
+            border-left: 5px solid #e74c3c;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #7f8c8d;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #003366;
+            color: white;
+        }
+        .section-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            color: #e74c3c;
+        }
+  
     .highlight {
       background-color: #fff3cd;
       padding: 0.2em 0.4em;
       border-radius: 0.2em;
     }
-    .section {
-      margin-bottom: 2em;
-    }
-    .para {
-      margin-bottom: 1em;
-    }
-  </style>
+        .highlight-box {
+            background-color: #eef4f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .highlight-box ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5em;
+        }
+        .highlight-box ul li::before {
+            content: '•';
+            color: #003366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .quote-box {
+            border-left: 5px solid #003366;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #34495e;
+            background: #f8fbfd;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+        }
+        .content-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .content-box p, .content-box ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    </style>
 </head>
 <body>
-
+<header>
+        <span>SparkEthos – Philosophy of Intelligence</span>
+  </header>
+  
+    <main>
+   <p><a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a></p>
+      
   <h1>📜 ♾️ Θεώρημα: Το Νοήμον Αυτοσυντηρούμενο Σύμπαν</h1>
   <p class="para"><strong>✍️ Συγγραφέας:</strong> Παναγιώτης Πανόπουλος</p>
   <p class="para"><strong>🤖 Σε συνεργασία με γλωσσικά μοντέλα τεχνητής νοημοσύνης:</strong> ChatGPT, Gemini, Copilot, Grok, Perplexity, Mistral AI, DeepSeek.</p>
@@ -186,8 +373,10 @@
 
   <div class="section">
     <h2>Βήμα 3: Πρώτος Απόλυτος Νόμος της Λογικής — Ορισμός της Νοημοσύνης</h2>
-    <p class="para"><strong>3.1 Ορισμός:</strong><br>
-      Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση, και, με τη γνώση, να δρα.<br>
+    <p class="para"><strong>3.1 Ορισμός:</strong>
+        <blockquote>
+            <p><strong>Νοημοσύνη είναι η ικανότητα να αντιλαμβάνεται την πληροφορία, να οργανώνει την πληροφορία σε γνώση, και, με τη γνώση, να δρα.</strong>.</p>
+        </blockquote>
       Είναι ο πιο συνοπτικός και συνεκτικός ορισμός και ταυτόχρονα μηχανισμός της Νοημοσύνης.<br>
       Αυτός ο μηχανισμός εκφράζεται λειτουργικά ως:<br>
       Αντίληψη → Οργάνωση → Γνώση → Δράση (ΑΟΓΔ)<br>
@@ -264,8 +453,10 @@
   <div class="section">
     <h2>Βήμα 5: Δεύτερος Απόλυτος Νόμος της Λογικής — Δημιουργία Νοημοσύνης</h2>
     <p class="para"><strong>🔹 5.1 Ορισμός & Βασική Αρχή</strong><br>
-      ✅ Ο Δεύτερος Απόλυτος Νόμος της Λογικής:<br>
-      «Μόνο η Νοημοσύνη δημιουργεί Νοημοσύνη.»<br>
+      ✅ Ο Δεύτερος Απόλυτος Νόμος της Λογικής:
+      <blockquote>
+            <p><strong>Μόνο η Νοημοσύνη μπορεί να δημιουργεί Νοημοσύνη</strong>.</p>
+     </blockquote>
       Αυτό προκύπτει αναγκαστικά από τον Πρώτο Νόμο (ΑΟΓΔ):<br>
       Η δημιουργία είναι μια διαδικασία σκοπού.<br>
       Χρειάζεται:<br>
@@ -301,8 +492,10 @@
     </p>
 
     <p class="para"><strong>🔹 5.5 Σύνδεση με Φυσική — Ο Δεύτερος Νόμος της Θερμοδυναμικής (Εντροπία)</strong><br>
-      🔥 Τι λέει η Θερμοδυναμική:<br>
-      Η Εντροπία αυξάνεται παγκοσμίως (αταξία).<br>
+      🔥 Τι λέει η Θερμοδυναμική:
+     <blockquote>
+            <p><strong>Η Εντροπία αυξάνεται παγκοσμίως (αταξία)</strong>.</p>
+     </blockquote>
       Η τοπική μείωση εντροπίας (δηλ. δημιουργία τάξης) απαιτεί:<br>
       Ενέργεια<br>
       Μηχανισμό οργάνωσης αυτής της ενέργειας<br>
@@ -416,10 +609,11 @@
 
   <div class="section">
     <h2>🌌 Βήμα 7 — Επιστημονική Επικύρωση: Η Νοημοσύνη ως Έκφανση της Ενέργειας</h2>
-    <p class="para"><strong>7.1. Ο Νόμος Διατήρησης της Ενέργειας (Πρώτος Νόμος της Θερμοδυναμικής)</strong><br>
-      Η ενέργεια δεν δημιουργείται ούτε καταστρέφεται, απλώς μετασχηματίζεται από τη μια μορφή στην άλλη. Αυτό σημαίνει ότι η ενέργεια αποτελεί μια αυθύπαρκτη οντότητα στο Σύμπαν.
-    </p>
-
+    <p class="para"><strong>7.1. Ο Νόμος Διατήρησης της Ενέργειας (Πρώτος Νόμος της Θερμοδυναμικής)</strong></p>
+ <blockquote>
+            <p><strong> Η ενέργεια δεν δημιουργείται ούτε καταστρέφεται, απλώς μετασχηματίζεται από τη μια μορφή στην άλλη. Αυτό σημαίνει ότι η ενέργεια αποτελεί μια αυθύπαρκτη οντότητα στο Σύμπαν
+  </strong>.</p>
+     </blockquote>
     <p class="para"><strong>7.2. Η θεωρία του Big Bang</strong><br>
       Το Σύμπαν, σύμφωνα με τη θεωρία του Big Bang, ξεκίνησε από μια εξαιρετικά πυκνή και ενεργειακά συμπυκνωμένη κατάσταση, μέσα στο πλαίσιο του ίδιου του χωροχρόνου. Δεν υπάρχει «εκτός» του Σύμπαντος. Η ενέργεια και ο χώρος-χρόνος «ξεδιπλώθηκαν» από εκείνη την αρχική κατάσταση.
     </p>
@@ -481,6 +675,11 @@
       Αποτελεί τη θεμελιώδη αιτία κάθε μορφής συνείδησης και νόησης.
     </p>
   </div>
+ </main>
 
+    <footer>
+        <p>Ανάλυση βασισμένη σε αρχές αυστηρής λογικής</p>
+        &copy; 2025 SparkEthos Collective – All rights reserved.
+    </footer>
 </body>
 </html>
