@@ -1,13 +1,13 @@
 <!-- Για κάθε html -->
 !-- Canonical URL (το οποίο προτιμάται από τις μηχανές αναζήτησης) -->
-    <link rel="canonical" href="https://sparkethos-guide.netlify.app/sparkethos-first-absolute-law-el.html" />
+    <link rel="canonical" href="https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-el.html" />
 
     <!-- Hreflang για την ελληνική έκδοση -->
-    <link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/sparkethos-first-absolute-law-el.html" />
+    <link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-el.html" />
     <!-- Hreflang για την αγγλική έκδοση -->
-    <link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/sparkethos-first-absolute-law-en.html" />
+    <link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-en.html" />
     <!-- Hreflang x-default (η προτιμώμενη έκδοση όταν δεν ταιριάζει καμία γλώσσα) -->
-    <link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/sparkethos-first-absolute-law-el.html" />
+    <link rel="alternate" hreflang="x-default" href="https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-el.html" />
 
 
 <!-- Για το domain index-index.html https://asinoro.github.io/SparkEthos/ -->
@@ -28,14 +28,14 @@
 <link rel="alternate" hreflang="en" href="https://sparkethos.pages.dev/viewer.html" />
 <link rel="alternate" hreflang="x-default" href="https://sparkethos.pages.dev/viewer.html" />
 
-<!-- Για το domain https://sparkethos-guide.netlify.app/ -->
-<link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/index.html" />
-<link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/index-en.html" />
-<link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/index.html" />
+<!-- Για το domain https://asinoro.github.io/SparkEthos/ -->
+<link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html" />
+<link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html" />
+<link rel="alternate" hreflang="x-default" href="https://asinoro.github.io/SparkEthos/index.html" />
 
-<link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/viewer.html" />
-<link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/viewer.html" />
-<link rel="alternate" hreflang="x-default" href="https://sparkethos-guide.netlify.app/viewer.html" />
+<link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/viewer.html" />
+<link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/viewer.html" />
+<link rel="alternate" hreflang="x-default" href="https://asinoro.github.io/SparkEthos/viewer.html" />
 
 <!-- Για το domain https://sparkethos.vercel.app/ -->
 <link rel="alternate" hreflang="el" href="https://sparkethos.vercel.app/index.html" />

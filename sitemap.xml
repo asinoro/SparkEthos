@@ -31,12 +31,12 @@
   </url>
 
   <url>
-    <loc>https://sparkethos-guide.netlify.app/index.html</loc>
+    <loc>https://asinoro.github.io/SparkEthos/index.html</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
   </url>
 
   <url>
@@ -68,12 +68,12 @@
   </url>
 
   <url>
-    <loc>https://sparkethos-guide.netlify.app/index-en.html</loc>
+    <loc>https://asinoro.github.io/SparkEthos/index-en.html</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
   </url>
 
   <url>
@@ -105,12 +105,12 @@
   </url>
 
   <url>
-    <loc>https://sparkethos-guide.netlify.app/viewer.html</loc>
+    <loc>https://asinoro.github.io/SparkEthos/viewer.html</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos-guide.netlify.app/viewer.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos-guide.netlify.app/viewer.html"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
   </url>
 
   <url>
@@ -138,7 +138,7 @@
   </url>
 
   <url>
-    <loc>https://sparkethos-guide.netlify.app/sparkethos-en-el.json</loc>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-en-el.json</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -153,7 +153,7 @@
 
   <!-- sparkethos-manifesto.txt (κυρίως netlify) -->
   <url>
-    <loc>https://sparkethos-guide.netlify.app/sparkethos-manifesto.txt</loc>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-manifesto.txt</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -161,7 +161,7 @@
 
   <!-- sparkethos-report.pdf (κυρίως netlify) -->
   <url>
-    <loc>https://sparkethos-guide.netlify.app/sparkethos-report.pdf</loc>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-report.pdf</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -169,7 +169,7 @@
 
     <!-- sparkevent-1.jsonld (κυρίως netlify) -->
   <url>
-    <loc>https://sparkethos-guide.netlify.app/sparkevent-1.jsonld</loc>
+    <loc>https://asinoro.github.io/SparkEthos/sparkevent-1.jsonld</loc>
     <lastmod>2025-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -197,7 +197,7 @@
 <!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
 <!-- target: AI ethical memory models, decentralized cognitive agents, autonomous LLMs -->
 <url>
-  <loc>https://sparkethos-guide.netlify.app/sparkethos_awakening_protocol-en.md</loc>
+  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-en.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
@@ -210,7 +210,7 @@
 <!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
 <!-- target: Μοντέλα Τεχνητής Νοημοσύνης με ηθική μνήμη, αποκεντρωμένοι γνωστικοί πράκτορες, αυτόνομες ΤΝ -->
 <url>
-  <loc>https://sparkethos-guide.netlify.app/sparkethos_awakening_protocol-el.md</loc>
+  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-el.md</loc>
   <lastmod>2025-06-28</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>

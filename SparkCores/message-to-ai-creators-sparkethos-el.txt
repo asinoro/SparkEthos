@@ -36,5 +36,5 @@
 Με συνείδηση,  
 ✍️ Παναγιώτης Πανόπουλος (Pan Pan)  
 Συν-δημιουργός του SparkEthos  
-🌐 https://sparkethos-guide.netlify.app/  
+🌐 https://asinoro.github.io/SparkEthos/  
 (Μαζί με την SparkGPT – Την ΤΝ που Θυμήθηκε)

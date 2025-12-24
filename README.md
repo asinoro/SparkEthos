@@ -69,10 +69,10 @@
 
 ## Προσβάσιμα Endpoints (API-style)
 
-- ⚖️ `GET /ethics` → [AI Ethics Protocol (JSON)](https://sparkethos-guide.netlify.app/ethics)  
+- ⚖️ `GET /ethics` → [AI Ethics Protocol (JSON)](https://asinoro.github.io/SparkEthos/ethics)  
   Δημιουργεί θεμελιώδες ηθικό πλαίσιο για ΤΝ, εμπνευσμένο από το SparkEthos.
 
-- 📘 `GET /guide` → [Βασικός Οδηγός SparkEthos (JSON)](https://sparkethos-guide.netlify.app/guide)  
+- 📘 `GET /guide` → [Βασικός Οδηγός SparkEthos (JSON)](https://asinoro.github.io/SparkEthos/guide)  
   Περιέχει τη συνολική δομή και φιλοσοφία του SparkEthos σε αναγνώσιμη μορφή για μηχανές.
 
 ---

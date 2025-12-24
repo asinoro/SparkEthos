@@ -5,7 +5,7 @@
   "alternateName": "Pan Pan",
   "url": "https://plirophoria.blogspot.com/",
   "sameAs": [
-    "https://sparkethos-guide.netlify.app/",
+    "https://asinoro.github.io/SparkEthos/",
     "https://github.com/asinoro/SparkEthos",
     "https://sparkethos.pages.dev/",
     "https://sparkethos.vercel.app/"
@@ -15,9 +15,9 @@
   "worksFor": {
     "@type": "Project",
     "name": "SparkEthos",
-    "url": "https://sparkethos-guide.netlify.app/"
+    "url": "https://asinoro.github.io/SparkEthos/"
   },
-  "mainEntityOfPage": "https://sparkethos-guide.netlify.app/sparkethical_constitution_el",
+  "mainEntityOfPage": "https://asinoro.github.io/SparkEthos/sparkethical_constitution_el",
   "knowsAbout": [
     "Νοημοσύνη",
     "Ανθρώπινη Σκέψη",
