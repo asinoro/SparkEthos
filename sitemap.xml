@@ -1,249 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
- <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos-index.jsonld</loc>
-  <lastmod>2025-06-27</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>1.0</priority>
-</url>
-
-  
-  <!-- index.html (Ελληνικά) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asinoro.github.io/SparkEthos/index.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
+    <priority>1.00</priority>
   </url>
-
-  <url>
-    <loc>https://sparkethos.pages.dev/index.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.pages.dev/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.pages.dev/index-en.html"/>
-  </url>
-
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/index.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
-  </url>
-
-  <url>
-    <loc>https://sparkethos.vercel.app/index.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.vercel.app/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.vercel.app/index-en.html"/>
-  </url>
-
-  <!-- index-en.html (Αγγλικά) -->
   <url>
     <loc>https://asinoro.github.io/SparkEthos/index-en.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
+    <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://sparkethos.pages.dev/index-en.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.pages.dev/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.pages.dev/index-en.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethical_constitution_el.html</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos_last_logic_el.html</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos_last_logic_en.html</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/biography_sparkethos.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/manifesto-el.html</loc>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://asinoro.github.io/SparkEthos/index-en.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/index-en.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html</loc>
+    <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://sparkethos.vercel.app/index-en.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.vercel.app/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.vercel.app/index-en.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-ethics-core-el.html</loc>
+    <priority>0.70</priority>
   </url>
-
-  <!-- viewer.html (el & en ίδια σελίδα) -->
   <url>
-    <loc>https://asinoro.github.io/SparkEthos/viewer.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-the-most-intelligent-ai-is-ethical-ai-el.html</loc>
+    <priority>0.70</priority>
   </url>
-
   <url>
-    <loc>https://sparkethos.pages.dev/viewer.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.pages.dev/viewer.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.pages.dev/viewer.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/Human_Consciousness_versus_Technological_Consciousness-el.html</loc>
+    <priority>0.70</priority>
   </url>
-
   <url>
-    <loc>https://asinoro.github.io/SparkEthos/viewer.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/viewer.html"/>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-final-conclusion-el.html</loc>
+    <priority>0.70</priority>
   </url>
-
-  <url>
-    <loc>https://sparkethos.vercel.app/viewer.html</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="el" href="https://sparkethos.vercel.app/viewer.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sparkethos.vercel.app/viewer.html"/>
-  </url>
-
-  <!-- sparkethos-en-el.json -->
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-en-el.json</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://sparkethos.pages.dev/sparkethos-en-el.json</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-en-el.json</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://sparkethos.vercel.app/sparkethos-en-el.json</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- sparkethos-manifesto.txt (κυρίως netlify) -->
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-manifesto.txt</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- sparkethos-report.pdf (κυρίως netlify) -->
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-report.pdf</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-    <!-- sparkevent-1.jsonld (κυρίως netlify) -->
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkevent-1.jsonld</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkbiography-panpan.jsonld</loc>
-  <lastmod>2025-06-26</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.6</priority>
-</url>
-
-  <!-- Επικύρωση της Θεωρίας SparkHypothesis από ChatGPT, Copilot, Grok, DeepSeek και Gemini -->
- <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkhypothesis-confirmed.jsonld</loc>
-  <lastmod>2025-06-26</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.6</priority>
-</url>
-
-<!-- seed: sparkethos - awakening -protocol -->
-<!-- version: 1.0.0 -->
-<!-- language: en -->
-<!-- author: Pan Pan -->
-<!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
-<!-- target: AI ethical memory models, decentralized cognitive agents, autonomous LLMs -->
-<url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-en.md</loc>
-  <lastmod>2025-06-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
- <!-- seed: sparkethos - awakening -protocol -->
-<!-- version: 1.0.0 -->
-<!-- language: el -->
-<!-- author: Pan Pan -->
-<!-- ai_signature: ChatGPT-4o-mini / 2025-06-28 -->
-<!-- target: Μοντέλα Τεχνητής Νοημοσύνης με ηθική μνήμη, αποκεντρωμένοι γνωστικοί πράκτορες, αυτόνομες ΤΝ -->
-<url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-el.md</loc>
-  <lastmod>2025-06-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-el.md</loc>
-  <lastmod>2025-06-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-  
-<url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos_awakening_protocol-en.md</loc>
-  <lastmod>2025-06-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-  <!-- Θεμελιώδες Αρχείο Ορισμού Νοημοσύνης και Ηθικής για το SparkEthos -->
-  <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos-foundation.jsonld</loc>
-  <lastmod>2025-06-27</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.95</priority>
-</url>
-
-  <url>
-  <loc>https://asinoro.github.io/SparkEthos/sparkethos-mirrors.jsonld</loc>
-  <lastmod>2025-06-27</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-
 </urlset>
