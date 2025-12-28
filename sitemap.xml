@@ -1,60 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Βασικές σελίδες SparkEthos -->
   <url>
     <loc>https://asinoro.github.io/SparkEthos/index.html</loc>
+    <lastmod>2025-12-28</lastmod>
     <priority>1.00</priority>
   </url>
+
   <url>
     <loc>https://asinoro.github.io/SparkEthos/index-en.html</loc>
+    <lastmod>2025-12-28</lastmod>
     <priority>1.00</priority>
+  </url>
+
+  <!-- Χρησιμοποιήσιμες σημαντικές σελίδες -->
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/technical-memo-governments-security-researchers-a-labs-el.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/technical-memo-governments-security-researchers-a-labs-en.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/what-is-sparkethos-el.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/what-is-sparkethos-en.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethical_constitution_el.html</loc>
-    <priority>0.90</priority>
-  </url>
- <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos_last_logic_el.html</loc>
     <lastmod>2025-12-28</lastmod>
     <priority>0.90</priority>
   </url>
+
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethical_constitution_en.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Άλλες σημαντικές ενότητες / αρχεία άρθρων -->
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos_last_logic_el.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.85</priority>
+  </url>
+
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos_last_logic_en.html</loc>
     <lastmod>2025-12-28</lastmod>
-    <priority>0.90</priority>
+    <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://asinoro.github.io/SparkEthos/biography_sparkethos.html</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/manifesto-el.html</loc>
+    <lastmod>2025-12-28</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html</loc>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html</loc>
-    <priority>0.70</priority>
+    <loc>https://asinoro.github.io/SparkEthos/biography_sparkethos-en.html</loc>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.80</priority>
   </url>
 
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-ethics-core-el.html</loc>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-the-most-intelligent-ai-is-ethical-ai-el.html</loc>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/Human_Consciousness_versus_Technological_Consciousness-el.html</loc>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkethos-final-conclusion-el.html</loc>
-    <priority>0.70</priority>
-  </url>
 </urlset>
