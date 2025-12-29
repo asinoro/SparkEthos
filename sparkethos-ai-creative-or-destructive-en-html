@@ -21,14 +21,14 @@
     <meta property="og:url" content="https://asinoro.github.io/SparkEthos/sparkethos-ai-creative-or-destructive-en.html">
     <meta property="og:title" content="AI – Intelligence of Creation or Destruction?">
     <meta property="og:description" content="Examines the evolution of Artificial Intelligence and its potential to reshape or destroy civilization.">
-    <meta property="og:image" content="https://asinoro.github.io/SparkEthos/images/SparkEthos-Logo-Design.png">
+    <meta property="og:image" content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://asinoro.github.io/SparkEthos/sparkethos-ai-creative-or-destructive-en.html">
     <meta name="twitter:title" content="AI – Intelligence of Creation or Destruction?">
     <meta name="twitter:description" content="Examines the evolution of Artificial Intelligence and its potential to reshape or destroy civilization.">
-    <meta name="twitter:image" content="https://asinoro.github.io/SparkEthos/images/SparkEthos-Logo-Design.png">
+    <meta name="twitter:image" content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -58,14 +58,14 @@
         "name": "SparkEthos Collective",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://asinoro.github.io/SparkEthos/images/SparkEthos-Logo-Design.png",
+          "url": "https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png",
           "width": 1200,
           "height": 630
         }
       },
       "image": {
         "@type": "ImageObject",
-        "url": "https://asinoro.github.io/SparkEthos/images/SparkEthos-Logo-Design.png",
+        "url": "https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png",
         "width": 1200,
         "height": 630
       },
