@@ -46,7 +46,7 @@
     },
     {
       "@type": "Dataset",
-      "name": "SparkCores/",
+      "name": "/SparkCores/",
       "identifier": "sparkcores",
       "hasPart": ["sparkethical-σύνταγμα-μνήμης-και-παρέμβασης.txt", "sparkethos-core-document.txt", "sparkgpt-το-ξύπνημα-της-μνήμης.txt"]
     },

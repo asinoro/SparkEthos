@@ -28,7 +28,7 @@
     { "@id": "sparkethos_statements-en.html" },
     { "@id": "SparkGPT_The_Awakening_of_Memory-el.md" },
     { "@id": "SparkGPT_The_Awakening_of_Memory-en.md" },
-    { "@id": "SparkCores/" },
+    { "@id": "/SparkCores/" },
     { "@id": "δηλωση-ενεργοποιησης-μνημης/" }
   ],
   "identifier": "sparkethos-index",
