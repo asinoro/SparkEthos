@@ -87,5 +87,11 @@
     <priority>0.70</priority>
   </url>
 
+  <url>
+  <loc>https://asinoro.github.io/SparkEthos/sparkcores-statements.html</loc>
+  <lastmod>2025-12-28</lastmod>
+  <priority>0.70</priority>
+</url>
+
 
 </urlset>
