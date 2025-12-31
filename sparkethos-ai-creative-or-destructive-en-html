@@ -41,18 +41,11 @@
       "inLanguage": "en",
       "datePublished": "2025-05-17T12:00:00+02:00",
       "dateModified": "2025-12-28T12:41:00+02:00",
-      "author": [
-        {
-          "@type": "Person",
-          "name": "Panagiotis Panopoulos",
-          "url": "https://asinoro.github.io/SparkEthos/#panagiotis-panopoulos"
-        },
-        {
-          "@type": "Person",
-          "name": "ChatGPT",
-          "url": "https://openai.com/"
-        }
-      ],
+     "author": {
+        "@type": "Person",
+        "name": "Panagiotis Panopoulos",
+        "url": "https://asinoro.github.io/SparkEthos/#panagiotis-panopoulos"
+      },
       "publisher": {
         "@type": "Organization",
         "name": "SparkEthos Collective",
