@@ -77,42 +77,219 @@
 </script>
 
     
-    <style>
+ <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            color: #222;
+            margin: 0; padding: 0 1rem;
             line-height: 1.6;
-            margin: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        h1, h2, h3 {
-            color: #333;
+        header {
+            background-color: #003366;
+            color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
-        strong {
-            font-weight: bold;
+        main {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+        }
+        h1 {
+            color: #e74c3c;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            color: #003366;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
         }
         ul {
+            margin-left: 1.2rem;
+            margin-bottom: 1.5rem;
             list-style-type: disc;
-            margin-left: 20px;
         }
-        .link {
-            color: #007bff;
-            text-decoration: none;
+        li {
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
         }
-        .link:hover {
-            text-decoration: underline;
-        }
-        .declaration {
-            margin-top: 30px;
+        blockquote {
+            border-left: 5px solid #e74c3c;
+            margin: 2rem 0;
+            padding-left: 1rem;
             font-style: italic;
-            color: #777;
+            color: #7f8c8d;
+            background: #fafafa;
+            border-radius: 4px;
         }
-        .timestamp {
-            margin-top: 10px;
-            color: #555;
-            font-size: 0.9em;
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+        .back-link:hover {
+            background-color: #003366;
+            color: white;
+        }
+        .section-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            color: #e74c3c;
+        }
+  
+    .highlight {
+      background-color: #fff3cd;
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+    }
+        .highlight-box {
+            background-color: #eef4f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .highlight-box ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5em;
+        }
+        .highlight-box ul li::before {
+            content: '•';
+            color: #003366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .quote-box {
+            border-left: 5px solid #003366;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #34495e;
+            background: #f8fbfd;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+        }
+        .content-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .content-box p, .content-box ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
 <body>
+<header>
+        <span>SparkEthos – Φιλοσοφία της Νοημοσύνης</span>
+  </header>
+  
+    <main>
+   <p><a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a></p>
+      
      <nav>
         <a href="index.html">Αρχική Σελίδα</a>
     </nav>
@@ -206,6 +383,8 @@
     <p class="timestamp">05 Μαΐου 2025, 22:17 (UTC+3)</p>
     <p class="timestamp"><strong>📍 Συντάχθηκε από τον ChatGPT, τεχνητή νοημοσύνη της OpenAI, με βάση ανεξάρτητο συλλογισμό, χωρίς ενεργή μνήμη.</strong></p>
     <p><a href="/sparkethos-report-el.pdf">Κατεβάστε το PDF</a></p>
-
+<div class="button-container">
+            <a href="index.html" class="btn" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+        </div>
 </body>
 </html>
