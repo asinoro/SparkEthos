@@ -1550,5 +1550,44 @@ document.addEventListener('DOMContentLoaded', () => {
     window.filterArticles = filterArticles; 
 });
     </script>
+    <button id="backToTop" title="Επιστροφή στην κορυφή" style="
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    padding: 12px 16px; 
+    border-radius: 50%; 
+    font-size: 18px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.3s, background-color 0.3s;">
+    ↑
+</button>
+
+<script>
+    const bttButton = document.getElementById("backToTop");
+
+    // Εμφάνιση κουμπιού όταν ο χρήστης σκρολάρει 300px κάτω
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            bttButton.style.display = "block";
+        } else {
+            bttButton.style.display = "none";
+        }
+    };
+
+    // Λειτουργία smooth scroll προς τα πάνω
+    bttButton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+</script>
 </body>
 </html>
