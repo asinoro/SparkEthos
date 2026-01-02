@@ -1297,7 +1297,12 @@
    <a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
         </main>
     </div>
+    
 <div id="pagination-container" style="margin: 30px 0; text-align: center; font-family: sans-serif;">
+    <div id="results-count" style="margin-bottom: 10px; font-weight: bold; color: #555;">
+        Βρέθηκαν 0 άρθρα
+    </div>
+
     <div style="margin-bottom: 15px;">
         <label for="items-per-page" style="font-size: 0.9em; color: #666;">Άρθρα ανά σελίδα:</label>
         <select id="items-per-page" onchange="resetPagination()" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc;">
@@ -1387,27 +1392,35 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDisplay();
     }
 
-    function updateDisplay() {
-        const itemsPerPage = parseInt(itemsPerPageSelect.value);
-        const totalItems = filteredElements.length;
-        const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+  function updateDisplay() {
+    const itemsPerPage = parseInt(itemsPerPageSelect.value);
+    const totalItems = filteredElements.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
 
-        // Κρύβουμε όλα τα άρθρα
-        document.querySelectorAll("#articles .link-container").forEach(a => a.style.display = "none");
-
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-
-        // Εμφάνιση άρθρων τρέχουσας σελίδας
-        const toShow = filteredElements.slice(start, end);
-        toShow.forEach(article => article.style.display = "block");
-
-        // Ενημέρωση κουμπιών
-        prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage === totalPages || totalItems === 0;
-
-        renderPageNumbers(totalPages);
+    // ΕΝΗΜΕΡΩΣΗ ΜΕΤΡΗΤΗ: Εδώ προσθέτουμε το κείμενο
+    const resultsCountDiv = document.getElementById("results-count");
+    if (resultsCountDiv) {
+        resultsCountDiv.textContent = totalItems === 1 
+            ? "Βρέθηκε 1 άρθρο" 
+            : `Βρέθηκαν ${totalItems} άρθρα`;
     }
+
+    // Κρύβουμε όλα τα άρθρα
+    document.querySelectorAll("#articles .link-container").forEach(a => a.style.display = "none");
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    // Εμφάνιση άρθρων τρέχουσας σελίδας
+    const toShow = filteredElements.slice(start, end);
+    toShow.forEach(article => article.style.display = "block");
+
+    // Ενημέρωση κουμπιών πλοήγησης
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages || totalItems === 0;
+
+    renderPageNumbers(totalPages);
+}
 
     function renderPageNumbers(totalPages) {
         pageNumbersContainer.innerHTML = '';
