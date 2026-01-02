@@ -1264,168 +1264,220 @@
             <a href="index-en.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
         </main>
     </div>
+<div id="pagination-container" style="margin: 30px 0; text-align: center; font-family: sans-serif;">
+    <div id="results-count" style="margin-bottom: 10px; font-weight: bold; color: #555;">
+        Found 0 articles
+    </div>
 
+    <div style="margin-bottom: 15px;">
+        <label for="items-per-page" style="font-size: 0.9em; color: #666;">Articles per page:</label>
+        <select id="items-per-page" onchange="resetPagination()" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc;">
+            <option value="30">30</option>
+            <option value="60">60</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+        <button id="prev-page" onclick="changePage(-1)" class="pag-btn">« Prev</button>
+        <div id="page-numbers" style="display: flex; gap: 5px;"></div>
+        <button id="next-page" onclick="changePage(1)" class="pag-btn">Next »</button>
+    </div>
+</div>
     <footer>
         &copy; 2025 SparkEthos Collective – All rights reserved.
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const articlesContainer = document.getElementById("articles");
-            const tagsListDiv = document.getElementById("tags-list");
-            const searchBar = document.getElementById("sidebar-search");
-            let activeTag = null; // Track the currently active tag
+document.addEventListener('DOMContentLoaded', () => {
+    const articlesContainer = document.getElementById("articles");
+    const tagsListDiv = document.getElementById("tags-list");
+    const searchBar = document.getElementById("sidebar-search");
+    const itemsPerPageSelect = document.getElementById("items-per-page");
+    const pageNumbersContainer = document.getElementById("page-numbers");
+    const prevBtn = document.getElementById("prev-page");
+    const nextBtn = document.getElementById("next-page");
 
-            function filterArticles() {
-                const keyword = searchBar.value.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
-                const articles = document.querySelectorAll("#articles .link-container");
+    let activeTag = null;
+    let currentPage = 1;
+    let filteredElements = [];
 
-                articles.forEach(article => {
-                    const title = article.getAttribute("data-title");
-                    // Ensure tags are retrieved and trimmed
-                    const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) : [];
+    function filterArticles() {
+        const keyword = searchBar.value
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '') // Simplified for English
+            .replace(/\s+/g, ' ')
+            .trim();
 
-                    const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
+        const allArticles = Array.from(document.querySelectorAll("#articles .link-container"));
+        
+        filteredElements = allArticles.filter(article => {
+            const title = article.getAttribute("data-title");
+            const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) : [];
+            const normalizedTitle = title ? title.toLowerCase().trim() : '';
 
-                    const matchesKeyword = normalizedTitle.includes(keyword);
-                    // If no activeTag, all articles match the tag criteria (true). If activeTag exists, check if article's tags include it.
-                    const matchesTag = activeTag ? tags.includes(activeTag) : true;
-
-                    article.style.display = (matchesKeyword && matchesTag) ? "block" : "none";
-                });
-            }
-
-            function generateSidebar() {
-                const sidebar = document.getElementById("sidebar");
-                const articlesForSidebar = document.querySelectorAll("#articles .link-container");
-                const months = {};
-                const allTags = new Set(); // To store unique tags
-
-                articlesForSidebar.forEach(article => {
-                    const dateAttr = article.getAttribute("data-date");
-                    if (!dateAttr) {
-                        console.warn("Article missing data-date attribute:", article);
-                        return;
-                    }
-                    const [year, month] = dateAttr.split('-').map(Number);
-                    const monthKey = `${year}-${String(month).padStart(2, '0')}`;
-
-                    if (!months[monthKey]) {
-                        months[monthKey] = [];
-                    }
-                    months[monthKey].push(article);
-
-                    // Extract and add tags to the set
-                    const articleTags = article.getAttribute("data-tags");
-                    if (articleTags) {
-                        articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
-                    }
-                });
-
-                const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
-
-                sidebar.innerHTML = ''; // Clear existing sidebar content before regenerating
-
-                sortedMonthKeys.forEach(monthKey => {
-                    const [year, month] = monthKey.split('-');
-                    const dateForLocale = new Date(year, month - 1);
-                    const label = dateForLocale.toLocaleString("en-US", { year: "numeric", month: "long" });
-
-                    const monthTitle = document.createElement("div");
-                    monthTitle.className = "sidebar-title";
-                    monthTitle.textContent = label;
-                    sidebar.appendChild(monthTitle);
-
-                    const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
-                        const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
-                        const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
-                        return dayB - dayA;
-                    });
-
-                    sortedArticlesInMonth.forEach(article => {
-                        const linkButton = article.querySelector(".link-button");
-                        if (!linkButton) {
-                            console.warn("Link button not found in article for sidebar:", article);
-                            return;
-                        }
-                        const linkText = linkButton.textContent.trim();
-                        const link = document.createElement("a");
-                        link.href = linkButton.href; // Keep the actual href for direct navigation
-                        link.target = linkButton.target;
-                        link.className = "sidebar-link";
-                        link.textContent = linkText;
-
-                        // Add a data-target-id to link the sidebar link to the main article
-                        // Create a unique, valid ID for the target article
-                        const articleTitleForId = article.getAttribute("data-title").replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-').toLowerCase();
-                        const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
-                        article.id = articleId; // Assign an ID to the main article container
-                        link.setAttribute('data-target-id', articleId);
-
-
-                        link.onclick = (e) => {
-                            e.preventDefault(); // Prevent default link behavior for internal scroll
-
-                            // Clear any active filters (search bar and active tag)
-                            searchBar.value = '';
-                            activeTag = null;
-                            document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
-
-                            filterArticles(); // Re-show all articles
-
-                            // Get the ID of the target article from the data attribute
-                            const targetId = e.currentTarget.getAttribute('data-target-id');
-                            const targetArticle = document.getElementById(targetId);
-
-                            if (targetArticle) {
-                                // Ensure the article is visible before scrolling
-                                targetArticle.style.display = 'block';
-
-                                // Scroll to the article
-                                targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
-
-                                // Highlight the selected article
-                                document.querySelectorAll("#articles .link-container").forEach(a => a.style.backgroundColor = ''); // Clear previous highlights
-                                targetArticle.style.backgroundColor = "#fff3cd"; // Light yellow highlight
-                                setTimeout(() => targetArticle.style.backgroundColor = "", 1500); // Remove highlight after 1.5s
-                            } else {
-                                console.warn("Target article not found for ID:", targetId);
-                            }
-                        };
-                        sidebar.appendChild(link);
-                    });
-                });
-
-                // Generate tags
-                tagsListDiv.innerHTML = ''; // Clear existing tags
-                const sortedTags = Array.from(allTags).sort(); // Sort tags alphabetically
-                sortedTags.forEach(tag => {
-                    const tagButton = document.createElement("span");
-                    tagButton.className = "tag-button";
-                    tagButton.textContent = tag;
-                    tagButton.onclick = () => {
-                        // Toggle active state
-                        if (activeTag === tag.toLowerCase()) {
-                            activeTag = null; // Deactivate
-                            tagButton.classList.remove('active');
-                        } else {
-                            activeTag = tag.toLowerCase(); // Activate
-                            // Remove active class from all other tags
-                            document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
-                            tagButton.classList.add('active');
-                        }
-                        searchBar.value = ''; // Clear search bar when a tag is selected
-                        filterArticles(); // Re-filter articles based on new active tag
-                    };
-                    tagsListDiv.appendChild(tagButton);
-                });
-            }
-
-            // Initial calls on page load
-            generateSidebar();
-            filterArticles(); // Initial filter to show all articles
-            window.filterArticles = filterArticles; // Expose to global scope for search input
+            const matchesKeyword = normalizedTitle.includes(keyword);
+            const matchesTag = activeTag ? tags.includes(activeTag) : true;
+            return matchesKeyword && matchesTag;
         });
+
+        currentPage = 1;
+        updateDisplay();
+    }
+
+    function updateDisplay() {
+        const itemsPerPage = parseInt(itemsPerPageSelect.value);
+        const totalItems = filteredElements.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+        // Results Counter Update (English)
+        const resultsCountDiv = document.getElementById("results-count");
+        if (resultsCountDiv) {
+            resultsCountDiv.textContent = totalItems === 1 
+                ? "Found 1 article" 
+                : `Found ${totalItems} articles`;
+        }
+
+        document.querySelectorAll("#articles .link-container").forEach(a => a.style.display = "none");
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        const toShow = filteredElements.slice(start, end);
+        toShow.forEach(article => article.style.display = "block");
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages || totalItems === 0;
+
+        renderPageNumbers(totalPages);
+    }
+
+    function renderPageNumbers(totalPages) {
+        pageNumbersContainer.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.className = `pag-btn ${i === currentPage ? 'active' : ''}`;
+            btn.onclick = () => {
+                currentPage = i;
+                updateDisplay();
+                window.scrollTo({ top: articlesContainer.offsetTop - 100, behavior: 'smooth' });
+            };
+            pageNumbersContainer.appendChild(btn);
+        }
+    }
+
+    window.changePage = (direction) => {
+        currentPage += direction;
+        updateDisplay();
+        window.scrollTo({ top: articlesContainer.offsetTop - 100, behavior: 'smooth' });
+    };
+
+    window.resetPagination = () => {
+        currentPage = 1;
+        updateDisplay();
+    };
+
+    // --- Sidebar & Tags Logic (English Localization) ---
+    function generateSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const articlesForSidebar = document.querySelectorAll("#articles .link-container");
+        const months = {};
+        const allTags = new Set();
+
+        articlesForSidebar.forEach(article => {
+            const dateAttr = article.getAttribute("data-date");
+            if (!dateAttr) return;
+            const [year, month] = dateAttr.split('-').map(Number);
+            const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+            if (!months[monthKey]) months[monthKey] = [];
+            months[monthKey].push(article);
+            const articleTags = article.getAttribute("data-tags");
+            if (articleTags) articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
+        });
+
+        const sortedMonthKeys = Object.keys(months).sort((a, b) => b.localeCompare(a));
+        sidebar.innerHTML = '';
+
+        sortedMonthKeys.forEach(monthKey => {
+            const [year, month] = monthKey.split('-');
+            const dateForLocale = new Date(year, month - 1);
+            // Changed to en-US
+            const label = dateForLocale.toLocaleString("en-US", { year: "numeric", month: "long" });
+
+            const monthTitle = document.createElement("div");
+            monthTitle.className = "sidebar-title";
+            monthTitle.textContent = label;
+            sidebar.appendChild(monthTitle);
+
+            const sortedArticlesInMonth = months[monthKey].sort((a, b) => {
+                const dayA = parseInt(a.getAttribute("data-date").split('-')[2]);
+                const dayB = parseInt(b.getAttribute("data-date").split('-')[2]);
+                return dayB - dayA;
+            });
+
+            sortedArticlesInMonth.forEach(article => {
+                const linkButton = article.querySelector(".link-button");
+                if (!linkButton) return;
+                
+                const link = document.createElement("a");
+                link.href = linkButton.href;
+                link.className = "sidebar-link";
+                link.textContent = linkButton.textContent.trim();
+
+                const articleId = `article-${article.getAttribute("data-title").replace(/\s+/g, '-')}-${article.getAttribute("data-date")}`;
+                article.id = articleId;
+
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    searchBar.value = '';
+                    activeTag = null;
+                    document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                    
+                    filterArticles(); 
+
+                    const targetArticle = document.getElementById(articleId);
+                    if (targetArticle) {
+                        const index = filteredElements.indexOf(targetArticle);
+                        if (index !== -1) {
+                            currentPage = Math.floor(index / parseInt(itemsPerPageSelect.value)) + 1;
+                            updateDisplay();
+                        }
+                        targetArticle.scrollIntoView({ behavior: "smooth", block: "start" });
+                        targetArticle.style.backgroundColor = "#fff3cd";
+                        setTimeout(() => targetArticle.style.backgroundColor = "", 1500);
+                    }
+                };
+                sidebar.appendChild(link);
+            });
+        });
+
+        // Tags List (English)
+        tagsListDiv.innerHTML = '';
+        Array.from(allTags).sort().forEach(tag => {
+            const tagButton = document.createElement("span");
+            tagButton.className = "tag-button";
+            tagButton.textContent = tag;
+            tagButton.onclick = () => {
+                if (activeTag === tag.toLowerCase()) {
+                    activeTag = null;
+                    tagButton.classList.remove('active');
+                } else {
+                    activeTag = tag.toLowerCase();
+                    document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
+                    tagButton.classList.add('active');
+                }
+                searchBar.value = '';
+                filterArticles();
+            };
+            tagsListDiv.appendChild(tagButton);
+        });
+    }
+
+    generateSidebar();
+    filterArticles();
+    window.filterArticles = filterArticles; 
+});
     </script>
 
 </body>
