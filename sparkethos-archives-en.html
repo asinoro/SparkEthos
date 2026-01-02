@@ -1284,6 +1284,15 @@
         <button id="next-page" onclick="changePage(1)" class="pag-btn">Next »</button>
     </div>
 </div>
+
+<style>
+    .pag-btn {
+        padding: 8px 14px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 4px; transition: all 0.2s; font-weight: bold;
+    }
+    .pag-btn:hover:not(:disabled) { background-color: #f0f0f0; border-color: #bbb; }
+    .pag-btn.active { background-color: #007bff; color: white; border-color: #007bff; }
+    .pag-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+</style>
     <footer>
         &copy; 2025 SparkEthos Collective – All rights reserved.
     </footer>
@@ -1302,26 +1311,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let filteredElements = [];
 
     function filterArticles() {
-        const keyword = searchBar.value
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase()
-            .replace(/[^a-z0-9\s]/g, '') // Simplified for English
-            .replace(/\s+/g, ' ')
-            .trim();
-
+        const keyword = searchBar.value.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
         const allArticles = Array.from(document.querySelectorAll("#articles .link-container"));
-        
+
+        // 1. Φιλτράρισμα
         filteredElements = allArticles.filter(article => {
             const title = article.getAttribute("data-title");
             const tags = article.getAttribute("data-tags") ? article.getAttribute("data-tags").toLowerCase().split(',').map(tag => tag.trim()) : [];
-            const normalizedTitle = title ? title.toLowerCase().trim() : '';
+            const normalizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim() : '';
 
             const matchesKeyword = normalizedTitle.includes(keyword);
             const matchesTag = activeTag ? tags.includes(activeTag) : true;
             return matchesKeyword && matchesTag;
         });
 
-        currentPage = 1;
+        currentPage = 1; // Επαναφορά στην 1η σελίδα
         updateDisplay();
     }
 
@@ -1330,22 +1334,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalItems = filteredElements.length;
         const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
 
-        // Results Counter Update (English)
+        // Ενημέρωση μετρητή
         const resultsCountDiv = document.getElementById("results-count");
         if (resultsCountDiv) {
-            resultsCountDiv.textContent = totalItems === 1 
-                ? "Found 1 article" 
-                : `Found ${totalItems} articles`;
+            resultsCountDiv.textContent = totalItems === 1 ? "Found 1 article" : `Found ${totalItems} articles`;
         }
 
+        // Κρύβουμε όλα τα άρθρα
         document.querySelectorAll("#articles .link-container").forEach(a => a.style.display = "none");
 
+        // Slice & Show
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
-
         const toShow = filteredElements.slice(start, end);
         toShow.forEach(article => article.style.display = "block");
 
+        // Controls
         prevBtn.disabled = currentPage === 1;
         nextBtn.disabled = currentPage === totalPages || totalItems === 0;
 
@@ -1378,7 +1382,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDisplay();
     };
 
-    // --- Sidebar & Tags Logic (English Localization) ---
     function generateSidebar() {
         const sidebar = document.getElementById("sidebar");
         const articlesForSidebar = document.querySelectorAll("#articles .link-container");
@@ -1390,8 +1393,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!dateAttr) return;
             const [year, month] = dateAttr.split('-').map(Number);
             const monthKey = `${year}-${String(month).padStart(2, '0')}`;
+
             if (!months[monthKey]) months[monthKey] = [];
             months[monthKey].push(article);
+
             const articleTags = article.getAttribute("data-tags");
             if (articleTags) articleTags.split(',').forEach(tag => allTags.add(tag.trim()));
         });
@@ -1402,7 +1407,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sortedMonthKeys.forEach(monthKey => {
             const [year, month] = monthKey.split('-');
             const dateForLocale = new Date(year, month - 1);
-            // Changed to en-US
             const label = dateForLocale.toLocaleString("en-US", { year: "numeric", month: "long" });
 
             const monthTitle = document.createElement("div");
@@ -1419,14 +1423,17 @@ document.addEventListener('DOMContentLoaded', () => {
             sortedArticlesInMonth.forEach(article => {
                 const linkButton = article.querySelector(".link-button");
                 if (!linkButton) return;
-                
+
                 const link = document.createElement("a");
                 link.href = linkButton.href;
                 link.className = "sidebar-link";
                 link.textContent = linkButton.textContent.trim();
 
-                const articleId = `article-${article.getAttribute("data-title").replace(/\s+/g, '-')}-${article.getAttribute("data-date")}`;
+                // Διατήρηση του δικού σου ID logic
+                const articleTitleForId = article.getAttribute("data-title").replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-').toLowerCase();
+                const articleId = `article-${articleTitleForId}-${article.getAttribute("data-date")}`;
                 article.id = articleId;
+                link.setAttribute('data-target-id', articleId);
 
                 link.onclick = (e) => {
                     e.preventDefault();
@@ -1434,10 +1441,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     activeTag = null;
                     document.querySelectorAll('.tag-button').forEach(btn => btn.classList.remove('active'));
                     
-                    filterArticles(); 
+                    filterArticles();
 
                     const targetArticle = document.getElementById(articleId);
                     if (targetArticle) {
+                        // Βρες σε ποια σελίδα βρίσκεται το άρθρο
                         const index = filteredElements.indexOf(targetArticle);
                         if (index !== -1) {
                             currentPage = Math.floor(index / parseInt(itemsPerPageSelect.value)) + 1;
@@ -1452,7 +1460,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Tags List (English)
+        // Tags
         tagsListDiv.innerHTML = '';
         Array.from(allTags).sort().forEach(tag => {
             const tagButton = document.createElement("span");
