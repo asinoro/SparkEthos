@@ -1298,6 +1298,8 @@
         </main>
     </div>
 
+<div id="pagination" class="pagination"></div>
+    
     <footer>
         &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
     </footer>
@@ -1467,7 +1469,65 @@
         filterArticles(); // Initial filter to show all articles
         window.filterArticles = filterArticles; // Expose to global scope for search input
     });
+
+        resetPagination();
 </script>
+
+    <script>
+/* ===== Pagination Layer ===== */
+
+const ITEMS_PER_PAGE = 10;
+let currentPage = 1;
+
+function getFilteredArticles() {
+  return [...document.querySelectorAll("#articles .link-container")]
+    .filter(article => article.style.display !== "none");
+}
+
+function renderPagination() {
+  const items = getFilteredArticles();
+  const pagination = document.getElementById("pagination");
+  pagination.innerHTML = "";
+
+  const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+  if (totalPages <= 1) return;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.className = i === currentPage ? "active" : "";
+    btn.onclick = () => {
+      currentPage = i;
+      showPage();
+    };
+    pagination.appendChild(btn);
+  }
+}
+
+function showPage() {
+  const items = getFilteredArticles();
+  items.forEach((item, index) => {
+    item.style.display =
+      index >= (currentPage - 1) * ITEMS_PER_PAGE &&
+      index < currentPage * ITEMS_PER_PAGE
+        ? "block"
+        : "none";
+  });
+  renderPagination();
+}
+
+function resetPagination() {
+  currentPage = 1;
+  showPage();
+}
+
+/* αρχική εκκίνηση */
+resetPagination();
+
+/* expose για χρήση από φίλτρα */
+window.resetPagination = resetPagination;
+</script>
+
     
     <script>
 (function(){
@@ -1541,6 +1601,6 @@
     console.log("[JSON-LD for SparkEthos Archives]:", JSON.stringify(ld, null, 2));
 })();
 </script>
-
+    
 </body>
 </html>
