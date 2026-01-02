@@ -1473,7 +1473,9 @@
         resetPagination();
 </script>
 
-    <script>
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+
 /* ===== Pagination Layer ===== */
 
 const ITEMS_PER_PAGE = 10;
@@ -1487,6 +1489,8 @@ function getFilteredArticles() {
 function renderPagination() {
   const items = getFilteredArticles();
   const pagination = document.getElementById("pagination");
+  if (!pagination) return;
+
   pagination.innerHTML = "";
 
   const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
@@ -1521,11 +1525,13 @@ function resetPagination() {
   showPage();
 }
 
-/* αρχική εκκίνηση */
+/* initial run */
 resetPagination();
 
-/* expose για χρήση από φίλτρα */
+/* expose */
 window.resetPagination = resetPagination;
+
+});
 </script>
 
     
