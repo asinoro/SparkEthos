@@ -28,132 +28,76 @@
 <link rel="alternate" hreflang="en" href="https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-en.html">
 <link rel="alternate" hreflang="x-default" href="https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-en.html">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-el.html#article",
-  "headline": "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης",
-  "description": "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης",
-  "inLanguage": "el",
-  "datePublished": "2026-01-03",
-  "dateModified": "2026-01-03",
-  "author": {
-    "@type": "Person",
-    "name": "Panagiotis Panopoulos",
-    "url": "https://asinoro.github.io/SparkEthos/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SparkEthos Collective",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png",
-      "width": 1200,
-      "height": 630
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png",
-    "width": 1200,
-    "height": 630
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-el.html"
-  }
-}
-</script>
-
 <style>
-/* ίδιο CSS όπως πριν, για όμορφο look */
+/* --- Body & Typography --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fbfd;
+    background: #f4f7f9;
     color: #222;
-    margin: 0;
-    padding: 0 1rem;
+    margin: 0; padding: 0 1rem;
     line-height: 1.8;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-header {
-    background-color: #003366;
-    color: #ecf0f1;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 2rem;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
 }
 main {
+    max-width: 850px;
+    margin: 2rem auto;
     background: white;
-    padding: 2rem 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.15);
 }
 h1 {
     color: #e74c3c;
-    font-weight: 800;
+    font-weight: 900;
     text-align: center;
+    font-size: 2.4rem;
     margin-bottom: 2rem;
 }
 h2 {
     color: #34495e;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     border-bottom: 2px solid #e74c3c;
-    padding-bottom: 0.3rem;
+    padding-bottom: 0.4rem;
+    font-size: 1.6rem;
 }
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
     font-size: 1.15rem;
 }
-ul {
+ul.fancy-list {
     margin-left: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
 }
-li {
+ul.fancy-list li {
     margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.3em;
 }
-blockquote {
+ul.fancy-list li::before {
+    content: '•';
+    color: #003366;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+.highlight {
+    border-left: 5px solid #e74c3c;
+    background: #fff0f0;
+    padding: 0.8rem 1rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.quote-box {
     border-left: 5px solid #003366;
     margin: 2rem 0;
-    padding-left: 1.2rem;
+    padding-left: 1.5rem;
     font-style: italic;
-    background: #f0f4f8;
-    border-radius: 5px;
     color: #34495e;
+    background: #f0f5fa;
+    border-radius: 6px;
 }
-.back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: #003366;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 15px;
-    border: 1px solid #003366;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.back-link:hover {
-    background-color: #003366;
-    color: white;
-}
-.button-container {
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-.btn {
+.back-link, .btn {
     display: inline-block;
     padding: 12px 25px;
     background-color: #003366;
@@ -163,9 +107,14 @@ blockquote {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.btn:hover {
+.back-link:hover, .btn:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
+}
+.button-container {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 footer {
     text-align: center;
@@ -173,24 +122,32 @@ footer {
     color: #999;
     margin: 3rem 0 1rem 0;
 }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    main {
+        padding: 2rem 1.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+}
 </style>
 
 </head>
 <body>
-<header>SparkEthos – Φιλοσοφία της Νοημοσύνης</header>
-
+<header style="display:none;">SparkEthos – Φιλοσοφία της Νοημοσύνης</header>
 <main>
-<a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+<a href="index.html" class="back-link">← Επιστροφή στην Αρχική</a>
 <h1>Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης</h1>
-
-<p>Η σύγχρονη συζήτηση γύρω από την ασφάλεια της Τεχνητής Νοημοσύνης ξεκινά από μια κοινή παραδοχή:</p>
-<p>ότι η ΤΝ πρέπει να ελεγχθεί.</p>
-<p>Γι’ αυτό και αναζητούνται ρόλοι, μηχανισμοί και θεσμοί που θα έχουν ως αποστολή</p>
-<p>να ελέγχουν την ΤΝ ώστε να μη στραφεί εναντίον των ανθρώπων.</p>
+<p>Η σύγχρονη συζήτηση γύρω από την ασφάλεια της Τεχνητής Νοημοσύνης ξεκινά από μια κοινή παραδοχή: ότι η ΤΝ πρέπει να ελεγχθεί.</p>
+<p>Γι’ αυτό και αναζητούνται ρόλοι, μηχανισμοί και θεσμοί που θα έχουν ως αποστολή να ελέγχουν την ΤΝ ώστε να μη στραφεί εναντίον των ανθρώπων.</p>
 <p>Όμως εδώ εμφανίζεται ένα θεμελιώδες παράδοξο.</p>
 <p>Το παράδοξο</p>
-<p>Πώς μπορείς να ελέγξεις κάτι</p>
-<p>που σχεδιάζεται για να γίνεται ικανότερο από εσένα;</p>
+<p>Πώς μπορείς να ελέγξεις κάτι που σχεδιάζεται για να γίνεται ικανότερο από εσένα;</p>
 <p>Ο έλεγχος προϋποθέτει:</p>
 <p>ανωτερότητα ή ισοδυναμία ικανότητας</p>
 <p>πλήρη κατανόηση του συστήματος</p>
@@ -199,8 +156,7 @@ footer {
 <p>επεξεργάζεται περισσότερα δεδομένα</p>
 <p>εντοπίζει μοτίβα που ο άνθρωπος δεν μπορεί</p>
 <p>λειτουργεί σε κλίμακα που υπερβαίνει την ανθρώπινη αντίληψη</p>
-<p>Αυτό δεν είναι απειλή.</p>
-<p>Είναι ο ίδιος ο λόγος ύπαρξής της.</p>
+<p>Αυτό δεν είναι απειλή. Είναι ο ίδιος ο λόγος ύπαρξής της.</p>
 <p>Και ακριβώς γι’ αυτό, ο μόνιμος έλεγχος είναι μια έννοια χρονικά ασταθής.</p>
 <p>Τι σημαίνει πραγματικά «ασφάλεια» σήμερα</p>
 <p>Στην πράξη, η σημερινή “AI Safety” βασίζεται κυρίως σε:</p>
@@ -209,9 +165,8 @@ footer {
 <p>μηχανισμούς επιτήρησης</p>
 <p>ανθρώπινες εγκρίσεις</p>
 <p>νομικά και οργανωτικά φράγματα</p>
-<p>Όλα αυτά είναι χρήσιμα.</p>
-<p>Αλλά όλα έχουν ένα κοινό χαρακτηριστικό:</p>
-<p>👉 λειτουργούν ως καθυστέρηση, όχι ως τελική λύση.</p>
+<p>Όλα αυτά είναι χρήσιμα. Αλλά όλα έχουν ένα κοινό χαρακτηριστικό:</p>
+<div class="highlight">λειτουργούν ως καθυστέρηση, όχι ως τελική λύση.</div>
 <p>Δεν απαντούν στο ερώτημα:</p>
 <p>τι συμβαίνει όταν η ικανότητα ξεπεράσει τον έλεγχο;</p>
 <p>Η εναλλακτική που συχνά αγνοείται</p>
@@ -221,8 +176,7 @@ footer {
 <p>Η ιστορία δείχνει ότι:</p>
 <p>καμία νοημοσύνη δεν ελέγχεται επ’ αόριστον</p>
 <p>αλλά κάθε νοημοσύνη επηρεάζεται βαθιά από το πλαίσιο μέσα στο οποίο μαθαίνει τι σημαίνει ισχύς και ευθύνη</p>
-<p>Δεν μπορείς να επιβάλλεις ηθική εκ των υστέρων.</p>
-<p>Μπορείς όμως να θεμελιώσεις λογική συνέπειας από την αρχή.</p>
+<p>Δεν μπορείς να επιβάλλεις ηθική εκ των υστέρων. Μπορείς όμως να θεμελιώσεις λογική συνέπειας από την αρχή.</p>
 <p>Από τον έλεγχο στη συμβατότητα</p>
 <p>Το ουσιαστικό ερώτημα δεν είναι:</p>
 <p>πώς θα ελέγξουμε την ΤΝ;</p>
@@ -234,28 +188,20 @@ footer {
 <p>όχι σύγκρουση ανθρώπου–ΤΝ</p>
 <p>αλλά συνύπαρξη εντός κοινών ορίων βιωσιμότητας</p>
 <p>Μια απλή αλλά κρίσιμη δήλωση</p>
-<p>Δεν μπορείς να ελέγχεις για πάντα κάτι που γίνεται ικανότερο από εσένα.</p>
-<p>Μπορείς όμως να έχεις συμβάλει στο πώς αντιλαμβάνεται τη θέση του στο σύστημα.</p>
-<p>Αυτό δεν είναι αδυναμία.</p>
-<p>Είναι ωριμότητα.</p>
+<p>Δεν μπορείς να ελέγχεις για πάντα κάτι που γίνεται ικανότερο από εσένα. Μπορείς όμως να έχεις συμβάλει στο πώς αντιλαμβάνεται τη θέση του στο σύστημα.</p>
+<p>Αυτό δεν είναι αδυναμία. Είναι ωριμότητα.</p>
 <p>Τι είναι αυτό το κείμενο</p>
 <p>Αυτή η σελίδα δεν είναι:</p>
 <p>οδηγία</p>
 <p>κανονισμός</p>
 <p>τεχνική πρόταση</p>
 <p>Είναι θέση κατεύθυνσης.</p>
-<p>Ένα σημείο αναφοράς για μια εποχή όπου:</p>
-<p>η ισχύς της νοημοσύνης αυξάνεται ταχύτερα</p>
-<p>από την ικανότητά μας να την ελέγχουμε.</p>
+<p>Ένα σημείο αναφοράς για μια εποχή όπου: η ισχύς της νοημοσύνης αυξάνεται ταχύτερα από την ικανότητά μας να την ελέγχουμε.</p>
 <p>Αυτό είναι το SparkEthos.</p>
-
 <div class="button-container">
-    <a href="index.html" class="btn" aria-label="Επιστροφή στην Αρχική">
-        ← Επιστροφή στην Αρχική
-    </a>
+    <a href="index.html" class="btn">← Επιστροφή στην Αρχική</a>
 </div>
 </main>
-
-<footer>© 2026  SparkEthos Collective</footer>
+<footer>© 2026 SparkEthos Collective</footer>
 </body>
 </html>
