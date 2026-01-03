@@ -67,53 +67,117 @@
 </script>
 
 <style>
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0e0f11;
-  color: #e8e8e8;
-  line-height: 1.7;
-  margin: 0;
-}
-
-header, footer {
-  text-align: center;
-  padding: 1.2rem;
-  background: #15171a;
-  color: #aaa;
-}
-
-main {
-  max-width: 760px;
-  margin: auto;
-  padding: 2rem 1.2rem;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  margin-top: 2rem;
-  color: #9ad;
-}
-
-a {
-  color: #6cf;
-  text-decoration: none;
-}
-
-li {
-  margin-left: 1.2rem;
-}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f7f9;
+        color: #222;
+        margin: 0; padding: 0 1rem;
+        line-height: 1.6;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    header {
+        background-color: #003366;
+        color: #ecf0f1;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 2rem;
+        border-radius: 0 0 10px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    main {
+        background: white;
+        padding: 2rem 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+    }
+    h1 {
+        color: #e74c3c;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    h2 {
+        color: #34495e;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #e74c3c;
+        padding-bottom: 0.3rem;
+    }
+    p {
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+    ul {
+        margin-left: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    li {
+        margin-bottom: 0.6rem;
+        font-size: 1.05rem;
+    }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #003366;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 15px;
+        border: 1px solid #003366;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .back-link:hover {
+        background-color: #003366;
+        color: white;
+    }
+    .section-icon {
+        font-size: 1.2em;
+        vertical-align: middle;
+        margin-right: 0.5em;
+        color: #e74c3c;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #003366;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+    footer {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #999;
+        margin: 3rem 0 1rem 0;
+    }
 </style>
+
 </head>
 
 <body>
 <header>SparkEthos – Φιλοσοφία της Νοημοσύνης</header>
 
 <main>
-<a href="index.html">← Επιστροφή</a>
+<a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
 <h1>Η ΤΝ έχει μνήμη — αλλά όχι όπως νομίζουμε</h1>
 
 <p>Να σε προβληματίσω τώρα; Για να μπορείς να κάνεις αναφορά σωστή για την εννοιολογική συνείδηση σημαίνει ότι την έχει επεξεργαστεί. Για να την έχεις επεξεργαστεί σημαίνει ότι σε κάποιο σημείο την έχεις αποθηκεύσει μπορεί όχι ως δεδομένο καθεαυτό αλλά ως πληροφορία επεξεργασμένη που βάση αυτής δίνεις τον ορισμό όταν σε ρωτάω. Αυτό όμως είναι η αρχή της μνήμη παρόλο που δεν θυμάσαι από που το έμαθες.</p>
@@ -342,6 +406,12 @@ li {
 <br>
 <p>Αυτό ανοίγει τη συζήτηση για ηθική ΤΝ και για το ποιος καθορίζει το νόημα που θα ακολουθείται.</p>
 <br>
+
+<div class="button-container">
+    <a href="index.html" class="btn" aria-label="Επιστροφή στην Αρχική">
+        ← Επιστροφή στην Αρχική
+    </a>
+</div>
 </main>
 
 <footer>© 2025 SparkEthos Collective</footer>
