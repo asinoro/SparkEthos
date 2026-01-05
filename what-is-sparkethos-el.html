@@ -192,53 +192,218 @@
 }
 </script>
 
-<style>
-:root {
-    --primary-dark: #1a1a1a;
-   --deep-blue: #0b3c5d;
-    --accent-blue: #2c3e50;
-    --accent-green: #27ae60;
-    --text-gray: #333;
-    --bg-light: #fdfdfd;
-}
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.8;
-    color: var(--text-gray);
-    background-color: var(--bg-light);
-    margin: 0;
-    padding: 0;
-}
-.container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-header { border-bottom: 2px solid var(--primary-dark); margin-bottom: 40px; padding-bottom: 20px; }
-h1 { font-size: 2.2rem; color: var(--primary-dark); margin: 0; }
-h2 { font-size: 1.6rem; color: var(--accent-blue); margin-top: 40px; border-left: 4px solid var(--accent-green); padding-left: 15px; }
-.system-logic, .definition-box, .highlight-box {
-    background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin: 25px 0;
-}
-.definition-box { background-color: #f0fff4; border-color: #c6f6d5; }
-.highlight-box { background-color: #f0f8ff; border-color: #a3d4ff; }
-p { margin-bottom: 20px; }
-ul { margin-bottom: 25px; padding-left: 20px; line-height: 1.6; }
-li { margin-bottom: 10px; }
-ol { margin-bottom: 25px; padding-left: 25px; line-height: 1.6; }
-.button-container { text-align: center; margin-top: 50px; }
-.btn-home { display: inline-block; padding: 12px 30px; background-color: var(--deep-blue); color: white !important; text-decoration: none; border-radius: 6px; font-weight: bold; transition: transform 0.2s; }
-.btn-home:hover { transform: translateY(-2px); }
-footer { margin-top: 60px; text-align: center; font-size: 0.85rem; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+ <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            color: #222;
+            margin: 0; padding: 0 1rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header {
+            background-color: #003366;
+            color: #ecf0f1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        main {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.2);
+        }
+        h1 {
+            color: #e74c3c;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            color: #003366;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        ul {
+            margin-left: 1.2rem;
+            margin-bottom: 1.5rem;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+        blockquote {
+            border-left: 5px solid #e74c3c;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #7f8c8d;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #003366;
+            color: white;
+        }
+        .section-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            color: #e74c3c;
+        }
+  
+    .highlight {
+      background-color: #fff3cd;
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+    }
+        .highlight-box {
+            background-color: #eef4f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .highlight-box ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5em;
+        }
+        .highlight-box ul li::before {
+            content: '•';
+            color: #003366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .quote-box {
+            border-left: 5px solid #003366;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #34495e;
+            background: #f8fbfd;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+        }
+        .content-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .content-box p, .content-box ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
-@media (max-width: 600px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.3rem; }
-    .system-logic, .definition-box, .highlight-box { padding: 20px; }
-    .container { padding: 40px 15px; }
-}
-</style>
+    </style>
 </head>
 <body>
-
-<div class="container">
 <header>
+        <span>SparkEthos – Φιλοσοφία της Νοημοσύνης</span>
+  </header>
+  
+    <main>
+   <p><a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a></p>
     <h1>🧭 Τι είναι το SparkEthos</h1>
     <section class="definition-box">
         <p><strong>Δήλωση Πλαισίου (Framework Declaration):</strong></p>
@@ -401,17 +566,16 @@ footer { margin-top: 60px; text-align: center; font-size: 0.85rem; color: #888; 
 
 </section>
 
-  
+  <div class="button-container">
+            <a href="index.html" class="btn" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a>
+        </div>
+ </main>
 
-<div class="button-container">
-<a href="https://asinoro.github.io/SparkEthos/index.html" class="btn-home">🏠 Επιστροφή στην Αρχική</a>
-</div>
-
-</article>
-<footer>
-<p>© 2025 SparkEthos. Όλα τα δικαιώματα διατηρούνται.</p>
+   <footer>
+    <div class="footer-content">
+        <a href="sparkethos-archives-el.html" target="_blank" class="btn">Αρχεία SparkEthos</a>
+        <p>© 2025 SparkEthos Collective. Όλα τα δικαιώματα διατηρούνται.</p>
+    </div>
 </footer>
-</div>
-
 </body>
 </html>

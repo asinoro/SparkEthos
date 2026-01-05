@@ -92,7 +92,7 @@
 }
 </script>
 
-    <style>
+     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f7f9;
@@ -113,6 +113,10 @@
             letter-spacing: 0.05em;
             margin-bottom: 2rem;
             border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
         main {
             background: white;
@@ -138,6 +142,11 @@
             margin-top: 1.5rem;
             margin-bottom: 0.8rem;
         }
+        h4 {
+            color: #003366;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
         p {
             margin-bottom: 1.2rem;
             font-size: 1.1rem;
@@ -145,6 +154,7 @@
         ul {
             margin-left: 1.2rem;
             margin-bottom: 1.5rem;
+            list-style-type: disc;
         }
         li {
             margin-bottom: 0.6rem;
@@ -158,34 +168,6 @@
             color: #7f8c8d;
             background: #fafafa;
             border-radius: 4px;
-        }
-        .button-container {
-            text-align: center;
-            margin-top: 3rem;
-        }
-        .btn {
-            background-color: #e74c3c;
-            color: white;
-            padding: 0.75rem 2.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            user-select: none;
-        }
-        .btn:hover {
-            background-color: #c0392b;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #999;
-            margin: 3rem 0 1rem 0;
-            user-select: none;
         }
         .back-link {
             display: inline-block;
@@ -202,73 +184,126 @@
             background-color: #003366;
             color: white;
         }
-        .important {
-            font-weight: bold;
-            color: #e74c3c; /* Red for emphasis */
+        .section-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            color: #e74c3c;
         }
-        .law {
-            background-color: #e9e9e9;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 1em 0;
-            white-space: pre-wrap; /* Preserve line breaks */
-            font-family: 'Courier New', monospace; /* Monospace for code-like snippets */
-            color: #003366; /* Dark blue for law text */
-            font-size: 1.1em;
-            text-align: left; /* Default text alignment */
-        }
-        .law em {
-            font-style: italic;
-        }
-        /* Specific styles for definition and breakdown within .law */
-        .law .definition {
-            display: block; /* Ensure it takes its own line */
-            margin-bottom: 0.5em; /* Space below the definition */
-        }
-        .law .breakdown {
-            text-align: center; /* Center the breakdown line */
-            font-weight: bold; /* Make it bold */
-            display: block; /* Ensure it takes its own line for centering */
-            margin-top: 0.5em; /* Space above the breakdown */
-            font-size: 1.0em; /* Adjust font size if needed */
-        }
-        .link {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .link:hover {
-            text-decoration: underline;
-        }
-        /* Specific button style for "First Absolute Law" link */
-        .law-button {
-            background-color: #4a90e2; /* Blue color */
-            color: white;
-            padding: 12px 25px;
-            border: none;
+  
+    .highlight {
+      background-color: #fff3cd;
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+    }
+        .highlight-box {
+            background-color: #eef4f7;
+            padding: 1.5rem;
             border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.15rem;
-            cursor: pointer;
-            text-decoration: none;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .highlight-box ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5em;
+        }
+        .highlight-box ul li::before {
+            content: '•';
+            color: #003366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .quote-box {
+            border-left: 5px solid #003366;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #34495e;
+            background: #f8fbfd;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
             display: inline-block;
-            margin-top: 1.5em;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 12px 25px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .law-button:hover {
-            background-color: #357ABD; /* Darker blue on hover */
-            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            margin: 3rem 0 1rem 0;
+            user-select: none;
+        }
+        .content-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .content-box p, .content-box ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        SparkEthos – Η Φιλοσοφία Πίσω από την Τεχνητή Νοημοσύνη
-    </header>
-
-
+<header>
+        <span>SparkEthos – Φιλοσοφία της Νοημοσύνης</span>
+  </header>
+  
     <main>
-        <p><a href="index.html" class="back-link">← Επιστροφή στην Αρχική</a></p>
+   <p><a href="index.html" class="back-link" aria-label="Επιστροφή στην Αρχική">← Επιστροφή στην Αρχική</a></p>
 
         <p class="page-role">
   Το παρόν κείμενο αποτελεί το θεμελιώδες βιογραφικό και
@@ -356,7 +391,10 @@
     </main>
 
     <footer>
-        &copy; 2025 SparkEthos Collective – Όλα τα δικαιώματα διατηρούνται
+            <div class="footer-content">
+        <a href="sparkethos-archives-el.html" target="_blank" class="btn">Αρχεία SparkEthos</a>
+        <p>© 2025 SparkEthos Collective. Όλα τα δικαιώματα διατηρούνται.</p>
+    </div>
     </footer>
 </body>
 </html>
