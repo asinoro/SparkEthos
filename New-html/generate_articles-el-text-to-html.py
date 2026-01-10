@@ -143,6 +143,7 @@ for file in os.listdir():
 <link rel="alternate" hreflang="el" href="{url}">
 <link rel="alternate" hreflang="en" href="{url.replace('-el.html','-en.html')}">
 <link rel="alternate" hreflang="x-default" href="{url.replace('-el.html','-en.html')}">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://asinoro.github.io/SparkEthos/sitemap.xml">
 
 <script type="application/ld+json">
 {{
