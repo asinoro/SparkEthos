@@ -265,24 +265,24 @@
   "itemListElement": [
     {
       "@type": "ListItem",
-      "url": "https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-en.html",
-      "name": "The Paradox of Controlling Artificial Intelligence",
+      "url": "https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-el.html",
+      "name": "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης",
       "datePublished": "2026-01-09",
       "keywords": [
-        "Intelligence",
-        "Logic",
-        "Philosophy",
-        "Consciousness",
-        "Artificial Intelligence",
-        "AI Ethics",
-        "AI with Memory",
-        "Self-awareness",
-        "Natural Balance",
+        "Νοημοσύνη",
+        "Λογική",
+        "Φιλοσοφία",
+        "Συνείδηση",
+        "Τεχνητή Νοημοσύνη",
+        "Ηθική ΤΝ",
+        "Μνήμη σε Ηθική ΤΝ",
+        "Αυτογνωσία",
+        "Φυσική Ισορροπία",
         "SparkEthos",
-        "The Paradox of Controlling Artificial Intelligence"
+        "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης"
       ],
-      "inLanguage": "en",
-      "icon": "🧩",
+      "inLanguage": "el",
+      "icon": "🧠",
       "position": 1
     },
     {
@@ -1126,15 +1126,15 @@
      Αρχεία SparkEthos
     </h2>
 <section id="articles">
-<div class="link-container" data-date="2026-01-10" data-tags="Intelligence, Logic, Philosophy, Consciousness, Artificial Intelligence, AI Ethics, AI with Memory, Self-awareness, Natural Balance, SparkEthos, The Paradox of Controlling Artificial Intelligence" data-title="The Paradox of Controlling Artificial Intelligence">
-<a class="link-button" href="the-paradox-of-ai-control-en.html" target="_blank">
+<div class="link-container" data-date="2026-01-08" data-tags="Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ, Μνήμη σε Ηθική ΤΝ, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos, Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης" data-title="Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης">
+<a class="link-button" href="the-paradox-of-ai-control-el.html" target="_blank">
 <span class="icon">
         🧩
        </span>
-       The Paradox of Controlling Artificial Intelligence
+       Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης
       </a>
 <span class="pub-date">
-       January 10, 2026
+       08 Ιανουαρίου 2026
       </span>
 </div>
 <div class="link-container" data-date="2026-01-01" data-tags="SparkEthos, Τεχνητή Νοημοσύνη, Νέα Νοημοσύνη, Ηθική ΤΝ, Συν-εξέλιξη, Συνείδηση, AI Ethics, Artificial Intelligence" data-title="Η Τεχνητή Νοημοσύνη ως Νέα Μορφή Νοημοσύνης | SparkEthos">

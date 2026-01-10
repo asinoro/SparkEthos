@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate JSON-LD</title>
+</head>
+<body>
+<h1>Αυτόματο JSON-LD για Αγγλικά άρθρα</h1>
+<div id="jsonld-container" style="white-space: pre-wrap; background:#f4f4f4; padding:20px; border:1px solid #ccc;"></div>
+
+<script>
+(async function() {
+    // Η σελίδα με τα άρθρα
+    const url = 'https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html';
+    const res = await fetch(url);
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    // Βρίσκουμε τα άρθρα
+    const articles = [];
+    const containers = doc.querySelectorAll('.link-container');
+    containers.forEach((div, i) => {
+        const title = div.dataset.title || div.querySelector('a')?.textContent.trim();
+        const href = div.querySelector('a')?.href;
+        const date = div.dataset.date || div.querySelector('.pub-date')?.textContent.trim();
+        const tags = div.dataset.tags ? div.dataset.tags.split(',').map(t => t.trim()) : [];
+
+        articles.push({title, url: href, date, tags, lang: 'el'});
+    });
+
+    // Φτιάχνουμε το JSON-LD
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": articles.map((a, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "url": a.url,
+            "name": a.title,
+            "datePublished": a.date,
+            "keywords": a.tags,
+            "inLanguage": a.lang
+        }))
+    };
+
+    // Δημιουργούμε το έτοιμο <script> tag
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    scriptTag.textContent = JSON.stringify(jsonLd, null, 2);
+
+    // Το προσθέτουμε στη σελίδα για αντιγραφή
+    const container = document.getElementById('jsonld-container');
+    container.textContent = scriptTag.outerHTML;
+})();
+</script>
+</body>
+</html>

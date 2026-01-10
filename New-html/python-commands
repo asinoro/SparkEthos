@@ -1,0 +1,2 @@
+python3 update_archives-and-jsonld.py --dry-run
+python3 update_archives-and-jsonld.py
