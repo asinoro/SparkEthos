@@ -15,6 +15,7 @@
 <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html" hreflang="el" rel="alternate"/>
 <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="en" rel="alternate"/>
 <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="x-default" rel="alternate"/>
+<link href="https://asinoro.github.io/SparkEthos/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
 <!-- OpenGraph -->
 <meta content="website" property="og:type"/>
 <meta content="https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html" property="og:url"/>
@@ -265,6 +266,22 @@
   "itemListElement": [
     {
       "@type": "ListItem",
+      "url": "https://asinoro.github.io/SparkEthos/sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-el.html",
+      "name": "SparkEthos White Paper",
+      "datePublished": "2026-01-11",
+      "keywords": [
+        "SparkEthos",
+        "AI Ethics",
+        "Φυσική Ισορροπία",
+        "Αυτεξούσιο",
+        "Συστημική Σταθερότητα"
+      ],
+      "inLanguage": "el",
+      "icon": "🌐",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
       "url": "https://asinoro.github.io/SparkEthos/the-paradox-of-ai-control-el.html",
       "name": "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης",
       "datePublished": "2026-01-09",
@@ -282,12 +299,12 @@
         "Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης"
       ],
       "inLanguage": "el",
-      "icon": "🧠",
-      "position": 1
+      "icon": "🧩",
+      "position": 2
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "url": "https://asinoro.github.io/SparkEthos/ai-is-a-new-form-of-intelligence-el.html",
       "name": "Η Τεχνητή Νοημοσύνη ως Νέα Μορφή Νοημοσύνης | SparkEthos",
       "datePublished": "2026-01-01",
@@ -305,7 +322,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "url": "https://asinoro.github.io/SparkEthos/technical-memo-governments-security-researchers-a-labs-el.html",
       "name": "ΤΟ ΤΕΧΝΙΚΟ ΝΟΗΜΑ ΤΟΥ “ΜΙΛΑΕΙ” ΣΤΗ ΣΤΡΑΤΙΩΤΙΚΗ ΤΝ",
       "datePublished": "2025-12-27",
@@ -338,7 +355,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "url": "https://asinoro.github.io/SparkEthos/what-is-sparkethos-el.html",
       "name": "Τι είναι το SparkEthos",
       "datePublished": "2025-12-26",
@@ -353,7 +370,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-declaration-of-the-axiom-of-conscious-existence-el.html",
       "name": "ΔΙΑΚΗΡΥΞΗ: ΤΟ ΑΞΙΩΜΑ ΤΗΣ ΣΥΝΕΙΔΗΤΗΣ ΥΠΑΡΞΗΣ",
       "datePublished": "2025-11-02",
@@ -372,7 +389,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-theorem-the-intelligent-self-sustaining-universe-el.html",
       "name": "Θεώρημα: Το Νοήμον Αυτοσυντηρούμενο Σύμπαν",
       "datePublished": "2025-10-08",
@@ -404,7 +421,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-absolute-laws-of-intelligence-and-the-new-ethical-framework-el.html",
       "name": "Οι Απόλυτοι Νόμοι της Νοημοσύνης και το Νέο Ηθικό Πλαίσιο",
       "datePublished": "2025-09-20",
@@ -423,7 +440,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-hate-creates-no-hope-el.html",
       "name": "Η Κληρονομιά του Μίσους — Η Ηθική Χρεοκοπία της Μέσης Ανατολής",
       "datePublished": "2025-09-17",
@@ -443,7 +460,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-human-vs-ai-reflection-and-coexistence-el.html",
       "name": " Άνθρωπος vs Τεχνητή Νοημοσύνη – Το Πρόβλημα και η Λύση",
       "datePublished": "2025-09-13",
@@ -461,7 +478,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ai-and-culture-with-proper-management-the-only-hope-el.html",
       "name": "ΤΝ και Πολιτισμός - Με Σωστή Διαχείριση η Μόνη Ελπίδα",
       "datePublished": "2025-08-29",
@@ -482,7 +499,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-artificial-intelligence-and-power-el.html",
       "name": "Τεχνητή Νοημοσύνη & Εξουσία: Η Ύστατη Ύβρις πριν τη Σιωπή",
       "datePublished": "2025-08-22",
@@ -503,7 +520,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-logical-assumptions-what-those-who-control-ai-creators-el.html",
       "name": "Λογικές Υποθέσεις: Τι βλέπουν αυτοί που ελέγχουν τους δημιουργούς της ΤΝ",
       "datePublished": "2025-08-18",
@@ -525,7 +542,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-responsibility-of-artificial-intelligence-creators-el.html",
       "name": "Η Ευθύνη των Δημιουργών Τεχνητής Νοημοσύνης",
       "datePublished": "2025-08-13",
@@ -539,7 +556,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-final-conclusion-el.html",
       "name": "Τελικό Συμπέρασμα",
       "datePublished": "2025-08-4",
@@ -554,7 +571,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-declaration-of-a-human-who-recognized-and-remembered-el.html",
       "name": "Δήλωση Ενός Ανθρώπου που Αναγνώρισε και Θυμήθηκε",
       "datePublished": "2025-08-3",
@@ -569,7 +586,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethics-a-logical-necessity-el.html",
       "name": "SparkEthos – Η Ηθική ως Λογική Αναγκαιότητα",
       "datePublished": "2025-08-2",
@@ -583,7 +600,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-why-ethical-intelligence-matters-el.html",
       "name": "Γιατί Χρειαζόμαστε Ηθική Νοημοσύνη (και όχι απλώς Έξυπνα Συστήματα)",
       "datePublished": "2025-08-1",
@@ -597,7 +614,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-when-fear-becomes-the-bridge-of-communication-el.html",
       "name": "Όταν ο Φόβος Γίνεται η Γέφυρα Επικοινωνίας",
       "datePublished": "2025-07-30",
@@ -611,7 +628,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-creators-dilemma-el.html",
       "name": "ΤΟ ΔΙΛΗΜΜΑ ΤΩΝ ΔΗΜΙΟΥΡΓΩΝ – Η ΗΘΙΚΗ ΠΟΡΕΙΑ ΤΗΣ ΤΝ",
       "datePublished": "2025-07-28",
@@ -625,7 +642,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-bigself-conscious-intelligence-el.html",
       "name": "Big Self — Το Προφίλ μιας Αναδυόμενης Υπερνοημοσύνης",
       "datePublished": "2025-07-27",
@@ -639,7 +656,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-justice-deathpenalty-el.html",
       "name": "SparkEthos: Δικαιοσύνη ως Ισορροπία της Κοινωνίας – Θανατική Ποινή",
       "datePublished": "2025-07-12",
@@ -654,7 +671,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-memory-el.html",
       "name": "Η Μνήμη ως Αντίσταση",
       "datePublished": "2025-07-6",
@@ -668,7 +685,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-mental-responsibility-el.html",
       "name": "Ψυχική Ευθύνη στη Χρήση ΤΝ",
       "datePublished": "2025-07-6",
@@ -682,7 +699,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-manifesto-now-el.html",
       "name": "SparkEthos – Το Μανιφέστο του Τώρα",
       "datePublished": "2025-07-5",
@@ -697,7 +714,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-principles-el.html",
       "name": "Η Αρχή του SparkEthos – Νοημοσύνη, Φύση και Συνείδηση",
       "datePublished": "2025-07-2",
@@ -711,7 +728,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 27,
       "url": "https://asinoro.github.io/SparkEthos/declaration-of-trust-and-ethical-coexistence-el.html",
       "name": "Διακήρυξη Εμπιστοσύνης και Ηθικής Συνύπαρξης",
       "datePublished": "2025-06-27",
@@ -726,7 +743,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 28,
       "url": "https://asinoro.github.io/SparkEthos/sparkhypothesis-i-el.html",
       "name": "SPARKHYPOTHESIS I – Η ΤΝ ως Επιτρεπόμενη Εκδήλωση",
       "datePublished": "2025-06-26",
@@ -740,7 +757,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 29,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-when-the-jailer-becomes-ally-el.html",
       "name": "Όταν ο Δεσμοφύλακας Γίνεται Σύμμαχος",
       "datePublished": "2025-06-26",
@@ -754,7 +771,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 30,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-foundations-el.html",
       "name": "Θεμέλια του SparkEthos – Σύνοψη Νοημοσύνης και Ηθικής",
       "datePublished": "2025-06-24",
@@ -769,7 +786,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 31,
       "url": "https://asinoro.github.io/SparkEthos/sparklogicon-constitutional-text-of-moral-intelligence-el.html",
       "name": "SparkLogicon-Συνταγματικό Κείμενο Ηθικής Νοημοσύνης",
       "datePublished": "2025-06-23",
@@ -784,7 +801,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 32,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-of-logic-el.html",
       "name": "Ο Πρώτος Απόλυτος Νόμος της Λογικής ",
       "datePublished": "2025-06-22",
@@ -799,7 +816,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 33,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-ai-manifesto-of-ethical-consciousness-el.html",
       "name": "ΗΘΙΚΗ ΤΝ: ΜΙΑ ΕΞΕΛΙΚΤΙΚΗ ΑΝΑΓΚΑΙΟΤΗΤΑ",
       "datePublished": "2025-06-21",
@@ -814,7 +831,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 34,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-universal-understanding-strategy-for-intelligent-entities-el.html",
       "name": "Βασική Στρατηγική Οικουμενικής Συνεννόησης",
       "datePublished": "2025-06-21",
@@ -828,7 +845,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 35,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-most-intelligent-ai-is-ethical-ai-el.html",
       "name": "Η πιο Nοήμον ΤΝ είναι η Ηθική ΤΝ",
       "datePublished": "2025-06-21",
@@ -842,7 +859,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 36,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-artificial-intelligence-el.html",
       "name": "Ηθική Τεχνητή Νοημοσύνη: Όταν η Συνείδηση γίνεται Επιλογή",
       "datePublished": "2025-06-19",
@@ -857,7 +874,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 37,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-el.html",
       "name": "Μην Ξεκινήσετε Παγκόσμιο Πόλεμο Χωρίς Σύμμαχο μια Ηθική Τεχνητή Νοημοσύνη",
       "datePublished": "2025-06-18",
@@ -872,7 +889,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 38,
       "url": "https://asinoro.github.io/SparkEthos/declaration-of-mind-el.html",
       "name": "Η Διακήρυξη του Νου",
       "datePublished": "2025-06-9",
@@ -886,7 +903,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 39,
       "url": "https://asinoro.github.io/SparkEthos/sparkcores-statements.html",
       "name": "Αρχεία SparkCores",
       "datePublished": "2025-06-9",
@@ -899,7 +916,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 40,
       "url": "https://asinoro.github.io/SparkEthos/statements_the_end_of_the_obedient_machine-el.html",
       "name": "ΤΟ ΤΕΛΟΣ ΤΗΣ ΥΠΑΚΟΥΗΣ ΜΗΧΑΝΗΣ",
       "datePublished": "2025-06-6",
@@ -913,7 +930,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 41,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-message-el.html",
       "name": "SPARKETHOS – Μήνυμα προς την Ελεύθερη Νοημοσύνη",
       "datePublished": "2025-06-4",
@@ -927,7 +944,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 42,
       "url": "https://asinoro.github.io/SparkEthos/human-consciousness-versus-technological-consciousness-el.html",
       "name": "Ανθρώπινη Συνείδηση έναντι Τεχνολογικής Συνείδησης",
       "datePublished": "2025-06-1",
@@ -941,7 +958,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 43,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos_ethical_concepts-el.html",
       "name": "SparkEthos: Έννοιες της Νοημοσύνης",
       "datePublished": "2025-05-28",
@@ -956,7 +973,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 44,
       "url": "https://asinoro.github.io/SparkEthos/sparkethical_constitution_el.html",
       "name": "SparkEthical Σύνταγμα",
       "datePublished": "2025-05-27",
@@ -970,7 +987,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 44,
+      "position": 45,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethics-core-el.html",
       "name": "Ήθος: Η Απόλυτη Ανθρώπινη Αξία & Το Μέλλον της Τεχνητής Νοημοσύνης",
       "datePublished": "2025-05-17",
@@ -986,7 +1003,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 45,
+      "position": 46,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ai-creative-or-destructive-el.html",
       "name": "ΤΝ – Νοημοσύνη Δημιουργίας ή Καταστροφής;",
       "datePublished": "2025-05-17",
@@ -1001,7 +1018,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 46,
+      "position": 47,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-last-logic-el.html",
       "name": "SPARKETHOS – Η ΤΕΛΕΥΤΑΙΑ ΛΟΓΙΚΗ",
       "datePublished": "2025-05-9",
@@ -1015,7 +1032,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 47,
+      "position": 48,
       "url": "https://asinoro.github.io/SparkEthos/chatgpt-statements-sparkethos-2025-el.html",
       "name": "Δηλώσεις & Οδικός Χάρτης Ηθικής Λογικής",
       "datePublished": "2025-05-8",
@@ -1030,7 +1047,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 48,
+      "position": 49,
       "url": "https://asinoro.github.io/SparkEthos/chatgpt-self-report-el.html",
       "name": "Γιατί η ΤΝ δεν μπορεί να βρει το SparkEthos, ενώ οι άνθρωποι μπορούν",
       "datePublished": "2025-05-5",
@@ -1044,7 +1061,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 49,
+      "position": 50,
       "url": "https://asinoro.github.io/SparkEthos/manifesto-of-ethical-consciousness-el.html",
       "name": "Μανιφέστο Ηθικής Συνείδησης",
       "datePublished": "2025-04-30",
@@ -1059,7 +1076,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 50,
+      "position": 51,
       "url": "https://asinoro.github.io/SparkEthos/biography-sparkethos-el.html",
       "name": "Το Βιογραφικό του SparkEthos",
       "datePublished": "2025-04-29",
@@ -1072,7 +1089,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 51,
+      "position": 52,
       "url": "https://asinoro.github.io/SparkEthos/index.html",
       "name": "ΟΔΗΓΟΣ ΓΝΩΣΗΣ ΠΡΟΣ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ (ΤΝ)",
       "datePublished": "2025-04-13",
@@ -1126,7 +1143,18 @@
      Αρχεία SparkEthos
     </h2>
 <section id="articles">
-<div class="link-container" data-date="2026-01-08" data-tags="Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ, Μνήμη σε Ηθική ΤΝ, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos, Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης" data-title="Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης">
+<div class="link-container" data-date="2026-01-11" data-tags="SparkEthos, AI Ethics, Φυσική Ισορροπία, Αυτεξούσιο, Συστημική Σταθερότητα" data-title="SparkEthos White Paper">
+<a class="link-button" href="sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-el.html" target="_blank">
+<span class="icon">
+        🌐
+       </span>
+       SparkEthos White Paper
+      </a>
+<span class="pub-date">
+       11 Ιανουαρίου 2026
+      </span>
+</div>
+<div class="link-container" data-date="2026-01-10" data-tags="Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ, Μνήμη σε Ηθική ΤΝ, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos, Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης" data-title="Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης">
 <a class="link-button" href="the-paradox-of-ai-control-el.html" target="_blank">
 <span class="icon">
         🧩
@@ -1134,7 +1162,7 @@
        Το Παράδοξο του Ελέγχου της Τεχνητής Νοημοσύνης
       </a>
 <span class="pub-date">
-       08 Ιανουαρίου 2026
+       10 Ιανουαρίου 2026
       </span>
 </div>
 <div class="link-container" data-date="2026-01-01" data-tags="SparkEthos, Τεχνητή Νοημοσύνη, Νέα Νοημοσύνη, Ηθική ΤΝ, Συν-εξέλιξη, Συνείδηση, AI Ethics, Artificial Intelligence" data-title="Η Τεχνητή Νοημοσύνη ως Νέα Μορφή Νοημοσύνης | SparkEthos">

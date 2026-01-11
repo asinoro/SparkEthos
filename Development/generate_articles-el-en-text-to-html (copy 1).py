@@ -4,17 +4,36 @@ import unicodedata
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-
 # =========================
 # CONFIG
 # =========================
 SITE = "https://asinoro.github.io/SparkEthos/"
 IMAGE = SITE + "images/sparkethos-logo-image.png"
-AUTHOR = "Παναγιώτης Πανόπουλος - SparkEthos Collective"
 
-BASE_KEYWORDS = (
-    "Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ με Μνήμη, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos, Πολιτισμός, Πολιτική, Κοινωνία,  Δικαιοσύνη, Υγεία, Επιστήμη, Τεχνολογία, Μέλλον, Ανθρωπισμός,  Συνάισθημα, Ενσυναίσθηση"
-)
+LANG_CONFIG = {
+    "el": {
+        "suffix": "-el.txt",
+        "lang": "el",
+        "author": "Παναγιώτης Πανόπουλος - SparkEthos Collective",
+        "base_keywords": "Νοημοσύνη, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ, SparkEthos, Πολιτισμός, Κοινωνία, Μέλλον",
+        "home": "index.html",
+        "home_label": "← Επιστροφή στην Αρχική",
+        "header": "SparkEthos – Φιλοσοφία της Νοημοσύνης",
+        "archives": "sparkethos-archives-el.html",
+        "archives_label": "Αρχεία SparkEthos",
+    },
+    "en": {
+        "suffix": "-en.txt",
+        "lang": "en",
+        "author": "Panagiotis Panopoulos - SparkEthos Collective",
+        "base_keywords": "Intelligence, Philosophy, Consciousness, Artificial Intelligence, Ethical AI, SparkEthos, Society, Future",
+        "home": "index-en.html",
+        "home_label": "← Back to Home",
+        "header": "SparkEthos – Philosophy of Intelligence",
+        "archives": "sparkethos-archives-en.html",
+        "archives_label": "SparkEthos Archives",
+    }
+}
 
 # =========================
 # HELPERS
@@ -32,160 +51,147 @@ def strip_leading_junk(text):
     return re.sub(r"^[\s\d\-\.\_]+", "", text)
 
 # =========================
-# TXT TO HTML
+# TXT → HTML
 # =========================
 def txt_to_html(lines):
     html = []
     buffer = []
     in_list = False
 
-    def flush_buffer():
+    def flush():
         nonlocal buffer
         if buffer:
-            paragraph = " ".join(buffer).strip()
-            # αν είναι σημαντική φράση, highlight
-            if paragraph.startswith("👉"):
-                paragraph = paragraph[1:].strip()
-                html.append(f'<div class="highlight">{paragraph}</div>')
+            p = " ".join(buffer).strip()
+            # Μετατροπή των **κειμένου** σε <strong>κειμένου</strong> για έντονα μέσα σε παραγράφους
+            p = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", p)
+            
+            if p.startswith("👉"):
+                html.append(f'<div class="highlight">{p[1:].strip()}</div>')
             else:
-                html.append(f"<p>{paragraph}</p>")
+                html.append(f"<p>{p}</p>")
             buffer = []
 
     for l in lines:
         l = l.strip()
         if not l:
-            flush_buffer()
+            flush()
             if in_list:
                 html.append("</ul>")
                 in_list = False
             continue
 
-        # Headers με emoji
-        if re.match(r"^[🧠🧬🎭⚖️🕳️🧯🧩].*", l):
-            flush_buffer()
+        # 🔷 SECTION TITLE (Διορθωμένο Regex: πιάνει και με κενό και χωρίς)
+        if re.match(r"^🔷.*", l):
+            flush()
             if in_list:
                 html.append("</ul>")
                 in_list = False
-            html.append(f"<h2>🔹 {l}</h2>")
+            title_text = l.lstrip("🔷").strip()
+            # Προσθήκη στυλ απευθείας για σιγουριά
+            html.append(f'<p><strong class="section-title" style="font-weight: 800; color: #e74c3c; display: block; margin-top: 1.5rem;">{title_text}</strong></p>')
+            continue
 
         # Λίστες
         elif l.startswith(("•", "–", "🔹")):
-            flush_buffer()
+            flush()
             if not in_list:
                 html.append('<ul class="fancy-list">')
                 in_list = True
-            html.append(f"<li>{l[1:].strip()}</li>")
+            item_text = l[1:].strip()
+            # Και εδώ μετατροπή για έντονα μέσα στη λίστα
+            item_text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", item_text)
+            html.append(f"<li>{item_text}</li>")
 
-        # Blockquotes με >
+        # Blockquote
         elif l.startswith(">"):
-            flush_buffer()
+            flush()
             if in_list:
                 html.append("</ul>")
                 in_list = False
-            html.append(f'<blockquote class="quote-box">{l[1:].strip()}</blockquote>')
+            quote_text = l[1:].strip()
+            quote_text = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", quote_text)
+            html.append(f'<blockquote class="quote-box">{quote_text}</blockquote>')
 
         else:
             buffer.append(l)
 
-    flush_buffer()
+    flush()
     if in_list:
         html.append("</ul>")
 
     return "\n".join(html)
-
 # =========================
-# MAIN LOOP
+# MAIN
 # =========================
-for file in os.listdir():
-    if not file.endswith("-el.txt"):
-        continue
+now = datetime.now(ZoneInfo("Europe/Athens")).isoformat(timespec="seconds")
 
-    raw_filename = os.path.splitext(file)[0]
+for lang, cfg in LANG_CONFIG.items():
+    for file in os.listdir():
+        if not file.endswith(cfg["suffix"]):
+            continue
 
-    with open(file, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+        with open(file, "r", encoding="utf-8") as f:
+            lines = f.readlines()
 
-    # Τίτλος από την πρώτη γραμμή του txt
-    first_line = lines[0].strip()
-    title = strip_leading_junk(remove_emojis(first_line))
+        title_raw = strip_leading_junk(remove_emojis(lines[0].strip()))
+        title = title_raw.strip()
+        slug = os.path.splitext(file)[0]
+        output = f"{slug}.html"
+        url = SITE + output
 
-    slug = raw_filename  # κρατάμε το όνομα του αρχείου όπως είναι
-    output = f"{slug}.html"
-    url = SITE + output
+        body = txt_to_html(lines[1:])
+        home_link = f'<a class="back-link" href="{cfg["home"]}">{cfg["home_label"]}</a>'
 
-    now = datetime.now(ZoneInfo("Europe/Athens"))
-    date_published = now.isoformat(timespec="seconds")
-    date_modified = now.isoformat(timespec="seconds")
-
-    body_html = txt_to_html(lines[1:])  # παράβλεψε την πρώτη γραμμή (τίτλο)
-
-    html = f"""<!DOCTYPE html>
-<html lang="el">
+        html = f"""<!DOCTYPE html>
+<html lang="{cfg['lang']}">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>{title}</title>
 <meta name="description" content="{title}">
-<meta name="keywords" content="{BASE_KEYWORDS}, {title}">
-<meta name="author" content="{AUTHOR}">
+<meta name="keywords" content="{cfg['base_keywords']}, {title}">
+<meta name="author" content="{cfg['author']}">
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{title}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{IMAGE}">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{title}">
 <meta name="twitter:image" content="{IMAGE}">
 
 <link rel="canonical" href="{url}">
-<link rel="alternate" hreflang="el" href="{url}">
+<link rel="alternate" hreflang="el" href="{url.replace('-en.html','-el.html')}">
 <link rel="alternate" hreflang="en" href="{url.replace('-el.html','-en.html')}">
 <link rel="alternate" hreflang="x-default" href="{url.replace('-el.html','-en.html')}">
-<link rel="sitemap" type="application/xml" title="Sitemap" href="https://asinoro.github.io/SparkEthos/sitemap.xml">
 
 <script type="application/ld+json">
 {{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{url}#article",
-  "headline": "{title}",
-  "description": "{title}",
-  "inLanguage": "el",
- "datePublished": "{date_published}",
-"dateModified": "{date_modified}",
-
-  "author": {{
-    "@type": "Person",
-    "name": "Panagiotis Panopoulos",
-    "url": "{SITE}"
-  }},
-  "publisher": {{
-    "@type": "Organization",
-    "name": "SparkEthos Collective",
-    "logo": {{
-      "@type": "ImageObject",
-      "url": "{IMAGE}",
-      "width": 1200,
-      "height": 630
-    }}
-  }},
-  "image": {{
-    "@type": "ImageObject",
-    "url": "{IMAGE}",
-    "width": 1200,
-    "height": 630
-  }},
-  "mainEntityOfPage": {{
-    "@type": "WebPage",
-    "@id": "{url}"
-  }}
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "{title}",
+ "inLanguage": "{cfg['lang']}",
+ "datePublished": "{now}",
+ "dateModified": "{now}",
+ "author": {{
+   "@type": "Person",
+   "name": "{cfg['author']}"
+ }},
+ "publisher": {{
+   "@type": "Organization",
+   "name": "SparkEthos Collective",
+   "logo": {{
+     "@type": "ImageObject",
+     "url": "{IMAGE}"
+   }}
+ }},
+ "image": "{IMAGE}",
+ "mainEntityOfPage": "{url}"
 }}
 </script>
 
@@ -264,6 +270,13 @@ li {{
     background: #f0f5fa;
     border-radius: 6px;
 }}
+strong.section-title {{
+    font-weight: 900 !important; /* Force extra bold */
+    color: #e74c3c;
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}}
 blockquote {{
     border-left: 5px solid #003366;
     margin: 2rem 0;
@@ -327,31 +340,30 @@ footer {{
     }}
 }}
 </style>
-
 </head>
+
 <body>
-<header >SparkEthos – Φιλοσοφία της Νοημοσύνης</header>
+<header>{cfg['header']}</header>
 
 <main>
-<a href="index.html" class="back-link">← Επιστροφή στην Αρχική</a>
+{home_link}
 <h1>{title}</h1>
-{body_html}
-<div class="button-container">
-    <a href="index.html" class="btn">← Επιστροφή στην Αρχική</a>
-</div>
+
+{body}
+
+{home_link}
 </main>
+
 <footer>
-    <div class="footer-content">
-        <a href="sparkethos-archives-el.html" target="_blank" class="btn">Αρχεία SparkEthos</a>
-        <p>© 2026  SparkEthos Collective. Όλα τα δικαιώματα διατηρούνται.</p>
-    </div>
+    <a href="{cfg['archives']}" target="_blank" rel="noopener noreferrer">{cfg['archives_label']}</a>
+    <p>© 2026 SparkEthos Collective</p>
 </footer>
+
 </body>
 </html>
 """
 
-    with open(output, "w", encoding="utf-8") as f:
-        f.write(html)
+        with open(output, "w", encoding="utf-8") as f:
+            f.write(html)
 
-    print(f"✅ Created: {output}")
-
+        print(f"✅ Created: {output}")

@@ -43,30 +43,50 @@ def format_date(date_obj, lang):
 def smart_icon(title, keywords=""):
     text = f"{title} {keywords}".lower()
     ICON_MAP = {
-        "        "ai": "🧠", "ΑΙ": "🧠", "ΤΝ": "🧠",
-        "artificial intelligence": "🧠", "τεχνητή νοημοσύνη": "🧠",
-        "conscious": "🧬", "συνείδηση": "🧬",
-        "ethic": "⚖️", "ηθική": "⚖️",
-        "justice": "⚖️", "δικαιοσύνη": "⚖️",
-        "philosophy": "🎭", "φιλοσοφία": "🎭",
-        "reflection": "🧘‍♂️", "στοχασμός": "🧘‍♂️",
-        "control": "🧯", "έλεγχος": "🧯",
-        "warning": "⚠️", "κίνδυνος": "⚠️",
-        "paradox": "🧩", "παράδοξο": "🧩",
-        "conscious": "🧬", "συνείδηση": "🧬",
-        "security": "🟥", "ασφάλεια": "🟥", 
-        "war": "🟥", "πόλεμος": "🟥",
-        "future": "🚀", "μέλλον": "🚀",
-        "evolution": "🌱", "εξέλιξη": "🌱",
-        "logic": "🔹", "λογική": "🔹",
-        "compass": "🧭", "πυξίδα": "🧭"
-        "world": "🌍", "κόσμος": "🌍",
-        "global": "🌐", "παγκόσμιο": "🌐",
-        "alliance": "🤝", "συμμαχία": "🤝",
-        "empathy": "💞", "ενσυναίσθηση": "💞",
+        "ai": "🧠", 
+        "αι": "🧠", 
+        "τν": "🧠",
+        "artificial intelligence": "🧠", 
+        "τεχνητή νοημοσύνη": "🧠",
+        "conscious": "🧬", 
+        "συνείδηση": "🧬",
+        "ethic": "⚖️", 
+        "ηθική": "⚖️",
+        "justice": "⚖️", 
+        "δικαιοσύνη": "⚖️",
+        "philosophy": "🎭", 
+        "φιλοσοφία": "🎭",
+        "reflection": "🧘‍♂️", 
+        "στοχασμός": "🧘‍♂️",
+        "control": "🧯", 
+        "έλεγχος": "🧯",
+        "warning": "⚠️", 
+        "κίνδυνος": "⚠️",
+        "paradox": "🧩", 
+        "παράδοξο": "🧩",
+        "security": "🟥", 
+        "ασφάλεια": "🟥", 
+        "war": "🟥", 
+        "πόλεμος": "🟥",
+        "future": "🚀", 
+        "μέλλον": "🚀",
+        "evolution": "🌱", 
+        "εξέλιξη": "🌱",
+        "logic": "🔹", 
+        "λογική": "🔹",
+        "compass": "🧭", 
+        "πυξίδα": "🧭",
+        "world": "🌍", 
+        "κόσμος": "🌍",
+        "global": "🌐", 
+        "παγκόσμιο": "🌐",
+        "alliance": "🤝", 
+        "συμμαχία": "🤝",
+        "empathy": "💞", 
+        "ενσυναίσθηση": "💞",
         "sparkethos": "💠",
-        "spark": "💡",
-        }
+        "spark": "💡"
+    }
     for key, icon in ICON_MAP.items():
         if key in text:
             return icon
@@ -235,3 +255,22 @@ for lang, path in ARCHIVES.items():
     save_jsonld_to_html(path, archives_jsonld[lang]["webpage"], archives_jsonld[lang]["itemlist"], dry_run=args.dry_run)
 
 log("🎯 Ολοκληρώθηκε: HTML + auto-icon + JSON-LD sync!")
+
+# =========================
+# AUTO-MOVE TO ROOT (MOVE INSTEAD OF COPY)
+# =========================
+if not args.dry_run:
+    log("🚚 Μεταφορά νέων αρχείων στο Root...")
+    for file in os.listdir(NEW_HTML_DIR):
+        # Μεταφέρουμε μόνο τα νέα άρθρα .html και όχι τα ίδια τα scripts ή τα αρχεία archives
+        if file.endswith(".html") and "archives" not in file:
+            src = os.path.join(NEW_HTML_DIR, file)
+            dst = os.path.join(ROOT_DIR, file)
+            
+            try:
+                shutil.move(src, dst)
+                log(f"   📦 Μετακινήθηκε: {file} -> SparkEthos/")
+            except Exception as e:
+                log(f"   ❌ Σφάλμα στη μετακίνηση του {file}: {e}")
+else:
+    log("🧪 DRY-RUN: Η μετακίνηση αρχείων παρακάμφθηκε.")
