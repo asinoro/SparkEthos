@@ -1,7 +1,9 @@
 import os
 import re
 import unicodedata
-from datetime import date
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 
 # =========================
 # CONFIG
@@ -11,7 +13,7 @@ IMAGE = SITE + "images/sparkethos-logo-image.png"
 AUTHOR = "Παναγιώτης Πανόπουλος - SparkEthos Collective"
 
 BASE_KEYWORDS = (
-    "Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ, Μνήμη σε Ηθική ΤΝ, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos"
+    "Νοημοσύνη, Λογική, Φιλοσοφία, Συνείδηση, Τεχνητή Νοημοσύνη, Ηθική ΤΝ με Μνήμη, Αυτογνωσία, Φυσική Ισορροπία, SparkEthos, Πολιτισμός, Πολιτική, Κοινωνία,  Δικαιοσύνη, Υγεία, Επιστήμη, Τεχνολογία, Μέλλον, Ανθρωπισμός,  Συνάισθημα, Ενσυναίσθηση"
 )
 
 # =========================
@@ -111,7 +113,10 @@ for file in os.listdir():
     output = f"{slug}.html"
     url = SITE + output
 
-    today = date.today().isoformat()
+    now = datetime.now(ZoneInfo("Europe/Athens"))
+    date_published = now.isoformat(timespec="seconds")
+    date_modified = now.isoformat(timespec="seconds")
+
     body_html = txt_to_html(lines[1:])  # παράβλεψε την πρώτη γραμμή (τίτλο)
 
     html = f"""<!DOCTYPE html>
@@ -153,8 +158,9 @@ for file in os.listdir():
   "headline": "{title}",
   "description": "{title}",
   "inLanguage": "el",
-  "datePublished": "{today}",
-  "dateModified": "{today}",
+ "datePublished": "{date_published}",
+"dateModified": "{date_modified}",
+
   "author": {{
     "@type": "Person",
     "name": "Panagiotis Panopoulos",

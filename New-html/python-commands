@@ -1,2 +1,4 @@
 python3 update_archives-and-jsonld.py --dry-run
 python3 update_archives-and-jsonld.py
+
+Για μια σελίδα πριν δημοσιευτεί πρέπει να τρέξουν τα 1,2,3

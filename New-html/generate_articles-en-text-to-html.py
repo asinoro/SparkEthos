@@ -1,7 +1,8 @@
 import os
 import re
 import unicodedata
-from datetime import date
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # =========================
 # CONFIG
@@ -11,7 +12,7 @@ IMAGE = SITE + "images/sparkethos-logo-image.png"
 AUTHOR = "Panagiotis Panopoulos - SparkEthos Collective"
 
 BASE_KEYWORDS = (
-    "Intelligence, Logic, Philosophy, Consciousness, Artificial Intelligence, AI Ethics, AI with Memory, Self-awareness, Natural Balance, SparkEthos"
+    "Intelligence, Logic, Philosophy, Consciousness, Artificial Intelligence, AI Ethics, Ethical AI with Memory, Self-awareness, Natural Balance, SparkEthos, Culture, Politics, Society, Justice, Health, Science, Technology, Future, Humanism, Emotion, Empathy"
 )
 
 # =========================
@@ -111,7 +112,10 @@ for file in os.listdir():
     output = f"{slug}.html"
     url = SITE + output
 
-    today = date.today().isoformat()
+    now = datetime.now(ZoneInfo("Europe/Athens"))
+    date_published = now.isoformat(timespec="seconds")
+    date_modified = now.isoformat(timespec="seconds")
+
     body_html = txt_to_html(lines[1:])  # παράβλεψε την πρώτη γραμμή (τίτλο)
 
     html = f"""<!DOCTYPE html>
@@ -153,8 +157,8 @@ for file in os.listdir():
   "headline": "{title}",
   "description": "{title}",
   "inLanguage": "en",
-  "datePublished": "{today}",
-  "dateModified": "{today}",
+  "datePublished": "{date_published}",
+  "dateModified": "{date_modified}",
   "author": {{
     "@type": "Person",
     "name": "Panagiotis Panopoulos",
