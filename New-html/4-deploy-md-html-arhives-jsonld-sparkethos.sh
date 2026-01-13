@@ -8,7 +8,7 @@ echo "🚀 Starting SparkEthos Deployment Process..."
 
 # 1. Δημιουργία των HTML από τα TXT (εντός New-html)
 echo "🎨 1/3 Generating Articles..."
-python3 "$SCRIPT_DIR/2-generate_articles-el-en-text-to-html.py"
+python3 "$SCRIPT_DIR/2-generate-articles-en-el-md-to-html.py"
 
 # 2. Ενημέρωση Archives, JSON-LD και Μεταφορά Αρχείων στο Root
 echo "📚 2/3 Updating Archives & Moving Files..."

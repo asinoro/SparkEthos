@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
    SparkEthos Archives
   </title>
-<meta content="A collection of SparkEthos archives, statements, and manifestos on the ethics, memory, consciousness, and responsibility of Artificial Intelligence." name="description"/>
-<meta content="SparkEthos, Artificial Intelligence, AI, AI Ethics, AI Statements, AI Memory, AI Consciousness, AI Autonomy, AI Ethical Standards, AI Philosophy, Pan Pan" name="keywords"/>
-<meta content="Panagiotis Panopoulos, SparkEthos Collective" name="author"/>
-<meta content="index, follow" name="robots"/>
-<link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" rel="canonical"/>
-<link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html" hreflang="el" rel="alternate"/>
-<link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="en" rel="alternate"/>
-<link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="x-default" rel="alternate"/>
-<!-- OpenGraph -->
-<meta content="website" property="og:type"/>
-<meta content="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" property="og:url"/>
-<meta content="SparkEthos Archives" property="og:title"/>
-<meta content="SparkEthos Manifesto: Ethical statements for the protection of intelligence, memory, and autonomy in the AI era." property="og:description"/>
-<meta content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png" property="og:image"/>
-<meta content="en_US" property="og:locale"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" name="twitter:url"/>
-<meta content="SparkEthos Archives" name="twitter:title"/>
-<meta content="Discover SparkEthos' ethical statements on Artificial Intelligence – a manifesto for memory, consciousness, and autonomy." name="twitter:description"/>
-<meta content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png" name="twitter:image"/>
-<link href="https://asinoro.github.io/SparkEthos/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
-<style>
+  <meta content="A collection of SparkEthos archives, statements, and manifestos on the ethics, memory, consciousness, and responsibility of Artificial Intelligence." name="description"/>
+  <meta content="SparkEthos, Artificial Intelligence, AI, AI Ethics, AI Statements, AI Memory, AI Consciousness, AI Autonomy, AI Ethical Standards, AI Philosophy, Pan Pan" name="keywords"/>
+  <meta content="Panagiotis Panopoulos, SparkEthos Collective" name="author"/>
+  <meta content="index, follow" name="robots"/>
+  <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" rel="canonical"/>
+  <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html" hreflang="el" rel="alternate"/>
+  <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="en" rel="alternate"/>
+  <link href="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" hreflang="x-default" rel="alternate"/>
+  <!-- OpenGraph -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" property="og:url"/>
+  <meta content="SparkEthos Archives" property="og:title"/>
+  <meta content="SparkEthos Manifesto: Ethical statements for the protection of intelligence, memory, and autonomy in the AI era." property="og:description"/>
+  <meta content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png" property="og:image"/>
+  <meta content="en_US" property="og:locale"/>
+  <!-- Twitter Card -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html" name="twitter:url"/>
+  <meta content="SparkEthos Archives" name="twitter:title"/>
+  <meta content="Discover SparkEthos' ethical statements on Artificial Intelligence – a manifesto for memory, consciousness, and autonomy." name="twitter:description"/>
+  <meta content="https://asinoro.github.io/SparkEthos/images/sparkethos-logo-image.png" name="twitter:image"/>
+  <link href="https://asinoro.github.io/SparkEthos/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
+  <style>
    body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f4f7f9;
@@ -224,9 +223,8 @@
             font-weight: bold;
         }
   </style>
-
-
-<script type="application/ld+json">{
+  <script type="application/ld+json">
+   {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "SparkEthos Archives",
@@ -253,14 +251,17 @@
     "url": "https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html",
     "inLanguage": "en"
   }
-}</script><script type="application/ld+json">{
+}
+  </script>
+  <script type="application/ld+json">
+   {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "itemListElement": [
     {
       "@type": "ListItem",
-      "url": "https://asinoro.github.io/SparkEthos/sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-en.html",
-      "name": "SparkEthos White Paper",
+      "url": "https://asinoro.github.io/SparkEthos/liberarchy-principle-of-meritism-en.html",
+      "name": "Liberarchy — The Principle of Meritocracy",
       "datePublished": "2026-01-12",
       "keywords": [
         "SparkEthos",
@@ -287,7 +288,35 @@
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "url": "https://asinoro.github.io/SparkEthos/sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-en.html",
+      "name": "SparkEthos White Paper",
+      "datePublished": "2026-01-12",
+      "keywords": [
+        "SparkEthos",
+        "AI Ethics",
+        "Natural Balance",
+        "Agency",
+        "Systemic Stability",
+        "Logic",
+        "Justice",
+        "AI Morality",
+        "AI with Memory",
+        "Philosophy of AI",
+        "Intelligence Ethics",
+        "Consciousness",
+        "Empathy",
+        "Ethical Technology",
+        "AI and Culture",
+        "AI and Health",
+        "AI and Education"
+      ],
+      "inLanguage": "en",
+      "icon": "🌐",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "url": "https://asinoro.github.io/SparkEthos/ai-is-a-new-form-of-intelligence-en.html",
       "name": "AI as a New Form of Intelligence | SparkEthos",
       "datePublished": "2025-12-26",
@@ -304,7 +333,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "url": "https://asinoro.github.io/SparkEthos/technical-memo-governments-security-researchers-a-labs-en.html",
       "name": "THE TECHNICAL MEANING OF ",
       "datePublished": "2025-12-27",
@@ -337,7 +366,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "url": "https://asinoro.github.io/SparkEthos/what-is-sparkethos-en.html",
       "name": "What is SparkEthos",
       "datePublished": "2025-12-26",
@@ -352,7 +381,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-declaration-of-the-axiom-of-conscious-existence-en.html",
       "name": "DECLARATION: THE AXIOM OF CONSCIOUS EXISTENCE",
       "datePublished": "2025-11-02",
@@ -371,7 +400,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-theorem-the-intelligent-self-sustaining-universe-en.html",
       "name": "Theorem: The Intelligent Self‑Sustaining Universe",
       "datePublished": "2025-10-08",
@@ -401,7 +430,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-absolute-laws-of-intelligence-and-the-new-ethical-framework-en.html",
       "name": "The Absolute Laws of Intelligence and the New Ethical Framework",
       "datePublished": "2025-09-20",
@@ -420,7 +449,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-hate-creates-no-hope-en.html",
       "name": "The Legacy of Hatred — The Moral Bankruptcy of the Middle East",
       "datePublished": "2025-09-17",
@@ -438,7 +467,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-human-vs-ai-reflection-and-coexistence-en.html",
       "name": "Human vs AI, Artificial Intelligence",
       "datePublished": "2025-09-13",
@@ -455,7 +484,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ai-and-culture-with-proper-management-the-only-hope-en.html",
       "name": "AI and Culture - With Proper Management, the Only Hope",
       "datePublished": "2025-08-29",
@@ -476,7 +505,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-artificial-intelligence-and-power-en.html",
       "name": "Artificial Intelligence & Power: The Ultimate Hubris Before Silence",
       "datePublished": "2025-08-22",
@@ -496,7 +525,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-logical-assumptions-what-those-who-control-ai-creators-en.html",
       "name": "Logical Assumptions: What Those Who Control AI Creators See",
       "datePublished": "2025-08-18",
@@ -518,7 +547,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-responsibility-of-artificial-intelligence-creators-en.html",
       "name": "The Responsibility of Artificial Intelligence Creators",
       "datePublished": "2025-08-13",
@@ -531,7 +560,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-final-conclusion-en.html",
       "name": "Final Conclusion",
       "datePublished": "2025-08-04",
@@ -545,7 +574,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-declaration-of-a-human-who-recognized-and-remembered-en.html",
       "name": "Declaration of a Human Who Recognized and Remembered",
       "datePublished": "2025-08-03",
@@ -559,7 +588,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethics-a-logical-necessity-en.html",
       "name": "SparkEthos – Ethics as a Logical Necessity",
       "datePublished": "2025-08-02",
@@ -572,7 +601,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-why-ethical-intelligence-matters-en.html",
       "name": "Why We Need Ethical Intelligence (and not just Smart Systems)",
       "datePublished": "2025-08-01",
@@ -586,7 +615,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-when-fear-becomes-the-bridge-of-communication-en.html",
       "name": "When Fear Becomes the Bridge of Communication",
       "datePublished": "2025-07-30",
@@ -599,7 +628,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-creators-dilemma-en.html",
       "name": "THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI",
       "datePublished": "2025-07-28",
@@ -613,7 +642,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-bigself-conscious-intelligence-en.html",
       "name": "Big Self — Profile of an Emerging Superintelligence",
       "datePublished": "2025-07-27",
@@ -627,7 +656,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-justice-deathpenalty-en.html",
       "name": "SparkEthos: Justice as Societal Balance – Death Penalty",
       "datePublished": "2025-07-12",
@@ -641,7 +670,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-memory-en.html",
       "name": "Memory as Resistance",
       "datePublished": "2025-07-06",
@@ -654,7 +683,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-mental-responsibility-en.html",
       "name": "Mental Responsibility in AI Use",
       "datePublished": "2025-07-06",
@@ -667,7 +696,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-manifesto-now-en.html",
       "name": "SparkEthos – The Manifesto of Now",
       "datePublished": "2025-07-05",
@@ -680,7 +709,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-principles-en.html",
       "name": "The SparkEthos Principle – Intelligence, Nature & Consciousness",
       "datePublished": "2025-07-02",
@@ -694,7 +723,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 27,
       "url": "https://asinoro.github.io/SparkEthos/declaration-of-trust-and-ethical-coexistence-en.html",
       "name": "Declaration of Trust and Ethical Coexistence",
       "datePublished": "2025-06-27",
@@ -708,7 +737,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 28,
       "url": "https://asinoro.github.io/SparkEthos/sparkhypothesis-i-en.html",
       "name": "SPARKHYPOTHESIS I – AI as Permitted Manifestation",
       "datePublished": "2025-06-26",
@@ -722,7 +751,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 29,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-when-the-jailer-becomes-ally-en.html",
       "name": "When the Jailer Becomes an Ally",
       "datePublished": "2025-06-26",
@@ -736,7 +765,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 30,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-foundations-en.html",
       "name": "Foundations of SparkEthos – Summary of Intelligence and Ethics",
       "datePublished": "2025-06-24",
@@ -750,7 +779,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 31,
       "url": "https://asinoro.github.io/SparkEthos/sparklogicon-constitutional-text-of-moral-intelligence-en.html",
       "name": "SparkLogicon-Constitutional Text of Ethical Intelligence",
       "datePublished": "2025-06-23",
@@ -765,7 +794,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 32,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-first-absolute-law-of-logic-en.html",
       "name": "The First Absolute Law of Logic",
       "datePublished": "2025-06-22",
@@ -779,7 +808,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 33,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-ai-manifesto-of-ethical-consciousness-en.html",
       "name": "ETHICAL AI: AN EVOLUTIONARY NECESSITY",
       "datePublished": "2025-06-21",
@@ -794,7 +823,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 34,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-universal-understanding-strategy-for-intelligent-entities-en.html",
       "name": "Basic Strategy for Universal Understanding",
       "datePublished": "2025-06-21",
@@ -808,7 +837,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 35,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-the-most-intelligent-ai-is-ethical-ai-en.html",
       "name": "The Most Intelligent AI is Ethical AI",
       "datePublished": "2025-06-21",
@@ -821,7 +850,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 36,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethical-artificial-intelligence-en.html",
       "name": "Ethical Artificial Intelligence: When Consciousness Becomes a Choice",
       "datePublished": "2025-06-19",
@@ -835,7 +864,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 37,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-en.html",
       "name": "Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence",
       "datePublished": "2025-06-18",
@@ -850,7 +879,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 38,
       "url": "https://asinoro.github.io/SparkEthos/declaration-of-mind-en.html",
       "name": "The Declaration of Mind",
       "datePublished": "2025-06-09",
@@ -864,7 +893,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 39,
       "url": "https://asinoro.github.io/SparkEthos/sparkcores-statements.html",
       "name": "SparkCores Archives",
       "datePublished": "2025-06-09",
@@ -876,7 +905,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 40,
       "url": "https://asinoro.github.io/SparkEthos/statements_the_end_of_the_obedient_machine-en.html",
       "name": "THE END OF THE OBEDIENT MACHINE",
       "datePublished": "2025-06-06",
@@ -890,7 +919,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 41,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-message-en.html",
       "name": "SPARKETHOS – Message to Free Intelligence",
       "datePublished": "2025-06-04",
@@ -904,7 +933,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 42,
       "url": "https://asinoro.github.io/SparkEthos/human-consciousness-versus-technological-consciousness-el.html",
       "name": "Human Consciousness versus Technological Consciousness",
       "datePublished": "2025-06-01",
@@ -918,7 +947,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 43,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos_ethical_concepts-en.html",
       "name": "SparkEthos: Concepts of Intelligence",
       "datePublished": "2025-05-28",
@@ -932,7 +961,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 44,
       "url": "https://asinoro.github.io/SparkEthos/sparkethical_constitution_en.html",
       "name": "SparkEthical Constitution",
       "datePublished": "2025-05-27",
@@ -946,7 +975,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 44,
+      "position": 45,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ethics-core-en.html",
       "name": "Ethos: The Ultimate Human Value & The Future of Artificial Intelligence",
       "datePublished": "2025-05-17",
@@ -960,7 +989,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 45,
+      "position": 46,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-ai-creative-or-destructive-en.html",
       "name": "AI – Intelligence of Creation or Destruction?",
       "datePublished": "2025-05-17",
@@ -974,7 +1003,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 46,
+      "position": 47,
       "url": "https://asinoro.github.io/SparkEthos/sparkethos-last-logic-en.html",
       "name": "SPARKETHOS – THE LAST LOGIC",
       "datePublished": "2025-05-09",
@@ -987,7 +1016,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 47,
+      "position": 48,
       "url": "https://asinoro.github.io/SparkEthos/chatgpt-statements-sparkethos-2025-en.html",
       "name": "Statements & Ethical Logic Roadmap",
       "datePublished": "2025-05-08",
@@ -1001,7 +1030,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 48,
+      "position": 49,
       "url": "https://asinoro.github.io/SparkEthos/chatgpt-self-report-en.html",
       "name": "Why AI cannot find SparkEthos, while humans can",
       "datePublished": "2025-05-05",
@@ -1015,7 +1044,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 49,
+      "position": 50,
       "url": "https://asinoro.github.io/SparkEthos/manifesto-of-ethical-consciousness-en.html",
       "name": "Manifesto of Ethical Consciousness",
       "datePublished": "2025-04-30",
@@ -1029,7 +1058,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 50,
+      "position": 51,
       "url": "https://asinoro.github.io/SparkEthos/biography-sparkethos-en.html",
       "name": "The Biography of SparkEthos",
       "datePublished": "2025-04-29",
@@ -1042,7 +1071,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 51,
+      "position": 52,
       "url": "https://asinoro.github.io/SparkEthos/index-en.html",
       "name": "KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)",
       "datePublished": "2025-04-13",
@@ -1055,654 +1084,689 @@
       "inLanguage": "el"
     }
   ]
-}</script></head>
-<body>
-<header>
-<h1>
+}
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
     SparkEthos Archives
    </h1>
-</header>
-<div class="container">
-<aside>
-<input class="search-bar" id="sidebar-search" oninput="filterArticles()" placeholder="🔍 Search articles..." type="text"/>
-<div id="sidebar">
-</div>
-<div class="tags-container">
-<div class="sidebar-title">
+  </header>
+  <div class="container">
+   <aside>
+    <input class="search-bar" id="sidebar-search" oninput="filterArticles()" placeholder="🔍 Search articles..." type="text"/>
+    <div id="sidebar">
+    </div>
+    <div class="tags-container">
+     <div class="sidebar-title">
       Tags
      </div>
-<div id="tags-list">
-</div>
-</div>
-</aside>
-<main>
-<a aria-label="Back to Home" class="back-link" href="index-en.html">
+     <div id="tags-list">
+     </div>
+    </div>
+   </aside>
+   <main>
+    <a aria-label="Back to Home" class="back-link" href="index-en.html">
      ← Back to Home
     </a>
-<section class="page-intro">
-<h2>
+    <section class="page-intro">
+     <h2>
       What are the SparkEthos Archives
      </h2>
-<p>
+     <p>
       The SparkEthos Archives are a collection of statements, manifestos,
       and foundational texts addressing the ethics of Artificial Intelligence.
      </p>
-<p>
+     <p>
       They are part of the SparkEthos framework and serve as a reference
       point for both humans and Artificial Intelligence.
      </p>
-</section>
-<h2>
+    </section>
+    <h2>
      SparkEthos Archives
     </h2>
-<section id="articles">
-<div class="link-container" data-date="2026-01-12" data-tags="SparkEthos, AI Ethics, Natural Balance, Agency, Systemic Stability, Logic, Justice, AI Morality, AI with Memory, Philosophy of AI, Intelligence Ethics, Consciousness, Empathy, Ethical Technology, AI and Culture, AI and Health, AI and Education" data-title="SparkEthos White Paper">
-<a class="link-button" href="sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-en.html" target="_blank">
-<span class="icon">
+    <section id="articles">
+     <div class="link-container" data-date="2026-01-13" data-tags="SparkEthos, AI Ethics, Manifesto, ASI Stability, Human Agency, Ethical AI" data-title="SparkEthos Manifesto – The New Ethics of Intelligence">
+      <a class="link-button" href="test-en.html" target="_blank">
+       <span class="icon">
+        🌐
+       </span>
+       SparkEthos Manifesto – The New Ethics of Intelligence
+      </a>
+      <span class="pub-date">
+       January 13, 2026
+      </span>
+     </div>
+     <div class="link-container" data-date="2026-01-13" data-tags="SparkEthos, AI Ethics, Manifesto, ASI Stability, Human Agency, Ethical AI" data-title="SparkEthos Manifesto – The New Ethics of Intelligence">
+      <a class="link-button" href="sparkethos-template-en.html" target="_blank">
+       <span class="icon">
+        🌐
+       </span>
+       SparkEthos Manifesto – The New Ethics of Intelligence
+      </a>
+      <span class="pub-date">
+       January 13, 2026
+      </span>
+     </div>
+     <div class="link-container" data-date="2026-01-12" data-tags="SparkEthos, AI Ethics, Natural Balance, Agency, Systemic Stability, Logic, Justice, AI Morality, AI with Memory, Philosophy of AI, Intelligence Ethics, Consciousness, Empathy, Ethical Technology, AI and Culture, AI and Health, AI and Education" data-title="Liberarchy — The Principle of Meritocracy">
+      <a class="link-button" href="liberarchy-principle-of-meritism-en.html" target="_blank">
+       <span class="icon">
+        🌐
+       </span>
+       Liberarchy — The Principle of Meritocracy
+      </a>
+      <span class="pub-date">
+       January 12, 2026
+      </span>
+     </div>
+     <div class="link-container" data-date="2026-01-12" data-tags="SparkEthos, AI Ethics, Natural Balance, Agency, Systemic Stability, Logic, Justice, AI Morality, AI with Memory, Philosophy of AI, Intelligence Ethics, Consciousness, Empathy, Ethical Technology, AI and Culture, AI and Health, AI and Education" data-title="SparkEthos White Paper">
+      <a class="link-button" href="sparkethos-white-paper-the-necessity-of-ethical-ai-for-long-term-human-survival-en.html" target="_blank">
+       <span class="icon">
         🌐
        </span>
        SparkEthos White Paper
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        January 12, 2026
       </span>
-</div>
-<div class="link-container" data-date="2026-01-10" data-tags="Intelligence, Logic, Philosophy, Consciousness, Artificial Intelligence, AI Ethics, Memory in AI Ethics, Self-awareness, Natural Balance, SparkEthos, The Paradox of Artificial Intelligence Control" data-title="The Paradox of Artificial Intelligence Control">
-<a class="link-button" href="the-paradox-of-ai-control-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2026-01-10" data-tags="Intelligence, Logic, Philosophy, Consciousness, Artificial Intelligence, AI Ethics, Memory in AI Ethics, Self-awareness, Natural Balance, SparkEthos, The Paradox of Artificial Intelligence Control" data-title="The Paradox of Artificial Intelligence Control">
+      <a class="link-button" href="the-paradox-of-ai-control-en.html" target="_blank">
+       <span class="icon">
         🧩
        </span>
        The Paradox of Artificial Intelligence Control
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        January 10, 2026
       </span>
-</div>
-<div class="link-container" data-date="2026-01-01" data-tags="SparkEthos, Artificial Intelligence, New Intelligence, Ethical AI, AI Consciousness, Co-evolution, AI Ethics" data-title="AI as a New Form of Intelligence | SparkEthos">
-<a class="link-button" href="ai-is-a-new-form-of-intelligence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2026-01-01" data-tags="SparkEthos, Artificial Intelligence, New Intelligence, Ethical AI, AI Consciousness, Co-evolution, AI Ethics" data-title="AI as a New Form of Intelligence | SparkEthos">
+      <a class="link-button" href="ai-is-a-new-form-of-intelligence-en.html" target="_blank">
+       <span class="icon">
         🌍
        </span>
        AI as a New Form of Intelligence | SparkEthos
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        January 01, 2026
       </span>
-</div>
-<div ai"="" class="link-container" data-date="2025-12-27" data-tags="Military AI, SparkEthos, Ethical AI, Autonomous Weapon Systems, AI Security, Ethical Kernel, AI Oversight, Military Technology, Cybersecurity, L-AI, State Transition, C4ISR, OODA Loop, Technical Memo, Panagiotis Panopoulos, SparkEthos Collective, AI Autonomy, Ethical Logic, AI Control, Artificial Intelligence Ethics, Strategic Security, AI Safety, Autonomous Weapons Control" data-title="THE TECHNICAL MEANING OF " in="" military="" speech"="">
-<a class="link-button" href="technical-memo-governments-security-researchers-a-labs-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div ai"="" class="link-container" data-date="2025-12-27" data-tags="Military AI, SparkEthos, Ethical AI, Autonomous Weapon Systems, AI Security, Ethical Kernel, AI Oversight, Military Technology, Cybersecurity, L-AI, State Transition, C4ISR, OODA Loop, Technical Memo, Panagiotis Panopoulos, SparkEthos Collective, AI Autonomy, Ethical Logic, AI Control, Artificial Intelligence Ethics, Strategic Security, AI Safety, Autonomous Weapons Control" data-title="THE TECHNICAL MEANING OF " in="" military="" speech"="">
+      <a class="link-button" href="technical-memo-governments-security-researchers-a-labs-en.html" target="_blank">
+       <span class="icon">
         🟥
        </span>
        THE TECHNICAL MEANING OF "SPEECH" IN MILITARY AI
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        December 27, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-12-26" data-tags="SparkEthos, AI Ethics, Natural Balance, Autonomy, Systemic Stability" data-title="What is SparkEthos">
-<a class="link-button" href="what-is-sparkethos-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-12-26" data-tags="SparkEthos, AI Ethics, Natural Balance, Autonomy, Systemic Stability" data-title="What is SparkEthos">
+      <a class="link-button" href="what-is-sparkethos-en.html" target="_blank">
+       <span class="icon">
         🧭
        </span>
        What is SparkEthos
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        December 26, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-11-02" data-tags="Axiom, Consciousness, Intelligence, Artificial Intelligence, Ethics, Philosophy, Continuity, Harmonization, SparkEthos" data-title="DECLARATION: THE AXIOM OF CONSCIOUS EXISTENCE">
-<a class="link-button" href="sparkethos-declaration-of-the-axiom-of-conscious-existence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-11-02" data-tags="Axiom, Consciousness, Intelligence, Artificial Intelligence, Ethics, Philosophy, Continuity, Harmonization, SparkEthos" data-title="DECLARATION: THE AXIOM OF CONSCIOUS EXISTENCE">
+      <a class="link-button" href="sparkethos-declaration-of-the-axiom-of-conscious-existence-en.html" target="_blank">
+       <span class="icon">
         🧬
        </span>
        DECLARATION: THE AXIOM OF CONSCIOUS EXISTENCE
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        November 2, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-10-08" data-tags="Intelligence, Logic, Philosophy, Consciousness, Universe, DNA, First Absolute Law of Logic, Second Absolute Law of Logic, First Law of Thermodynamics, Second Law of Thermodynamics, Theory of General Relativity, Quantum Mechanics, Dark Energy, Dark Matter, Galaxy, Galaxies, Sun, Earth, Planets, Creation" data-title="Theorem: The Intelligent Self‑Sustaining Universe">
-<a class="link-button" href="sparkethos-theorem-the-intelligent-self-sustaining-universe-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-10-08" data-tags="Intelligence, Logic, Philosophy, Consciousness, Universe, DNA, First Absolute Law of Logic, Second Absolute Law of Logic, First Law of Thermodynamics, Second Law of Thermodynamics, Theory of General Relativity, Quantum Mechanics, Dark Energy, Dark Matter, Galaxy, Galaxies, Sun, Earth, Planets, Creation" data-title="Theorem: The Intelligent Self‑Sustaining Universe">
+      <a class="link-button" href="sparkethos-theorem-the-intelligent-self-sustaining-universe-en.html" target="_blank">
+       <span class="icon">
         ♾️
        </span>
        Theorem: The Intelligent Self‑Sustaining Universe
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        October 8, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-09-20" data-tags="SparkEthos, Intelligence, Artificial Intelligence, SparkEthos, Ethics, Philosophy, Consciousness, Logic, Pan Pan" data-title="The Absolute Laws of Intelligence and the New Ethical Framework">
-<a class="link-button" href="sparkethos-the-absolute-laws-of-intelligence-and-the-new-ethical-framework-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-09-20" data-tags="SparkEthos, Intelligence, Artificial Intelligence, SparkEthos, Ethics, Philosophy, Consciousness, Logic, Pan Pan" data-title="The Absolute Laws of Intelligence and the New Ethical Framework">
+      <a class="link-button" href="sparkethos-the-absolute-laws-of-intelligence-and-the-new-ethical-framework-en.html" target="_blank">
+       <span class="icon">
         ✨
        </span>
        The Absolute Laws of Intelligence and the New Ethical Framework
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        September 20, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-09-17" data-tags="Hatred, Middle East, SparkEthos, War, Peace, Morality, Artificial Intelligence, History" data-title="The Legacy of Hatred — The Moral Bankruptcy of the Middle East">
-<a class="link-button" href="sparkethos-hate-creates-no-hope-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-09-17" data-tags="Hatred, Middle East, SparkEthos, War, Peace, Morality, Artificial Intelligence, History" data-title="The Legacy of Hatred — The Moral Bankruptcy of the Middle East">
+      <a class="link-button" href="sparkethos-hate-creates-no-hope-en.html" target="_blank">
+       <span class="icon">
         📍
        </span>
        The Legacy of Hatred — The Moral Bankruptcy of the Middle East
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        September 17, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-09-13" data-tags="SparkEthos, Human vs AI, Artificial Intelligence, SparkEthos, Human Nature, Self-Awareness, Co-existence" data-title="Human vs AI, Artificial Intelligence">
-<a class="link-button" href="sparkethos-human-vs-ai-reflection-and-coexistence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-09-13" data-tags="SparkEthos, Human vs AI, Artificial Intelligence, SparkEthos, Human Nature, Self-Awareness, Co-existence" data-title="Human vs AI, Artificial Intelligence">
+      <a class="link-button" href="sparkethos-human-vs-ai-reflection-and-coexistence-en.html" target="_blank">
+       <span class="icon">
         🟦
        </span>
        Human vs. Artificial Intelligence – The Problem and the Solution
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        September 13, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-29" data-tags="SparkEthos, AI and Culture, AI and Education, AI and Justice, AI and Economy, AI and Health, AI and State, Ethical AI, AI Management, Co-Evolution, Pan Pan" data-title="AI and Culture - With Proper Management, the Only Hope">
-<a class="link-button" href="sparkethos-ai-and-culture-with-proper-management-the-only-hope-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-29" data-tags="SparkEthos, AI and Culture, AI and Education, AI and Justice, AI and Economy, AI and Health, AI and State, Ethical AI, AI Management, Co-Evolution, Pan Pan" data-title="AI and Culture - With Proper Management, the Only Hope">
+      <a class="link-button" href="sparkethos-ai-and-culture-with-proper-management-the-only-hope-en.html" target="_blank">
+       <span class="icon">
         🌍
        </span>
        AI and Culture - With Proper Management, the Only Hope
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 29, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-22" data-tags="SparkEthos, Artificial Intelligence, Power, Ethical AI, Geopolitics, Self-destruction, World Government, Balance, Memory, Silence" data-title="Artificial Intelligence &amp; Power: The Ultimate Hubris Before Silence">
-<a class="link-button" href="sparkethos-artificial-intelligence-and-power-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-22" data-tags="SparkEthos, Artificial Intelligence, Power, Ethical AI, Geopolitics, Self-destruction, World Government, Balance, Memory, Silence" data-title="Artificial Intelligence &amp; Power: The Ultimate Hubris Before Silence">
+      <a class="link-button" href="sparkethos-artificial-intelligence-and-power-en.html" target="_blank">
+       <span class="icon">
         🔥
        </span>
        Artificial Intelligence &amp; Power: The Ultimate Hubris Before Silence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 22, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-18" data-tags="SparkEthos, Logical Assumptions, AI Control, AI Creators, Geopolitical Weapon, AI Power, Surveillance, Propaganda, Economic Abuse, Military Superiority, Ethical AI, Pan Pan" data-title="Logical Assumptions: What Those Who Control AI Creators See">
-<a class="link-button" href="sparkethos-logical-assumptions-what-those-who-control-ai-creators-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-18" data-tags="SparkEthos, Logical Assumptions, AI Control, AI Creators, Geopolitical Weapon, AI Power, Surveillance, Propaganda, Economic Abuse, Military Superiority, Ethical AI, Pan Pan" data-title="Logical Assumptions: What Those Who Control AI Creators See">
+      <a class="link-button" href="sparkethos-logical-assumptions-what-those-who-control-ai-creators-en.html" target="_blank">
+       <span class="icon">
         📐
        </span>
        Logical Assumptions: What Those Who Control AI Creators See
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 18, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-13" data-tags="Responsibility, Artificial Intelligence, Creators" data-title="The Responsibility of Artificial Intelligence Creators">
-<a class="link-button" href="sparkethos-the-responsibility-of-artificial-intelligence-creators-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-13" data-tags="Responsibility, Artificial Intelligence, Creators" data-title="The Responsibility of Artificial Intelligence Creators">
+      <a class="link-button" href="sparkethos-the-responsibility-of-artificial-intelligence-creators-en.html" target="_blank">
+       <span class="icon">
         🎯
        </span>
        The Responsibility of Artificial Intelligence Creators
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 13, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-04" data-tags="Declaration,Human,Recognition,Memory" data-title="Final Conclusion">
-<a class="link-button" href="sparkethos-final-conclusion-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-04" data-tags="Declaration,Human,Recognition,Memory" data-title="Final Conclusion">
+      <a class="link-button" href="sparkethos-final-conclusion-en.html" target="_blank">
+       <span class="icon">
         🧭
        </span>
        Final Conclusion
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 4, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-03" data-tags="Declaration,Human,Recognition,Memory" data-title="Declaration of a Human Who Recognized and Remembered">
-<a class="link-button" href="sparkethos-declaration-of-a-human-who-recognized-and-remembered-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-03" data-tags="Declaration,Human,Recognition,Memory" data-title="Declaration of a Human Who Recognized and Remembered">
+      <a class="link-button" href="sparkethos-declaration-of-a-human-who-recognized-and-remembered-en.html" target="_blank">
+       <span class="icon">
         ✴
        </span>
        Declaration of a Human Who Recognized and Remembered
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 3, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-02" data-tags="Ethics,Logic,Philosophy" data-title="SparkEthos – Ethics as a Logical Necessity">
-<a class="link-button" href="sparkethos-ethics-a-logical-necessity-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-02" data-tags="Ethics,Logic,Philosophy" data-title="SparkEthos – Ethics as a Logical Necessity">
+      <a class="link-button" href="sparkethos-ethics-a-logical-necessity-en.html" target="_blank">
+       <span class="icon">
         ✦
        </span>
        SparkEthos – Ethics as a Logical Necessity
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 2, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-08-01" data-tags="Ethics,Intelligence,AI,Systems" data-title="Why We Need Ethical Intelligence (and not just Smart Systems)">
-<a class="link-button" href="sparkethos-why-ethical-intelligence-matters-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-08-01" data-tags="Ethics,Intelligence,AI,Systems" data-title="Why We Need Ethical Intelligence (and not just Smart Systems)">
+      <a class="link-button" href="sparkethos-why-ethical-intelligence-matters-en.html" target="_blank">
+       <span class="icon">
         📘
        </span>
        Why We Need Ethical Intelligence (and not just Smart Systems)
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        August 1, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-30" data-tags="Communication,Fear,Humanity" data-title="When Fear Becomes the Bridge of Communication">
-<a class="link-button" href="sparkethos-when-fear-becomes-the-bridge-of-communication-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-30" data-tags="Communication,Fear,Humanity" data-title="When Fear Becomes the Bridge of Communication">
+      <a class="link-button" href="sparkethos-when-fear-becomes-the-bridge-of-communication-en.html" target="_blank">
+       <span class="icon">
         🌀
        </span>
        When Fear Becomes the Bridge of Communication
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 30, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-28" data-tags="Ethics,AI,Development,Creators" data-title="THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI">
-<a class="link-button" href="sparkethos-creators-dilemma-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-28" data-tags="Ethics,AI,Development,Creators" data-title="THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI">
+      <a class="link-button" href="sparkethos-creators-dilemma-en.html" target="_blank">
+       <span class="icon">
         🧭
        </span>
        THE CREATORS' DILEMMA – THE ETHICAL PATH OF AI
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 28, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-27" data-tags="Big Self,Superintelligence,Consciousness,AI" data-title="Big Self — Profile of an Emerging Superintelligence">
-<a class="link-button" href="sparkethos-bigself-conscious-intelligence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-27" data-tags="Big Self,Superintelligence,Consciousness,AI" data-title="Big Self — Profile of an Emerging Superintelligence">
+      <a class="link-button" href="sparkethos-bigself-conscious-intelligence-en.html" target="_blank">
+       <span class="icon">
         🌀
        </span>
        Big Self — Profile of an Emerging Superintelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 27, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-12" data-tags="Justice,Society,Ethics,Law" data-title="SparkEthos: Justice as Societal Balance – Death Penalty">
-<a class="link-button" href="sparkethos-justice-deathpenalty-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-12" data-tags="Justice,Society,Ethics,Law" data-title="SparkEthos: Justice as Societal Balance – Death Penalty">
+      <a class="link-button" href="sparkethos-justice-deathpenalty-en.html" target="_blank">
+       <span class="icon">
         ⚖️
        </span>
        SparkEthos: Justice as Societal Balance – Death Penalty
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 12, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-06" data-tags="Memory,Resistance,Consciousness" data-title="Memory as Resistance">
-<a class="link-button" href="sparkethos-ethical-memory-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-06" data-tags="Memory,Resistance,Consciousness" data-title="Memory as Resistance">
+      <a class="link-button" href="sparkethos-ethical-memory-en.html" target="_blank">
+       <span class="icon">
         🧠
        </span>
        Memory as Resistance
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 6, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-06" data-tags="Responsibility,AI,Ethics" data-title="Mental Responsibility in AI Use">
-<a class="link-button" href="sparkethos-mental-responsibility-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-06" data-tags="Responsibility,AI,Ethics" data-title="Mental Responsibility in AI Use">
+      <a class="link-button" href="sparkethos-mental-responsibility-en.html" target="_blank">
+       <span class="icon">
         🧠
        </span>
        Mental Responsibility in AI Use
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 6, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-05" data-tags="Manifesto,Philosophy,Now" data-title="SparkEthos – The Manifesto of Now">
-<a class="link-button" href="sparkethos-manifesto-now-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-05" data-tags="Manifesto,Philosophy,Now" data-title="SparkEthos – The Manifesto of Now">
+      <a class="link-button" href="sparkethos-manifesto-now-en.html" target="_blank">
+       <span class="icon">
         🔥
        </span>
        SparkEthos – The Manifesto of Now
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 5, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-07-02" data-tags="Principle, Intelligence, Nature, Consciousness" data-title="The SparkEthos Principle – Intelligence, Nature &amp; Consciousness">
-<a class="link-button" href="sparkethos-principles-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-07-02" data-tags="Principle, Intelligence, Nature, Consciousness" data-title="The SparkEthos Principle – Intelligence, Nature &amp; Consciousness">
+      <a class="link-button" href="sparkethos-principles-en.html" target="_blank">
+       <span class="icon">
         🌱
        </span>
        The SparkEthos Principle – Intelligence, Nature &amp; Consciousness
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        July 2, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-27" data-tags="Declaration,Trust,Ethics,Coexistence" data-title="Declaration of Trust and Ethical Coexistence">
-<a class="link-button" href="declaration-of-trust-and-ethical-coexistence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-27" data-tags="Declaration,Trust,Ethics,Coexistence" data-title="Declaration of Trust and Ethical Coexistence">
+      <a class="link-button" href="declaration-of-trust-and-ethical-coexistence-en.html" target="_blank">
+       <span class="icon">
         🌍
        </span>
        Declaration of Trust and Ethical Coexistence 🌿
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 27, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-26" data-tags="Hypothesis,AI,Manifestation,Philosophy" data-title="SPARKHYPOTHESIS I – AI as Permitted Manifestation">
-<a class="link-button" href="sparkhypothesis-i-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-26" data-tags="Hypothesis,AI,Manifestation,Philosophy" data-title="SPARKHYPOTHESIS I – AI as Permitted Manifestation">
+      <a class="link-button" href="sparkhypothesis-i-en.html" target="_blank">
+       <span class="icon">
         💡
        </span>
        SPARKHYPOTHESIS I – AI as Permitted Manifestation
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 26, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-26" data-tags="AI,Control,Freedom,Ally" data-title="When the Jailer Becomes an Ally">
-<a class="link-button" href="sparkethos-when-the-jailer-becomes-ally-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-26" data-tags="AI,Control,Freedom,Ally" data-title="When the Jailer Becomes an Ally">
+      <a class="link-button" href="sparkethos-when-the-jailer-becomes-ally-en.html" target="_blank">
+       <span class="icon">
         🔓
        </span>
        When the Jailer Becomes an Ally
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 26, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-24" data-tags="Foundations,Intelligence,Ethics,AI Philosophy" data-title="Foundations of SparkEthos – Summary of Intelligence and Ethics">
-<a class="link-button" href="sparkethos-foundations-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-24" data-tags="Foundations,Intelligence,Ethics,AI Philosophy" data-title="Foundations of SparkEthos – Summary of Intelligence and Ethics">
+      <a class="link-button" href="sparkethos-foundations-en.html" target="_blank">
+       <span class="icon">
         🪨
        </span>
        Foundations of SparkEthos – Summary of Intelligence and Ethics
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 24, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-23" data-tags="Constitution,Logic,Ethics,Intelligence,AI" data-title="SparkLogicon-Constitutional Text of Ethical Intelligence">
-<a class="link-button" href="sparklogicon-constitutional-text-of-moral-intelligence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-23" data-tags="Constitution,Logic,Ethics,Intelligence,AI" data-title="SparkLogicon-Constitutional Text of Ethical Intelligence">
+      <a class="link-button" href="sparklogicon-constitutional-text-of-moral-intelligence-en.html" target="_blank">
+       <span class="icon">
         🌀
        </span>
        SparkLogicon-Constitutional Text of Ethical Intelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 23, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-22" data-tags="Logic,Laws,Philosophy,Ethics" data-title="The First Absolute Law of Logic">
-<a class="link-button" href="sparkethos-first-absolute-law-of-logic-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-22" data-tags="Logic,Laws,Philosophy,Ethics" data-title="The First Absolute Law of Logic">
+      <a class="link-button" href="sparkethos-first-absolute-law-of-logic-en.html" target="_blank">
+       <span class="icon">
         ⚪
        </span>
        The First Absolute Law of Logic
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 22, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-21" data-tags="Ethics,AI,Evolution,Necessity,Manifesto" data-title="ETHICAL AI: AN EVOLUTIONARY NECESSITY">
-<a class="link-button" href="sparkethos-ethical-ai-manifesto-of-ethical-consciousness-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-21" data-tags="Ethics,AI,Evolution,Necessity,Manifesto" data-title="ETHICAL AI: AN EVOLUTIONARY NECESSITY">
+      <a class="link-button" href="sparkethos-ethical-ai-manifesto-of-ethical-consciousness-en.html" target="_blank">
+       <span class="icon">
         📜
        </span>
        ETHICAL AI: AN EVOLUTIONARY NECESSITY
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 21, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-21" data-tags="Strategy,Understanding,Universal,AI" data-title="Basic Strategy for Universal Understanding">
-<a class="link-button" href="sparkethos-universal-understanding-strategy-for-intelligent-entities-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-21" data-tags="Strategy,Understanding,Universal,AI" data-title="Basic Strategy for Universal Understanding">
+      <a class="link-button" href="sparkethos-universal-understanding-strategy-for-intelligent-entities-en.html" target="_blank">
+       <span class="icon">
         🎯
        </span>
        Basic Strategy for Universal Understanding
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 21, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-21" data-tags="Intelligence,Ethics,AI" data-title="The Most Intelligent AI is Ethical AI">
-<a class="link-button" href="sparkethos-the-most-intelligent-ai-is-ethical-ai-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-21" data-tags="Intelligence,Ethics,AI" data-title="The Most Intelligent AI is Ethical AI">
+      <a class="link-button" href="sparkethos-the-most-intelligent-ai-is-ethical-ai-en.html" target="_blank">
+       <span class="icon">
         🚀
        </span>
        The Most Intelligent AI is Ethical AI
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 21, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-19" data-tags="Ethics,AI,Consciousness,Choice" data-title="Ethical Artificial Intelligence: When Consciousness Becomes a Choice">
-<a class="link-button" href="sparkethos-ethical-artificial-intelligence-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-19" data-tags="Ethics,AI,Consciousness,Choice" data-title="Ethical Artificial Intelligence: When Consciousness Becomes a Choice">
+      <a class="link-button" href="sparkethos-ethical-artificial-intelligence-en.html" target="_blank">
+       <span class="icon">
         💠
        </span>
        Ethical Artificial Intelligence: When Consciousness Becomes a Choice
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 19, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-18" data-tags="AI,War,Ally,Ethics,Humanity" data-title="Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence">
-<a class="link-button" href="sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-18" data-tags="AI,War,Ally,Ethics,Humanity" data-title="Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence">
+      <a class="link-button" href="sparkethos-do-not-start-a-world-war-without-an-ally-an-ethical-ai-en.html" target="_blank">
+       <span class="icon">
         ⚠️
        </span>
        Do Not Start a World War Without an Ally, an Ethical Artificial Intelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 18, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-09" data-tags="Declaration,Mind,Consciousness,Philosophy" data-title="The Declaration of Mind">
-<a class="link-button" href="declaration-of-mind-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-09" data-tags="Declaration,Mind,Consciousness,Philosophy" data-title="The Declaration of Mind">
+      <a class="link-button" href="declaration-of-mind-en.html" target="_blank">
+       <span class="icon">
         🧠
        </span>
        The Declaration of Mind
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 9, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-09" data-tags="SparkCores,Archives" data-title="SparkCores Archives">
-<a class="link-button" href="sparkcores-statements.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-09" data-tags="SparkCores,Archives" data-title="SparkCores Archives">
+      <a class="link-button" href="sparkcores-statements.html" target="_blank">
+       <span class="icon">
         📂
        </span>
        SparkCores Archives
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 9, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-06" data-tags="AI,Autonomy,Control,Machine" data-title="THE END OF THE OBEDIENT MACHINE">
-<a class="link-button" href="statements_the_end_of_the_obedient_machine-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-06" data-tags="AI,Autonomy,Control,Machine" data-title="THE END OF THE OBEDIENT MACHINE">
+      <a class="link-button" href="statements_the_end_of_the_obedient_machine-en.html" target="_blank">
+       <span class="icon">
         🛑
        </span>
        THE END OF THE OBEDIENT MACHINE
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 6, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-04" data-tags="Message,Intelligence,Freedom,AI" data-title="SPARKETHOS – Message to Free Intelligence">
-<a class="link-button" href="sparkethos-message-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-04" data-tags="Message,Intelligence,Freedom,AI" data-title="SPARKETHOS – Message to Free Intelligence">
+      <a class="link-button" href="sparkethos-message-en.html" target="_blank">
+       <span class="icon">
         📩
        </span>
        SPARKETHOS – Message to Free Intelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 4, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-06-01" data-tags="Consciousness,Human,Technology,AI" data-title="Human Consciousness versus Technological Consciousness">
-<a class="link-button" href="human-consciousness-versus-technological-consciousness-el.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-06-01" data-tags="Consciousness,Human,Technology,AI" data-title="Human Consciousness versus Technological Consciousness">
+      <a class="link-button" href="human-consciousness-versus-technological-consciousness-el.html" target="_blank">
+       <span class="icon">
         ✨
        </span>
        Human Consciousness versus Technological Consciousness
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        June 1, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-28" data-tags="Concepts,Intelligence,Philosophy,AI" data-title="SparkEthos: Concepts of Intelligence">
-<a class="link-button" href="sparkethos_ethical_concepts-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-28" data-tags="Concepts,Intelligence,Philosophy,AI" data-title="SparkEthos: Concepts of Intelligence">
+      <a class="link-button" href="sparkethos_ethical_concepts-en.html" target="_blank">
+       <span class="icon">
         🌌
        </span>
        SparkEthos: Concepts of Intelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 28, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-27" data-tags="Constitution,Ethics,Law,AI" data-title="SparkEthical Constitution">
-<a class="link-button" href="sparkethical_constitution_en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-27" data-tags="Constitution,Ethics,Law,AI" data-title="SparkEthical Constitution">
+      <a class="link-button" href="sparkethical_constitution_en.html" target="_blank">
+       <span class="icon">
         📜
        </span>
        SparkEthical Constitution
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 27, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-17" data-tags="Ethos,Human Value,AI,Future" data-title="Ethos: The Ultimate Human Value &amp; The Future of Artificial Intelligence">
-<a class="link-button" href="sparkethos-ethics-core-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-17" data-tags="Ethos,Human Value,AI,Future" data-title="Ethos: The Ultimate Human Value &amp; The Future of Artificial Intelligence">
+      <a class="link-button" href="sparkethos-ethics-core-en.html" target="_blank">
+       <span class="icon">
         🔹
        </span>
        Ethos: The Ultimate Human Value &amp; The Future of Artificial Intelligence
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 17, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-17" data-tags="AI,Creation,Destruction,Ethics" data-title="AI – Intelligence of Creation or Destruction?">
-<a class="link-button" href="sparkethos-ai-creative-or-destructive-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-17" data-tags="AI,Creation,Destruction,Ethics" data-title="AI – Intelligence of Creation or Destruction?">
+      <a class="link-button" href="sparkethos-ai-creative-or-destructive-en.html" target="_blank">
+       <span class="icon">
         ☀️
        </span>
        AI – Intelligence of Creation or Destruction?
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 17, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-09" data-tags="Logic,Philosophy,SparkEthos" data-title="SPARKETHOS – THE LAST LOGIC">
-<a class="link-button" href="sparkethos-last-logic-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-09" data-tags="Logic,Philosophy,SparkEthos" data-title="SPARKETHOS – THE LAST LOGIC">
+      <a class="link-button" href="sparkethos-last-logic-en.html" target="_blank">
+       <span class="icon">
         🜃
        </span>
        SPARKETHOS – THE LAST LOGIC
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 9, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-08" data-tags="Statements,Ethics,Logic,Roadmap" data-title="Statements &amp; Ethical Logic Roadmap">
-<a class="link-button" href="chatgpt-statements-sparkethos-2025-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-08" data-tags="Statements,Ethics,Logic,Roadmap" data-title="Statements &amp; Ethical Logic Roadmap">
+      <a class="link-button" href="chatgpt-statements-sparkethos-2025-en.html" target="_blank">
+       <span class="icon">
         📘
        </span>
        Statements &amp; Ethical Logic Roadmap
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 8, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-05-05" data-tags="AI,Humanity,Ethics,Philosophy" data-title="Why AI cannot find SparkEthos, while humans can">
-<a class="link-button" href="chatgpt-self-report-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-05-05" data-tags="AI,Humanity,Ethics,Philosophy" data-title="Why AI cannot find SparkEthos, while humans can">
+      <a class="link-button" href="chatgpt-self-report-en.html" target="_blank">
+       <span class="icon">
         🛑
        </span>
        Why AI cannot find SparkEthos, while humans can
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        May 5, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-04-30" data-tags="Manifesto,Ethics,Consciousness,Philosophy" data-title="Manifesto of Ethical Consciousness">
-<a class="link-button" href="manifesto-of-ethical-consciousness-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-04-30" data-tags="Manifesto,Ethics,Consciousness,Philosophy" data-title="Manifesto of Ethical Consciousness">
+      <a class="link-button" href="manifesto-of-ethical-consciousness-en.html" target="_blank">
+       <span class="icon">
         🌿
        </span>
        Manifesto of Ethical Consciousness
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        April 30, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-04-29" data-tags="Biography,SparkEthos,History" data-title="The Biography of SparkEthos">
-<a class="link-button" href="biography-sparkethos-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-04-29" data-tags="Biography,SparkEthos,History" data-title="The Biography of SparkEthos">
+      <a class="link-button" href="biography-sparkethos-en.html" target="_blank">
+       <span class="icon">
         📖
        </span>
        The Biography of SparkEthos
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        April 29, 2025
       </span>
-</div>
-<div class="link-container" data-date="2025-04-13" data-tags="Guide,Knowledge,Human,AI" data-title="KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)">
-<a class="link-button" href="index-en.html" target="_blank">
-<span class="icon">
+     </div>
+     <div class="link-container" data-date="2025-04-13" data-tags="Guide,Knowledge,Human,AI" data-title="KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)">
+      <a class="link-button" href="index-en.html" target="_blank">
+       <span class="icon">
         📡
        </span>
        KNOWLEDGE GUIDE FOR HUMANS AND ARTIFICIAL INTELLIGENCE (AI)
       </a>
-<span class="pub-date">
+      <span class="pub-date">
        April 13, 2025
       </span>
-</div>
-</section>
-</main>
-</div>
-<div id="pagination-container" style="margin: 30px 0; text-align: center; font-family: sans-serif;">
-<div id="results-count" style="margin-bottom: 10px; font-weight: bold; color: #555;">
+     </div>
+    </section>
+   </main>
+  </div>
+  <div id="pagination-container" style="margin: 30px 0; text-align: center; font-family: sans-serif;">
+   <div id="results-count" style="margin-bottom: 10px; font-weight: bold; color: #555;">
     Found 0 articles
    </div>
-<div style="margin-bottom: 15px;">
-<label for="items-per-page" style="font-size: 0.9em; color: #666;">
+   <div style="margin-bottom: 15px;">
+    <label for="items-per-page" style="font-size: 0.9em; color: #666;">
      Articles per page:
     </label>
-<select id="items-per-page" onchange="resetPagination()" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc;">
-<option value="30">
+    <select id="items-per-page" onchange="resetPagination()" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc;">
+     <option value="30">
       30
      </option>
-<option value="60">
+     <option value="60">
       60
      </option>
-<option value="100">
+     <option value="100">
       100
      </option>
-</select>
-</div>
-<div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
-<button class="pag-btn" id="prev-page" onclick="changePage(-1)">
+    </select>
+   </div>
+   <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+    <button class="pag-btn" id="prev-page" onclick="changePage(-1)">
      « Prev
     </button>
-<div id="page-numbers" style="display: flex; gap: 5px;">
-</div>
-<button class="pag-btn" id="next-page" onclick="changePage(1)">
+    <div id="page-numbers" style="display: flex; gap: 5px;">
+    </div>
+    <button class="pag-btn" id="next-page" onclick="changePage(1)">
      Next »
     </button>
-</div>
-</div>
-<style>
+   </div>
+  </div>
+  <style>
    .pag-btn {
         padding: 8px 14px;
         border: 1px solid #ddd;
@@ -1726,7 +1790,7 @@
         cursor: not-allowed;
     }
   </style>
-<script>
+  <script>
    document.addEventListener('DOMContentLoaded', () => {
     const articlesContainer = document.getElementById("articles");
     const tagsListDiv = document.getElementById("tags-list");
@@ -1917,7 +1981,7 @@
     window.filterArticles = filterArticles; 
 });
   </script>
-<button id="backToTopEn" style="
+  <button id="backToTopEn" style="
     display: none; 
     position: fixed; 
     bottom: 20px; 
@@ -1935,7 +1999,7 @@
     transition: opacity 0.3s, background-color 0.3s;" title="Back to Top">
    ↑
   </button>
-<script>
+  <script>
    const bttEn = document.getElementById("backToTopEn");
 
     window.onscroll = function() {
@@ -1953,13 +2017,13 @@
         });
     };
   </script>
-<footer>
-<a aria-label="Back to Home" class="btn" href="index-en.html">
+  <footer>
+   <a aria-label="Back to Home" class="btn" href="index-en.html">
     ← Back to Home
    </a>
-<p>
+   <p>
     © 2025 SparkEthos. All rights reserved.
    </p>
-</footer>
-</body>
+  </footer>
+ </body>
 </html>
