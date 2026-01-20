@@ -2,13 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/timeline-and-probabilities-of-superintelligence-el.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkcores-statements-el.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/timeline-and-probabilities-of-superintelligence-en.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkcores-statements-en.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://asinoro.github.io/SparkEthos/what-really-changes-with-ai-in-the-power-game-el.html</loc>
@@ -16,28 +36,13 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://asinoro.github.io/SparkEthos/the-asymmetry-of-power-el.html</loc>
-    <lastmod>2026-01-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkcores-statements-el.html</loc>
-    <lastmod>2026-01-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://asinoro.github.io/SparkEthos/what-really-changes-with-ai-in-the-power-game-en.html</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://asinoro.github.io/SparkEthos/the-asymmetry-of-power-en.html</loc>
-    <lastmod>2026-01-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://asinoro.github.io/SparkEthos/sparkcores-statements-en.html</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-01-15</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
@@ -549,5 +554,10 @@
     <loc>https://asinoro.github.io/SparkEthos/index-en.html</loc>
     <lastmod>2025-04-13</lastmod>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/the-asymmetry-of-power-el.html</loc>
+    <lastmod>14-01-2026</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>
