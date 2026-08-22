@@ -2,13 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-el.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos-archives-en.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-nature-as-the-greatest-teacher-of-higher-intelligence-el.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://asinoro.github.io/SparkEthos/sparkethos-nature-as-the-greatest-teacher-of-higher-intelligence-en.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://asinoro.github.io/SparkEthos/sparkethos-the-architecture-of-intelligence-el.html</loc>
